@@ -1,0 +1,138 @@
+window.onload = function() {
+	
+	slide[0] = new slide(0);
+	slide[1] = new slide(1);
+	slide[2] = new slide(2);
+	
+	fetchLastTweet();
+	
+	$(window).resize(function () {
+		refreshAll();
+ 	});
+
+    // Click event for any anchor tag that's href starts with #
+    $('a[href^="#"]').click(function(event) {
+
+        // The id of the section we want to go to.
+        var id = $(this).attr("href");
+
+        // An offset to push the content down from the top.
+        var offset = 0;
+
+        // Our scroll target : the top position of the
+        // section that has the id referenced by our href.
+        var target = $(id).offset().top - offset;
+
+        // The magic...smooth scrollin' goodness.
+        $('html, body').animate({scrollTop:target}, 500);
+
+        //prevent the page from jumping down to our section.
+        event.preventDefault();
+    });
+	
+}
+
+function fetchLastTweet() {
+	$.getJSON("http://twitter.com/statuses/user_timeline/kohlhofer.json?callback=?", function(data) {
+	     $("#lasttweet").html(data[0].text);
+	});
+}
+
+
+function shuffleItUp() {
+	refreshAll();
+	setTimeout("refreshAll();",100);
+	setTimeout("refreshAll();",200);
+	setTimeout("refreshAll();",250);
+}
+
+
+function refreshAll() {
+	slide[0].adjustToWindowSize();
+	slide[1].adjustToWindowSize();
+	slide[2].adjustToWindowSize();
+}
+
+
+// Slide Object
+
+function slide(id) {
+	this.id = id;
+	this.domElement = $("#" + this.id);
+	this.isScrolling = true;
+	this.colors = new Array();
+	
+	this.colors = [
+		'#f5b128',
+		'#bf9424',
+		'#9aaa79',
+		'#58858a',
+		'#de4d0c',
+		'#A0B96F',
+		'#c0480b'
+		];
+	
+	// adding methods
+	this.initPosition = initPosition;
+	this.adjustToWindowSize = adjustToWindowSize;
+	this.addRandomStripes = addRandomStripes;
+	this.removeAllStripes = removeAllStripes;
+	
+	
+	// running methods
+	this.adjustToWindowSize();
+	
+}
+
+// methods for slide object
+
+function adjustToWindowSize() {
+	this.domElement.css('height',$(window).height());
+	this.domElement.css('width',$(window).width());
+	this.addRandomStripes(2,6);
+	this.initPosition();
+}
+
+function initPosition() {
+	
+	var targetPosition = this.id * $(window).height();
+	this.domElement.css('top',targetPosition);
+}
+
+function removeAllStripes() {
+	this.domElement.children('.stripe').remove();
+}
+	
+	
+
+function addRandomStripes(min,max) {
+	
+	//remove previous stripes if any
+	this.removeAllStripes()
+	
+	this.stripes = new Array();
+	
+	//random number of stripes based on min and max parameters
+	var i = 0, width, stripe, totalWidth = 0, numberOfStripes = Math.floor(Math.random()*(max-min+1))+min;
+	
+	//subsequent random stripes have a greater start position than the previous one
+	while (i < numberOfStripes) {
+		if (i < numberOfStripes-1) {
+			width = Math.floor(Math.random()*($(window).width()-totalWidth));
+		} else {
+			width = $(window).width()-totalWidth;
+		}
+		
+		stripe = $("<div>");
+		stripe.addClass("stripe");
+		stripe.css('left',totalWidth);
+		stripe.css('width',width);
+		stripe.css('background-color',this.colors[Math.floor(Math.random()*this.colors.length)]);
+		totalWidth = totalWidth + width;
+		
+		//attach stripe to slide
+		stripe.prependTo(this.domElement); 
+		
+		i++;
+	}
+}
