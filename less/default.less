@@ -20,7 +20,8 @@ a {
 
 #navigation {
 	position:fixed;
-	bottom:-4px;
+	display:none;
+	top:-2px;
 	z-index:10;
 	#linkBar {
 		padding:8px 10px 8px 10px;
@@ -45,13 +46,13 @@ a {
 		}
 	}
 	&:hover {
-		bottom:-2px;
 	}
 }
 
 .slide {
 	position:absolute;
 	left:0px;
+	.text-shadow(0, -1px, 2px, rgba(0,0,0,0.6));
 	.content {
 		z-index:6;
 		margin-top:60px;
@@ -108,6 +109,12 @@ a {
 		position:absolute;
 		height:100%;
 		top:0px;
+	}
+	.bar {
+		position:absolute;
+		bottom:0px;
+		width:100%;
+		background-color:rgba(255,255,255,0.5);
 	}
 }
 

@@ -4,12 +4,35 @@ window.onload = function() {
 	slide[1] = new slide(1);
 	slide[2] = new slide(2);
 	
-	fetchLastTweet();
 	
+	
+	
+	//init some bootstrap features
+	$('a[rel="popover"]').popover();
+	$('a[rel="tooltip"]').tooltip();
+	
+	
+	//re-create the dynamic design elements for new sizes when window is re-sized
 	$(window).resize(function () {
 		refreshAll();
  	});
+	
+	//adjust navbar to allow for smooth scrolling
+	enableSmoothScroll();
+	
+	//show the nav bar after a dealy
+	setTimeout("$('#navigation').show('slide', { direction: 'up' }, 300);",1200);
+	
+	//fetch the last tweet
+	fetchLastTweet();
+	
+	
+	
 
+	
+}
+
+function enableSmoothScroll() {
     // Click event for any anchor tag that's href starts with #
     $('a[href^="#"]').click(function(event) {
 
@@ -33,8 +56,10 @@ window.onload = function() {
 }
 
 function fetchLastTweet() {
+	$("#twitter").hide();
 	$.getJSON("http://twitter.com/statuses/user_timeline/kohlhofer.json?callback=?", function(data) {
 	     $("#lasttweet").html(data[0].text);
+		 $("#twitter").fadeIn(400);
 	});
 }
 
@@ -61,6 +86,7 @@ function slide(id) {
 	this.domElement = $("#" + this.id);
 	this.isScrolling = true;
 	this.colors = new Array();
+	this.gap = 20;
 	
 	this.colors = [
 		'#f5b128',
@@ -77,6 +103,8 @@ function slide(id) {
 	this.adjustToWindowSize = adjustToWindowSize;
 	this.addRandomStripes = addRandomStripes;
 	this.removeAllStripes = removeAllStripes;
+	this.addBottomBar = addBottomBar;
+	this.removeBar = removeBar;
 	
 	
 	// running methods
@@ -87,21 +115,27 @@ function slide(id) {
 // methods for slide object
 
 function adjustToWindowSize() {
-	this.domElement.css('height',$(window).height());
+	this.domElement.css('height',$(window).height() + this.gap);
 	this.domElement.css('width',$(window).width());
 	this.addRandomStripes(2,6);
+	this.addBottomBar();
 	this.initPosition();
 }
 
 function initPosition() {
 	
-	var targetPosition = this.id * $(window).height();
+	var targetPosition = this.id * ($(window).height() + this.gap);
 	this.domElement.css('top',targetPosition);
 }
 
 function removeAllStripes() {
 	this.domElement.children('.stripe').remove();
 }
+
+function removeBar() {
+	this.domElement.children('.bar').remove();
+}
+
 	
 	
 
@@ -113,7 +147,7 @@ function addRandomStripes(min,max) {
 	this.stripes = new Array();
 	
 	//random number of stripes based on min and max parameters
-	var i = 0, width, stripe, totalWidth = 0, numberOfStripes = Math.floor(Math.random()*(max-min+1))+min;
+	var i = 0, width, stripe, totalWidth = 0, numberOfStripes = Math.floor(Math.random()*(max-min+1))+min, height = $(window).height()+this.gap;
 	
 	//subsequent random stripes have a greater start position than the previous one
 	while (i < numberOfStripes) {
@@ -127,6 +161,7 @@ function addRandomStripes(min,max) {
 		stripe.addClass("stripe");
 		stripe.css('left',totalWidth);
 		stripe.css('width',width);
+		stripe.css('height',height);
 		stripe.css('background-color',this.colors[Math.floor(Math.random()*this.colors.length)]);
 		totalWidth = totalWidth + width;
 		
@@ -135,4 +170,18 @@ function addRandomStripes(min,max) {
 		
 		i++;
 	}
+}
+
+function addBottomBar() {
+	
+	this.removeBar();
+	
+	var bar;
+	
+	bar = $("<div>");
+	bar.addClass("bar");
+	bar.css('height',this.gap);
+
+	bar.prependTo(this.domElement); 
+
 }
