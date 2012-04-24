@@ -21,7 +21,7 @@ window.onload = function() {
 	enableSmoothScroll();
 	
 	//show the nav bar after a dealy
-	setTimeout("$('#navigation').show('slide', { direction: 'up' }, 300);",1200);
+	setTimeout("$('#navigation').show('slide', { direction: 'down' }, 300);",1200);
 	
 	//fetch the last tweet
 	fetchLastTweet();
@@ -56,9 +56,12 @@ function enableSmoothScroll() {
 }
 
 function fetchLastTweet() {
+	$('#tweet').hide();
 	$.getJSON("http://twitter.com/statuses/user_timeline/kohlhofer.json?callback=?", function(data) {
 	     $("#lasttweet").html(data[0].text);
+		 $('#tweet').fadeIn();
 	});
+	
 }
 
 
