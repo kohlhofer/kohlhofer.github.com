@@ -56,10 +56,8 @@ function enableSmoothScroll() {
 }
 
 function fetchLastTweet() {
-	$("#twitter").hide();
 	$.getJSON("http://twitter.com/statuses/user_timeline/kohlhofer.json?callback=?", function(data) {
 	     $("#lasttweet").html(data[0].text);
-		 $("#twitter").fadeIn(400);
 	});
 }
 
