@@ -23,6 +23,7 @@ a {
 
 #navigation {
 	position:fixed;
+	width:100%;
 	display:none;
 	bottom:-2px;
 	z-index:10;
@@ -81,12 +82,17 @@ a {
 					font-weight:normal;
 					margin:10px 0px;
 					td {
-						padding:0px 10px;
+						padding:3px 10px;
 						text-align:right;
+						vertical-align:top;
 					}
 					td + td {
 						text-align:left;
 					}
+					i {
+						vertical-align:-1px;
+					}
+					
 			}
 			ul {
 				list-style:none;
@@ -94,7 +100,7 @@ a {
 				line-height:1.6em;
 				font-family: 'Vollkorn', serif;
 				font-weight:normal;
-				margin:2px 0px;
+				margin:8px 0px;
 				a {
 					display:block;
 					background-color:transparent;
@@ -200,8 +206,8 @@ a {
 	}
 	&:hover #tweet {
 		height:150px;
-		width:180%;	
-		.opacityForAll(100);
+		width:140%;	
+		.opacityForAll(90);
 	}
 }
 

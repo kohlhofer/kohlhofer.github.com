@@ -87,7 +87,7 @@ function slide(id) {
 	this.domElement = $("#" + this.id);
 	this.isScrolling = true;
 	this.colors = new Array();
-	this.gap = 20;
+	this.gap = 4;
 	
 	this.colors = [
 		'#f5b128',
