@@ -5,25 +5,31 @@ window.onload = function() {
 	slide[2] = new slide(2);
 	
 	
-	//re-create the dynamic design elements for new sizes when window is re-sized
-	$(window).resize(function () {
-		refreshAll();
- 	});
 	
-	
-	//adjust navbar to allow for smooth scrolling
-	enableSmoothScroll();
 	
 	//init some bootstrap features
 	$('a[rel="popover"]').popover();
 	$('a[rel="tooltip"]').tooltip();
 	
 	
+	//re-create the dynamic design elements for new sizes when window is re-sized
+	$(window).resize(function () {
+		refreshAll();
+ 	});
+	
+	//adjust navbar to allow for smooth scrolling
+	enableSmoothScroll();
+	
 	//show the nav bar after a dealy
 	setTimeout("$('#navigation').show('slide', { direction: 'down' }, 300);",1200);
 	
 	//fetch the last tweet
 	fetchLastTweet();
+	
+	
+	
+
+	
 }
 
 function enableSmoothScroll() {
