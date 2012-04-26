@@ -62,22 +62,6 @@ function fetchLastTweet() {
 	     $("#lasttweet").html(data[0].text);
 		 $('#tweet').fadeIn();
 	});
-	
-}
-
-
-function shuffleItUp() {
-	refreshAll();
-	setTimeout("refreshAll();",100);
-	setTimeout("refreshAll();",200);
-	setTimeout("refreshAll();",250);
-}
-
-
-function refreshAll() {
-	slide[0].adjustToWindowSize();
-	slide[1].adjustToWindowSize();
-	slide[2].adjustToWindowSize();
 }
 
 
@@ -99,6 +83,19 @@ function slide(id) {
 		'#A0B96F',
 		'#c0480b'
 		];
+		
+		
+	this.drawings = [
+		'img/drawings/60-degree_V-thread--pitch_and_depth--002.svg',
+		'img/drawings/Base_(PSF).svg',
+		'img/drawings/Cockroach_(PSF).svg',
+		'img/drawings/Crossbones_vector_(PSF).svg',
+		'img/drawings/DIL14_Wireframe.svg',
+		'img/drawings/Line-drawing_of_a_human_man.svg',
+		'img/drawings/Pioneer_plaque_line-drawing_of_a_human_male.svg',
+		'img/drawings/SaturnI.svg',
+		'img/drawings/Wire_frame.svg'
+	];
 	
 	// adding methods
 	this.initPosition = initPosition;
@@ -107,6 +104,8 @@ function slide(id) {
 	this.removeAllStripes = removeAllStripes;
 	this.addBottomBar = addBottomBar;
 	this.removeBar = removeBar;
+	this.addRandomShapes = addRandomShapes;
+	this.removeShapes = removeShapes;
 	
 	
 	// running methods
@@ -120,6 +119,7 @@ function adjustToWindowSize() {
 	this.domElement.css('height',$(window).height() + this.gap);
 	this.domElement.css('width',$(window).width());
 	this.addRandomStripes(2,6);
+	this.addRandomShapes(1,2);
 	this.addBottomBar();
 	this.initPosition();
 }
@@ -138,7 +138,41 @@ function removeBar() {
 	this.domElement.children('.bar').remove();
 }
 
+function addRandomShapes(min,max) {
+	//remove previous stripes if any
+	this.removeShapes();
 	
+	//random number of stripes based on min and max parameters
+	var i = 0, size, shapeContainer, shape, numberOfShapes = returnRandomNumner(min,max);
+	
+	// create shape container
+	shapeContainer = $("<div>");
+	shapeContainer.addClass("shapeContainer");
+	
+	
+	while (i < numberOfShapes) {
+		
+		size = returnRandomNumner(300,$(window).width());
+		shape = $("<img>");
+		shape.attr("src",this.drawings[Math.floor(Math.random()*this.drawings.length)])
+		shape.addClass("shape");
+		shape.css('left',returnRandomNumner(-100,$(window).width()-100));
+		shape.css('top',returnRandomNumner(-100,$(window).height()-100));
+		shape.css('width',size);
+
+		
+		//attach shape to shapeContainer
+		shape.prependTo(shapeContainer); 
+		
+		i++;
+	}
+	shapeContainer.prependTo(this.domElement); 
+	
+}
+
+function removeShapes() {
+	this.domElement.children('.shapeContainer').remove();
+}
 	
 
 function addRandomStripes(min,max) {
@@ -149,7 +183,7 @@ function addRandomStripes(min,max) {
 	this.stripes = new Array();
 	
 	//random number of stripes based on min and max parameters
-	var i = 0, width, stripe, totalWidth = 0, numberOfStripes = Math.floor(Math.random()*(max-min+1))+min, height = $(window).height()+this.gap;
+	var i = 0, width, stripe, totalWidth = 0, numberOfStripes = returnRandomNumner(min,max), height = $(window).height()+this.gap;
 	
 	//subsequent random stripes have a greater start position than the previous one
 	while (i < numberOfStripes) {
@@ -186,4 +220,27 @@ function addBottomBar() {
 
 	bar.prependTo(this.domElement); 
 
+}
+
+
+
+// Helpers
+
+
+function returnRandomNumner(min,max) {
+	return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+function shuffleItUp() {
+	refreshAll();
+	setTimeout("refreshAll();",100);
+	setTimeout("refreshAll();",200);
+	setTimeout("refreshAll();",250);
+}
+
+
+function refreshAll() {
+	slide[0].adjustToWindowSize();
+	slide[1].adjustToWindowSize();
+	slide[2].adjustToWindowSize();
 }
