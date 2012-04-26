@@ -20,14 +20,15 @@ window.onload = function() {
 	//adjust navbar to allow for smooth scrolling
 	enableSmoothScroll();
 	
+	$('#loading').fadeOut();
+	
 	//show the nav bar after a dealy
 	setTimeout("$('#navigation').show('slide', { direction: 'down' }, 300);",1200);
 	
 	//fetch the last tweet
 	fetchLastTweet();
 	
-	
-	
+
 
 	
 }
