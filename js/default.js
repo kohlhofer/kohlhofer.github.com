@@ -20,7 +20,7 @@ window.onload = function() {
 	//adjust navbar to allow for smooth scrolling
 	enableSmoothScroll();
 	
-	$('#loading').fadeOut();
+	$('#loading').hide();
 	
 	//show the nav bar after a dealy
 	setTimeout("$('#navigation').show('slide', { direction: 'down' }, 300);",1200);
