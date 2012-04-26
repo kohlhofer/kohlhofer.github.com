@@ -90,12 +90,9 @@ function slide(id) {
 		'img/drawings/Grasshoppermetasnodgrass.svg',
 		'img/drawings/Pioneer_plaque_line-drawing_of_a_human_female.svg',
 		'img/drawings/PSF-Dragonfly.svg',
-		'img/drawings/RP1357_p182_Space_Shuttle_Orbiter.svg',
-		'img/drawings/DIL14_Wireframe.svg',
 		'img/drawings/Line-drawing_of_a_human_man.svg',
 		'img/drawings/Pioneer_plaque_line-drawing_of_a_human_male.svg',
 		'img/drawings/SaturnI.svg',
-		'img/drawings/Wire_frame.svg'
 	];
 	
 	// adding methods
@@ -120,7 +117,7 @@ function adjustToWindowSize() {
 	this.domElement.css('height',$(window).height() + this.gap);
 	this.domElement.css('width',$(window).width());
 	this.addRandomStripes(2,6);
-	this.addRandomShapes(1,1);
+	this.addRandomShapes(1,3);
 	this.addBottomBar();
 	this.initPosition();
 }
@@ -153,7 +150,7 @@ function addRandomShapes(min,max) {
 	
 	while (i < numberOfShapes) {
 		
-		size = returnRandomNumner(600,900);
+		size = returnRandomNumner(300,1200);
 		shape = $("<img>");
 		shape.attr("src",this.drawings[Math.floor(Math.random()*this.drawings.length)])
 		shape.addClass("shape");
