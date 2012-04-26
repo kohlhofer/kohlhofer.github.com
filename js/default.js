@@ -86,8 +86,11 @@ function slide(id) {
 		
 		
 	this.drawings = [
-		'img/drawings/Base_(PSF).svg',
 		'img/drawings/Cockroach_(PSF).svg',
+		'img/drawings/Grasshoppermetasnodgrass.svg',
+		'img/drawings/Pioneer_plaque_line-drawing_of_a_human_female.svg',
+		'img/drawings/PSF-Dragonfly.svg',
+		'img/drawings/RP1357_p182_Space_Shuttle_Orbiter.svg',
 		'img/drawings/DIL14_Wireframe.svg',
 		'img/drawings/Line-drawing_of_a_human_man.svg',
 		'img/drawings/Pioneer_plaque_line-drawing_of_a_human_male.svg',
@@ -117,7 +120,7 @@ function adjustToWindowSize() {
 	this.domElement.css('height',$(window).height() + this.gap);
 	this.domElement.css('width',$(window).width());
 	this.addRandomStripes(2,6);
-	this.addRandomShapes(1,2);
+	this.addRandomShapes(1,1);
 	this.addBottomBar();
 	this.initPosition();
 }
@@ -154,8 +157,8 @@ function addRandomShapes(min,max) {
 		shape = $("<img>");
 		shape.attr("src",this.drawings[Math.floor(Math.random()*this.drawings.length)])
 		shape.addClass("shape");
-		shape.css('left',returnRandomNumner(-100,$(window).width()-100));
-		shape.css('top',returnRandomNumner(-100,$(window).height()-100));
+		shape.css('left',returnRandomNumner(-300,$(window).width()-300));
+		shape.css('top',returnRandomNumner(-300,$(window).height()-300));
 		shape.css('height',size);
 
 		
