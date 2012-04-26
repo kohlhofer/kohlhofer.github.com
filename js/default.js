@@ -86,10 +86,8 @@ function slide(id) {
 		
 		
 	this.drawings = [
-		'img/drawings/60-degree_V-thread--pitch_and_depth--002.svg',
 		'img/drawings/Base_(PSF).svg',
 		'img/drawings/Cockroach_(PSF).svg',
-		'img/drawings/Crossbones_vector_(PSF).svg',
 		'img/drawings/DIL14_Wireframe.svg',
 		'img/drawings/Line-drawing_of_a_human_man.svg',
 		'img/drawings/Pioneer_plaque_line-drawing_of_a_human_male.svg',
@@ -152,13 +150,13 @@ function addRandomShapes(min,max) {
 	
 	while (i < numberOfShapes) {
 		
-		size = returnRandomNumner(300,$(window).width());
+		size = returnRandomNumner(600,900);
 		shape = $("<img>");
 		shape.attr("src",this.drawings[Math.floor(Math.random()*this.drawings.length)])
 		shape.addClass("shape");
 		shape.css('left',returnRandomNumner(-100,$(window).width()-100));
 		shape.css('top',returnRandomNumner(-100,$(window).height()-100));
-		shape.css('width',size);
+		shape.css('height',size);
 
 		
 		//attach shape to shapeContainer
