@@ -25,12 +25,6 @@ window.onload = function() {
 	//show the nav bar after a dealy
 	setTimeout("$('#navigation').show('slide', { direction: 'down' }, 300);",1200);
 	
-	//fetch the last tweet
-	fetchLastTweet();
-	
-
-
-	
 }
 
 function enableSmoothScroll() {
@@ -54,14 +48,6 @@ function enableSmoothScroll() {
         event.preventDefault();
     });
 	
-}
-
-function fetchLastTweet() {
-	$('#tweet').hide();
-	$.getJSON("http://twitter.com/statuses/user_timeline/kohlhofer.json?callback=?", function(data) {
-	     $("#lasttweet").html(data[0].text);
-		 $('#tweet').fadeIn();
-	});
 }
 
 
