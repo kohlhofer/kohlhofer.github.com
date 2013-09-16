@@ -1,0 +1,178 @@
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: "untitled-font-3";
+  src:url("../fonts/untitled-font-3.eot");
+  src:url("../fonts/untitled-font-3.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/untitled-font-3.ttf") format("truetype"),
+    url("../fonts/untitled-font-3.svg#untitled-font-3") format("svg"),
+    url("../fonts/untitled-font-3.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "untitled-font-3";
+  content: attr(data-icon);
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none !important;
+  speak: none;
+  display: inline-block;
+  text-decoration: none;
+  width: 1em;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "untitled-font-3";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none !important;
+  speak: none;
+  display: inline-block;
+  text-decoration: none;
+  width: 1em;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.icon-linkedin:before {
+  content: "a";
+}
+
+.icon-tumblr:before {
+  content: "f";
+}
+
+.icon-dribbble:before {
+  content: "h";
+}
+
+.icon-cancel-circle:before {
+  content: "k";
+}
+
+.icon-check:before {
+  content: "l";
+}
+
+.icon-twitter:before {
+  content: "n";
+}
+
+.icon-github:before {
+  content: "p";
+}
+
+.icon-gplus:before {
+  content: "q";
+}
+
+.icon-graduation:before {
+  content: "s";
+}
+
+.icon-facebook:before {
+  content: "t";
+}
+
+.icon-school:before {
+  content: "v";
+}
+
+.icon-phone:before {
+  content: "w";
+}
+
+.icon-cv:before {
+  content: "y";
+}
+
+.icon-laptop:before {
+  content: "x";
+}
+
+.icon-screen:before {
+  content: "z";
+}
+
+.icon-fontawesome-webfont:before {
+  content: "A";
+}
+
+.icon-study:before {
+  content: "B";
+}
+
+.icon-college:before {
+  content: "C";
+}
+
+.icon-arrow-left:before {
+  content: "D";
+}
+
+.icon-arrow-right:before {
+  content: "E";
+}
+
+.icon-right-open-big:before {
+  content: "F";
+}
+
+.icon-up-open-big:before {
+  content: "G";
+}
+
+.icon-left-open-big:before {
+  content: "H";
+}
+
+.icon-down-open-big:before {
+  content: "I";
+}
+
+.icon-console:before {
+  content: "J";
+}
+
+.icon-ipad:before {
+  content: "K";
+}
+
+.icon-cross:before {
+  content: "L";
+}
+
+.icon-fullscreen-alt:before {
+  content: "M";
+}
+
+.icon-ccw:before {
+  content: "N";
+}
+
+.icon-popup:before {
+  content: "O";
+}
+
+.icon-user:before {
+  content: "P";
+}
+
+.icon-code:before {
+  content: "Q";
+}
+
+.icon-scooter:before {
+  content: "R";
+}
+
