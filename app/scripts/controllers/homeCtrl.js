@@ -1,23 +1,36 @@
 'use strict';
 
 angular.module('kohlhoferApp')
-  .controller('HomeCtrl', function ($scope,$location,$routeParams) {
+  .controller('HomeCtrl', function ($scope,$location,$route,$routeParams,$anchorScroll) {
 
     $scope.projects = [
       {
-        id: 1,
-        title: "Irrepressible.info",
-        tags: "web campaign",
+        id: "about",
+        title: "Home Page",
+        tags: ["web", "angular", "mobile"],
+        badge: [{color:"#FFF"}],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#BCD"
       },
       {
-        id: 2,
-        title: "Weewar.com",
-        tags: "game web app",
-        listImage: "http://weewar.com/images/weewar200.jpg",  
+        id: 1,
+        title: "Irrepressible.info",
+        tags: ["campaign"],
+        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
+        descriptionShort: "Even better",
+        descriptionLong: "Even better than better",
+        color: "#18C432"
+      },
+      {
+        id: "weewar",
+        title: "Weewar",
+        tags: ["game", "web"],
+        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
         color: "#d3e777"
@@ -25,89 +38,99 @@ angular.module('kohlhoferApp')
       {
         id: 3,
         title: "Enhanced Wars",
-        tags: "logo game",
+        tags: ["game","web"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#8BB5D7"
       },
       {
         id: 4,
         title: "Churchil Museum",
-        tags: "exhibition physical museum",
+        tags: ["exhibition"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
         color: "#DDD"
       },
       {
         id: 5,
-        title: "Quarter Spiral",
-        tags: "logo startup",
+        title: "Quarter Spiral Identity",
+        tags: ["logo"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
         color: "#DDD"
       },
       {
-        id: 5,
+        id: 6,
         title: "Faces",
-        tags: "app web angularjs",
+        tags: ["web","angularjs"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#317cb7"
       },
       {
-        id: 5,
-        title: "Mark Down",
-        tags: "app web angularjs",
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
-        color: "#DDD"
-      },
-      {
-        id: 5,
+        id: 8,
         title: "Currencies",
-        tags: "app web angularjs",
+        tags: ["app", "web", "angularjs"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#BB2970"
       },
       {
-        id: 5,
+        id: 9,
         title: "Cryptography Project",
-        tags: "app web angularjs",
+        tags: ["app", "web", "angularjs"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#8FBE00"
       },
       {
-        id: 5,
+        id: 7,
+        title: "Mark Down",
+        tags: ["app", "web", "angularjs"],
+        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
+        descriptionShort: "Even better",
+        descriptionLong: "Even better than better",
+        color: "#FFE"
+      },
+      {
+        id: 10,
         title: "Balance Projector",
-        tags: "app web angularjs",
+        tags: ["app", "web", "angularjs"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#8FBE00"
       },
       {
-        id: 5,
+        id: 11,
         title: "Life Stacks",
-        tags: "app web angularjs",
+        tags: ["web", "angularjs"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
         color: "#DDD"
       },
       {
-        id: 5,
+        id: 12,
         title: "Puzzle",
-        tags: "game app web angularjs",
+        tags: ["game", "web", "angularjs"],
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
+        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
         color: "#DDD"
@@ -142,7 +165,7 @@ angular.module('kohlhoferApp')
       {
         year: 2007,
         events: [
-          'Bootstrapped <a href="http://weewar.com" target="new">Weewar</a> by living frugally in Salzburg, Austria (Sound of Music!). Sold the award winning browser game to Electronic Arts in 2009.',
+          'Bootstrapped <a href="#/project/weewar" target="new">Weewar</a> by living frugally in Salzburg, Austria (Sound of Music!). Sold the award winning browser game to Electronic Arts in 2009.',
           'Co-founded <a href="http://spreedly.com" target="new">Spreedly</a> to enable subscription based business models. I largely ceased my active involvment in 2009 when I joined EA as part of the Weewar exit but retain a minority share to date.'
           ],
         lessons: [
@@ -187,15 +210,33 @@ angular.module('kohlhoferApp')
       interval: 4000
     })
 
+    $scope.$on('$routeChangeSuccess', function (event, currentRoute, previousRoute) {
+      var projectId;
+      if ($routeParams.id) {
+        projectId = $routeParams.id;
+        for (var i = 0; i < $scope.projects.length; i++ ) {
+          if ($scope.projects[i].id == projectId) {
+            $anchorScroll('projectDetail');
+            $scope.selectedProject = $scope.projects[i];
+            $scope.showProjectDetail = true;
+            return
+          }
+        }
+      } else {
+        $anchorScroll('projects');
+        $scope.showProjectDetail = false;
+      }
+    });
 
-
-
-
+    /*
 
     if ($routeParams.id) {
       $scope.selectedProject = $scope.projects[$routeParams.id];
+      alert($scope.selectedProject);
     } else {
       $scope.selectedProject = null;
     }
+
+    */
 
   });

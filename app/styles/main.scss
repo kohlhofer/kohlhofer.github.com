@@ -2,7 +2,6 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import "bootstrap-sass/lib/bootstrap";
-@import "beemuse/beemuse.css";
 @import "fonts.css";
 
 /* Put your CSS here */
@@ -153,7 +152,7 @@ a {
   }
 }
 
-.project-filter-input {
+.project-section-filter-input {
   border-width:0px;
   border-radius:0px;
   font-size:1.1em;
@@ -167,27 +166,55 @@ a {
 }
 
 
+.project-list-image {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
+}
 
-.project {
+.project-section-project-tags {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  margin-top:-1em;
+  opacity:0;
+  color:rgba(0,0,0,0.7);
+  font-family: 'Lato', sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  font-size:0.8em;
+  span {
+    margin:0 0.2em;
+  }
+}
+
+.project-section-project-title {
+  color:#333;
+  text-align:center;
+  font-size:1.1em;
+  margin:0.8em 0 0 0;
+  font-family: 'Lato', sans-serif;
+  font-weight:400;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s;
+}
+
+
+.project-section-project-link {
   display:block;
   padding:10%;
   text-align:center;
   margin-bottom:$grid-gutter-width;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s;
   &:hover {
     text-decoration:none;
-    background-color: #FFF !important;
+    .project-list-image {
+      transform:translate(0px,-1em) scale(0.9);
+    }
+    .project-section-project-tags {
+      opacity:1;
+    }
+    .project-section-project-title {
+      transform:translate(0px,-1em);
+    }
   }
 }
 
-.project-title {
-  color:#333;
-  text-align:center;
-  margin:0.5em 0 -5% 0;
-  font-family: 'Lato', sans-serif;
-  font-weight:400;
 
-}
 
 
 
@@ -319,6 +346,106 @@ a {
 
 
 
+
+
+
+
+// porject detail view
+
+.project-page-header {
+  //background-color:#4A6072;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  //box-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+}
+
+.project-page-header-label {
+  display:inline-block;
+  padding:1em 3em 1em 2em;
+}
+
+
+.project-page-header-title {
+  color:rgba(0,0,0,0.8);
+  font-family: 'Lato', sans-serif;
+  font-weight:400;
+  font-size:1.2em;
+}
+
+.project-page-header-sub-title {
+  text-transform:uppercase;
+  font-size:0.9em;
+  color:rgba(0,0,0,0.4);
+  font-family: 'Lato', sans-serif;
+  font-weight:400;
+  letter-spacing:1px;
+  a {
+    color:rgba(0,0,0,0.6);
+  }
+}
+
+.close-project-page-link {
+  margin-top: 0.5em;
+  font-size:1.4em;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
+  &.icon-cross {
+    margin-right:1em;
+    color:rgba(255,255,255,0.6);
+  }
+  &:hover.icon-cross {
+    color:rgba(255,255,255,0.9);
+    transform:scale(1.1);
+  }
+}
+
+
+
+
+
+
+// ribbon on project list
+
+
+.ribbon-wrapper {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  right: $grid-gutter-width/2;
+  z-index:1;
+}
+
+.ribbon {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  transform:      rotate(45deg);
+  position: relative;
+  padding: 5px 0;
+  left: -5px;
+  top: 15px;
+  width: 130px;
+  background-color: #BFDC7A;
+  color: #6a6340;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // project list animation
 
 .animate-repeat.ng-enter,
@@ -347,32 +474,81 @@ a {
 
 
 
+// home page fade
 
-
-
-
-
-
-
-.ribbon-wrapper {
-  width: 90px;
-  height: 90px;
-  overflow: hidden;
-  position: absolute;
-  top: 0px;
-  right: $grid-gutter-width/2;
+.home-page {
+  background-color:#7C97AC;
 }
 
-.ribbon {
-  font: bold 15px Sans-Serif;
-  color: #333;
-  text-align: center;
-  transform:      rotate(45deg);
-  position: relative;
-  padding: 5px 0;
-  left: -5px;
-  top: 15px;
-  width: 130px;
-  background-color: #BFDC7A;
-  color: #6a6340;
+.home-page.ng-hide-add, 
+.home-page.ng-hide-remove {
+  display:block!important;
+
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s;
+  transform-origin:50% 10%;
 }
+ 
+.home-page.ng-hide-add {
+  transform: scale(1);
+  opacity:1;
+
+}
+
+.home-page.ng-hide-add.ng-hide-add-active {
+  transform: scale(0.8);
+  opacity:0.8;
+}
+
+.home-page.ng-hide-remove {
+  transform: translate(-100%,0px);
+}
+
+.home-page.ng-hide-remove.ng-hide-remove-active {
+  transform: translate(0px,0px);
+}
+
+
+
+
+// project detail view transition
+
+.project-detail {
+  background-color:#7C97AC;
+  min-height: 100%;
+}
+
+.project-detail.ng-hide-add, 
+.project-detail.ng-hide-remove {
+  position:absolute;
+  top:0;
+  width:100%;
+  display:block!important;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s;
+  transform-origin:50% 30%;
+}
+
+ 
+.project-detail.ng-hide-add {
+  transform: scale(1);
+  opacity:1;
+   z-index:-1;
+}
+
+.project-detail.ng-hide-add.ng-hide-add-active {
+  transform: scale(0.8);
+  opacity:0.8;
+}
+
+.project-detail.ng-hide-remove {
+  transform: translate(100%,0px);
+}
+
+.project-detail.ng-hide-remove.ng-hide-remove-active {
+  transform: translate(0px,0px);
+}
+
+
+
+
+
+

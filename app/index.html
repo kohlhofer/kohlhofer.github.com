@@ -30,47 +30,51 @@
   <![endif]-->
 
   <!-- Add your site or application content here -->
-  <div class="top-navigation">
 
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
+  <div ng-hide="showProjectDetail" class="home-page"> <!-- home page starts -->
 
-        <div class="row">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <p class="navbar-text"><a smooth-scroll-jquery target="header" speed="500" class="top-navigation-link navbar-link">Alexander Kohlhofer</a></p>
-            
+
+    <div class="top-navigation">
+
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+
+          <div class="row">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <p class="navbar-text"><a smooth-scroll-jquery target="header" speed="500" class="top-navigation-link navbar-link">Alexander Kohlhofer</a></p>
+              
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a smooth-scroll-jquery target="projects" speed="500" class="top-navigation-link">Projects</a></li>
+                <li><a smooth-scroll-jquery target="about" speed="500" class="top-navigation-link">Me</a></li>
+                <li><a smooth-scroll-jquery target="connect" speed="500" class="top-navigation-link">Connect</a></li>
+                <li><a smooth-scroll-jquery target="cv" speed="500" offset="60" class="top-navigation-link">CV</a></li>
+                <li><a href="https://twitter.com/kohlhofer" target="new" class="top-navigation-link-social icon-twitter"></a></li>
+                <li><a href="https://plus.google.com/110037714935104342963/posts" target="new" class="top-navigation-link-social icon-gplus"></a></li>
+                <li><a href="http://www.linkedin.com/in/kohlhofer" target="new" class="top-navigation-link-social icon-linkedin"></a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+
           </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-            <ul class="nav navbar-nav navbar-right">
-              <li><a smooth-scroll-jquery target="projects" speed="500" class="top-navigation-link">Projects</a></li>
-              <li><a smooth-scroll-jquery target="about" speed="500" class="top-navigation-link">Me</a></li>
-              <li><a smooth-scroll-jquery target="connect" speed="500" class="top-navigation-link">Connect</a></li>
-              <li><a smooth-scroll-jquery target="cv" speed="500" offset="60" class="top-navigation-link">CV</a></li>
-              <li><a href="https://twitter.com/kohlhofer" target="new" class="top-navigation-link-social icon-twitter"></a></li>
-              <li><a href="https://plus.google.com/110037714935104342963/posts" target="new" class="top-navigation-link-social icon-gplus"></a></li>
-              <li><a href="http://www.linkedin.com/in/kohlhofer" target="new" class="top-navigation-link-social icon-linkedin"></a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
 
 
-  </div>
 
 
-  <div id="home-page"> <!-- home page starts -->
+
 
     <div class="header-section" id="header">
 
@@ -142,7 +146,7 @@
                 </div>
               </div>
               <div class="project-section-filter col-xs-6 col-sm-4 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <input type="text" ng-model="projectFilter" placeholder="Filter Projects..." class="project-filter-input">
+                <input type="text" ng-model="projectFilter" placeholder="Filter Projects..." class="project-section-filter-input">
                 <a ng-click="projectFilter = ''" class="icon-cross clear-input" ng-hide="projectFilter == ''"></a>
               </div>
             </div>
@@ -150,10 +154,13 @@
           <div class="col-md-9 col-md-pull-3">
             <div class="row">
               <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by $index">
-                 <div class="ribbon-wrapper"><div class="ribbon">New</div></div>
-                <a href="#/project/{{project.id}}" class="project" style="background-color:{{project.color}};">
-                  <img src="{{project.listImage}}" class="img-circle img-responsive about-section-profile-image"/>
-                  <div class="project-title">{{project.title}}</div>
+                <a href="#/project/{{project.id}}" class="project-section-project-link" style="background-color:{{project.color}};">
+                  <div class="ribbon-wrapper"><div class="ribbon">New</div></div>
+                  <img src="{{project.listImage}}" class="img-circle img-responsive project-list-image"/>
+                  <div class="project-section-project-title">{{project.title}}</div>
+                  <div class="project-section-project-tags">
+                    <span ng-repeat="tag in project.tags">{{tag}}</span>
+                  </div>
                 </a>
               </div>
             </div>
@@ -246,7 +253,28 @@
 
 
 
+  <div id="projectDetail" ng-show="showProjectDetail" class="project-detail"> <!-- project detail page starts -->
 
+    <div class="project-page-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10 col-sm-11">
+            <div class="project-page-header-label" style="background-color:{{selectedProject.color}};">
+              <div class="project-page-header-title">Project: {{selectedProject.title}}</div>
+              <div class="project-page-header-sub-title">by <a href="#/">Alexander Kohlhofer</a></div>
+            </div>
+          </div>
+          <div class="col-xs-2 col-sm-1">
+            <a href="#/" class="pull-right icon-cross close-project-page-link"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="{{selectedProject.headerImage}}" class="img-responsive"/>
+
+
+
+  </div>
 
 
 
