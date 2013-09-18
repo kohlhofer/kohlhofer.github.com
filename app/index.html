@@ -78,6 +78,8 @@
 
     <div class="header-section" id="header">
 
+
+
       <div id="header-carousel" class="carousel slide">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -86,28 +88,36 @@
           <li data-target="#header-carousel" data-slide-to="2"></li>
         </ol>
 
+
+
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-          <div class="header-slide item active">
+          <div class="header-slide item active front-end-slide ">
             <div class="container">
               <div class="row">
-                <div class="col-md-12">
-                  <div class="header-title">
-                    Product Designer
-                  </div>
-                  <p class="header-sub-title">Creating real products. Start to finish.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="header-slide item">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-9 col-md-7">
                   <div class="header-title">
                     Front-End Designer / Developer
                   </div>
-                  <p class="header-sub-title">HTML, CSS and JS for all devices.</p>
+                  <div class="header-sub-title">HTML, CSS and JS for all devices.</div>
+                </div>
+                <div class="col-sm-3 col-md-5 hidden-xs">
+                  <img src="images/illustrations/keyboard.svg" class="keyboard pull-left" height="350px" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-slide item product-slide">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="header-title">
+                    Product Designer
+                  </div>
+                  <div class="header-sub-title">Creating real products. Start to finish.</div>
+                </div>
+                <div class="col-sm-4 hidden-xs">
+                  <img src="images/illustrations/devices.svg" class="pull-left" height="380px" />
                 </div>
               </div>
             </div>
@@ -115,17 +125,27 @@
           <div class="header-slide item">
             <div class="container">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-8">
                   <div class="header-title">
                     Creative Director / Producer
                   </div>
-                  <p class="header-sub-title">Enabling teams, large and small.</p>
+                  <div class="header-sub-title">Enabling teams, large and small.</div>
                 </div>
+                <div class="col-sm-4 hidden-xs">
+                    <img src="images/illustrations/coffeecup.svg" class="coffee-mug pull-left" width="300px" />
+                  </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
+
+      <div class="controls">
+        <a class="icon-left-open-big pull-left" href="#header-carousel" data-slide="prev"></a>
+        <a class="icon-right-open-big pull-right" href="#header-carousel" data-slide="next"></a>
+      </div>
+
     </div>
 
 
@@ -155,7 +175,7 @@
             <div class="row">
               <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by $index">
                 <a href="#/project/{{project.id}}" class="project-section-project-link" style="background-color:{{project.color}};">
-                  <div class="ribbon-wrapper"><div class="ribbon">New</div></div>
+                  <div class="ribbon-wrapper" ng-show="project.badge"><div class="ribbon {{project.badge.type}}-ribbon">{{project.badge.label}}</div></div>
                   <img src="{{project.listImage}}" class="img-circle img-responsive project-list-image"/>
                   <div class="project-section-project-title">{{project.title}}</div>
                   <div class="project-section-project-tags">
@@ -255,12 +275,12 @@
 
   <div id="projectDetail" ng-show="showProjectDetail" class="project-detail"> <!-- project detail page starts -->
 
-    <div class="project-page-header">
+    <div class="project-page-header" style="background-color:{{selectedProject.color}};">
       <div class="container">
         <div class="row">
           <div class="col-xs-10 col-sm-11">
             <div class="project-page-header-label" style="background-color:{{selectedProject.color}};">
-              <div class="project-page-header-title">Project: {{selectedProject.title}}</div>
+              <div class="project-page-header-title">{{selectedProject.title}}</div>
               <div class="project-page-header-sub-title">by <a href="#/">Alexander Kohlhofer</a></div>
             </div>
           </div>

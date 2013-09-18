@@ -8,7 +8,7 @@ angular.module('kohlhoferApp')
         id: "about",
         title: "Home Page",
         tags: ["web", "angular", "mobile"],
-        badge: [{color:"#FFF"}],
+        badge: {label:"Great",type:"new"},
         listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
         headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
@@ -23,7 +23,7 @@ angular.module('kohlhoferApp')
         headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#18C432"
+        color: "#24CB99"
       },
       {
         id: "weewar",
@@ -53,7 +53,7 @@ angular.module('kohlhoferApp')
         headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#CB95E9"
       },
       {
         id: 5,
@@ -83,7 +83,7 @@ angular.module('kohlhoferApp')
         headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#BB2970"
+        color: "#8A849B"
       },
       {
         id: 9,
@@ -113,7 +113,7 @@ angular.module('kohlhoferApp')
         headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#8FBE00"
+        color: "#5AA54A"
       },
       {
         id: 11,
@@ -123,7 +123,7 @@ angular.module('kohlhoferApp')
         headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#FBC05B"
       },
       {
         id: 12,
@@ -133,7 +133,7 @@ angular.module('kohlhoferApp')
         headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
         descriptionShort: "Even better",
         descriptionLong: "Even better than better",
-        color: "#DDD"
+        color: "#EDA22E"
       }
     ];
 
@@ -207,7 +207,7 @@ angular.module('kohlhoferApp')
 
 
     $('.carousel').carousel({
-      interval: 4000
+      interval: 6000
     })
 
     $scope.$on('$routeChangeSuccess', function (event, currentRoute, previousRoute) {
