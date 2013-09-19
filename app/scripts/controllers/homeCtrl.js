@@ -8,7 +8,7 @@ angular.module('kohlhoferApp')
         id: "about",
         title: "Kohlhofer 2013",
         tags: ["web", "angular", "mobile"],
-        badge: {label:"Great",type:"new"},
+        badge: {label:"New",type:"new"},
         listImage: "images/projects/kohlhofer/thumb.svg",
         view: "views/projects/coming-soon.html",
         color: "#8FBE00"
@@ -34,7 +34,7 @@ angular.module('kohlhoferApp')
         title: "Enhanced Wars",
         tags: ["game","web"],
         listImage: "images/projects/enhancedwars/thumb.png",
-        view: "views/projects/enhancedwars.html",
+        view: "views/projects/coming-soon.html",
         color: "#8BB5D7"
       },
       {
@@ -50,7 +50,7 @@ angular.module('kohlhoferApp')
         title: "Quarter Spiral",
         tags: ["logo"],
         listImage: "images/projects/quarterspiral/thumb.svg",
-        view: "views/projects/quarterspiral.html",
+        view: "views/projects/coming-soon.html",
         color: "#EEE"
       },
       {
@@ -118,18 +118,39 @@ angular.module('kohlhoferApp')
       {
         year: 2012,
         events: [
-          'Left Electronic Arts to work once more independently and to spend more time with my newly born daugther.',
-          'Set up <a href="http://simplydo.com" target="new">Simply Do</a> to create and release smaller products and experiemnts which has been working splendidly.',
-          'Co-Founded Quarter Spiral with the goal to create a new type of game publising platform. The numbers however <a href="http://quarterspiral.com" target="new">did not add up</a>.'
+          'Left Electronic Arts to work once more independently and to spend more time with my newborn daughter.',
+          'Set up <a href="http://simplydo.com" target="new">Simply Do</a> to create and release smaller products and experiments.',
+          'Co-Founded Quarter Spiral with the goal to create a new type of game publishing platform. We built a substantial demo for <a href="#/project/enhancedwars">Enhanced Wars</a> but in the end the numbers <a href="http://quarterspiral.com" target="new">did not add up</a>.'
           ],
         lessons: [
           ]
       },
       {
+        year: 2011,
+        events: [
+          'Oversaw EA2D\'s integration with BioWare as interim Studio Manager with 35 direct and indirect reports at Electronic Arts.'
+          ],
+        lessons: [
+          "You always want to be in control of your life.",
+          "Managing is a humble profession where the only success is that of your team."
+          ]
+      },
+      {
+        year: 2010,
+        events: [
+          'Headed the technology platform enabling EA2D\s games as a producer at Electronic Arts.',
+          'Received my EB 1 visa (Green Card) granting me the freedom to live and work in the US in addition to most of Europe.'
+          ],
+        lessons: [
+          "You always want to be in control of your life.",
+          "Managing is a humble profession where the only success is that of your team."
+          ]
+      },
+      {
         year: 2009,
         events: [
-          'Joined Electronic Arts in Redwood City, California and helped grow a game studio from 6 people to almost 40. I started out as a technical director but eventually ran the techology platfrom enabeling our games as a producer. Ulitmately I oversaw the studio\'s integration with BioWare as interim Studio Manager with 35 direct and indirect reports.',
-          'Received my EB 1 visa (Green Card) granting me the freedoom to live and work in the US in addition to most of Europe.'
+          'Joined Electronic Arts in Redwood City, California as technical director after they aquired Weewar from me.',
+          'Helped grow the EA2D game studio from 6 people to almost 40.'
           ],
         lessons: [
           "You always want to be in control of your life.",
@@ -140,8 +161,9 @@ angular.module('kohlhoferApp')
         year: 2007,
         events: [
           'Bootstrapped <a href="#/project/weewar" target="new">Weewar</a> by living frugally in Salzburg, Austria (Sound of Music!). Sold the award winning browser game to Electronic Arts in 2009.',
-          'Spent a lot of time consulting on projects around the world. Helped facilitate a <a href="http://www.britishcouncil.org/tn2020.htm" target="new">TN2020 summit</a> in Ireland and presented at Towards a Citizens Media Conference in Pakistan.',
-          'Co-founded <a href="http://spreedly.com" target="new">Spreedly</a> to enable subscription based business models. I largely ceased my active involvment in 2009 when I joined EA as part of the Weewar exit but retain a minority share to date.'
+          'Helped facilitate a <a href="http://www.britishcouncil.org/tn2020.htm" target="new">TN2020 summit</a> in Ireland',
+          'Presented at Towards a Citizens Media Conference in Pakistan.',
+          'Co-founded <a href="http://spreedly.com" target="new">Spreedly</a> to enable subscription based business models. I largely ceased my active involvement in 2009 when I joined EA as part of the Weewar exit but retain a minority share to date.'
           ],
         lessons: [
           ]
@@ -150,8 +172,9 @@ angular.module('kohlhoferApp')
         year: 2004,
         events: [
           "Moved from the US to London, UK to work at Soda Creative. The Bafta Award winning team operated at the intersection of Art, Education and Play. I spent 4 years growing and learning and eventually became Soda's Creative Director.",
-          "Succcessfully conceived, pitched and delivered a techology based anti-censorship campaign to Amnesty International.",
-          'Working with the Tate we facilitated a <a href="http://www.tate.org.uk/whats-on/tate-britain/exhibition/nahnou-together" target="new">collaborative project</a> between students in London, UK and Damascus, Syria.'
+          "Successfully conceived, pitched and delivered a technology based anti-censorship campaign to Amnesty International.",
+          'Facilitated a <a href="http://www.tate.org.uk/whats-on/tate-britain/exhibition/nahnou-together" target="new">collaborative project</a> between students in London, UK and Damascus, Syria with the Tate.',
+          'Won a development award from the BBC and the MIP festival in Cannes, France.'
           ],
         lessons: [
           "To create truly out standing things you have to ignore all boundaries and aim for the seemingly unfeasable.",
@@ -191,17 +214,22 @@ angular.module('kohlhoferApp')
         projectId = $routeParams.id;
         for (var i = 0; i < $scope.projects.length; i++ ) {
           if ($scope.projects[i].id == projectId) {
-            $anchorScroll('projectDetail');
             $scope.selectedProject = $scope.projects[i];
             $scope.showProjectDetail = true;
+            $anchorScroll();
             return
           }
         }
       } else {
-        $anchorScroll('projects');
         $scope.showProjectDetail = false;
+        //$anchorScroll();
       }
     });
+
+
+    $scope.randomKey = function () {
+      return Math.random();
+    }
 
     /*
 

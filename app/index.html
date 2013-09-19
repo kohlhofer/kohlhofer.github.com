@@ -158,7 +158,7 @@
           <div class="col-md-3 col-md-push-9">
             <div class="row project-section-header">
               <div class="col-md-12">
-                <h2 class="project-section-title">Selected Projects</h2>
+                <h2 class="project-section-title">Work Samples</h2>
               </div>
               <div class="col-md-12 col-sm-7">
                 <div class="project-section-text">
@@ -173,10 +173,12 @@
           </div>
           <div class="col-md-9 col-md-pull-3">
             <div class="row">
-              <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by $index">
+              <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by $index" >
                 <a href="#/project/{{project.id}}" class="project-section-project-link" style="background-color:{{project.color}};">
                   <div class="ribbon-wrapper" ng-show="project.badge"><div class="ribbon {{project.badge.type}}-ribbon">{{project.badge.label}}</div></div>
-                  <img src="{{project.listImage}}" class="img-circle img-responsive project-list-image"/>
+                  <div class="svg-container">
+                    <img src="{{project.listImage}}" class="img-circle project-list-image"/>
+                  </div>
                   <div class="project-section-project-title">{{project.title}}</div>
                   <div class="project-section-project-tags">
                     <span ng-repeat="tag in project.tags">{{tag}}</span>
@@ -197,10 +199,11 @@
             <img src="http://acdn.500px.net/65456/86502d24976bc6e169bc8565e3b5dbc593632240/1.jpg?1" class="img-circle img-responsive about-section-profile-image"/>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-9">
-            <h2 class="about-section-title">My name is Alex</h2>
             <div class="about-section-text">
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-              <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+              <p>Hi, my name is Alex and I love creating beautifully crafted, usable products.</p>
+              <p>I have done it as a Designer and Front-End Developer, as a Creative Director in the arts, as a Producer and manager in the games industry and as a founder.</p>
+              <p>I have done it with small teams and within large corperations.</p>
+              <p>And I have done it in different countries and places: Munich, Chicago, London, Salzburg, San Francisco and now Raleigh.</p>
             </div>
           </div>
         </div>
@@ -216,25 +219,25 @@
           <div class="col-md-12">
             <ul class="list-unstyled social-list">
               <li class="social-list-entry">
-                <a href="twitter" class="social-list-entry-link icon-fontawesome-webfont"></a>
+                <a href="mailto:alexander@kohlhofer.com" class="social-list-entry-link icon-fontawesome-webfont"></a>
               </li>
               <li class="social-list-entry">
-                <a href="twitter" class="social-list-entry-link icon-twitter"></a>
+                <a href="https://twitter.com/kohlhofer" class="social-list-entry-link icon-twitter"></a>
               </li>
               <li class="social-list-entry">
-                <a href="twitter" class="social-list-entry-link icon-gplus"></a>
+                <a href="https://plus.google.com/110037714935104342963/posts" class="social-list-entry-link icon-gplus"></a>
               </li>
               <li class="social-list-entry">
-                <a href="twitter" class="social-list-entry-link icon-dribbble"></a>
+                <a href="http://dribbble.com/kohlhofer" class="social-list-entry-link icon-dribbble"></a>
               </li>
               <li class="social-list-entry">
-                <a href="twitter" class="social-list-entry-link icon-linkedin"></a>
+                <a href="http://www.linkedin.com/in/kohlhofer" class="social-list-entry-link icon-linkedin"></a>
               </li>
               <li class="social-list-entry">
-                <a href="facebook" class="social-list-entry-link icon-facebook"></a>
+                <a href="https://www.facebook.com/a.kohlhofer" class="social-list-entry-link icon-facebook"></a>
               </li>
               <li class="social-list-entry">
-                <a href="tumblr" class="social-list-entry-link icon-tumblr"></a>
+                <a href="http://random.kohlhofer.com/" class="social-list-entry-link icon-tumblr"></a>
               </li>
           </div>
         </div>
@@ -252,7 +255,7 @@
             <div class="cv-section-header">
               <h2 class="cv-page-title">Curriculum Vitae</h2>
               <a class="cv-reverse-link" ng-click="direction = !direction">
-                {{life[0].year}}
+                Now
                 <span ng-show="direction" class="icon-arrow-right"></span>
                 <span ng-hide="direction" class="icon-arrow-left"></span>
                 {{life[life.length-1].year}}
@@ -300,6 +303,8 @@
     </div>
     <div ng-include="selectedProject.view"></div>
   </div>
+
+
 
 
 

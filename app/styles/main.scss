@@ -6,11 +6,12 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 /* Put your CSS here */
 html, body {
+
 }
 
 
 body {
-  background-color:#999;
+  background-color:#4A6072;
   font-size:14px;
 }
 
@@ -86,7 +87,7 @@ a {
 .controls {
   width:100%;
   position:absolute;
-  bottom:1em;
+  top:50%;
   font-size:1.5em;
   a {
     color:rgba(255,255,255,0.5);
@@ -94,6 +95,10 @@ a {
     &:hover {
       color:rgba(255,255,255,0.8);
     }
+  }
+  @media (max-width: $screen-md) {
+   top:auto;
+   bottom:1em;
   }
 }
 
@@ -253,21 +258,9 @@ a {
   padding: 4em 0 4em 0;
 }
 
-
-.about-section-title {
-  font-size: 1.2em;
-  padding:0;
-  color:rgba(0,0,0,0.8);
-  margin:0 0 1em 0;
-  font-family: 'Lato', sans-serif;
-  font-weight:400;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
 .about-section-text {
   font-size: 1.2em;
-  margin:1em 0;
+  margin:0;
   color:rgba(0,0,0,0.6);
   line-height:1.6em;
   font-family: 'Lato', sans-serif;
@@ -350,6 +343,7 @@ a {
 
 
 
+
 // connect section
 
 .connect-section {
@@ -379,9 +373,8 @@ a {
   width:2 * $grid-gutter-width;
   border-radius:5em;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
-  transform: translate(0px, 0px) scale(1);
   &:hover {
-    transform: rotate(360deg) scale(1.2);
+    transform: scale(1.2) rotate(360deg);
   }
 }
 
@@ -526,7 +519,7 @@ a {
 
 
 
-
+/*
 
 
 // home page fade
@@ -542,7 +535,7 @@ a {
 .home-page.ng-hide-add {
   transform: scale(1);
   opacity:1;
-
+  z-index:-1;
 }
 
 .home-page.ng-hide-add.ng-hide-add-active {
@@ -561,12 +554,11 @@ a {
 
 
 
+
+
 // project detail view transition
 
-.project-detail {
-  background-color:#4A6072;
-  min-height: 100%;
-}
+
 
 .project-detail.ng-hide-add, 
 .project-detail.ng-hide-remove {
@@ -582,7 +574,7 @@ a {
 .project-detail.ng-hide-add {
   transform: scale(1);
   opacity:1;
-   z-index:-1;
+  z-index:-1;
 }
 
 .project-detail.ng-hide-add.ng-hide-add-active {
@@ -598,6 +590,14 @@ a {
   transform: translate(0px,0px);
 }
 
+
+*/
+
+
+
+.project-detail {
+  background-color:#4A6072;
+}
 
 .project-comming-soon {
   height:600px;
@@ -638,3 +638,26 @@ a {
 }
 
 
+
+// safari svg fixed
+
+.svg-container {
+  width: 100%;
+  display: block;
+  height: auto;
+  position: relative;
+  padding-top: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+// safari css transfrom flicker fixed
+
+.cv-section, .project-section-project-link, .navbar {
+  -webkit-transform-style: preserve-3d;
+}
