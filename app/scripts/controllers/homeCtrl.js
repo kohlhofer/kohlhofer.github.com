@@ -6,134 +6,108 @@ angular.module('kohlhoferApp')
     $scope.projects = [
       {
         id: "about",
-        title: "Home Page",
+        title: "Kohlhofer 2013",
         tags: ["web", "angular", "mobile"],
         badge: {label:"Great",type:"new"},
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
-        color: "#BCD"
+        listImage: "images/projects/kohlhofer/thumb.svg",
+        view: "views/projects/coming-soon.html",
+        color: "#8FBE00"
       },
       {
         id: 1,
         title: "Irrepressible.info",
         tags: ["campaign"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "http://dummyimage.com/400x400/fff/24CB99.png&text=coming+soon",
+        view: "views/projects/coming-soon.html",
         color: "#24CB99"
       },
       {
         id: "weewar",
         title: "Weewar",
         tags: ["game", "web"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "images/projects/weewar/thumb.png",
+        view: "views/projects/coming-soon.html",
         color: "#d3e777"
       },
       {
-        id: 3,
+        id: "enhancedwars",
         title: "Enhanced Wars",
         tags: ["game","web"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "images/projects/enhancedwars/thumb.png",
+        view: "views/projects/enhancedwars.html",
         color: "#8BB5D7"
       },
       {
         id: 4,
         title: "Churchil Museum",
         tags: ["exhibition"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "http://dummyimage.com/400x400/fff/CB95E9.png&text=coming+soon",
+        view: "views/projects/coming-soon.html",
         color: "#CB95E9"
       },
       {
         id: 5,
-        title: "Quarter Spiral Identity",
+        title: "Quarter Spiral",
         tags: ["logo"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
-        color: "#DDD"
+        listImage: "images/projects/quarterspiral/thumb.svg",
+        view: "views/projects/quarterspiral.html",
+        color: "#EEE"
       },
       {
         id: 6,
         title: "Faces",
         tags: ["web","angularjs"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
-        color: "#317cb7"
+        listImage: "images/projects/faces/thumb.png",
+        view: "views/projects/faces.html",
+        color: "#3585c3"
       },
       {
         id: 8,
         title: "Currencies",
         tags: ["app", "web", "angularjs"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "images/projects/currencies/thumb.svg",
+        view: "views/projects/coming-soon.html",
         color: "#8A849B"
       },
       {
         id: 9,
         title: "Cryptography Project",
         tags: ["app", "web", "angularjs"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "http://dummyimage.com/400x400/fff/8FBE00.png&text=coming+soon",
+        view: "views/projects/coming-soon.html",
         color: "#8FBE00"
       },
       {
         id: 7,
         title: "Mark Down",
         tags: ["app", "web", "angularjs"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "images/projects/markdown/thumb.svg",
+        view: "views/projects/coming-soon.html",
         color: "#FFE"
       },
       {
         id: 10,
         title: "Balance Projector",
         tags: ["app", "web", "angularjs"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "http://dummyimage.com/400x400/fff/5AA54A.png&text=coming+soon",
+        view: "views/projects/coming-soon.html",
         color: "#5AA54A"
       },
       {
         id: 11,
         title: "Life Stacks",
         tags: ["web", "angularjs"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
+        listImage: "http://dummyimage.com/400x400/fff/FBC05B.png&text=coming+soon",
+        view: "views/projects/coming-soon.html",
         color: "#FBC05B"
       },
       {
         id: 12,
         title: "Puzzle",
         tags: ["game", "web", "angularjs"],
-        listImage: "https://lh4.googleusercontent.com/-7CsP_Y_QQjo/AAAAAAAAAAI/AAAAAAAADew/tx1MR0CRANg/photo.jpg",
-        headerImage: "http://www.castelfalfi.co.uk/files/2013/04/NGF7672_gallery-1900x756.jpg",
-        descriptionShort: "Even better",
-        descriptionLong: "Even better than better",
-        color: "#EDA22E"
+        listImage: "images/projects/puzzle/thumb.svg",
+        view: "views/projects/coming-soon.html",
+        color: "#BCD"
       }
     ];
 
@@ -144,7 +118,7 @@ angular.module('kohlhoferApp')
       {
         year: 2012,
         events: [
-          'Left Electronic Arts to work once more independently and to make myself more available to my newly born daugther.',
+          'Left Electronic Arts to work once more independently and to spend more time with my newly born daugther.',
           'Set up <a href="http://simplydo.com" target="new">Simply Do</a> to create and release smaller products and experiemnts which has been working splendidly.',
           'Co-Founded Quarter Spiral with the goal to create a new type of game publising platform. The numbers however <a href="http://quarterspiral.com" target="new">did not add up</a>.'
           ],
@@ -166,6 +140,7 @@ angular.module('kohlhoferApp')
         year: 2007,
         events: [
           'Bootstrapped <a href="#/project/weewar" target="new">Weewar</a> by living frugally in Salzburg, Austria (Sound of Music!). Sold the award winning browser game to Electronic Arts in 2009.',
+          'Spent a lot of time consulting on projects around the world. Helped facilitate a <a href="http://www.britishcouncil.org/tn2020.htm" target="new">TN2020 summit</a> in Ireland and presented at Towards a Citizens Media Conference in Pakistan.',
           'Co-founded <a href="http://spreedly.com" target="new">Spreedly</a> to enable subscription based business models. I largely ceased my active involvment in 2009 when I joined EA as part of the Weewar exit but retain a minority share to date.'
           ],
         lessons: [
@@ -175,7 +150,7 @@ angular.module('kohlhoferApp')
         year: 2004,
         events: [
           "Moved from the US to London, UK to work at Soda Creative. The Bafta Award winning team operated at the intersection of Art, Education and Play. I spent 4 years growing and learning and eventually became Soda's Creative Director.",
-          "Succcessfully conveived, pitched and delivered a techology based anti-censorship campaign to Amnesty International.",
+          "Succcessfully conceived, pitched and delivered a techology based anti-censorship campaign to Amnesty International.",
           'Working with the Tate we facilitated a <a href="http://www.tate.org.uk/whats-on/tate-britain/exhibition/nahnou-together" target="new">collaborative project</a> between students in London, UK and Damascus, Syria.'
           ],
         lessons: [
@@ -186,7 +161,7 @@ angular.module('kohlhoferApp')
       {
         year: 2002,
         events: [
-          "Left Germany and the growing company I founded 3 years earlier behind and moved to the US, looking for new experienes.",
+          "Left Germany and the growing company I founded 3 years earlier behind and moved to the US, looking for an adventure.",
           "Securing a job and visa was an uphill battle to say the least, yet it unlocked most of what happened since. This was a fantastic time."
           ],
         lessons: [
