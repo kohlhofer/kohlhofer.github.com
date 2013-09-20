@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/d1007f41.main.css">
+        <link rel="stylesheet" href="styles/e791040d.main.css">
 
     <link href="http://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
@@ -46,8 +46,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <p class="navbar-text"><a smooth-scroll-jquery="" target="header" speed="500" class="top-navigation-link navbar-link">Alexander Kohlhofer</a></p>
-              
+              <p class="navbar-text"><a smooth-scroll-jquery="" target="header" speed="500" class="top-navigation-link navbar-link"><span class="wide-nav-only">Alexander </span>Kohlhofer</a></p>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -171,7 +170,7 @@
           </div>
           <div class="col-md-9 col-md-pull-3">
             <div class="row">
-              <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by $index">
+              <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter">
                 <a href="#/project/{{project.id}}" class="project-section-project-link" style="background-color:{{project.color}}">
                   <div class="ribbon-wrapper" ng-show="project.badge"><div class="ribbon {{project.badge.type}}-ribbon">{{project.badge.label}}</div></div>
                   <div class="svg-container">
@@ -320,17 +319,14 @@
     ga('send', 'pageview');
   </script>
 
-  <script src="scripts/3d3e3e31.plugins.js"></script>
+  <script src="scripts/74e2cf94.plugins.js"></script>
 
   <!--
   <script src="bower_components/bootstrap-sass/js/alert.js"></script>
-  <script src="bower_components/bootstrap-sass/js/dropdown.js"></script>
   <script src="bower_components/bootstrap-sass/js/tooltip.js"></script>
   <script src="bower_components/bootstrap-sass/js/modal.js"></script>
-  
   <script src="bower_components/bootstrap-sass/js/button.js"></script>
   <script src="bower_components/bootstrap-sass/js/popover.js"></script>
-  
   <script src="bower_components/bootstrap-sass/js/scrollspy.js"></script>
   <script src="bower_components/bootstrap-sass/js/collapse.js"></script>
   <script src="bower_components/bootstrap-sass/js/tab.js"></script>
