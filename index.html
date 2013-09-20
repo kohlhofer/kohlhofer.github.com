@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/fda1b24f.main.css">
+        <link rel="stylesheet" href="styles/73c66f1e.main.css">
 
     <link href="http://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
@@ -163,7 +163,7 @@
               </div>
               <div class="col-md-12 col-sm-7">
                 <div class="project-section-text">
-                  <p>You can narrow down this selection. Try for example: <a ng-click="projectFilter = 'game'">Game</a>, <a ng-click="projectFilter = 'web'">Web</a>, <a ng-click="projectFilter = 'app'">App</a>, <a ng-click="projectFilter = 'logo'">Logo</a> etc ...</p>
+                  <p>You can narrow down this selection. Try for example: <a ng-click="projectFilter = 'game'">Game</a>, <a ng-click="projectFilter = 'site'">Site</a>, <a ng-click="projectFilter = 'app'">App</a>, <a ng-click="projectFilter = 'logo'">Logo</a> etc ...</p>
                 </div>
               </div>
               <div class="project-section-filter col-xs-8 col-sm-4 col-sm-offset-1 col-md-12 col-md-offset-0">
@@ -174,7 +174,7 @@
           </div>
           <div class="col-md-9 col-md-pull-3">
             <div class="row">
-              <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter">
+              <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by project.id">
                 <a href="#/project/{{project.id}}" class="project-section-project-link" style="background-color:{{project.color}}">
                   <div class="ribbon-wrapper" ng-show="project.badge"><div class="ribbon {{project.badge.type}}-ribbon">{{project.badge.label}}</div></div>
                   <div class="svg-container">
@@ -202,9 +202,9 @@
           <div class="col-md-6 col-sm-6 col-xs-8">
             <div class="about-section-text">
               <p>Hi, my name is Alex and I love creating beautifully crafted, usable products.</p>
-              <p>I have done it as a Designer and Front-End Developer, as a Creative Director, as a Producer and manager in the games industry and as a founder.</p>
+              <p>I have done it as a Designer and Front-End Developer, as a Creative Director, as a Producer in the games industry and as a founder.</p>
               <p>I am particularly proud of the  <a href="#/project/weewar">first game</a> I created (and later sold to Electronic Arts) and the businesses I started.</p>
-              <p>I am happiest when working on meaningful things, like <a href="#/project/amnesty">the anti-censorship campaign</a> I created for Amnesty International.</p>
+              <p>I am happiest when working on meaningful things, like <a href="#/project/amnesty">the anti-censorship campaign</a> I worked on for Amnesty International.</p>
             </div>
           </div>
         </div>
@@ -281,6 +281,8 @@
       </div>
     </div>
 
+    <div ng-include="'views/footer.html'"></div>
+
 
 
   </div> <!-- home page ends -->
@@ -305,7 +307,10 @@
       </div>
     </div>
     <div ng-include="selectedProject.view"></div>
+    <div ng-include="'views/footer.html'"></div>
   </div>
+
+
 
 
 
@@ -341,6 +346,6 @@
 
   <script src="scripts/fc3dfddd.app.js"></script>
 
-  <script src="scripts/fbd2cb24.controllers.js"></script>
+  <script src="scripts/c46a92f1.controllers.js"></script>
 </body>
 </html>
