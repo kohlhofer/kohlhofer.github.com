@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/e791040d.main.css">
+        <link rel="stylesheet" href="styles/0cfd8934.main.css">
 
     <link href="http://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
@@ -78,12 +78,6 @@
 
 
       <div id="header-carousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#header-carousel" data-slide-to="1"></li>
-          <li data-target="#header-carousel" data-slide-to="2"></li>
-        </ol>
 
 
 
@@ -136,7 +130,17 @@
           </div>
         </div>
 
+                      <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#header-carousel" data-slide-to="1"></li>
+          <li data-target="#header-carousel" data-slide-to="2"></li>
+        </ol>
+
       </div>
+
+
+
 
       <div class="controls">
         <a class="icon-left-open-big pull-left" href="#header-carousel" data-slide="prev"></a>
@@ -162,7 +166,7 @@
                   <p>You can narrow down this selection. Try for example: <a ng-click="projectFilter = 'game'">Game</a>, <a ng-click="projectFilter = 'web'">Web</a>, <a ng-click="projectFilter = 'app'">App</a>, <a ng-click="projectFilter = 'logo'">Logo</a> etc ...</p>
                 </div>
               </div>
-              <div class="project-section-filter col-xs-6 col-sm-4 col-sm-offset-1 col-md-12 col-md-offset-0">
+              <div class="project-section-filter col-xs-8 col-sm-4 col-sm-offset-1 col-md-12 col-md-offset-0">
                 <input type="text" ng-model="projectFilter" placeholder="Filter Projects..." class="project-section-filter-input">
                 <a ng-click="projectFilter = ''" class="icon-cross clear-input" ng-hide="projectFilter == ''"></a>
               </div>
@@ -192,14 +196,14 @@
     <div id="about" class="about-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-2 col-md-offset-2 col-sm-3 col-sm-offset-1 col-xs-3">
+          <div class="col-md-2 col-md-offset-2 col-sm-3 col-sm-offset-1 col-xs-4">
             <img src="http://acdn.500px.net/65456/86502d24976bc6e169bc8565e3b5dbc593632240/1.jpg?1" class="img-circle img-responsive about-section-profile-image">
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-9">
+          <div class="col-md-6 col-sm-6 col-xs-8">
             <div class="about-section-text">
               <p>Hi, my name is Alex and I love creating beautifully crafted, usable products.</p>
               <p>I have done it as a Designer and Front-End Developer, as a Creative Director, as a Producer and manager in the games industry and as a founder.</p>
-              <p>I am particularly proud of the  <a href="#/project/weewar">first game</a> I created and later sold to Electronic Arts and the businesses I started.</p>
+              <p>I am particularly proud of the  <a href="#/project/weewar">first game</a> I created (and later sold to Electronic Arts) and the businesses I started.</p>
               <p>I am happiest when working on meaningful things, like <a href="#/project/amnesty">the anti-censorship campaign</a> I created for Amnesty International.</p>
             </div>
           </div>
