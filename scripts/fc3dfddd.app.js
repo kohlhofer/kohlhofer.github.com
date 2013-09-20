@@ -1,0 +1,1 @@
+"use strict";angular.module("kohlhoferApp",["ngRoute","ngSanitize","ngAnimate","ngTouch","angularSmoothscroll"]).config(["$routeProvider",function(a){a.when("/",{controller:"HomeCtrl"}).when("/project/:id",{controller:"HomeCtrl"}).otherwise({redirectTo:"/"})}]);
