@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/73c66f1e.main.css">
+        <link rel="stylesheet" href="styles/8ee8b398.main.css">
 
     <link href="http://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
@@ -156,7 +156,7 @@
     <div id="projects" class="project-section" ng-init="projectFilter = ''">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 col-md-push-9">
+          <div class="col-md-3">
             <div class="row project-section-header">
               <div class="col-md-12">
                 <h2 class="project-section-title">Work Samples</h2>
@@ -172,9 +172,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-9 col-md-pull-3">
+          <div class="col-md-9">
             <div class="row">
-              <div class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by project.id">
+              <div ng-cloak="" class="col-xs-6 col-md-4 col-sm-4 col-lg-3 animate-repeat" ng-repeat="project in projects | filter:projectFilter track by project.id">
                 <a href="#/project/{{project.id}}" class="project-section-project-link" style="background-color:{{project.color}}">
                   <div class="ribbon-wrapper" ng-show="project.badge"><div class="ribbon {{project.badge.type}}-ribbon">{{project.badge.label}}</div></div>
                   <div class="svg-container">
@@ -196,10 +196,10 @@
     <div id="about" class="about-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-2 col-md-offset-2 col-sm-3 col-sm-offset-1 col-xs-4">
+          <div class="col-md-2 col-md-offset-2 col-sm-3 col-xs-4">
             <img src="http://acdn.500px.net/65456/86502d24976bc6e169bc8565e3b5dbc593632240/1.jpg?1" class="img-circle img-responsive about-section-profile-image">
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-8">
+          <div class="col-md-6 col-sm-8 col-xs-8">
             <div class="about-section-text">
               <p>Hi, my name is Alex and I love creating beautifully crafted, usable products.</p>
               <p>I have done it as a Designer and Front-End Developer, as a Creative Director, as a Producer in the games industry and as a founder.</p>
@@ -242,7 +242,10 @@
               <li class="social-list-entry">
                 <a href="http://random.kohlhofer.com/" class="social-list-entry-link icon-tumblr"></a>
               </li>
-          </ul></div>
+            </ul>
+            <a class="social-email" href="mailto:{{email}}">{{email}}</a>
+            <div class="social-phone">{{phone}}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -306,7 +309,7 @@
         </div>
       </div>
     </div>
-    <div ng-include="selectedProject.view"></div>
+    <div ng-include="selectedProject.view" class="poject-detail-include"></div>
     <div ng-include="'views/footer.html'"></div>
   </div>
 
@@ -346,6 +349,6 @@
 
   <script src="scripts/fc3dfddd.app.js"></script>
 
-  <script src="scripts/0c4cb2ff.controllers.js"></script>
+  <script src="scripts/c8180bb2.controllers.js"></script>
 </body>
 </html>
