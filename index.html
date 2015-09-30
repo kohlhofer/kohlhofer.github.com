@@ -78,14 +78,14 @@
         <div class="row">
           <div class="col-sm-12 col-lg-10 col-lg-offset-1">
             <div class="cv-section-header">
-              <h3 class="cv-page-title">Curriculum Vitae
+              <h2 class="cv-page-title">Curriculum Vitae</h2>
               <a class="cv-reverse-link" ng-click="direction = !direction">
                 Now
                 <span ng-show="direction" class="icon-arrow-right"></span>
                 <span ng-hide="direction" class="icon-arrow-left"></span>
                 {{life[life.length-1].year}}
               </a>
-            </h3></div>
+            </div>
 
             <div ng-repeat="year in life | orderBy:'year':direction" class="row cv-page-year">
               <div class="col-xs-3 col-sm-2 cv-page-year-label">{{year.year}}</div>
