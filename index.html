@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="styles/8ee8b398.main.css">
+    <link rel="stylesheet" href="styles/6d3d6f00.main.css">
 
     <link href="http://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
@@ -46,31 +46,22 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
+            <h1 class="connect-section-title">Alexander Kohlhofer</h1>
+          </div>
+          <div class="col-sm-6">
             <ul class="list-unstyled social-list">
-              <!--
-              <li class="social-list-entry">
-                <a href="mailto:alexander@kohlhofer.com" class="social-list-entry-link icon-fontawesome-webfont"></a>
-              </li>
-              -->
               <li class="social-list-entry">
                 <a href="https://twitter.com/kohlhofer" class="social-list-entry-link icon-twitter"></a>
-              </li>
-              <li class="social-list-entry">
-                <a href="https://plus.google.com/110037714935104342963/posts" class="social-list-entry-link icon-gplus"></a>
-              </li>
-              <li class="social-list-entry">
-                <a href="http://dribbble.com/kohlhofer" class="social-list-entry-link icon-dribbble"></a>
               </li>
               <li class="social-list-entry">
                 <a href="http://www.linkedin.com/in/kohlhofer" class="social-list-entry-link icon-linkedin"></a>
               </li>
               <li class="social-list-entry">
-                <a href="https://www.facebook.com/a.kohlhofer" class="social-list-entry-link icon-facebook"></a>
-              </li>
-              <li class="social-list-entry">
-                <a href="http://random.kohlhofer.com/" class="social-list-entry-link icon-tumblr"></a>
+                <a href="http://dribbble.com/kohlhofer" class="social-list-entry-link icon-dribbble"></a>
               </li>
             </ul>
+          </div>
+          <div class="col-sm-6">
             <a class="social-email" href="mailto:{{email}}">{{email}}</a>
             <div class="social-phone">{{phone}}</div>
           </div>
@@ -81,19 +72,20 @@
 
 
 
+
     <div id="cv" class="cv-section" ng-init="direction = true">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-lg-10 col-lg-offset-1">
             <div class="cv-section-header">
-              <h2 class="cv-page-title">Curriculum Vitae</h2>
+              <h3 class="cv-page-title">Curriculum Vitae
               <a class="cv-reverse-link" ng-click="direction = !direction">
                 Now
                 <span ng-show="direction" class="icon-arrow-right"></span>
                 <span ng-hide="direction" class="icon-arrow-left"></span>
                 {{life[life.length-1].year}}
               </a>
-            </div>
+            </h3></div>
 
             <div ng-repeat="year in life | orderBy:'year':direction" class="row cv-page-year">
               <div class="col-xs-3 col-sm-2 cv-page-year-label">{{year.year}}</div>
@@ -115,6 +107,30 @@
 
 
 
+   <!-- home page ends -->
+
+
+
+  <div id="projectDetail" ng-show="showProjectDetail" class="project-detail"> <!-- project detail page starts -->
+
+    <div class="project-page-header" style="background-color:{{selectedProject.color}}">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10 col-sm-11">
+            <div class="project-page-header-label" style="background-color:{{selectedProject.color}}">
+              <div class="project-page-header-title">{{selectedProject.title}}</div>
+              <div class="project-page-header-sub-title">by <a href="#/">Alexander Kohlhofer</a></div>
+            </div>
+          </div>
+          <div class="col-xs-2 col-sm-1">
+            <a href="#/" class="pull-right icon-cross close-project-page-link"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-include="selectedProject.view" class="poject-detail-include"></div>
+    <div ng-include="'views/footer.html'"></div>
+  </div>
 
 
 
@@ -134,9 +150,12 @@
     ga('send', 'pageview');
   </script>
 
-  <script src="scripts/74e2cf94.plugins.js"></script>
+  <script src="scripts/128c6ed7.plugins.js"></script>
 
   <!--
+  <script src="bower_components/bootstrap-sass/js/carousel.js"></script>
+  <script src="bower_components/bootstrap-sass/js/transition.js"></script>
+  <script src="bower_components/bootstrap-sass/js/collapse.js"></script>
   <script src="bower_components/bootstrap-sass/js/alert.js"></script>
   <script src="bower_components/bootstrap-sass/js/tooltip.js"></script>
   <script src="bower_components/bootstrap-sass/js/modal.js"></script>
@@ -145,14 +164,16 @@
   <script src="bower_components/bootstrap-sass/js/scrollspy.js"></script>
   <script src="bower_components/bootstrap-sass/js/collapse.js"></script>
   <script src="bower_components/bootstrap-sass/js/tab.js"></script>
-
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-smoothscroll/dist/scripts/481c90be.scripts.js"></script>
   -->
 
-  <script src="scripts/e3e9784b.modules.js"></script>
+  <script src="scripts/e6c1952d.modules.js"></script>
 
-  <script src="scripts/fc3dfddd.app.js"></script>
+  <script src="scripts/2116a383.app.js"></script>
 
-  <script src="scripts/3ceb0e5f.controllers.js"></script>
+  <script src="scripts/de9714bf.controllers.js"></script>
 
 </body>
 </html>
