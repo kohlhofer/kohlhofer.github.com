@@ -11,10 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="styles/6d3d6f00.main.css">
-
-    <link href="http://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+	
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -28,152 +30,11 @@
     </script>
 
   </head>
-  <body ng-app="kohlhoferApp" ng-controller="HomeCtrl">
-  <!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-
-  <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-  <![endif]-->
-
-  <!-- Add your site or application content here -->
-
-
-
-    <div id="connect" class="connect-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="connect-section-title">Alexander Kohlhofer</h1>
-          </div>
-          <div class="col-sm-6">
-            <ul class="list-unstyled social-list">
-              <li class="social-list-entry">
-                <a href="https://twitter.com/kohlhofer" class="social-list-entry-link icon-twitter"></a>
-              </li>
-              <li class="social-list-entry">
-                <a href="http://www.linkedin.com/in/kohlhofer" class="social-list-entry-link icon-linkedin"></a>
-              </li>
-              <li class="social-list-entry">
-                <a href="http://dribbble.com/kohlhofer" class="social-list-entry-link icon-dribbble"></a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-6">
-            <a class="social-email" href="mailto:{{email}}">{{email}}</a>
-            <div class="social-phone">{{phone}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-    <div id="cv" class="cv-section" ng-init="direction = true">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-lg-10 col-lg-offset-1">
-            <div class="cv-section-header">
-              <h2 class="cv-page-title">Curriculum Vitae</h2>
-              <a class="cv-reverse-link" ng-click="direction = !direction">
-                Now
-                <span ng-show="direction" class="icon-arrow-right"></span>
-                <span ng-hide="direction" class="icon-arrow-left"></span>
-                {{life[life.length-1].year}}
-              </a>
-            </div>
-
-            <div ng-repeat="year in life | orderBy:'year':direction" class="row cv-page-year">
-              <div class="col-xs-3 col-sm-2 cv-page-year-label">{{year.year}}</div>
-              <div class="col-xs-8 col-sm-9">
-                <div class="row">
-                  <div class="col-sm-6" ng-repeat="event in year.events">
-                    <div class="cv-entry-event" ng-bind-html="event"></div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div ng-include="'views/footer.html'"></div>
-
-
-
-   <!-- home page ends -->
-
-
-
-  <div id="projectDetail" ng-show="showProjectDetail" class="project-detail"> <!-- project detail page starts -->
-
-    <div class="project-page-header" style="background-color:{{selectedProject.color}}">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-10 col-sm-11">
-            <div class="project-page-header-label" style="background-color:{{selectedProject.color}}">
-              <div class="project-page-header-title">{{selectedProject.title}}</div>
-              <div class="project-page-header-sub-title">by <a href="#/">Alexander Kohlhofer</a></div>
-            </div>
-          </div>
-          <div class="col-xs-2 col-sm-1">
-            <a href="#/" class="pull-right icon-cross close-project-page-link"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div ng-include="selectedProject.view" class="poject-detail-include"></div>
-    <div ng-include="'views/footer.html'"></div>
-  </div>
-
-
-
-
-
-
-
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-  </script>
-
-  <script src="scripts/128c6ed7.plugins.js"></script>
-
-  <!--
-  <script src="bower_components/bootstrap-sass/js/carousel.js"></script>
-  <script src="bower_components/bootstrap-sass/js/transition.js"></script>
-  <script src="bower_components/bootstrap-sass/js/collapse.js"></script>
-  <script src="bower_components/bootstrap-sass/js/alert.js"></script>
-  <script src="bower_components/bootstrap-sass/js/tooltip.js"></script>
-  <script src="bower_components/bootstrap-sass/js/modal.js"></script>
-  <script src="bower_components/bootstrap-sass/js/button.js"></script>
-  <script src="bower_components/bootstrap-sass/js/popover.js"></script>
-  <script src="bower_components/bootstrap-sass/js/scrollspy.js"></script>
-  <script src="bower_components/bootstrap-sass/js/collapse.js"></script>
-  <script src="bower_components/bootstrap-sass/js/tab.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-smoothscroll/dist/scripts/481c90be.scripts.js"></script>
-  -->
-
-  <script src="scripts/e6c1952d.modules.js"></script>
-
-  <script src="scripts/2116a383.app.js"></script>
-
-  <script src="scripts/de9714bf.controllers.js"></script>
-
-</body>
+  <body>
+    <div id="about" class="bigText">This is the big main text which really is the only text to go on this entire page.</div>
+    <ul id="links">
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+    </ul>
+  </body>
 </html>
