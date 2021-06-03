@@ -1,1 +1,0 @@
-"use strict";angular.module("kohlhoferApp",["ngRoute","ngSanitize","ngTouch"]).config(["$routeProvider",function(a){a.when("/",{controller:"HomeCtrl"}).otherwise({redirectTo:"/"})}]);
