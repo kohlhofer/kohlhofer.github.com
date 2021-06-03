@@ -2,11 +2,8 @@ body {
   background-color: #3299ee;
   font-family: 'Rubik', sans-serif;
   animation-name: backgroundColorPalette;
-  animation-duration: 60s;
+  animation-duration: 120s;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
-  
-  
 }
 
 a {
@@ -27,17 +24,17 @@ a:hover {
   justify-content: center;
   height: 90vh;
   padding: 0px 55px;
+    text-shadow: -4px 0px 3px rgba(255,50,70,0.15), 0px 0px 2px rgba(255,255,240,0.95), 2px 2px 2px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2);
 }
 
 #about {
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 
 .bigText {
-  font-size: 65px;
+  font-size: 50px;
   color: transparent;
-  text-shadow: -4px 0px 3px rgba(255,50,70,0.15), 0px 0px 2px rgba(255,255,240,0.95), 4px 2px 1px rgba(60,120,155,0.7), -4px 0px 3px rgba(255,50,70,0.2);
   line-height:1.2em;
   font-weight:bold;
   padding-bottom: 10px;
@@ -46,31 +43,71 @@ a:hover {
 .smallText {
   font-size: 25px;
   color: transparent;
-  text-shadow: -3px 0px 2px rgba(255,50,70,0.15), 0px 0px 2px rgba(255,255,240,0.95), 3px 2px 1px rgba(60,120,155,0.7), -4px 0px 3px rgba(255,50,70,0.2);
+
   line-height:1.5em;
   margin-top: 30px;
 }
-  
-  
-  
-@media screen and (max-width: 800px) and (orientation: landscape){
-    
-  #content {
-    padding: 0px 30px;
-  }
+
+
+@media screen and (max-width: 740px) and (orientation: landscape) {
   .bigText {
-    font-size: 45px;
+    font-size: 40px;;
+  }
+  .smallText {
+
+  }
+  #content {
+    text-shadow: -4px 0px 2px rgba(255,50,70,0.15), 0px 0px 1px rgba(255,255,240,0.95), 1px 1px 1px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2)
+  }
+}
+
+@media screen and (max-width: 600px) and (orientation: landscape) {
+  .bigText {
+    font-size: 30px;
+
   }
   .smallText {
     font-size: 20px;
   }
 }
 
-@media screen and (max-width: 430px) and (orientation: portrait) {
-    
+@media screen and (max-height: 400px) {
   #content {
-    padding: 0px 20px;
+    padding: 20px;
+    display: block;
+    text-shadow: -4px 0px 2px rgba(255,50,70,0.15), 0px 0px 1px rgba(255,255,240,0.95), 1px 1px 1px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2)
   }
+}
+
+@media screen and (max-width: 500px) and (orientation: portrait) {
+  .bigText {
+    font-size: 35px;
+  }
+  .smallText {
+    font-size: 20px;
+  }
+  #content {
+    padding: 20px;
+    display: block;
+    text-shadow: -4px 0px 2px rgba(255,50,70,0.15), 0px 0px 1px rgba(255,255,240,0.95), 1px 1px 1px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2)
+}
+}
+
+/*
+@media screen and (max-width: 700px) and (orientation: landscape) {
+    
+
+  .bigText {
+    font-size: 28px;
+  }
+  .smallText {
+    font-size: 20px;
+  }
+}
+
+
+
+@media screen and (max-width: 430px) and (orientation: portrait) {
   .bigText {
     font-size: 40px;
     text-shadow: -2px 0px 2px rgba(255,50,70,0.15), 0px 0px 2px rgba(255,255,240,0.95), 2px 2px 1px rgba(60,120,155,0.7), -2px 0px 2px rgba(255,50,70,0.2);
@@ -81,10 +118,7 @@ a:hover {
 }
 
 @media screen and (max-width: 350px) and (orientation: portrait) {
-    
-  #content {
-    padding: 0px 20px;
-  }
+  
   .bigText {
     font-size: 30px;
     text-shadow: -2px 0px 2px rgba(255,50,70,0.15), 0px 0px 2px rgba(255,255,240,0.95), 2px 2px 1px rgba(60,120,155,0.7), -2px 0px 2px rgba(255,50,70,0.2);
@@ -93,20 +127,8 @@ a:hover {
     font-size: 20px;
   }
 }
+*/
 
-@media screen and (max-width: 700px) and (orientation: landscape) {
-    
-  #content {
-    padding: 0px 20px;
-  }
-  .bigText {
-    font-size: 28px;
-    text-shadow: -2px 0px 2px rgba(255,50,70,0.15), 0px 0px 2px rgba(255,255,240,0.95), 2px 2px 1px rgba(60,120,155,0.7), -2px 0px 2px rgba(255,50,70,0.2);
-  }
-  .smallText {
-    font-size: 20px;
-  }
-}
 
 
 
@@ -114,9 +136,15 @@ a:hover {
 /* Standard syntax */
 @keyframes backgroundColorPalette {
   0% {
-    background: #3299ee;
+    background: #219ebc;
   }
-  100% {
-    background: #588157;
+  25% {
+    background: #ef476f;
+  }
+  50% {
+    background: #fb8500;
+  }
+  75% {
+    background: #90be6d;
   }
 }
