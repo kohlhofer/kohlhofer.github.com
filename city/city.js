@@ -56,6 +56,14 @@ function windowResized() {
   createCity();
 }
 
+function touchEnded() { // Paint over the background. background(200);
+    createCity();
+}
+
+function mouseClicked() { // Code to run. 
+    createCity();
+}
+
 function keyReleased() { 
   if (key === 'r') {
     createCity();
