@@ -1,0 +1,18 @@
+{
+  "name": "city",
+  "version": "1.0.0",
+  "description": "a city scape creator",
+  "main": "index.html",
+  "author": "Alexander Kohlhofer",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "p5": "^1.11.2"
+  },
+  "scripts": {
+    "start": "http-server -c-1 -p 8081",
+    "JS": "browserify main.js -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
+
