@@ -47,7 +47,7 @@ float snoise(vec2 v) {
 float fbm(vec2 p, int octaves) {
     float value = 0.0;
     float amplitude = 0.5;
-    float frequency = 1.0;
+    float frequency = 0.5;
     
     for (int i = 0; i < 8; i++) {
         if (i >= octaves) break;
@@ -99,19 +99,18 @@ void main() {
     float aspect = u_resolution.x / u_resolution.y;
     uv.x *= aspect;
     
-    // Mouse influence - creates a subtle warping effect
-    vec2 mousePos = u_mouse;
-    mousePos.x *= aspect;
-    float mouseDistance = length(uv - mousePos);
+    // Fixed ripple center position at 3/4 width, 1/4 height
+    vec2 rippleCenter = vec2(0.75 * aspect, 0.25);
+    float rippleDistance = length(uv - rippleCenter);
     
     // Create rippled lens distortion effect with expanding circles
     vec2 distortedUV = uv;
-    vec2 mouseDirection = (uv - mousePos);
+    vec2 rippleDirection = (uv - rippleCenter);
     // Create expanding oscillating pattern
-    float expandingRipples = sin(mouseDistance * 40.0 - u_time * 0.5) * 0.3 + 0.5;
-    float falloff = smoothstep(0.7, 0.5, mouseDistance);
+    float expandingRipples = sin(rippleDistance * 40.0 - u_time * 0.5) * 0.3 + 0.5;
+    float falloff = smoothstep(0.7, 0.5, rippleDistance);
     float distortionStrength = expandingRipples * falloff * 0.4;
-    distortedUV += mouseDirection * distortionStrength;
+    distortedUV += rippleDirection * distortionStrength;
     
     // Create multiple layers of soft, moving shapes
     float time = u_time * 0.1;
@@ -145,7 +144,7 @@ void main() {
     color = mix(baseColor, color, 0.85);
     
     // Add a more diffused glow based on mouse position
-    float glow = smoothstep(1.0, 0.0, mouseDistance) * 0.08;
+    float glow = smoothstep(1.0, 0.0, rippleDistance) * 0.08;
     color += vec3(1.0, 1.0, 0.98) * glow;
     
     // Ensure minimum brightness while preserving color
