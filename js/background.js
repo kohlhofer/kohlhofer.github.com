@@ -15,7 +15,14 @@ class ShaderBackground {
             return;
         }
 
+        // Generate random seed
+        this.generateNewSeed();
+        
         this.init();
+    }
+
+    generateNewSeed() {
+        this.seed = Math.random();
     }
 
     async init() {
@@ -44,6 +51,10 @@ class ShaderBackground {
         this.timeLocation = this.gl.getUniformLocation(this.program, 'u_time');
         this.mouseLocation = this.gl.getUniformLocation(this.program, 'u_mouse');
         this.resolutionLocation = this.gl.getUniformLocation(this.program, 'u_resolution');
+        this.seedLocation = this.gl.getUniformLocation(this.program, 'u_seed');
+
+        // Set up event listeners
+        this.setupEventListeners();
 
         // Create buffers
         this.positionBuffer = this.gl.createBuffer();
@@ -70,15 +81,28 @@ class ShaderBackground {
         this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.uvBuffer);
         this.gl.bufferData(this.gl.ARRAY_BUFFER, uvs, this.gl.STATIC_DRAW);
 
+        // Start animation
+        this.startTime = performance.now();
+        this.render();
+    }
+
+    setupEventListeners() {
         // Set up mouse tracking
         this.mouse = { x: 0.5, y: 0.5 };
         window.addEventListener('mousemove', this.handleMouseMove.bind(this));
         window.addEventListener('resize', this.handleResize.bind(this));
+        
+        // Set up refresh button
+        const refreshButton = document.getElementById('refresh-background');
+        if (refreshButton) {
+            refreshButton.addEventListener('click', () => {
+                this.generateNewSeed();
+                // Reset animation time to make transition smoother
+                this.startTime = performance.now();
+            });
+        }
+        
         this.handleResize();
-
-        // Start animation
-        this.startTime = performance.now();
-        this.render();
     }
 
     async loadShader(url, type) {
@@ -123,6 +147,7 @@ class ShaderBackground {
         // Update uniforms
         const time = (performance.now() - this.startTime) * 0.001;
         this.gl.uniform1f(this.timeLocation, time);
+        this.gl.uniform1f(this.seedLocation, this.seed);
         this.gl.uniform2f(this.mouseLocation, this.mouse.x, this.mouse.y);
         this.gl.uniform2f(this.resolutionLocation, this.canvas.width, this.canvas.height);
 

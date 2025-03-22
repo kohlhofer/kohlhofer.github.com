@@ -1,18 +1,22 @@
 precision mediump float;
 
 uniform float u_time;
+uniform float u_seed;
 uniform vec2 u_mouse;
 uniform vec2 u_resolution;
 varying vec2 v_uv;
 
 #define PI 3.14159265359
 
-// Simplex noise function
+// Simplex noise function with seed
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
 
 float snoise(vec2 v) {
+    // Add seed to input coordinates
+    v += vec2(u_seed * 123.456, u_seed * 789.012);
+    
     const vec4 C = vec4(0.211324865405187, 0.366025403784439,
                         -0.577350269189626, 0.024390243902439);
     vec2 i  = floor(v + dot(v, C.yy));
@@ -55,14 +59,38 @@ float fbm(vec2 p, int octaves) {
     return value;
 }
 
-// Soap bubble iridescent colors
+// Pastel color palette
 vec3 soapBubbleColor(float t) {
-    vec3 a = vec3(0.1, 0.5, 0.5);
-    vec3 b = vec3(0.5, 0.5, 0.5);
-    vec3 c = vec3(1.0, 0.8, 1.0);
-    vec3 d = vec3(0.8, 0.5, 0.0);
+    // Define our pastel colors with slightly adjusted yellow
+    vec3 pink = vec3(1.0, 0.41, 0.71);     // FF69B4
+    vec3 peach = vec3(1.0, 0.71, 0.71);    // FFB6B6
+    vec3 lightBlue = vec3(0.53, 0.81, 0.92); // 87CEEB
+    vec3 lightYellow = vec3(0.98, 0.98, 0.70);  // Softer yellow
+    vec3 mintGreen = vec3(0.60, 1.0, 0.60);   // 98FF98
     
-    return a + b * cos(2.0 * PI * (c * t + d));
+    // Smoother transition using sine wave
+    float index = t * 3.0; // Slower color transitions
+    
+    // Choose colors based on index with overlap
+    vec3 color = vec3(0.0);
+    float totalInfluence = 0.0;
+    
+    // Add influence from each color with overlap
+    for(int i = 0; i < 5; i++) {
+        float dist = abs(float(i) - mod(t * 3.0, 5.0));
+        dist = min(dist, 5.0 - dist); // Consider wrapping
+        float influence = smoothstep(1.5, 0.0, dist);
+        totalInfluence += influence;
+        
+        if(i == 0) color += pink * influence;
+        else if(i == 1) color += peach * influence;
+        else if(i == 2) color += lightBlue * influence;
+        else if(i == 3) color += lightYellow * influence;
+        else color += mintGreen * influence;
+    }
+    
+    // Normalize the color
+    return color / (totalInfluence + 0.0001);
 }
 
 void main() {
@@ -102,29 +130,27 @@ void main() {
     // Soften the noise and keep it in a higher range for a warm glow
     combinedNoise = smoothstep(0.3, 0.7, combinedNoise);
     
-    // Create color variation based on position and time
-    float colorVar = fbm(uv * 0.3 + time * 0.05, 2);
+    // Create color variation based on position and time with smoother noise
+    float colorVar = fbm(uv * 0.2 + time * 0.03, 3);
     
-    // Apply soap bubble iridescent colors
-    vec3 color = soapBubbleColor(combinedNoise * 0.8 + colorVar * 0.2 + time * 0.1);
+    // Apply pastel colors with smoother transition
+    vec3 color = soapBubbleColor(combinedNoise * 0.6 + colorVar * 0.3 + time * 0.03);
     
-    // Ensure warm colors by boosting red and green channels
-    color.r = mix(color.r, color.r * 1.2, 0.5);
-    color.g = mix(color.g, color.g * 1.1, 0.3);
+    // Lighter base for mixing but not too white
+    vec3 baseColor = vec3(0.85, 0.85, 0.85);
+    color = mix(baseColor, color, 0.85);
     
-    // Ensure high brightness and low contrast
-    color = mix(vec3(0.7, 0.6, 0.5), color, 0.6);
+    // Add a more diffused glow based on mouse position
+    float glow = smoothstep(1.0, 0.0, mouseDistance) * 0.08;
+    color += vec3(1.0, 1.0, 0.98) * glow;
     
-    // Add a subtle glow based on mouse position
-    float glow = smoothstep(0.8, 0.0, mouseDistance) * 0.2;
-    color += vec3(1.0, 0.9, 0.7) * glow;
+    // Ensure minimum brightness while preserving color
+    vec3 minColor = vec3(0.5, 0.5, 0.5);
+    color = max(color, minColor);
     
-    // Ensure no dark areas
-    color = max(color, vec3(0.5, 0.4, 0.3));
-    
-    // Apply a soft vignette for a dreamy effect
-    float vignette = smoothstep(1.5, 0.5, length(v_uv - 0.5) * 2.0);
-    color *= mix(0.9, 1.0, vignette);
+    // Apply a softer vignette for pastel effect
+    float vignette = smoothstep(1.4, 0.4, length(v_uv - 0.5) * 2.0);
+    color *= mix(0.98, 1.0, vignette);
     
     gl_FragColor = vec4(color, 1.0);
 } 

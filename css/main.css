@@ -1,9 +1,6 @@
 body {
   background-color: #3299ee;
   font-family: 'Rubik', sans-serif;
-  animation-name: backgroundColorPalette;
-  animation-duration: 120s;
-  animation-iteration-count: infinite;
 }
 
 a {
@@ -133,18 +130,3 @@ a:hover {
 
 
 
-/* Standard syntax */
-@keyframes backgroundColorPalette {
-  0% {
-    background: #219ebc;
-  }
-  25% {
-    background: #ef476f;
-  }
-  50% {
-    background: #fb8500;
-  }
-  75% {
-    background: #90be6d;
-  }
-}
