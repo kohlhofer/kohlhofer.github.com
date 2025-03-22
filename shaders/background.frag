@@ -103,28 +103,32 @@ void main() {
     vec2 mousePos = u_mouse;
     mousePos.x *= aspect;
     float mouseDistance = length(uv - mousePos);
-    float mouseFactor = smoothstep(0.5, 0.0, mouseDistance) * 0.3;
+    
+    // Create rippled lens distortion effect with expanding circles
+    vec2 distortedUV = uv;
+    vec2 mouseDirection = (uv - mousePos);
+    // Create expanding oscillating pattern
+    float expandingRipples = sin(mouseDistance * 40.0 - u_time * 0.5) * 0.3 + 0.5;
+    float falloff = smoothstep(0.7, 0.5, mouseDistance);
+    float distortionStrength = expandingRipples * falloff * 0.4;
+    distortedUV += mouseDirection * distortionStrength;
     
     // Create multiple layers of soft, moving shapes
     float time = u_time * 0.1;
     
     // Layer 1 - slow moving base
-    vec2 p1 = uv * 0.3 + vec2(time * 0.2, time * 0.02);
+    vec2 p1 = distortedUV * +0.3 + vec2(time * 0.2, time * 0.02);
     float noise1 = fbm(p1, 4);
     
     // Layer 2 - medium speed middle layer
-    vec2 p2 = uv * 0.4 + vec2(time * -0.2, time * 0.04);
+    vec2 p2 = distortedUV * 0.4 + vec2(time * -0.2, time * 0.04);
     float noise2 = fbm(p2, 5);
     
     // Layer 3 - faster top layer
-    vec2 p3 = uv * 0.5 + vec2(time * 0.2, time * -0.001);
+    vec2 p3 = distortedUV * -0.8 + vec2(time * 0.2, time * -0.001);
     float noise3 = fbm(p3, 3);
     
-    // Mouse influence on the noise
-    p1 += mouseFactor * sin(uv * 5.0 + time);
-    noise1 = mix(noise1, fbm(p1, 4), mouseFactor);
-    
-    // Combine the layers with different weights
+    // Remove old mouse influence on noise and replace with new approach
     float combinedNoise = noise1 * 0.1 + noise2 * 0.3 + noise3 * 0.7;
     
     // Soften the noise and keep it in a higher range for a warm glow
