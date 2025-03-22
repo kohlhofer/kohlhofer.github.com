@@ -34,6 +34,15 @@
 
   </script>
 
+  <style>
+    body {
+      background: transparent;
+    }
+    #content {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
   <div id="content">
@@ -62,5 +71,12 @@
       </div>
     </div>
   </div>
+
+  <script src="js/background.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new ShaderBackground();
+    });
+  </script>
 </body>
 </html>
