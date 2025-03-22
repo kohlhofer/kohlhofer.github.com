@@ -1,5 +1,5 @@
 body {
-  background-color: #3299ee;
+  background-color: #000000;
   font-family: 'Rubik', sans-serif;
 }
 
@@ -21,12 +21,36 @@ a:hover {
   justify-content: center;
   height: 90vh;
   padding: 0px 55px;
-    text-shadow: -4px 0px 3px rgba(255,50,70,0.15), 0px 0px 2px rgba(255,255,240,0.95), 2px 2px 2px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2);
+    text-shadow: 0px 0px 1px rgba(254, 255, 250, 0.8), 0px 0px 3px rgba(254, 255, 250, 0.4), 2px 2px 4px rgba(60,120,155,0.3), -2px -1px 3px rgba(255, 50, 166, 0.2), 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 #about {
   max-width: 1200px;
 }
+
+#refresh-background {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+    #refresh-background:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: rotate(180deg);
+    }
 
 
 .bigText {
@@ -53,9 +77,7 @@ a:hover {
   .smallText {
 
   }
-  #content {
-    text-shadow: -4px 0px 2px rgba(255,50,70,0.15), 0px 0px 1px rgba(255,255,240,0.95), 1px 1px 1px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2)
-  }
+  
 }
 
 @media screen and (max-width: 600px) and (orientation: landscape) {
@@ -72,7 +94,6 @@ a:hover {
   #content {
     padding: 20px;
     display: block;
-    text-shadow: -4px 0px 2px rgba(255,50,70,0.15), 0px 0px 1px rgba(255,255,240,0.95), 1px 1px 1px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2)
   }
 }
 
@@ -86,7 +107,6 @@ a:hover {
   #content {
     padding: 20px;
     display: block;
-    text-shadow: -4px 0px 2px rgba(255,50,70,0.15), 0px 0px 1px rgba(255,255,240,0.95), 1px 1px 1px rgba(60,120,155,0.4), -4px 0px 3px rgba(255,50,70,0.2)
 }
 }
 

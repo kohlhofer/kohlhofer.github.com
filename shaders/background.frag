@@ -82,8 +82,8 @@ vec3 soapBubbleColor(float t) {
         float influence = smoothstep(1.5, 0.0, dist);
         totalInfluence += influence;
         
-        if(i == 0) color += pink * influence;
-        else if(i == 1) color += peach * influence;
+        if(i == 0) color += peach * influence;
+        else if(i == 1) color += pink * influence;
         else if(i == 2) color += lightBlue * influence;
         else if(i == 3) color += lightYellow * influence;
         else color += mintGreen * influence;
@@ -109,15 +109,15 @@ void main() {
     float time = u_time * 0.1;
     
     // Layer 1 - slow moving base
-    vec2 p1 = uv * 0.3 + vec2(time * 0.1, time * 0.08);
+    vec2 p1 = uv * 0.3 + vec2(time * 0.2, time * 0.02);
     float noise1 = fbm(p1, 4);
     
     // Layer 2 - medium speed middle layer
-    vec2 p2 = uv * 0.4 + vec2(time * -0.15, time * 0.12);
+    vec2 p2 = uv * 0.4 + vec2(time * -0.2, time * 0.04);
     float noise2 = fbm(p2, 5);
     
     // Layer 3 - faster top layer
-    vec2 p3 = uv * 0.7 + vec2(time * 0.2, time * -0.18);
+    vec2 p3 = uv * 0.5 + vec2(time * 0.2, time * -0.001);
     float noise3 = fbm(p3, 3);
     
     // Mouse influence on the noise
@@ -125,16 +125,16 @@ void main() {
     noise1 = mix(noise1, fbm(p1, 4), mouseFactor);
     
     // Combine the layers with different weights
-    float combinedNoise = noise1 * 0.5 + noise2 * 0.3 + noise3 * 0.2;
+    float combinedNoise = noise1 * 0.1 + noise2 * 0.3 + noise3 * 0.7;
     
     // Soften the noise and keep it in a higher range for a warm glow
     combinedNoise = smoothstep(0.3, 0.7, combinedNoise);
     
     // Create color variation based on position and time with smoother noise
-    float colorVar = fbm(uv * 0.2 + time * 0.03, 3);
+    float colorVar = fbm(uv * 0.2, 3);
     
     // Apply pastel colors with smoother transition
-    vec3 color = soapBubbleColor(combinedNoise * 0.6 + colorVar * 0.3 + time * 0.03);
+    vec3 color = soapBubbleColor(combinedNoise * 0.6 + colorVar * 0.3);
     
     // Lighter base for mixing but not too white
     vec3 baseColor = vec3(0.85, 0.85, 0.85);
