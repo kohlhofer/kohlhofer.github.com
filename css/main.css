@@ -1,44 +1,127 @@
+/* Common styles */
 body {
-  background-color: #000000;
+  background-color: #ffffff;
   font-family: 'Rubik', sans-serif;
 }
 
 a {
-  color: transparent;
+  color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
-  padding:3px 10px;
+  padding: 3px 10px;
   border-radius: 5px;
   white-space: nowrap;
 }
 
 a:hover {
-  background-color: rgba(255,255,240,0.1);
+ -- background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Index page styles */
 #content {
     padding: 50px 100px 50px 50px;
     text-shadow: 0px 0px 1px rgba(254, 255, 250, 0.95), 0px -2px 3px rgba(60,120,155,0.4), 0px 2px 2px rgba(255, 50, 166, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
-#refresh-background {
-  background: rgba(255, 255, 255, 0.2);
+/* Music page styles */
+#music {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: transparent;
+}
+
+#background-image {
+  position: fixed;
+  top: -5%;
+  left: -5%;
+  right: -5%;
+  bottom: -5%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(30px) contrast(80%) saturate(120%) brightness(1.1);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  z-index: -2;
+  transform: scale(1.1);
+}
+
+#gradient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 70%,
+    rgb(223, 239, 248, 0.9) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+#player-container {
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  margin: -50px 0 0 0;
+  display: block;
+}
+
+#player {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-height: 450px;
+}
+
+.player-controls {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  justify-content: center;
+  width: auto;
+  min-width: 300px;
+}
+
+.control-button {
+  background: rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(5px);
-  transition: all 0.4s ease-out;
+  transition: all 0.3s ease-out;
 }
 
-#refresh-background:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: rotate(270deg);
+.control-button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.control-button.active {
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Navigation styles */
@@ -75,6 +158,10 @@ a:hover {
 
 .nav-item i {
   margin-right: 8px;
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* Design list styles */
@@ -126,6 +213,95 @@ a:hover {
   animation: spinIn var(--animation-duration, 0.3s) forwards;
 }
 
+/* Breadcrumb styles */
+.breadcrumb {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.breadcrumb a {
+  color: rgba(0, 0, 0, 0.5);
+  padding:0;
+  transition: all 0.3s ease-out;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  margin: 0 8px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* Toggle switch styles */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-switch i {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
+}
+
 /* Animations */
 @keyframes spinIn {
   from {
@@ -151,6 +327,129 @@ a:hover {
   }
 }
 
+/* Media Queries */
+@media screen and (max-width: 900px) {
+  #content, #music {
+    padding: 20px;
+  }
+  
+  #player-container {
+    width: 95%;
+    margin-top: 0;
+  }
+  
+  #player {
+    min-height: 350px;
+  }
+  
+  .player-controls {
+    bottom: 20px;
+    width: 90%;
+    min-width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .player-controls {
+    flex-wrap: wrap;
+    bottom: 10px;
+    padding: 10px;
+  }
+
+  #player {
+    min-height: 250px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  #player-container {
+    margin-top: -40px;
+  }
+  
+  #player {
+    min-height: 200px;
+  }
+  
+  .player-controls {
+    bottom: 10px;
+    padding: 8px;
+  }
+  
+  .control-button {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  #player-container {
+    margin-top: -20px;
+  }
+  
+  #player {
+    min-height: 180px;
+  }
+  
+  .breadcrumb {
+    margin-bottom: 8px;
+    padding: 4px 12px;
+  }
+}
+
+@media screen and (max-height: 350px) {
+  #player-container {
+    margin-top: 0;
+  }
+  
+  #player {
+    min-height: 150px;
+  }
+  
+  .player-controls {
+    padding: 4px;
+  }
+  
+  .control-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+/* Hide YouTube overlays */
+.ytp-pause-overlay,
+.ytp-scroll-min,
+.ytp-chrome-top,
+.ytp-chrome-bottom,
+.ytp-gradient-top,
+.ytp-gradient-bottom,
+.ytp-ce-element {
+  display: none !important;
+}
+
+/* Refresh background styles */
+#refresh-background {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease-out;
+}
+
+#refresh-background:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotate(270deg);
+}
+
+/* Big text styles */
 .bigText {
   position: absolute;
   bottom: 50px;
