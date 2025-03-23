@@ -39,6 +39,33 @@
   
     }
     
+    #design-list {
+      display: none;
+    }
+
+    #design-list li {
+      display: inline;
+    }
+
+    #design-list li:not(:last-child)::after {
+      content: "";
+    }
+    
+    #design-list li i {
+      margin-right: 0.3em;
+    }
+
+    #design-target {
+      text-wrap: nowrap;
+      margin: 0.5em 0 0 -0.2em;
+      font-weight: normal;
+    }
+
+    #design-target i {
+      width: 1.5em;
+display: inline-block;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -49,26 +76,59 @@
     </button>
     <div id="about">
       <div class="bigText">
+      
         
-        <!-- <i class="fas fa-crow"></i> <i class="fas fa-air-freshener"></i> <i class="fas fa-vest-patches"></i>
-        
-        <!-- <i class="fas fa-frog"></i> <i class="fas fa-crow"></i> <i class="fas fa-air-freshener"></i> <i class="fas fa-fist-raised"></i> <i class="fas fa-icons"></i> <i class="fas fa-vest-patches"></i> <i class="fas fa-user-astronaut"></i> <i class="fas fa-teeth-open"></i> <i class="fas fa-soap"></i> <i class="fas fa-fill-drip"></i> -->
-      </div>
-      <div class="bigText">
-      
-        I am a designer at heart and by trade. Luckily Design applies to everything. Alex.
+        I consider myself a lifelong student of all things Design: 
+        <div id="design-target"><i class="fas fa-box"></i> Products</div>
 
-      </div>
-      <div class="smallText">
-      
-        <a href="https://www.instagram.com/kohlhofer/"/><i class="fab fa-instagram"></i> Instagram</a>
-      
-        <a href="https://www.youtube.com/channel/UC8MQAg5u5t1KpxdutBW40Yg"/><i class="fab fa-youtube"></i> youTube</a>
-      
-        <a href="https://www.linkedin.com/in/kohlhofer/"/><i class="fab fa-linkedin"></i> LinkedIn</a>
-      
+        <ul id="design-list">
+          <li><i class="fas fa-desktop"></i> Interfaces</li>
+          <li><i class="fas fa-code"></i> Software</li>
+          <li><i class="fas fa-camera"></i> Photography</li>
+          <li><i class="fas fa-sitemap"></i> Organizations</li>
+          <li><i class="fas fa-briefcase"></i> Companies</li>
+          <li><i class="fas fa-comments"></i> Communication</li>
+          <li><i class="fas fa-gamepad"></i> Games</li>
+          <li><i class="fas fa-building"></i> Buildings</li>
+          <li><i class="fas fa-vector-square"></i> Spaces</li>
+          <li><i class="fas fa-users"></i> Society</li>
+          <li><i class="fas fa-home"></i> Homes</li>
+          <li><i class="fas fa-city"></i> Cities</li>
+          <li><i class="fas fa-road"></i> Infrastructure</li>
+          <li><i class="fas fa-network-wired"></i> Networks</li>
+          <li><i class="fas fa-globe"></i> Websites</li>
+          <li><i class="fas fa-palette"></i> Art</li>
+          <li><i class="fas fa-music"></i> Music</li>
+          <li><i class="fas fa-cogs"></i> Systems</li>
+          <li><i class="fas fa-concierge-bell"></i> Services</li>
+          <li><i class="fas fa-microchip"></i> Technology</li>
+          <li><i class="fas fa-wrench"></i> Engineering</li>
+          <li><i class="fas fa-atom"></i> Science</li>
+          <li><i class="fas fa-book"></i> Books</li>
+          <li><i class="fas fa-film"></i> Movies</li>
+          <li><i class="fas fa-landmark"></i> Museums</li>
+          <li><i class="fas fa-users"></i> Communities</li>
+          <li><i class="fas fa-university"></i> Institutions</li>
+          <li><i class="fas fa-newspaper"></i> Media</li>
+          <li><i class="fas fa-theater-masks"></i> Culture</li>
+          <li><i class="fas fa-chart-line"></i> Business</li>
+          <li><i class="fas fa-rocket"></i> Innovation</li>
+          <li><i class="fas fa-microscope"></i> Research</li>
+          <li><i class="fas fa-tools"></i> Development</li>
+          <li><i class="fas fa-chess"></i> Strategy</li>
+          <li><i class="fas fa-forward"></i> Progress</li>
+          <li><i class="fas fa-sync"></i> Change</li>
+          <li><i class="fas fa-seedling"></i> Growth</li>
+          <li><i class="fas fa-clock"></i> Future</li>
+          <li><i class="fas fa-brain"></i> Ideas</li>
+          <li><i class="fas fa-book-open"></i> Knowledge</li>
+          <li><i class="fas fa-paint-brush"></i> Creativity</li>
+          <li><i class="fas fa-star"></i> Imagination</li>
+          <li><i class="fas fa-comment-dots"></i> Expression</li>
+          <li><i class="fas fa-user-friends"></i> Humanity</li>
+          <li><i class="fas fa-infinity"></i> Everything</li>
+        </ul>
 
-      
       </div>
     </div>
   </div>
@@ -77,6 +137,40 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       new ShaderBackground();
+      
+      // Animation for design list
+      const targetElement = document.getElementById('design-target');
+      const listElement = document.getElementById('design-list');
+      const items = Array.from(listElement.getElementsByTagName('li'));
+      let currentIndex = 0;
+      let interval = 1000; // Start with 1 second
+      let baseInterval = interval;
+      let isAnimating = true;
+
+      function updateText() {
+        if (!isAnimating) return;
+        
+        targetElement.innerHTML = items[currentIndex].innerHTML;
+        currentIndex++;
+        
+        if (currentIndex >= items.length - 1) {
+          // Show final "Everything" and stop
+          targetElement.innerHTML = items[items.length - 1].innerHTML;
+          isAnimating = false;
+          return;
+        }
+        
+        // Calculate progress through the list (0 to 1)
+        const progress = currentIndex / (items.length - 1);
+        
+        // Steeper exponential speedup
+        interval = baseInterval * Math.pow(0.85, progress * 25);
+        
+        setTimeout(updateText, Math.max(5, interval));
+      }
+
+      // Start the animation
+      setTimeout(updateText, interval);
     });
   </script>
 </body>

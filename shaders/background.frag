@@ -1,28 +1,28 @@
 precision mediump float;
 
+// Input uniforms
 uniform float u_time;
 uniform float u_seed;
-uniform vec2 u_mouse;
 uniform vec2 u_resolution;
 varying vec2 v_uv;
 
 #define PI 3.14159265359
 
-// Simplex noise function with seed
+// Simplex noise helper functions
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
 
+// Seeded simplex noise implementation
 float snoise(vec2 v) {
-    // Add seed to input coordinates
+    // Add seed to input coordinates for variation between refreshes
     v += vec2(u_seed * 123.456, u_seed * 789.012);
     
     const vec4 C = vec4(0.211324865405187, 0.366025403784439,
                         -0.577350269189626, 0.024390243902439);
     vec2 i  = floor(v + dot(v, C.yy));
     vec2 x0 = v -   i + dot(i, C.xx);
-    vec2 i1;
-    i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
     vec4 x12 = x0.xyxy + C.xxzz;
     x12.xy -= i1;
     i = mod289(i);
@@ -43,15 +43,15 @@ float snoise(vec2 v) {
     return 130.0 * dot(m, g);
 }
 
-// FBM (Fractal Brownian Motion)
-float fbm(vec2 p, int octaves) {
+// Fractal Brownian Motion for smooth noise layers
+float fbm(vec2 position, int octaves) {
     float value = 0.0;
     float amplitude = 0.5;
     float frequency = 0.5;
     
     for (int i = 0; i < 8; i++) {
         if (i >= octaves) break;
-        value += amplitude * (snoise(p * frequency) * 0.5 + 0.5);
+        value += amplitude * (snoise(position * frequency) * 0.5 + 0.5);
         amplitude *= 0.5;
         frequency *= 2.0;
     }
@@ -59,29 +59,28 @@ float fbm(vec2 p, int octaves) {
     return value;
 }
 
-// Pastel color palette
+// Color palette for pastel gradient
 vec3 soapBubbleColor(float t) {
-    // Define our pastel colors with slightly adjusted yellow
+    // Pastel color definitions
     vec3 pink = vec3(1.0, 0.41, 0.71);     // FF69B4
     vec3 peach = vec3(1.0, 0.71, 0.71);    // FFB6B6
     vec3 lightBlue = vec3(0.53, 0.81, 0.92); // 87CEEB
     vec3 lightYellow = vec3(0.98, 0.98, 0.70);  // Softer yellow
     vec3 mintGreen = vec3(0.60, 1.0, 0.60);   // 98FF98
     
-    // Smoother transition using sine wave
-    float index = t * 3.0; // Slower color transitions
-    
-    // Choose colors based on index with overlap
+    // Color blending parameters
+    float blendSpeed = 3.0;
     vec3 color = vec3(0.0);
     float totalInfluence = 0.0;
     
-    // Add influence from each color with overlap
+    // Smooth color blending with overlap
     for(int i = 0; i < 5; i++) {
-        float dist = abs(float(i) - mod(t * 3.0, 5.0));
-        dist = min(dist, 5.0 - dist); // Consider wrapping
+        float dist = abs(float(i) - mod(t * blendSpeed, 5.0));
+        dist = min(dist, 5.0 - dist); // Wrap around for seamless transitions
         float influence = smoothstep(1.5, 0.0, dist);
         totalInfluence += influence;
         
+        // Add weighted color contributions
         if(i == 0) color += peach * influence;
         else if(i == 1) color += pink * influence;
         else if(i == 2) color += lightBlue * influence;
@@ -89,70 +88,71 @@ vec3 soapBubbleColor(float t) {
         else color += mintGreen * influence;
     }
     
-    // Normalize the color
     return color / (totalInfluence + 0.0001);
 }
 
 void main() {
-    // Adjust for aspect ratio
+    // Setup coordinate system
     vec2 uv = v_uv;
     float aspect = u_resolution.x / u_resolution.y;
     uv.x *= aspect;
     
-    // Fixed ripple center position at 3/4 width, 1/4 height
-    vec2 rippleCenter = vec2(0.75 * aspect, 0.25);
+    // Ripple effect configuration
+    vec2 rippleCenter = vec2(0.75 * aspect, 0.25); // Fixed position in top-right
     float rippleDistance = length(uv - rippleCenter);
     
-    // Create rippled lens distortion effect with expanding circles
-    vec2 distortedUV = uv;
-    vec2 rippleDirection = (uv - rippleCenter);
-    // Create expanding oscillating pattern
-    float expandingRipples = sin(rippleDistance * 40.0 - u_time * 0.5) * 0.3 + 0.5;
-    float falloff = smoothstep(0.7, 0.5, rippleDistance);
-    float distortionStrength = expandingRipples * falloff * 0.4;
-    distortedUV += rippleDirection * distortionStrength;
+    // Ripple distortion parameters
+    float rippleFrequency = 40.0;
+    float rippleSpeed = 0.5;
+    float rippleAmplitude = 0.3;
+    float distortionStrength = 0.6;
     
-    // Create multiple layers of soft, moving shapes
-    float time = u_time * 0.1;
+    // Calculate ripple distortion
+    vec2 distortionDirection = uv - rippleCenter;
+    float rippleWave = sin(rippleDistance * rippleFrequency - u_time * rippleSpeed) * rippleAmplitude + 0.5;
+    float rippleFalloff = smoothstep(0.7, 0.5, rippleDistance);
+    vec2 distortedUV = uv + distortionDirection * rippleWave * rippleFalloff * distortionStrength;
     
-    // Layer 1 - slow moving base
-    vec2 p1 = distortedUV * +0.3 + vec2(time * 0.2, time * 0.02);
-    float noise1 = fbm(p1, 4);
+    // Animated noise layers
+    float timeScale = 0.1;
+    float time = u_time * timeScale;
     
-    // Layer 2 - medium speed middle layer
-    vec2 p2 = distortedUV * 0.4 + vec2(time * -0.2, time * 0.04);
-    float noise2 = fbm(p2, 5);
+    // Layer 1: Slow base movement
+    vec2 layer1Pos = distortedUV * 0.3 + vec2(time * 0.2, time * 0.02);
+    float noise1 = fbm(layer1Pos, 4);
     
-    // Layer 3 - faster top layer
-    vec2 p3 = distortedUV * -0.8 + vec2(time * 0.2, time * -0.001);
-    float noise3 = fbm(p3, 3);
+    // Layer 2: Medium speed middle layer
+    vec2 layer2Pos = distortedUV * 0.4 + vec2(time * -0.2, time * 0.04);
+    float noise2 = fbm(layer2Pos, 5);
     
-    // Remove old mouse influence on noise and replace with new approach
+    // Layer 3: Fast top layer
+    vec2 layer3Pos = distortedUV * -0.8 + vec2(time * 0.2, time * -0.001);
+    float noise3 = fbm(layer3Pos, 3);
+    
+    // Combine noise layers with weights
     float combinedNoise = noise1 * 0.1 + noise2 * 0.3 + noise3 * 0.7;
-    
-    // Soften the noise and keep it in a higher range for a warm glow
     combinedNoise = smoothstep(0.3, 0.7, combinedNoise);
     
-    // Create color variation based on position and time with smoother noise
-    float colorVar = fbm(uv * 0.2, 3);
+    // Generate base color
+    float colorVariation = fbm(uv * 0.2, 3);
+    vec3 color = soapBubbleColor(combinedNoise * 0.6 + colorVariation * 0.3);
     
-    // Apply pastel colors with smoother transition
-    vec3 color = soapBubbleColor(combinedNoise * 0.6 + colorVar * 0.3);
-    
-    // Lighter base for mixing but not too white
-    vec3 baseColor = vec3(0.85, 0.85, 0.85);
+    // Color adjustments and effects
+    vec3 baseColor = vec3(0.85);
     color = mix(baseColor, color, 0.85);
     
-    // Add a more diffused glow based on mouse position
-    float glow = smoothstep(1.0, 0.0, rippleDistance) * 0.08;
+    // Add glow around ripple center
+    float glowStrength = 0.08;
+    float glow = smoothstep(1.0, 0.0, rippleDistance) * glowStrength;
     color += vec3(1.0, 1.0, 0.98) * glow;
     
-    // Ensure minimum brightness while preserving color
-    vec3 minColor = vec3(0.5, 0.5, 0.5);
-    color = max(color, minColor);
+    // Ensure minimum brightness
+    vec3 minBrightness = vec3(0.5);
+    color = max(color, minBrightness);
     
-    // Apply a softer vignette for pastel effect
-    float vignette = smoothstep(1.4, 0.4, length(v_uv - 0.5) * 2.0);
+    // Add subtle vignette
+    float vignetteDistance = length(v_uv - 0.5) * 2.0;
+    float vignette = smoothstep(1.4, 0.4, vignetteDistance);
     color *= mix(0.98, 1.0, vignette);
     
     gl_FragColor = vec4(color, 1.0);
