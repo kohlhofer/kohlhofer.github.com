@@ -51,20 +51,65 @@
       content: "";
     }
     
-    #design-list li i {
-      margin-right: 0.3em;
-    }
 
     #design-target {
       text-wrap: nowrap;
-      margin: 0.5em 0 0 -0.2em;
+      margin: 0.5em 0 0 0;
       font-weight: normal;
+      cursor: pointer;
+      position: relative;
+      min-height: 1.5em;
+    }
+
+    #design-target.clickable {
+      cursor: pointer;
+    }
+
+    #design-target .letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    #design-target .letter.animate {
+      animation: slideUp var(--animation-duration, 0.3s) forwards;
     }
 
     #design-target i {
-      width: 1.5em;
-display: inline-block;
+      width: 1em;
       text-align: center;
+      vertical-align:0.1em;
+      margin-right:0.6em;
+      display: inline-block;
+      opacity: 0;
+      font-size: 70%;
+      transform-style: preserve-3d;
+      transform: rotateX(-90deg);
+      animation: spinIn var(--animation-duration, 0.3s) forwards;
+    }
+
+    @keyframes spinIn {
+      from {
+        opacity: 0.5;
+        transform: rotateY(-90deg);
+      }
+      to {
+        opacity: 1;
+        transform: rotateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -79,9 +124,10 @@ display: inline-block;
       
         
         I consider myself a lifelong student of all things Design: 
-        <div id="design-target"><i class="fas fa-box"></i> Products</div>
+        <div id="design-target"></div>
 
         <ul id="design-list">
+          <li id="design-target"><i class="fas fa-box"></i> Products</li>
           <li><i class="fas fa-desktop"></i> Interfaces</li>
           <li><i class="fas fa-code"></i> Software</li>
           <li><i class="fas fa-camera"></i> Photography</li>
@@ -147,30 +193,69 @@ display: inline-block;
       let baseInterval = interval;
       let isAnimating = true;
 
+      function wrapLetters(text, animDuration) {
+        return text.split('').map(char => 
+          char === ' ' ? ' ' : `<span class="letter" style="animation-delay: ${Math.random() * 0.2 * animDuration}s">${char}</span>`
+        ).join('');
+      }
+
+      function startAnimation() {
+        currentIndex = 0;
+        isAnimating = true;
+        updateText();
+      }
+
       function updateText() {
         if (!isAnimating) return;
-        
-        targetElement.innerHTML = items[currentIndex].innerHTML;
-        currentIndex++;
-        
-        if (currentIndex >= items.length - 1) {
-          // Show final "Everything" and stop
-          targetElement.innerHTML = items[items.length - 1].innerHTML;
-          isAnimating = false;
-          return;
-        }
         
         // Calculate progress through the list (0 to 1)
         const progress = currentIndex / (items.length - 1);
         
-        // Steeper exponential speedup
+        // Calculate intervals and animation durations
         interval = baseInterval * Math.pow(0.85, progress * 25);
+        const animDuration = Math.max(0.05, 0.3 * Math.pow(0.85, progress * 15));
+        
+        const nextItem = items[currentIndex];
+        const icon = nextItem.querySelector('i').outerHTML;
+        const text = nextItem.textContent.trim();
+        
+        // Set new content with animated letters
+        targetElement.style.setProperty('--animation-duration', `${animDuration}s`);
+        targetElement.innerHTML = icon + wrapLetters(text, animDuration);
+        
+        // Add animation class to trigger animations
+        requestAnimationFrame(() => {
+          targetElement.querySelectorAll('.letter').forEach(el => el.classList.add('animate'));
+        });
+
+        currentIndex++;
+        
+        if (currentIndex >= items.length - 1) {
+          // Show final "Everything" and stop
+          const finalItem = items[items.length - 1];
+          targetElement.innerHTML = finalItem.querySelector('i').outerHTML + 
+                                  wrapLetters(finalItem.textContent.trim(), animDuration);
+          requestAnimationFrame(() => {
+            targetElement.querySelectorAll('.letter').forEach(el => el.classList.add('animate'));
+          });
+          isAnimating = false;
+          targetElement.classList.add('clickable');
+          return;
+        }
         
         setTimeout(updateText, Math.max(5, interval));
       }
 
       // Start the animation
       setTimeout(updateText, interval);
+
+      // Add click handler for restarting animation
+      targetElement.addEventListener('click', () => {
+        if (!isAnimating) {
+          targetElement.classList.remove('clickable');
+          startAnimation();
+        }
+      });
     });
   </script>
 </body>
