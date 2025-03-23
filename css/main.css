@@ -118,8 +118,6 @@ a:hover {
   justify-content: center;
   width: auto;
   min-width: min(300px, 90vw);
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.2);
   margin: 2rem auto;
 }
 
@@ -254,6 +252,10 @@ a:hover {
 
 .breadcrumb a:hover {
   text-decoration: underline;
+}
+
+.breadcrumb a i {
+  margin-right: 4px;
 }
 
 .breadcrumb span {
