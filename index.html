@@ -33,104 +33,31 @@
     ga('send', 'pageview');
 
   </script>
-
-  <style>
-    body {
-  
-    }
-    
-    #design-list {
-      display: none;
-    }
-
-    #design-list li {
-      display: inline;
-    }
-
-    #design-list li:not(:last-child)::after {
-      content: "";
-    }
-    
-
-    #design-target {
-      text-wrap: nowrap;
-      margin: 0.5em 0 0 0;
-      font-weight: normal;
-      cursor: pointer;
-      position: relative;
-      min-height: 1.5em;
-    }
-
-    #design-target.clickable {
-      cursor: pointer;
-    }
-
-    #design-target .letter {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(25px);
-    }
-
-    #design-target .letter.animate {
-      animation: slideUp var(--animation-duration, 0.3s) forwards;
-    }
-
-    #design-target i {
-      width: 1em;
-      text-align: center;
-      vertical-align:0.1em;
-      margin-right:0.6em;
-      display: inline-block;
-      opacity: 0;
-      font-size: 70%;
-      transform-style: preserve-3d;
-      transform: rotateX(-90deg);
-      animation: spinIn var(--animation-duration, 0.3s) forwards;
-    }
-
-    @keyframes spinIn {
-      from {
-        opacity: 0.5;
-        transform: rotateY(-90deg);
-      }
-      to {
-        opacity: 1;
-        transform: rotateY(0);
-      }
-    }
-
-    @keyframes slideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
 </head>
 <body>
-
-  <div id="content">
+  <nav class="nav-menu">
     <button id="refresh-background">
       <i class="fas fa-sync-alt"></i>
     </button>
+    <!--
+    <a href="#" class="nav-item"><i class="fas fa-user"></i>about</a>
+    <a href="#" class="nav-item"><i class="fas fa-music"></i>music</a>
+    <a href="#" class="nav-item"><i class="fas fa-code"></i>code</a>
+  -->
+  </nav>
+
+  <div id="content">
     <div id="about">
       <div class="bigText">
       
         
-        I consider myself a lifelong student of all things Design: 
+        I consider myself a lifelong student of design. Because design shapes... 
         <div id="design-target"></div>
 
         <ul id="design-list">
           <li id="design-target"><i class="fas fa-box"></i> Products</li>
           <li><i class="fas fa-desktop"></i> Interfaces</li>
           <li><i class="fas fa-code"></i> Software</li>
-          <li><i class="fas fa-camera"></i> Photography</li>
           <li><i class="fas fa-sitemap"></i> Organizations</li>
           <li><i class="fas fa-briefcase"></i> Companies</li>
           <li><i class="fas fa-comments"></i> Communication</li>
@@ -140,6 +67,7 @@
           <li><i class="fas fa-users"></i> Society</li>
           <li><i class="fas fa-home"></i> Homes</li>
           <li><i class="fas fa-city"></i> Cities</li>
+          <li><i class="fas fa-camera"></i> Photography</li>
           <li><i class="fas fa-road"></i> Infrastructure</li>
           <li><i class="fas fa-network-wired"></i> Networks</li>
           <li><i class="fas fa-globe"></i> Websites</li>
@@ -180,83 +108,7 @@
   </div>
 
   <script src="js/background.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      new ShaderBackground();
-      
-      // Animation for design list
-      const targetElement = document.getElementById('design-target');
-      const listElement = document.getElementById('design-list');
-      const items = Array.from(listElement.getElementsByTagName('li'));
-      let currentIndex = 0;
-      let interval = 1000; // Start with 1 second
-      let baseInterval = interval;
-      let isAnimating = true;
-
-      function wrapLetters(text, animDuration) {
-        return text.split('').map(char => 
-          char === ' ' ? ' ' : `<span class="letter" style="animation-delay: ${Math.random() * 0.2 * animDuration}s">${char}</span>`
-        ).join('');
-      }
-
-      function startAnimation() {
-        currentIndex = 0;
-        isAnimating = true;
-        updateText();
-      }
-
-      function updateText() {
-        if (!isAnimating) return;
-        
-        // Calculate progress through the list (0 to 1)
-        const progress = currentIndex / (items.length - 1);
-        
-        // Calculate intervals and animation durations
-        interval = baseInterval * Math.pow(0.85, progress * 25);
-        const animDuration = Math.max(0.05, 0.3 * Math.pow(0.85, progress * 15));
-        
-        const nextItem = items[currentIndex];
-        const icon = nextItem.querySelector('i').outerHTML;
-        const text = nextItem.textContent.trim();
-        
-        // Set new content with animated letters
-        targetElement.style.setProperty('--animation-duration', `${animDuration}s`);
-        targetElement.innerHTML = icon + wrapLetters(text, animDuration);
-        
-        // Add animation class to trigger animations
-        requestAnimationFrame(() => {
-          targetElement.querySelectorAll('.letter').forEach(el => el.classList.add('animate'));
-        });
-
-        currentIndex++;
-        
-        if (currentIndex >= items.length - 1) {
-          // Show final "Everything" and stop
-          const finalItem = items[items.length - 1];
-          targetElement.innerHTML = finalItem.querySelector('i').outerHTML + 
-                                  wrapLetters(finalItem.textContent.trim(), animDuration);
-          requestAnimationFrame(() => {
-            targetElement.querySelectorAll('.letter').forEach(el => el.classList.add('animate'));
-          });
-          isAnimating = false;
-          targetElement.classList.add('clickable');
-          return;
-        }
-        
-        setTimeout(updateText, Math.max(5, interval));
-      }
-
-      // Start the animation
-      setTimeout(updateText, interval);
-
-      // Add click handler for restarting animation
-      targetElement.addEventListener('click', () => {
-        if (!isAnimating) {
-          targetElement.classList.remove('clickable');
-          startAnimation();
-        }
-      });
-    });
-  </script>
+  <script src="js/text-animation.js"></script>
+  <script src="js/init.js"></script>
 </body>
 </html>

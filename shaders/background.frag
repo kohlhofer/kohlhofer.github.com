@@ -97,8 +97,11 @@ void main() {
     float aspect = u_resolution.x / u_resolution.y;
     uv.x *= aspect;
     
-    // Ripple effect configuration
-    vec2 rippleCenter = vec2(0.75 * aspect, 0.25); // Fixed position in top-right
+    // Ripple effect configuration - use seed to randomize position
+    vec2 rippleCenter = vec2(
+        (0.2 + fract(u_seed * 789.123) * 0.6) * aspect,  // x: 20-80% of width
+        0.2 + fract(u_seed * 456.789) * 0.6              // y: 20-80% of height
+    );
     float rippleDistance = length(uv - rippleCenter);
     
     // Ripple distortion parameters

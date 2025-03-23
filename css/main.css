@@ -21,51 +21,159 @@ a:hover {
 }
 
 #refresh-background {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      color: rgba(0, 0, 0, 0.5);
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(5px);
-      transition: all 0.4s ease-out;
-      z-index: 2;
-    }
-    #refresh-background:hover {
-      background: rgba(255, 255, 255, 0.5);
-      transform: rotate(270deg) scale(1.1);
-    }
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease-out;
+}
 
+#refresh-background:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotate(270deg);
+}
+
+/* Navigation styles */
+.nav-menu {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 2;
+}
+
+.nav-item {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease-out;
+  text-decoration: none;
+  font-family: 'Rubik', sans-serif;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.nav-item i {
+  margin-right: 8px;
+}
+
+/* Design list styles */
+#design-list {
+  display: none;
+}
+
+#design-list li {
+  display: inline;
+}
+
+#design-list li:not(:last-child)::after {
+  content: "";
+}
+
+#design-target {
+  text-wrap: nowrap;
+  margin: 0.5em 0 0 0;
+  font-weight: normal;
+  cursor: pointer;
+  position: relative;
+  min-height: 1.5em;
+}
+
+#design-target.clickable {
+  cursor: pointer;
+}
+
+#design-target .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+#design-target .letter.animate {
+  animation: slideUp var(--animation-duration, 0.3s) forwards;
+}
+
+#design-target i {
+  width: 1em;
+  text-align: center;
+  vertical-align: 0.1em;
+  margin-right: 0.6em;
+  display: inline-block;
+  opacity: 0;
+  font-size: 70%;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg);
+  animation: spinIn var(--animation-duration, 0.3s) forwards;
+}
+
+/* Animations */
+@keyframes spinIn {
+  from {
+    opacity: 0.5;
+    transform: rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 .bigText {
   position: absolute;
-  bottom:50px;
-  left:50px;
+  bottom: 50px;
+  left: 50px;
   max-width: 800px;
   margin-right: 100px;
   font-size: 45px;
   color: transparent;
-  line-height:1.2em;
+  line-height: 1.2em;
   font-weight: bold;
 }
 
-
-
-
+/* Media Queries */
 @media screen and (max-height: 500px) and (orientation: landscape) {
   .bigText {
     font-size: 30px;
-
   }
- 
+}
+
+@media screen and (max-width: 500px) and (orientation: portrait) {
+  .bigText {
+    font-size: 40px;
+  }
 }
 
 @media screen and (max-height: 400px) {
@@ -74,7 +182,6 @@ a:hover {
 @media screen and (max-width: 500px) and (orientation: portrait) {
   .bigText {
     font-size: 40px;
-
   }
 }
 
