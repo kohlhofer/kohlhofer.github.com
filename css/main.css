@@ -82,7 +82,7 @@ a:hover {
 }
 
 #player-container {
-  width: min(90%, 800px);
+  width: min(90%, 560px);
   grid-row: 1;
   align-self: center;
   display: flex;
@@ -99,7 +99,7 @@ a:hover {
 
 #player {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   min-height: 200px;
   max-height: 450px;
   border-radius: 10px;
@@ -356,11 +356,7 @@ a:hover {
   .bigText {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
   }
-  
-  #player-container {
-    width: min(95%, 800px);
-    transform: translateY(-1rem);
-  }
+
   
   #player {
     min-height: 350px;
@@ -382,10 +378,7 @@ a:hover {
     gap: 0.5rem;
   }
   
-  #player-container {
-    width: min(98%, 800px);
-    transform: translateY(-0.5rem);
-  }
+
 
   .player-controls {
     flex-wrap: wrap;
@@ -424,6 +417,7 @@ a:hover {
   #player {
     min-height: 150px;
     max-height: 45vh;
+    aspect-ratio: 4 / 3;
   }
   
   .player-controls {
@@ -444,6 +438,7 @@ a:hover {
   #player {
     min-height: 120px;
     max-height: 40vh;
+    aspect-ratio: 4 / 3;
   }
 
   .player-controls {
@@ -464,6 +459,7 @@ a:hover {
 
   #player {
     max-height: 35vh;
+    aspect-ratio: 4 / 3;
   }
 
   .control-button {
