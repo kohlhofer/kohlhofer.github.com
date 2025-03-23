@@ -181,7 +181,7 @@ a:hover {
 
 @media screen and (max-width: 500px) and (orientation: portrait) {
   .bigText {
-    font-size: 40px;
+    font-size: 30px;
   }
 }
 
