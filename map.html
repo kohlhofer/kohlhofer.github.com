@@ -85,6 +85,69 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
+    #legend {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 2;
+      min-width: 150px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      font-family: 'Rubik', sans-serif;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+    }
+
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      border-radius: 3px;
+    }
+
+    .legend-color.lived {
+      background: #FFB800;
+    }
+
+    .legend-color.visited {
+      background: #FFD700;
+    }
+
+    .legend-color.unvisited {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .legend-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #FF3B30;
+      margin-right: 8px;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+    }
+
+    .legend-dot.path {
+      width: 10px;
+      height: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.9);
+    }
+
+    .legend-line {
+      width: 20px;
+      height: 2px;
+      background: #ffffff;
+      margin-right: 8px;
+      opacity: 0.5;
+    }
+
     .tooltip-status {
       font-size: 12px;
       margin-top: 4px;
@@ -211,11 +274,37 @@
     <a href="/"><i class="fas fa-seedling"></i></a>
     <a href="music.html">Music</a>
     <a href="about.html">About</a>
-    <a href="map.html" class="active">Map</a>
+    <a href="map.html" class="active">Travel</a>
   </div>
   <div id="map-page">
     <div id="map-container"></div>
     <div id="tooltip"></div>
+    <div id="legend">
+      <div class="legend-item">
+        <div class="legend-color lived"></div>
+        <span>Lived</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color visited"></div>
+        <span>Visited</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color unvisited"></div>
+        <span>Not Visited</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot"></div>
+        <span>City</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot path"></div>
+        <span>Major Move</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line"></div>
+        <span>Moved</span>
+      </div>
+    </div>
   </div>
 
   <script src="js/background.js"></script>
