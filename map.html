@@ -67,7 +67,36 @@
       cursor: grab;
       -webkit-overflow-scrolling: none;
       overscroll-behavior: none;
+    }
 
+    #tooltip {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      border-radius: 8px;
+      font-size: 14px;
+      pointer-events: none;
+      z-index: 2;
+      display: none;
+      min-width: 150px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .tooltip-status {
+      font-size: 12px;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    .tooltip-status.lived {
+      color: #FFB800;
+    }
+
+    .tooltip-status.visited {
+      color: #FFD700;
     }
 
     #map-container:active {
@@ -81,35 +110,44 @@
     }
     .country {
       fill: rgba(255, 255, 255, 0.3);
-      stroke: rgba(79, 186, 247, 1);
-      stroke-width: 1;
-      transition: fill 0.3s ease;
+      stroke: rgba(79, 186, 247, 0.8);
+      stroke-width: 0.5;
+      transition: all 0.3s ease;
     }
     
     .country:hover {
-      fill: rgba(255, 255, 255, 0.15);
+      fill: rgba(255, 255, 255, 0.4);
     }
     
     .country.lived {
-      fill: rgba(255, 111, 97, 1);
+      fill: #FFB800;
+      stroke: rgba(79, 186, 247, 0.8);
     }
     
     .country.lived:hover {
-      fill: rgba(255, 111, 97, 0.6);
+      fill: #FFC633;
     }
     
     .country.visited {
-      fill: rgba(255, 238, 0, 0.15);
+      fill: #FFD700;
+      stroke: rgba(79, 186, 247, 0.8);
     }
     
     .country.visited:hover {
-      fill: rgba(255, 238, 0, 0.25);
+      fill: #FFE44D;
     }
     
     .city-point {
-      fill: rgba(253, 166, 139, 0.8);
-      stroke: rgb(196, 46, 0);
-      stroke-width: 1;
+      fill: #FF3B30;
+      stroke: #E60023;
+      stroke-width: 1.5;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+    }
+
+    .city-point:hover {
+      fill: #FF5A5F;
+      stroke: #E60023;
+      stroke-width: 2;
     }
   </style>
 
@@ -132,6 +170,7 @@
   </div>
   <div id="map-page">
     <div id="map-container"></div>
+    <div id="tooltip"></div>
   </div>
 
   <script src="js/background.js"></script>
