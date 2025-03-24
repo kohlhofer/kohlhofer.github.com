@@ -27,6 +27,15 @@ const visitedCountries = [
   '352'  // Iceland
 ];
 
+// Define the travel path
+const travelPath = [
+  { from: 'Munich', to: 'Chicago' },
+  { from: 'Chicago', to: 'London' },
+  { from: 'London', to: 'Salzburg' },
+  { from: 'Salzburg', to: 'San Francisco' },
+  { from: 'San Francisco', to: 'Cary' }
+];
+
 const visitedCities = [
   // North America
   { name: 'Vancouver', coordinates: [-123.1207, 49.2827] },
@@ -52,6 +61,7 @@ const visitedCities = [
   { name: 'Gary', coordinates: [-87.3464, 41.5934] },
   { name: 'San Francisco', coordinates: [-122.4194, 37.7749] },
   { name: 'Washington DC', coordinates: [-77.0369, 38.9072] },
+  { name: 'Cary', coordinates: [-78.7812, 35.7915] },
   
   // Brazil
   { name: 'Rio de Janeiro', coordinates: [-43.1729, -22.9068] },
@@ -242,11 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
       .append('path')
       .attr('d', path)
       .attr('class', d => {
-        console.log('Country ID:', d.id); // Debug log
         const countryClass = livedCountries.includes(d.id) ? 'country lived' :
                            visitedCountries.includes(d.id) ? 'country visited' :
                            'country';
-        console.log('Assigned class:', countryClass); // Debug log
         return countryClass;
       })
       .on('mouseover', (event, d) => {
@@ -264,12 +272,173 @@ document.addEventListener('DOMContentLoaded', () => {
         d3.select('#tooltip').style('display', 'none');
       });
       
+    // Add travel arcs
+    const travelArcs = g.append('g')
+      .attr('class', 'travel-arcs');
+
+    // Create a single continuous path through all cities
+    const travelPathSVG = d3.path();
+    let firstPoint = true;
+
+    // Create a group for city labels
+    const cityLabels = g.append('g')
+      .attr('class', 'city-labels');
+
+    // Add labels for cities on the path
+    const pathCities = travelPath.reduce((cities, segment) => {
+      if (!cities.includes(segment.from)) cities.push(segment.from);
+      if (!cities.includes(segment.to)) cities.push(segment.to);
+      return cities;
+    }, []);
+
+    travelPath.forEach((segment, index) => {
+      const fromCity = visitedCities.find(city => city.name === segment.from);
+      const toCity = visitedCities.find(city => city.name === segment.to);
+
+      if (fromCity && toCity) {
+        const from = projection(fromCity.coordinates);
+        const to = projection(toCity.coordinates);
+
+        // Create a curved line using SVG path
+        const midPoint = [
+          (from[0] + to[0]) / 2,
+          (from[1] + to[1]) / 2
+        ];
+
+        // Calculate control points for the curve
+        const dx = to[0] - from[0];
+        const dy = to[1] - from[1];
+        const dr = Math.sqrt(dx * dx + dy * dy);
+
+        // Increase the curve height for more dramatic arches
+        const curveHeight = dr * 0.4;
+
+        if (firstPoint) {
+          travelPathSVG.moveTo(from[0], from[1]);
+          firstPoint = false;
+        }
+
+        travelPathSVG.quadraticCurveTo(
+          midPoint[0],
+          midPoint[1] - curveHeight,
+          to[0],
+          to[1]
+        );
+      }
+    });
+
+    // Add the continuous path with animation
+    const pathElement = travelArcs.append('path')
+      .attr('d', travelPathSVG.toString())
+      .attr('class', 'travel-arc')
+      .attr('stroke-dasharray', function() {
+        return this.getTotalLength();
+      })
+      .attr('stroke-dashoffset', function() {
+        return this.getTotalLength();
+      });
+
+    // Animate the path once on load
+    pathElement
+      .transition()
+      .duration(4000)
+      .ease(d3.easeLinear)
+      .attr('stroke-dashoffset', 0);
+
+    // Create labels with background boxes
+    pathCities.forEach((cityName, index) => {
+      const city = visitedCities.find(c => c.name === cityName);
+      if (!city) return;
+
+      const coords = projection(city.coordinates);
+      const labelPadding = { x: 8, y: 4 };
+      const lineLength = 30;
+      const verticalSpacing = 25;
+      
+      // Create a group for this city's label
+      const labelGroup = cityLabels.append('g')
+        .attr('class', 'city-label-group');
+
+      // Create temporary text element to measure size
+      const tempLabel = labelGroup.append('text')
+        .attr('class', 'city-label')
+        .text(city.name);
+
+      // Get text dimensions
+      const bbox = tempLabel.node().getBBox();
+
+      // Calculate position offsets
+      let xOffset, yOffset;
+      
+      switch(cityName) {
+        case 'Munich':
+          xOffset = lineLength + 120; // Move far to the right (over Russia)
+          yOffset = -40;
+          break;
+        case 'London':
+          xOffset = -lineLength - 40; // Position off the coast of France
+          yOffset = 40; // Move down to France's coast level
+          break;
+        case 'Salzburg':
+          xOffset = lineLength + 160; // Move even further right (over Russia)
+          yOffset = 20;
+          break;
+        case 'Chicago':
+          xOffset = -lineLength - 10;
+          yOffset = -30;
+          break;
+        case 'San Francisco':
+          xOffset = -lineLength - 10;
+          yOffset = -20;
+          break;
+        case 'Cary':
+          xOffset = lineLength + 10;
+          yOffset = -10;
+          break;
+        default:
+          xOffset = coords[0] < width / 2 ? lineLength : -lineLength;
+          yOffset = -10 + (index * verticalSpacing);
+      }
+
+      // Remove temporary text element
+      tempLabel.remove();
+
+      // Add connecting line first (bottom layer)
+      labelGroup.append('line')
+        .attr('class', 'city-label-line')
+        .attr('x1', coords[0])
+        .attr('y1', coords[1])
+        .attr('x2', coords[0] + xOffset)
+        .attr('y2', coords[1] + yOffset);
+
+      // Add background rectangle second (middle layer)
+      labelGroup.append('rect')
+        .attr('class', 'city-label-bg')
+        .attr('x', coords[0] + xOffset - (xOffset > 0 ? 0 : bbox.width) - labelPadding.x)
+        .attr('y', coords[1] + yOffset - (bbox.height / 2) - labelPadding.y)
+        .attr('width', bbox.width + (labelPadding.x * 2))
+        .attr('height', bbox.height + (labelPadding.y * 2));
+
+      // Create the final text element last (top layer)
+      labelGroup.append('text')
+        .attr('class', 'city-label')
+        .text(city.name)
+        .attr('x', coords[0] + xOffset - (xOffset > 0 ? 0 : bbox.width))
+        .attr('y', coords[1] + yOffset);
+    });
+
     // Add city points
     g.selectAll('circle')
       .data(visitedCities)
       .enter()
       .append('circle')
-      .attr('class', 'city-point')
+      .attr('class', d => {
+        // Check if this city is on the travel path
+        const isOnPath = travelPath.some(segment => 
+          segment.from === d.name || segment.to === d.name
+        );
+        return `city-point${isOnPath ? ' path-city' : ''}`;
+      })
       .attr('cx', d => projection(d.coordinates)[0])
       .attr('cy', d => projection(d.coordinates)[1])
       .attr('r', 2)
@@ -295,12 +464,169 @@ document.addEventListener('DOMContentLoaded', () => {
       .translate([width / 2, height / 2])
       .center([10, 51]); // Maintain center on Germany during resize
       
+    // Update country paths
     g.selectAll('path')
       .attr('d', path);
       
+    // Update city points
     g.selectAll('circle')
       .attr('cx', d => projection(d.coordinates)[0])
       .attr('cy', d => projection(d.coordinates)[1]);
+
+    // Remove existing travel arcs and labels
+    g.selectAll('.travel-arcs').remove();
+    g.selectAll('.city-labels').remove();
+
+    // Recreate travel arcs
+    const travelArcs = g.append('g')
+      .attr('class', 'travel-arcs');
+
+    // Create a single continuous path through all cities
+    const travelPathSVG = d3.path();
+    let firstPoint = true;
+
+    // Create a group for city labels
+    const cityLabels = g.append('g')
+      .attr('class', 'city-labels');
+
+    // Add labels for cities on the path
+    const pathCities = travelPath.reduce((cities, segment) => {
+      if (!cities.includes(segment.from)) cities.push(segment.from);
+      if (!cities.includes(segment.to)) cities.push(segment.to);
+      return cities;
+    }, []);
+
+    // Recreate the travel path
+    travelPath.forEach((segment, index) => {
+      const fromCity = visitedCities.find(city => city.name === segment.from);
+      const toCity = visitedCities.find(city => city.name === segment.to);
+
+      if (fromCity && toCity) {
+        const from = projection(fromCity.coordinates);
+        const to = projection(toCity.coordinates);
+
+        const midPoint = [
+          (from[0] + to[0]) / 2,
+          (from[1] + to[1]) / 2
+        ];
+
+        const dx = to[0] - from[0];
+        const dy = to[1] - from[1];
+        const dr = Math.sqrt(dx * dx + dy * dy);
+        const curveHeight = dr * 0.4;
+
+        if (firstPoint) {
+          travelPathSVG.moveTo(from[0], from[1]);
+          firstPoint = false;
+        }
+
+        travelPathSVG.quadraticCurveTo(
+          midPoint[0],
+          midPoint[1] - curveHeight,
+          to[0],
+          to[1]
+        );
+      }
+    });
+
+    // Add the continuous path with animation
+    const pathElement = travelArcs.append('path')
+      .attr('d', travelPathSVG.toString())
+      .attr('class', 'travel-arc')
+      .attr('stroke-dasharray', function() {
+        return this.getTotalLength();
+      })
+      .attr('stroke-dashoffset', function() {
+        return this.getTotalLength();
+      });
+
+    // Animate the path once on load
+    pathElement
+      .transition()
+      .duration(4000)
+      .ease(d3.easeLinear)
+      .attr('stroke-dashoffset', 0);
+
+    // Recreate city labels
+    pathCities.forEach((cityName, index) => {
+      const city = visitedCities.find(c => c.name === cityName);
+      if (!city) return;
+
+      const coords = projection(city.coordinates);
+      const labelPadding = { x: 8, y: 4 };
+      const lineLength = 30;
+      const verticalSpacing = 25;
+      
+      const labelGroup = cityLabels.append('g')
+        .attr('class', 'city-label-group');
+
+      // Create temporary text element to measure size
+      const tempLabel = labelGroup.append('text')
+        .attr('class', 'city-label')
+        .text(city.name);
+
+      // Get text dimensions
+      const bbox = tempLabel.node().getBBox();
+
+      // Calculate position offsets
+      let xOffset, yOffset;
+      
+      switch(cityName) {
+        case 'Munich':
+          xOffset = lineLength + 120;
+          yOffset = -40;
+          break;
+        case 'London':
+          xOffset = -lineLength - 40;
+          yOffset = 40;
+          break;
+        case 'Salzburg':
+          xOffset = lineLength + 160;
+          yOffset = 20;
+          break;
+        case 'Chicago':
+          xOffset = -lineLength - 10;
+          yOffset = -30;
+          break;
+        case 'San Francisco':
+          xOffset = -lineLength - 10;
+          yOffset = -20;
+          break;
+        case 'Cary':
+          xOffset = lineLength + 10;
+          yOffset = -10;
+          break;
+        default:
+          xOffset = coords[0] < width / 2 ? lineLength : -lineLength;
+          yOffset = -10 + (index * verticalSpacing);
+      }
+
+      // Remove temporary text element
+      tempLabel.remove();
+
+      // Add connecting line first (bottom layer)
+      labelGroup.append('line')
+        .attr('class', 'city-label-line')
+        .attr('x1', coords[0])
+        .attr('y1', coords[1])
+        .attr('x2', coords[0] + xOffset)
+        .attr('y2', coords[1] + yOffset);
+
+      // Add background rectangle second (middle layer)
+      labelGroup.append('rect')
+        .attr('class', 'city-label-bg')
+        .attr('x', coords[0] + xOffset - (xOffset > 0 ? 0 : bbox.width) - labelPadding.x)
+        .attr('y', coords[1] + yOffset - (bbox.height / 2) - labelPadding.y)
+        .attr('width', bbox.width + (labelPadding.x * 2))
+        .attr('height', bbox.height + (labelPadding.y * 2));
+
+      // Create the final text element last (top layer)
+      labelGroup.append('text')
+        .attr('class', 'city-label')
+        .text(city.name)
+        .attr('x', coords[0] + xOffset - (xOffset > 0 ? 0 : bbox.width))
+        .attr('y', coords[1] + yOffset);
+    });
       
     // Reset transform after resize
     svg.call(zoom.transform, d3.zoomIdentity);

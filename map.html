@@ -111,7 +111,7 @@
     .country {
       fill: rgba(255, 255, 255, 0.3);
       stroke: rgba(79, 186, 247, 0.8);
-      stroke-width: 0.5;
+      stroke-width: 1.5;
       transition: all 0.3s ease;
     }
     
@@ -139,15 +139,61 @@
     
     .city-point {
       fill: #FF3B30;
-      stroke: #E60023;
-      stroke-width: 1.5;
+      stroke-width: 0;
       filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+      r: 2.5;
     }
 
     .city-point:hover {
       fill: #FF5A5F;
-      stroke: #E60023;
+      r: 1.5;
+    }
+
+    .city-point.path-city {
+      r: 5;
+      stroke: rgba(0, 0, 0, 0.9);
+      stroke-width: 1;
+    }
+
+    .city-point.path-city:hover {
+      r: 4;
+    }
+
+    .city-label {
+      font-family: 'Rubik', sans-serif;
+      font-size: 12px;
+      fill: white;
+      font-weight: 700;
+      pointer-events: none;
+      dominant-baseline: middle;
+      paint-order: stroke fill;
+    }
+
+    .city-label-bg {
+      fill: rgba(0, 0, 0, 0.9);
+      rx: 3;
+      ry: 3;
+    }
+
+    .city-label-line {
+      stroke: rgba(0, 0, 0, 0.9);
+      stroke-width: 1;
+    }
+
+    .city-label-group {
+      opacity: 1;
+    }
+
+    .travel-arc {
+      fill: none;
+      stroke: #ffffff;
       stroke-width: 2;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .travel-arc:hover {
+      opacity: 1;
     }
   </style>
 
