@@ -24,6 +24,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   padding: clamp(2rem, 5vw, 4rem);
+  position: relative;
 }
 
 #about {
@@ -150,41 +151,59 @@ a:hover {
 }
 
 /* Navigation styles */
-.nav-menu {
+.top-nav {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 1200px;
+  text-align: left;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 100;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-bottom: auto;
 }
 
-.nav-item {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 20px;
-  padding: 8px 20px;
-  cursor: pointer;
+.top-nav:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.top-nav a {
   color: rgba(0, 0, 0, 0.5);
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(5px);
-  transition: all 0.4s ease-out;
+  padding: 0;
+  transition: all 0.3s ease-out;
   text-decoration: none;
-  font-family: 'Rubik', sans-serif;
 }
 
-.nav-item:hover {
-  background: rgba(255, 255, 255, 0.5);
+.top-nav a:hover {
+  color: rgba(0, 0, 0, 0.8);
 }
 
-.nav-item i {
-  margin-right: 8px;
+.top-nav a.active {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
 }
 
-.nav-item.active {
-  background: rgba(255, 255, 255, 0.5);
+.top-nav a i {
+  margin-right: 4px;
 }
+
+.scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-top: calc(3rem + 41px); /* Height of top-nav + its top margin + some extra space */
+}
+
 
 /* Design list styles */
 #design-list {
@@ -235,55 +254,6 @@ a:hover {
   animation: spinIn var(--animation-duration, 0.3s) forwards;
 }
 
-/* Breadcrumb styles */
-.breadcrumb {
-  position: fixed;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 2rem);
-  max-width: 1200px;
-  text-align: left;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  z-index: 100;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.breadcrumb:hover {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-.breadcrumb a {
-  color: rgba(0, 0, 0, 0.5);
-  padding:0;
-  transition: all 0.3s ease-out;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumb a i {
-  margin-right: 4px;
-}
-
-.breadcrumb span {
-  margin: 0 8px;
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.scroll-container {
-  flex: 1;
-  overflow-y: auto;
-  padding-top: calc(3rem + 41px); /* Height of breadcrumb + its top margin + some extra space */
-}
 
 /* Toggle switch styles */
 .toggle-container {
@@ -400,10 +370,6 @@ a:hover {
     font-size: clamp(1.5rem, 3.5vw, 2rem);
   }
   
-  .nav-menu {
-    gap: 0.5rem;
-  }
-  
   #music {
     padding: 0.75rem;
     padding-top: calc(2rem + 41px);
@@ -494,7 +460,7 @@ a:hover {
     height: 30px;
   }
 
-  .breadcrumb {
+  .top-nav {
     padding: 4px 12px;
   }
 }
@@ -511,6 +477,12 @@ a:hover {
 }
 
 /* Refresh background styles */
+.refresh-container {
+  position: absolute;
+  bottom: clamp(2rem, 5vw, 4rem);
+  right: clamp(2rem, 5vw, 4rem);
+}
+
 #refresh-background {
   background: rgba(255, 255, 255, 0.2);
   border: none;
