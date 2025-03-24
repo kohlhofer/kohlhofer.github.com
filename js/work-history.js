@@ -26,20 +26,25 @@ document.addEventListener('DOMContentLoaded', function() {
             return new Date().getTime();
         }
         
-        // Extract the first date (start date)
-        const match = dateStr.match(/(\w+)\s+(\d{4})/);
-        if (!match) return 0;
+        // Extract years from strings like "2023 – Present" or "2019 – 2023"
+        const years = dateStr.match(/\d{4}/g);
+        if (!years) return 0;
         
-        const month = {
-            'January': 0, 'February': 1, 'March': 2, 'April': 3,
-            'May': 4, 'June': 5, 'July': 6, 'August': 7,
-            'September': 8, 'October': 9, 'November': 10, 'December': 11
-        }[match[1]] || 0;
-        
-        return new Date(match[2], month).getTime();
+        // Return the most recent year (end year or start year if only one)
+        return new Date(years[years.length - 1], 0).getTime();
     }
 
+    // Store initial order
+    const initialOrder = Array.from(roleContainer.children);
+    
     sortToggle.addEventListener('change', function() {
-        sortRoles(this.checked);
+        if (this.checked) {
+            // When checked, sort ascending (oldest first)
+            sortRoles(true);
+        } else {
+            // When unchecked, restore original order
+            roleContainer.innerHTML = '';
+            initialOrder.forEach(role => roleContainer.appendChild(role.cloneNode(true)));
+        }
     });
 }); 
