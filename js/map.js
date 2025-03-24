@@ -457,59 +457,32 @@ document.addEventListener('DOMContentLoaded', () => {
     width = container.clientWidth;
     height = container.clientHeight;
     
+    // Update SVG viewBox and projection
     svg.attr('viewBox', `0 0 ${width} ${height}`);
-      
     projection
       .scale((width + height) / 7)
-      .translate([width / 2, height / 2])
-      .center([10, 51]); // Maintain center on Germany during resize
+      .translate([width / 2, height / 2]);
       
-    // Update country paths
-    g.selectAll('path')
-      .attr('d', path);
-      
+    // Update all paths with new projection
+    g.selectAll('path').attr('d', path);
+    
     // Update city points
     g.selectAll('circle')
       .attr('cx', d => projection(d.coordinates)[0])
       .attr('cy', d => projection(d.coordinates)[1]);
 
-    // Remove existing travel arcs and labels
-    g.selectAll('.travel-arcs').remove();
-    g.selectAll('.city-labels').remove();
-
-    // Recreate travel arcs
-    const travelArcs = g.append('g')
-      .attr('class', 'travel-arcs');
-
-    // Create a single continuous path through all cities
+    // Update travel arcs
     const travelPathSVG = d3.path();
     let firstPoint = true;
 
-    // Create a group for city labels
-    const cityLabels = g.append('g')
-      .attr('class', 'city-labels');
-
-    // Add labels for cities on the path
-    const pathCities = travelPath.reduce((cities, segment) => {
-      if (!cities.includes(segment.from)) cities.push(segment.from);
-      if (!cities.includes(segment.to)) cities.push(segment.to);
-      return cities;
-    }, []);
-
-    // Recreate the travel path
-    travelPath.forEach((segment, index) => {
+    travelPath.forEach((segment) => {
       const fromCity = visitedCities.find(city => city.name === segment.from);
       const toCity = visitedCities.find(city => city.name === segment.to);
 
       if (fromCity && toCity) {
         const from = projection(fromCity.coordinates);
         const to = projection(toCity.coordinates);
-
-        const midPoint = [
-          (from[0] + to[0]) / 2,
-          (from[1] + to[1]) / 2
-        ];
-
+        const midPoint = [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
         const dx = to[0] - from[0];
         const dy = to[1] - from[1];
         const dr = Math.sqrt(dx * dx + dy * dy);
@@ -529,48 +502,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Add the continuous path with animation
-    const pathElement = travelArcs.append('path')
-      .attr('d', travelPathSVG.toString())
-      .attr('class', 'travel-arc')
-      .attr('stroke-dasharray', function() {
-        return this.getTotalLength();
-      })
-      .attr('stroke-dashoffset', function() {
-        return this.getTotalLength();
-      });
+    g.select('.travel-arcs path').attr('d', travelPathSVG.toString());
 
-    // Animate the path once on load
-    pathElement
-      .transition()
-      .duration(4000)
-      .ease(d3.easeLinear)
-      .attr('stroke-dashoffset', 0);
+    // Update city labels
+    const pathCities = travelPath.reduce((cities, segment) => {
+      if (!cities.includes(segment.from)) cities.push(segment.from);
+      if (!cities.includes(segment.to)) cities.push(segment.to);
+      return cities;
+    }, []);
 
-    // Recreate city labels
     pathCities.forEach((cityName, index) => {
       const city = visitedCities.find(c => c.name === cityName);
       if (!city) return;
 
       const coords = projection(city.coordinates);
+      const labelGroup = g.select(`.city-label-group:nth-child(${index + 1})`);
       const labelPadding = { x: 8, y: 4 };
       const lineLength = 30;
       const verticalSpacing = 25;
-      
-      const labelGroup = cityLabels.append('g')
-        .attr('class', 'city-label-group');
-
-      // Create temporary text element to measure size
-      const tempLabel = labelGroup.append('text')
-        .attr('class', 'city-label')
-        .text(city.name);
-
-      // Get text dimensions
-      const bbox = tempLabel.node().getBBox();
 
       // Calculate position offsets
       let xOffset, yOffset;
-      
       switch(cityName) {
         case 'Munich':
           xOffset = lineLength + 120;
@@ -601,29 +553,26 @@ document.addEventListener('DOMContentLoaded', () => {
           yOffset = -10 + (index * verticalSpacing);
       }
 
-      // Remove temporary text element
-      tempLabel.remove();
+      // Get text dimensions
+      const textElement = labelGroup.select('text');
+      const bbox = textElement.node().getBBox();
 
-      // Add connecting line first (bottom layer)
-      labelGroup.append('line')
-        .attr('class', 'city-label-line')
+      // Update connecting line
+      labelGroup.select('line')
         .attr('x1', coords[0])
         .attr('y1', coords[1])
         .attr('x2', coords[0] + xOffset)
         .attr('y2', coords[1] + yOffset);
 
-      // Add background rectangle second (middle layer)
-      labelGroup.append('rect')
-        .attr('class', 'city-label-bg')
+      // Update background rectangle
+      labelGroup.select('rect')
         .attr('x', coords[0] + xOffset - (xOffset > 0 ? 0 : bbox.width) - labelPadding.x)
         .attr('y', coords[1] + yOffset - (bbox.height / 2) - labelPadding.y)
         .attr('width', bbox.width + (labelPadding.x * 2))
         .attr('height', bbox.height + (labelPadding.y * 2));
 
-      // Create the final text element last (top layer)
-      labelGroup.append('text')
-        .attr('class', 'city-label')
-        .text(city.name)
+      // Update text position
+      textElement
         .attr('x', coords[0] + xOffset - (xOffset > 0 ? 0 : bbox.width))
         .attr('y', coords[1] + yOffset);
     });
@@ -632,10 +581,6 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.call(zoom.transform, d3.zoomIdentity);
   };
 
-  // Debounce resize handler
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(resizeMap, 100);
-  });
+  // Handle resize events immediately without debouncing
+  window.addEventListener('resize', resizeMap);
 }); 
