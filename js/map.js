@@ -427,33 +427,29 @@ document.addEventListener('DOMContentLoaded', () => {
         .attr('y', coords[1] + yOffset);
     });
 
-    // Draw cities
-    const cities = g.selectAll('circle')
-      .data(visitedCities)
-      .enter()
-      .append('circle')
-      .attr('class', d => {
-        const isOnPath = travelPath.some(path => 
-          path.from === d.name || path.to === d.name
-        );
-        return `city-point${isOnPath ? ' path-city' : ''}`;
-      })
-      .attr('cx', d => projection(d.coordinates)[0])
-      .attr('cy', d => projection(d.coordinates)[1])
-      .attr('r', d => {
-        const isOnPath = travelPath.some(path => 
-          path.from === d.name || path.to === d.name
-        );
-        return isOnPath ? 5 : 2.5;
-      })
-      .on('mouseover', (event, d) => {
-        const tooltip = d3.select('#tooltip');
-        tooltip.style('display', 'block')
-          .html(`${d.name}<div class="tooltip-status visited">Visited</div>`);
-      })
-      .on('mouseout', () => {
-        d3.select('#tooltip').style('display', 'none');
-      });
+    // Add city points
+    g.selectAll('circle')
+       .data(visitedCities)
+       .enter()
+       .append('circle')
+       .attr('class', d => {
+         // Check if this city is on the travel path
+         const isOnPath = travelPath.some(segment => 
+           segment.from === d.name || segment.to === d.name
+         );
+         return `city-point${isOnPath ? ' path-city' : ''}`;
+       })
+       .attr('cx', d => projection(d.coordinates)[0])
+       .attr('cy', d => projection(d.coordinates)[1])
+       .attr('r', 2)
+       .on('mouseover', (event, d) => {
+         const tooltip = d3.select('#tooltip');
+         tooltip.style('display', 'block')
+           .html(`${d.name}<div class="tooltip-status visited">Visited</div>`);
+       })
+       .on('mouseout', () => {
+         d3.select('#tooltip').style('display', 'none');
+       });
   });
   
   // Handle window resize
