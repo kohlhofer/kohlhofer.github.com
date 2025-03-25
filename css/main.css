@@ -797,12 +797,14 @@ body {
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   opacity: 0;
+  pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 #nav-info-panel.visible {
   display: block;
   opacity: 1;
+  pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
 
