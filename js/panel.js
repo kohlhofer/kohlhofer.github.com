@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   const closeButton = panel.querySelector('.close-button');
   const activeNavLink = document.querySelector('.top-nav a.active');
-  const currentPage = activeNavLink.getAttribute('href').split('.')[0]; // 'map' or 'music'
-  const storageKey = `panel_closed_${currentPage}`;
   
   function adjustPanelPosition() {
     const linkRect = activeNavLink.getBoundingClientRect();
@@ -28,13 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300); // Match the transition duration
   }
 
-  // Set initial display state
-  if (!localStorage.getItem(storageKey)) {
-    showPanel();
-  } else {
-    panel.style.display = 'none';
-  }
-
   // Handle window resize
   window.addEventListener('resize', function() {
     if (panel.classList.contains('visible')) {
@@ -47,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     e.stopPropagation();
     hidePanel();
-    localStorage.setItem(storageKey, 'true');
   });
 
   // Prevent clicks on the panel from triggering the nav link
@@ -63,10 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const isHidden = !panel.classList.contains('visible');
       if (isHidden) {
         showPanel();
-        localStorage.removeItem(storageKey);
       } else {
         hidePanel();
-        localStorage.setItem(storageKey, 'true');
       }
     }
   });

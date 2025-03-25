@@ -172,6 +172,10 @@ body {
   padding: 0;
   transition: all 0.3s ease-out;
   text-decoration: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .top-nav a:hover {
@@ -185,6 +189,23 @@ body {
 
 .top-nav a i {
   margin-right: 4px;
+}
+
+.nav-info-icon {
+  position: absolute;
+  bottom: -23px;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: transform 0.2s ease-out;
+}
+
+.top-nav a:hover .nav-info-icon {
+  transform: scale(1.1);
 }
 
 .scroll-container {
