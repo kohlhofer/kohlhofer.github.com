@@ -257,6 +257,7 @@
     .travel-arc:hover {
       opacity: 1;
     }
+
   </style>
 
   <script>
@@ -276,6 +277,15 @@
     <a href="about.html">About</a>
     <a href="map.html" class="active">Travel</a>
   </div>
+  
+  <div id="nav-info-panel">
+    <p>The map shows the various places I lived and worked at as well as others that i have visited.</p>
+    <p>Created with <a href="https://d3js.org/" target="_blank">D3</a> - Here is to exploring!</p>
+    <button class="close-button">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
   <div id="map-page">
     <div id="map-container"></div>
     <div id="tooltip"></div>
@@ -294,7 +304,7 @@
       </div>
       <div class="legend-item">
         <div class="legend-dot"></div>
-        <span>City</span>
+        <span>Visited City</span>
       </div>
       <div class="legend-item">
         <div class="legend-dot path"></div>
@@ -309,5 +319,6 @@
 
   <script src="js/background.js"></script>
   <script src="js/map.js"></script>
+  <script src="js/panel.js"></script>
 </body>
 </html> 
