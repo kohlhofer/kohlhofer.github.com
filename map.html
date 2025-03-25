@@ -206,21 +206,23 @@
       stroke-width: 0;
       filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
       r: 2.5;
+      transform-origin: center;
     }
 
     .city-point:hover {
       fill: #FF5A5F;
-      r: 1.5;
+      transform: scale(0.6);
     }
 
     .city-point.path-city {
-      r: 5;
+      r: 2.5;
+      transform: scale(2);
       stroke: rgba(0, 0, 0, 0.9);
       stroke-width: 1;
     }
 
     .city-point.path-city:hover {
-      r: 4;
+      transform: scale(1.6);
     }
 
     .city-label {
