@@ -909,14 +909,25 @@ body {
   color: rgba(0, 0, 0, 0.8);
 }
 
+.bits-description .eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
 .bits-description h1 {
-  font-size: clamp(1.8rem, 3vw, 2.2rem);
-  color: rgba(0, 0, 0, 0.8);
+  font-size: clamp(2rem, 2.5vw, 3.5rem);
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.9);
   margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .bits-description p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 1rem;
@@ -927,7 +938,7 @@ body {
   padding: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .bit-card {
@@ -935,14 +946,14 @@ body {
   color: inherit;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
   position: relative;
   aspect-ratio: 4/3;
-  box-shadow: 0px 3px 0px rgb(169, 173, 173)  ,0px 5px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 0px rgb(169, 173, 173)  ,0px 6px 3px rgba(0, 0, 0, 0.5);
 }
 
 .bit-card:hover {
-  transform: translateY(-10px) scale(1.00);
+  transform: translateY(-8px) scale(1.00);
   box-shadow: 0px 3px 0px rgb(169, 173, 173)  ,0px 15px 15px rgba(0, 0, 0, 0.55);
 }
 
@@ -987,6 +998,27 @@ body {
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.bit-card-status-icons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.bit-card-status-icon {
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7)
 }
 
 @media screen and (max-width: 900px) {
