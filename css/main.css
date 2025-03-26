@@ -54,24 +54,33 @@ body {
   overflow-wrap: break-word;
   hyphens: auto;
   max-height: 100vh;
-  overflow-y: auto;
   z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 0.1em;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
 
+.bigText span {
+  white-space: nowrap;
+  display: block;
 }
 
 @media screen and (orientation: landscape) {
   .bigText {
     display: block;
-
     font-size: 22vh;
   }
+  
+  .bigText span {
+    display: inline;
+    white-space: nowrap;
+  }
 }
-
-
 
 /* Music page styles */
 #music {
@@ -498,36 +507,6 @@ body {
 .ytp-gradient-bottom,
 .ytp-ce-element {
   display: none !important;
-}
-
-/* Refresh background styles */
-.refresh-container {
-  position: absolute;
-  bottom: clamp(2rem, 3vw, 4rem);
-  right: clamp(2rem, 3vw, 4rem);
-  z-index: 2;
-}
-
-#refresh-background {
-  background: rgba(255, 255, 255, 0.6);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  color: rgba(0, 0, 0);
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(5px);
-  transition: all 0.4s ease-out;
-  mix-blend-mode:screen;
-}
-
-#refresh-background:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: rotate(270deg);
 }
 
 /* About page styles */

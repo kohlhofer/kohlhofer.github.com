@@ -92,15 +92,12 @@ class ShaderBackground {
         window.addEventListener('mousemove', this.handleMouseMove.bind(this));
         window.addEventListener('resize', this.handleResize.bind(this));
         
-        // Set up refresh button
-        const refreshButton = document.getElementById('refresh-background');
-        if (refreshButton) {
-            refreshButton.addEventListener('click', () => {
-                this.generateNewSeed();
-                // Reset animation time to make transition smoother
-                this.startTime = performance.now();
-            });
-        }
+        // Set up click handler for the entire page
+        window.addEventListener('click', () => {
+            this.generateNewSeed();
+            // Reset animation time to make transition smoother
+            this.startTime = performance.now();
+        });
         
         this.handleResize();
     }
