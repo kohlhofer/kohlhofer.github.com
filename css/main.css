@@ -206,6 +206,10 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .top-nav:hover {
