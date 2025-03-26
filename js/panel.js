@@ -40,10 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
     hidePanel();
   });
 
-  // Prevent clicks on the panel from triggering the nav link
+  // Prevent clicks on the panel background from triggering the nav link
   panel.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    // Only prevent default if clicking on the panel itself, not its children
+    if (e.target === panel) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
   });
 
   // Handle active nav item click
