@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@400..700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@400..700&family=IBM+Plex+Sans:wght@400;600&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
 <style> 
 body, html, canvas { 
   margin: 0; 
@@ -21,35 +21,81 @@ canvas {
   display:block;
 }
 
-#about {
- position: fixed;
- bottom: 25px;
- right: 30px;
- font-family: "IBM Plex Sans", serif;
-  color:#CC6;
-  font-size:14px;
+
+.bits-panel {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 280px;
+  font-family: 'Rubik', sans-serif;
 }
-#title {
- position: fixed;
- top: 50px;
- left: 50px;
- font-size:64px;
-   font-family: "Amatic SC", serif;
-  font-weight: 400;
-  font-style: normal;
-  display:none;
+
+.bits-panel h2 {
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0 0 0.25rem 0;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
-a, a:hover, a:visited {
-  color:#FFC;
+
+.bits-panel p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0 0 0.75rem 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
-    </style> 
+
+.bits-panel .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 0.75rem;
+}
+
+.bits-panel .back-link:hover {
+  background: rgba(0, 0, 0, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.bits-panel .back-link i {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .bits-panel {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+}
+</style> 
   </head>
   <body>
-    <div id="about">
-      <a href="https://kohlhofer.com">kohlhofer</a>, 2023
-    </div>
-    <div id="title">
-     Lorenz System
+    <div class="bits-panel">
+      <h2>Lorenz Attractor</h2>
+      <p>An visualization of chaotic behavior.</p>
+      <a href="../bits.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        More bits and pieces
+      </a>
     </div>
   </body>
 </html>

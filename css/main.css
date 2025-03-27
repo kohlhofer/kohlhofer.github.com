@@ -934,11 +934,12 @@ body {
 }
 
 .bits-grid {
-  grid-column: 2;
-  padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  align-content: start;
+  grid-column: 2;
 }
 
 .bit-card {
@@ -949,12 +950,12 @@ body {
   transition: transform 0.1s ease, box-shadow 0.2s ease;
   position: relative;
   aspect-ratio: 4/3;
-  box-shadow: 0px 3px 0px rgb(169, 173, 173)  ,0px 6px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 0px rgb(169, 173, 173), 0px 3.5px 0px rgb(0, 0, 0, 0.3)  ,0px 6px 3px rgba(0, 0, 0, 0.5);
 }
 
 .bit-card:hover {
-  transform: translateY(-8px) scale(1.00);
-  box-shadow: 0px 3px 0px rgb(169, 173, 173)  ,0px 15px 15px rgba(0, 0, 0, 0.55);
+  transform: translateY(-4px) scale(1.00);
+  box-shadow: 0px 3px 0px rgb(169, 173, 173)  , 0px 3.5px 0px rgb(0, 0, 0, 0.3)  ,0px 15px 15px rgba(0, 0, 0, 0.55);
 }
 
 .bit-card-image {
@@ -1060,5 +1061,12 @@ body {
     padding: 1rem;
   }
 
+}
+
+@media (max-width: 768px) {
+  .bits-grid {
+    grid-column: 1;
+    padding: 1rem;
+  }
 }
 

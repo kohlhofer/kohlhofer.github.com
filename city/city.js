@@ -1,5 +1,3 @@
-
-
 // sets the overal resolution and dimension
 var cellX = 150; //this sets the size per building
 var rowsNum = 10;
@@ -17,7 +15,7 @@ var parkElevation = 5;
 var parkFoliageHeight = 7;
 
 // adds a hand drawn frame around the whole picture
-var frameWidth = 20;
+var frameWidth = 15;
 
 // set the drawing style
 var isoAngle = 2.7;
@@ -190,7 +188,7 @@ function addFrame(frameWidth) {
   width = windowWidth;
   height = windowHeight;
   rect(0,0,width,frameWidth);
-  rect(0,height-2*frameWidth,width,2*frameWidth);
+  rect(0,height-frameWidth,width,frameWidth);
   rect(0,0,frameWidth,height);
   rect(width-frameWidth,0,frameWidth,height);
   // top
@@ -198,11 +196,11 @@ function addFrame(frameWidth) {
   drawLine([frameWidth,frameWidth],[width-frameWidth,frameWidth]);
   // bottom
   
-  drawLine([frameWidth,height-2*frameWidth],[width-frameWidth,height-2*frameWidth]);
+  drawLine([frameWidth,height-frameWidth],[width-frameWidth,height-frameWidth]);
   // left
-  drawLine([frameWidth,frameWidth],[frameWidth,height-2*frameWidth]);
+  drawLine([frameWidth,frameWidth],[frameWidth,height-frameWidth]);
   // right
-  drawLine([width-frameWidth,frameWidth],[width-frameWidth,height-2*frameWidth]);
+  drawLine([width-frameWidth,frameWidth],[width-frameWidth,height-frameWidth]);
   
 }
 
