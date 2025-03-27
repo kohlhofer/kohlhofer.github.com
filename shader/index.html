@@ -1,0 +1,102 @@
+<html>
+  <head> 
+    <title>Shader 2023</title>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="../css/fa-fontawesome.css" rel="stylesheet">
+    <link href="../css/fa-brands.css" rel="stylesheet">
+    <link href="../css/fa-solid.css" rel="stylesheet">
+    <style> 
+      body, html { 
+        margin: 0; 
+        padding: 0; 
+        font-family: "IBM Plex Sans", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size:14px;
+      }
+
+      .bits-panel {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 280px;
+        font-family: 'Rubik', sans-serif;
+      }
+
+      .bits-panel h2 {
+        font-size: 1.2rem;
+        color: rgba(0, 0, 0, 0.9);
+        margin: 0 0 0.25rem 0;
+        font-weight: 700;
+      }
+
+      .bits-panel p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        color: rgba(0, 0, 0, 0.8);
+        margin: 0 0 0.75rem 0;
+      }
+
+      .bits-panel p:last-child {
+        margin-bottom: 0;
+        font-family: "IBM Plex Sans", serif;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .bits-panel .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+        border-radius: 100px;
+        font-size: 0.85rem;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        margin-top: 0.75rem;
+      }
+
+      .bits-panel .back-link:hover {
+        background: rgba(0, 0, 0, 1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .bits-panel .back-link i {
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 600px) {
+        .bits-panel {
+          bottom: 1rem;
+          right: 1rem;
+          left: 1rem;
+          max-width: none;
+        }
+      }
+    </style> 
+  </head>
+  <body>
+    <div class="bits-panel">
+      <h2>Shader</h2>
+      <p>Slowly evolving shader used on the landing page of kohlhofer.com.</p>
+      <a href="../bits.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        More bits and pieces
+      </a>
+    </div>
+    <script src="shader.js"></script>
+  </body>
+</html> 
