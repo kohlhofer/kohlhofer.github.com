@@ -2,28 +2,67 @@
   "photos": [
     {
       "filename": "DSCF1609.JPG",
-      "title": "Photo 1",
-      "date": "2024-02-23"
+      "title": "DSCF1609"
     },
     {
       "filename": "DSCF4229.JPG",
-      "title": "Photo 2",
-      "date": "2024-08-02"
+      "title": "DSCF4229"
+    },
+    {
+      "filename": "DSCF4244.jpg",
+      "title": "DSCF4244"
     },
     {
       "filename": "DSCF4430.JPG",
-      "title": "Photo 3",
-      "date": "2024-08-07"
+      "title": "DSCF4430"
     },
     {
       "filename": "DSCF4484.JPG",
-      "title": "Photo 4",
-      "date": "2024-08-07"
+      "title": "DSCF4484"
+    },
+    {
+      "filename": "DSCF4493.JPG",
+      "title": "DSCF4493"
+    },
+    {
+      "filename": "DSCF5086.jpg",
+      "title": "DSCF5086"
+    },
+    {
+      "filename": "DSCF5287.jpg",
+      "title": "DSCF5287"
+    },
+    {
+      "filename": "DSCF5775.JPG",
+      "title": "DSCF5775"
+    },
+    {
+      "filename": "DSCF5970.jpg",
+      "title": "DSCF5970"
+    },
+    {
+      "filename": "DSCF5998.JPG",
+      "title": "DSCF5998"
+    },
+    {
+      "filename": "DSCF6085.jpg",
+      "title": "DSCF6085"
     },
     {
       "filename": "DSCF6758.JPG",
-      "title": "Photo 5",
-      "date": "2024-12-31"
+      "title": "DSCF6758"
+    },
+    {
+      "filename": "IMG_5900.jpg",
+      "title": "IMG_5900"
+    },
+    {
+      "filename": "IMG_6006.jpg",
+      "title": "IMG_6006"
+    },
+    {
+      "filename": "lon.jpg",
+      "title": "lon"
     }
   ]
 } 
