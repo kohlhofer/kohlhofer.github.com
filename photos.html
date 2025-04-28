@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Photos - Alexander Kohlhofer</title>
+  <meta name="description" content="Photo gallery of Alexander Kohlhofer">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link href="css/fa-fontawesome.css" rel="stylesheet">
+  <link href="css/fa-brands.css" rel="stylesheet">
+  <link href="css/fa-solid.css" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-58451-10', 'kohlhofer.com');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+  <div class="top-nav">
+    <a href="/"><i class="fas fa-seedling"></i></a>
+    <a href="music.html">Music</a>
+    <a href="about.html">Work</a>
+    <a href="bits.html">Bits</a>
+    <a href="map.html">Map</a>
+    <a href="photos.html" class="active">Photos <span class="nav-info-icon">info</span></a>
+  </div>
+  
+  <div id="nav-info-panel">
+    <p>I studied photography as part of my degree and have been taking photos ever since. Nowadays, I restrict myself to a fully manual fixed-focal-length lens on a rangefinder-style camera plus the ubiquitous phone camera.</p>
+    <button class="close-button">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <div id="content">
+    <div id="photo-gallery">
+      <div class="theme-switch">
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <div class="photo-container" id="photo-container">
+        <!-- Photos will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/exif.js"></script>
+  <script src="js/photos.js"></script>
+  <script src="js/panel.js"></script>
+</body>
+</html> 

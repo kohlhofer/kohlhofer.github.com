@@ -1,0 +1,29 @@
+{
+  "photos": [
+    {
+      "filename": "DSCF1609.JPG",
+      "title": "Photo 1",
+      "date": "2024-02-23"
+    },
+    {
+      "filename": "DSCF4229.JPG",
+      "title": "Photo 2",
+      "date": "2024-08-02"
+    },
+    {
+      "filename": "DSCF4430.JPG",
+      "title": "Photo 3",
+      "date": "2024-08-07"
+    },
+    {
+      "filename": "DSCF4484.JPG",
+      "title": "Photo 4",
+      "date": "2024-08-07"
+    },
+    {
+      "filename": "DSCF6758.JPG",
+      "title": "Photo 5",
+      "date": "2024-12-31"
+    }
+  ]
+} 
