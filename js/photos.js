@@ -122,7 +122,7 @@ class PhotoGallery {
     this.scrollTimeout = setTimeout(() => {
       this.isScrolling = false;
       this.snapToNearestPhoto();
-    }, 100); // Adjust this value to change how quickly it snaps after scrolling stops
+    }, 50); // Adjust this value to change how quickly it snaps after scrolling stops
   }
 
   snapToNearestPhoto() {

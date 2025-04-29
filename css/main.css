@@ -1078,9 +1078,9 @@ body {
   align-items: center;
   position: relative;
   overflow: visible;
-  scroll-behavior: smooth;
+  
   scroll-snap-type: y mandatory;
-  scroll-snap-stop: always;
+  
 }
 
 .photo-container {
@@ -1088,6 +1088,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-snap-align: center;
 }
 
 .photo-item {
@@ -1156,9 +1157,22 @@ body.dark-theme .photo-counter {
 
 @media screen and (max-width: 480px) {
   .photo-item {
-    width: 95vw;
-    height: 95vh;
-    padding: 0.5rem;
+    width: 100vw;
+    height: 100vh;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-item img {
+    max-width: calc(100vw - 16px); /* Account for padding and border */
+    max-height: calc(100vh - 16px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 }
 
