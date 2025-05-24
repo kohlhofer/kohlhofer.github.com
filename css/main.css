@@ -424,6 +424,10 @@ body {
   #player {
     min-height: 180px;
   }
+
+  .top-nav a {
+    
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -1262,5 +1266,19 @@ body.dark-theme .top-nav a.active {
   width: 24px;
   height: 24px;
   fill: currentColor;
+}
+
+.top-nav a[target="_blank"] {
+  position: relative;
+  padding-right: 0.7em;
+}
+
+.top-nav a[target="_blank"]::after {
+  content: "↗";
+  font-size: 0.6em;
+  position: absolute;
+  right: 0;
+  top: 0.3em;
+  white-space: nowrap;
 }
 
