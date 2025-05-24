@@ -1270,15 +1270,15 @@ body.dark-theme .top-nav a.active {
 
 .top-nav a[target="_blank"] {
   position: relative;
-  padding-right: 0.7em;
+  padding-right: 0.5em;
 }
 
 .top-nav a[target="_blank"]::after {
-  content: "↗";
-  font-size: 0.6em;
+  content: "›";
+  font-size: 0.8em;
   position: absolute;
   right: 0;
-  top: 0.3em;
+  top: 0.2em;
   white-space: nowrap;
 }
 
