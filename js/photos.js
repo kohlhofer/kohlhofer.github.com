@@ -121,8 +121,9 @@ class PhotoGallery {
     // Set a timeout to detect when scrolling stops
     this.scrollTimeout = setTimeout(() => {
       this.isScrolling = false;
+      // Only snap if user has scrolled a significant amount
       this.snapToNearestPhoto();
-    }, 50); // Adjust this value to change how quickly it snaps after scrolling stops
+    }, 150); // Increased timeout for more natural feel
   }
 
   snapToNearestPhoto() {
@@ -146,7 +147,10 @@ class PhotoGallery {
       }
     });
     
-    if (nearestPhoto) {
+    // Only snap if we're reasonably close to a photo (within 30% of viewport height)
+    const snapThreshold = viewportHeight * 0.3;
+    
+    if (nearestPhoto && minDistance < snapThreshold) {
       const targetScroll = nearestPhoto.offsetTop - (viewportHeight - nearestPhoto.offsetHeight) / 2;
       window.scrollTo({
         top: targetScroll,
