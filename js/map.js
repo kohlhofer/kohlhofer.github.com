@@ -222,15 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Create zoom behavior
   const zoom = d3.zoom()
-    .scaleExtent([1, 1]) // Disable zooming
-    .translateExtent([[-Infinity, -Infinity], [Infinity, Infinity]]) // Allow unrestricted panning initially
+    .scaleExtent([1, 8]) // Enable zooming: min 1x (default), max 8x
     .on('zoom', (event) => {
-      const bounds = calculateMapBounds();
-      
-      // Constrain the translation
-      event.transform.x = Math.min(Math.max(event.transform.x, bounds.x[0]), bounds.x[1]);
-      event.transform.y = Math.min(Math.max(event.transform.y, bounds.y[0]), bounds.y[1]);
-      
       g.attr('transform', event.transform);
     });
     
