@@ -1,0 +1,15 @@
+{
+  "title": "Alexander Kohlhofer",
+  "description": "Hi there. This is the personal site of Alexander Kohlhofer, designer.",
+  "viewport": {
+    "maxScale": "1.0",
+    "userScalable": "no"
+  },
+  "fonts": ["Rubik", "Inter"],
+  "pageCSS": [],
+  "headScripts": [],
+  "bodyScripts": ["background.js", "init.js"],
+  "hasNavigation": true,
+  "hasInfoPanel": false,
+  "analytics": true
+}

@@ -1,0 +1,15 @@
+{
+  "title": "About - Alexander Kohlhofer",
+  "description": "About Alexander Kohlhofer",
+  "viewport": {
+    "maxScale": "1.0",
+    "userScalable": "no"
+  },
+  "fonts": ["Rubik"],
+  "pageCSS": [],
+  "headScripts": [],
+  "bodyScripts": ["background.js", "work-history.js"],
+  "hasNavigation": true,
+  "hasInfoPanel": false,
+  "analytics": true
+}

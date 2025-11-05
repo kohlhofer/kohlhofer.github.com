@@ -4,28 +4,26 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const SRC_DIR = path.join(__dirname, 'src', 'templates');
+const SRC_DIR = path.join(__dirname, 'src');
+const TEMPLATES_DIR = path.join(SRC_DIR, 'templates');
+const PAGES_DIR = path.join(SRC_DIR, 'pages');
 const OUTPUT_DIR = __dirname;
-const CONFIG_PATH = path.join(__dirname, 'src', 'navigation-config.json');
+const LAYOUT_PATH = path.join(SRC_DIR, 'layout.html');
+const NAV_CONFIG_PATH = path.join(SRC_DIR, 'navigation-config.json');
 
-// Load navigation configuration
-const navConfig = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+// Load configurations
+const navConfig = JSON.parse(fs.readFileSync(NAV_CONFIG_PATH, 'utf8'));
+const layoutTemplate = fs.readFileSync(LAYOUT_PATH, 'utf8');
 
 /**
  * Generate navigation HTML for a specific page
- * @param {string} activePage - The page identifier (e.g., 'index', 'about')
- * @returns {string} Navigation HTML
  */
 function generateNavigation(activePage) {
   const links = navConfig.navLinks.map(link => {
     const isActive = link.page === activePage;
     const activeClass = isActive ? ' class="active"' : '';
     const externalAttrs = link.external ? ' target="_blank" rel="noopener noreferrer"' : '';
-
-    // Add info icon if this link has an info panel
-    const infoIcon = link.hasInfo && isActive
-      ? ' <span class="nav-info-icon">info</span>'
-      : '';
+    const infoIcon = link.hasInfo && isActive ? ' <span class="nav-info-icon">info</span>' : '';
 
     return `    <a href="${link.href}"${activeClass}${externalAttrs}>${link.text}${infoIcon}</a>`;
   }).join('\n');
@@ -35,8 +33,6 @@ function generateNavigation(activePage) {
 
 /**
  * Generate info panel HTML for a specific page
- * @param {string} page - The page identifier
- * @returns {string} Info panel HTML or empty string
  */
 function generateInfoPanel(page) {
   const panelData = navConfig.infoPanels[page];
@@ -51,37 +47,124 @@ function generateInfoPanel(page) {
 }
 
 /**
- * Process a template file
- * @param {string} filename - Template filename
+ * Generate viewport meta tag
  */
-function processTemplate(filename) {
-  const templatePath = path.join(SRC_DIR, filename);
-  const outputPath = path.join(OUTPUT_DIR, filename);
+function generateViewport(viewportConfig) {
+  if (!viewportConfig) return '';
 
-  // Extract page identifier from filename (e.g., 'index.html' -> 'index')
-  const pageName = path.basename(filename, '.html');
+  const maxScale = viewportConfig.maxScale || '1.0';
+  const userScalable = viewportConfig.userScalable || 'no';
 
-  console.log(`Processing ${filename}...`);
+  return `  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=${maxScale}, user-scalable=${userScalable}">`;
+}
 
-  // Read template
-  let content = fs.readFileSync(templatePath, 'utf8');
+/**
+ * Generate font links
+ */
+function generateFonts(fonts) {
+  if (!fonts || fonts.length === 0) return '';
 
-  // Generate navigation and info panel
-  const navigation = generateNavigation(pageName);
-  const infoPanel = generateInfoPanel(pageName);
+  const fontFamilies = fonts.map(font => {
+    if (font === 'Rubik') return 'family=Rubik:wght@400;700';
+    if (font === 'Inter') return 'family=Inter:wght@400;700';
+    return `family=${font}`;
+  }).join('&');
 
-  // Replace placeholders
-  content = content.replace('<!-- NAVIGATION -->', navigation);
+  return `  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?${fontFamilies}&display=swap" rel="stylesheet">`;
+}
 
-  if (infoPanel) {
-    content = content.replace('<!-- INFO_PANEL -->', infoPanel);
-  } else {
-    content = content.replace('<!-- INFO_PANEL -->', '');
+/**
+ * Generate page-specific CSS links
+ */
+function generatePageCSS(cssFiles) {
+  if (!cssFiles || cssFiles.length === 0) return '';
+
+  return cssFiles.map(file => `  <link rel="stylesheet" href="css/${file}">`).join('\n');
+}
+
+/**
+ * Generate head scripts (external libraries)
+ */
+function generateHeadScripts(scripts) {
+  if (!scripts || scripts.length === 0) return '';
+
+  return scripts.map(src => `  <script src="${src}"></script>`).join('\n');
+}
+
+/**
+ * Generate body scripts
+ */
+function generateBodyScripts(scripts) {
+  if (!scripts || scripts.length === 0) return '';
+
+  return '\n' + scripts.map(script => `  <script src="js/${script}"></script>`).join('\n');
+}
+
+/**
+ * Generate Google Analytics script
+ */
+function generateAnalytics() {
+  return `  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-58451-10', 'kohlhofer.com');
+    ga('send', 'pageview');
+  </script>`;
+}
+
+/**
+ * Process a single page
+ */
+function processPage(pageName) {
+  const pageConfigPath = path.join(PAGES_DIR, `${pageName}.json`);
+  const templatePath = path.join(TEMPLATES_DIR, `${pageName}.html`);
+  const outputPath = path.join(OUTPUT_DIR, `${pageName}.html`);
+
+  // Check if files exist
+  if (!fs.existsSync(pageConfigPath)) {
+    console.log(`  ⚠️  Skipping ${pageName}.html - no configuration found`);
+    return;
   }
 
+  if (!fs.existsSync(templatePath)) {
+    console.log(`  ⚠️  Skipping ${pageName}.html - no template found`);
+    return;
+  }
+
+  console.log(`Processing ${pageName}.html...`);
+
+  // Load page configuration
+  const pageConfig = JSON.parse(fs.readFileSync(pageConfigPath, 'utf8'));
+
+  // Read template content
+  const templateContent = fs.readFileSync(templatePath, 'utf8');
+
+  // Build the page
+  let html = layoutTemplate;
+
+  // Replace all placeholders
+  html = html.replace('{{TITLE}}', pageConfig.title);
+  html = html.replace('{{DESCRIPTION}}', pageConfig.description);
+  html = html.replace('{{VIEWPORT}}', generateViewport(pageConfig.viewport));
+  html = html.replace('{{FONTS}}', generateFonts(pageConfig.fonts));
+  html = html.replace('{{PAGE_CSS}}', generatePageCSS(pageConfig.pageCSS));
+  html = html.replace('{{HEAD_SCRIPTS}}', generateHeadScripts(pageConfig.headScripts));
+  html = html.replace('{{ANALYTICS}}', pageConfig.analytics ? generateAnalytics() : '');
+  html = html.replace('{{NAVIGATION}}', pageConfig.hasNavigation ? generateNavigation(pageName) : '');
+  html = html.replace('{{INFO_PANEL}}', pageConfig.hasInfoPanel ? generateInfoPanel(pageName) : '');
+  html = html.replace('{{CONTENT}}', templateContent);
+  html = html.replace('{{BODY_SCRIPTS}}', generateBodyScripts(pageConfig.bodyScripts));
+
+  // Clean up any extra blank lines
+  html = html.replace(/\n\n\n+/g, '\n\n');
+
   // Write output
-  fs.writeFileSync(outputPath, content, 'utf8');
-  console.log(`  ✓ Generated ${filename}`);
+  fs.writeFileSync(outputPath, html, 'utf8');
+  console.log(`  ✓ Generated ${pageName}.html`);
 }
 
 /**
@@ -90,25 +173,20 @@ function processTemplate(filename) {
 function build() {
   console.log('🔨 Building site...\n');
 
-  // Check if source directory exists
-  if (!fs.existsSync(SRC_DIR)) {
-    console.error(`❌ Source directory not found: ${SRC_DIR}`);
+  // Get all page configuration files
+  const pageConfigs = fs.readdirSync(PAGES_DIR)
+    .filter(file => file.endsWith('.json'))
+    .map(file => path.basename(file, '.json'));
+
+  if (pageConfigs.length === 0) {
+    console.error('❌ No page configurations found');
     process.exit(1);
   }
 
-  // Get all HTML files in templates directory
-  const templates = fs.readdirSync(SRC_DIR)
-    .filter(file => file.endsWith('.html'));
+  // Process each page
+  pageConfigs.forEach(processPage);
 
-  if (templates.length === 0) {
-    console.error('❌ No HTML templates found');
-    process.exit(1);
-  }
-
-  // Process each template
-  templates.forEach(processTemplate);
-
-  console.log(`\n✅ Build complete! Processed ${templates.length} file(s).`);
+  console.log(`\n✅ Build complete! Processed ${pageConfigs.length} page(s).`);
 }
 
 // Run build

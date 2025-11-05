@@ -8,20 +8,30 @@ This is a static website hosted on GitHub Pages at [kohlhofer.com](https://kohlh
 
 ## Architecture
 
-This site uses a **build-based approach** with shared navigation components to avoid code duplication across pages.
+This site uses a **comprehensive templating system** that eliminates ~90% of code duplication across pages. All common HTML (DOCTYPE, meta tags, CSS links, analytics, etc.) is shared through a base layout, while page-specific content is managed through simple templates and JSON configuration files.
 
 ### Directory Structure
 
 ```
 ├── src/
-│   ├── templates/          # HTML templates with placeholders
+│   ├── layout.html         # Base HTML template (shared across all pages)
+│   ├── templates/          # Page content templates (body only)
 │   │   ├── index.html
 │   │   ├── about.html
 │   │   ├── photos.html
 │   │   └── ...
-│   ├── navigation-config.json  # Navigation configuration
-│   └── components/         # Reusable components (future)
+│   ├── pages/              # Page configuration files
+│   │   ├── index.json      # Title, description, fonts, scripts, etc.
+│   │   ├── about.json
+│   │   ├── photos.json
+│   │   └── ...
+│   └── navigation-config.json  # Navigation links & info panels
+├── css/
+│   ├── main.css            # Main stylesheet
+│   ├── music-page.css      # Music page specific styles
+│   └── map-page.css        # Map page specific styles
 ├── build.js                # Build script
+├── watch.js                # File watcher for live reload
 ├── package.json            # Node.js dependencies
 ├── .github/
 │   └── workflows/
@@ -31,21 +41,33 @@ This site uses a **build-based approach** with shared navigation components to a
 
 ### How It Works
 
-1. **Templates** (`src/templates/*.html`): HTML files with placeholders:
-   - `<!-- NAVIGATION -->` - Replaced with navigation HTML
-   - `<!-- INFO_PANEL -->` - Replaced with info panel HTML (if applicable)
+1. **Base Layout** (`src/layout.html`):
+   - Single source for all common HTML structure
+   - Includes: DOCTYPE, meta tags, CSS links, fonts, analytics
+   - Contains placeholders for page-specific content
 
-2. **Navigation Config** (`src/navigation-config.json`):
-   - Defines navigation links
+2. **Page Configurations** (`src/pages/*.json`):
+   - Each page has a JSON config file
+   - Defines: title, description, viewport settings, fonts, CSS files, scripts
+   - Example: `{"title": "About", "fonts": ["Rubik"], "pageCSS": [], "bodyScripts": ["background.js"]}`
+
+3. **Content Templates** (`src/templates/*.html`):
+   - Contain only the unique body content for each page
+   - No boilerplate, no duplicate code
+   - Just the main `<div>` content
+
+4. **Navigation Config** (`src/navigation-config.json`):
+   - Defines navigation links for all pages
    - Specifies which pages have info panels
    - Contains info panel content
 
-3. **Build Script** (`build.js`):
-   - Reads templates from `src/templates/`
-   - Injects navigation and info panels based on config
-   - Outputs built HTML files to root directory
+5. **Build Script** (`build.js`):
+   - Reads page configuration files
+   - Loads content templates
+   - Injects everything into base layout
+   - Generates complete HTML files in root directory
 
-4. **GitHub Actions** (`.github/workflows/build.yml`):
+6. **GitHub Actions** (`.github/workflows/build.yml`):
    - Automatically builds on push
    - Commits generated files back to repository
    - Ensures site is always up-to-date
@@ -82,7 +104,7 @@ npm run dev
 This will:
 - Build the site initially
 - Start a local server at `http://localhost:3000`
-- Watch for changes in `src/templates/` and `src/navigation-config.json`
+- Watch for changes in `src/templates/`, `src/pages/`, `src/navigation-config.json`, and `src/layout.html`
 - Automatically rebuild when you save changes
 - Live reload your browser automatically
 
@@ -100,9 +122,17 @@ python3 -m http.server 8000
 #### Updating Page Content
 
 1. Start dev server: `npm start`
-2. Edit templates in `src/templates/`
+2. Edit the content template in `src/templates/yourpage.html` (just the body content!)
 3. Save - browser will auto-refresh with your changes!
-4. When done, commit both template and generated files
+4. Commit both template and generated files
+
+#### Changing Page Metadata (title, fonts, scripts, etc.)
+
+1. Start dev server: `npm start`
+2. Edit the page config in `src/pages/yourpage.json`
+3. Update fields like `title`, `description`, `fonts`, `pageCSS`, `bodyScripts`, etc.
+4. Save - page will rebuild and browser will refresh!
+5. Commit changes
 
 #### Updating Navigation
 
@@ -113,11 +143,12 @@ python3 -m http.server 8000
 
 #### Adding a New Page
 
-1. Create template in `src/templates/yourpage.html`
-2. Add entry to `navLinks` in `src/navigation-config.json`
-3. Add info panel to `infoPanels` if needed
-4. Dev server will auto-rebuild
-5. Commit files
+1. Create content template: `src/templates/newpage.html` (body content only)
+2. Create page config: `src/pages/newpage.json` (copy from similar page)
+3. Add navigation entry to `src/navigation-config.json`
+4. Add info panel to `infoPanels` in `src/navigation-config.json` if needed
+5. Dev server will auto-rebuild
+6. Commit all files
 
 ### Manual Build
 

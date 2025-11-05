@@ -1,0 +1,15 @@
+{
+  "title": "Bits - Alexander Kohlhofer",
+  "description": "Bits by Alexander Kohlhofer",
+  "viewport": {
+    "maxScale": "1.0",
+    "userScalable": "no"
+  },
+  "fonts": ["Rubik"],
+  "pageCSS": [],
+  "headScripts": [],
+  "bodyScripts": [],
+  "hasNavigation": true,
+  "hasInfoPanel": false,
+  "analytics": true
+}

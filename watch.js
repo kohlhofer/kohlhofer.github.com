@@ -35,8 +35,10 @@ watcher
   .on('error', error => console.error('Watcher error:', error));
 
 console.log('Watching:');
-console.log('  - src/templates/*.html');
-console.log('  - src/navigation-config.json');
+console.log('  - src/templates/*.html (content templates)');
+console.log('  - src/pages/*.json (page configurations)');
+console.log('  - src/navigation-config.json (navigation)');
+console.log('  - src/layout.html (base layout)');
 console.log('\nMake changes to see live updates! Press Ctrl+C to stop.\n');
 
 // Keep the process running

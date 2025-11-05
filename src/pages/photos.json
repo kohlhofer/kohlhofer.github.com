@@ -1,0 +1,15 @@
+{
+  "title": "Photos - Alexander Kohlhofer",
+  "description": "Photo gallery of Alexander Kohlhofer",
+  "viewport": {
+    "maxScale": "1.0",
+    "userScalable": "no"
+  },
+  "fonts": ["Rubik", "Inter"],
+  "pageCSS": [],
+  "headScripts": [],
+  "bodyScripts": ["exif.js", "photos.js", "panel.js"],
+  "hasNavigation": true,
+  "hasInfoPanel": true,
+  "analytics": true
+}
