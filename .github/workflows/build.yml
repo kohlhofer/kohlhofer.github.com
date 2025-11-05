@@ -11,11 +11,20 @@ on:
       - main
       - master
 
+# Sets permissions of the GITHUB_TOKEN
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Required to push commits back to the repo
 
     steps:
       - name: Checkout repository
@@ -46,9 +55,28 @@ jobs:
           fi
 
       - name: Commit and push if changed
-        if: steps.check_changes.outputs.has_changes == 'true' && github.event_name == 'push'
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Auto-build: Update generated HTML files [skip ci]"
           git push
+
+      - name: Upload artifact for Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
