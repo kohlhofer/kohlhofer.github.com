@@ -1,0 +1,20 @@
+{
+  "name": "kohlhofer-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio site for Alexander Kohlhofer",
+  "scripts": {
+    "build": "node build.js",
+    "prebuild": "echo 'Building site...'",
+    "postbuild": "echo 'Build complete!'"
+  },
+  "keywords": [
+    "portfolio",
+    "design",
+    "product"
+  ],
+  "author": "Alexander Kohlhofer",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "navLinks": [
+    {
+      "href": "/",
+      "text": "<i class=\"fas fa-seedling\"></i>",
+      "page": "index"
+    },
+    {
+      "href": "about.html",
+      "text": "Me",
+      "page": "about"
+    },
+    {
+      "href": "map.html",
+      "text": "Map",
+      "page": "map",
+      "hasInfo": true
+    },
+    {
+      "href": "bits.html",
+      "text": "Bits",
+      "page": "bits"
+    },
+    {
+      "href": "music.html",
+      "text": "Music",
+      "page": "music",
+      "hasInfo": true
+    },
+    {
+      "href": "photos.html",
+      "text": "Photos",
+      "page": "photos",
+      "hasInfo": true
+    },
+    {
+      "href": "https://notsocommonthoughts.com",
+      "text": "Blog",
+      "external": true
+    }
+  ],
+  "infoPanels": {
+    "photos": {
+      "content": "<p>I studied photography as part of my degree and have been taking photos ever since. Nowadays, I restrict myself to a fully manual fixed-focal-length lens on a rangefinder-style camera plus the ubiquitous phone camera.</p>"
+    },
+    "music": {
+      "content": "<p>I make electronic music with dedicated hardware instruments and recording devices. I don't use computers or screens.</p>\n    <p>This page features a small selection. Find even more on <a href=\"https://www.youtube.com/@kohlhofer/videos\" target=\"_blank\">YouTube</a>.</p>"
+    },
+    "map": {
+      "content": "<p>The map shows various cities I have lived and worked from and keeps track of places I visit.</p>\n    <p>Created with <a href=\"https://d3js.org/\" target=\"_blank\">D3</a> - Here is to exploring!</p>"
+    }
+  }
+}
