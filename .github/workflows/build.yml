@@ -40,7 +40,13 @@ jobs:
         run: npm ci || npm install
 
       - name: Build site
-        run: npm run build
+        run: npm run build:site
+
+      - name: Optimize images
+        run: npm run optimize:images
+
+      - name: Optimize JS and CSS
+        run: npm run optimize
 
       - name: Check for changes
         id: check_changes

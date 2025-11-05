@@ -10,12 +10,12 @@
   <meta name="description" content="About Alexander Kohlhofer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.min.css">
+  <link rel="stylesheet" href="css/reset.min.css">
 
-  <link href="css/fa-fontawesome.css" rel="stylesheet">
-  <link href="css/fa-brands.css" rel="stylesheet">
-  <link href="css/fa-solid.css" rel="stylesheet">
+  <link href="css/fa-fontawesome.min.css" rel="stylesheet">
+  <link href="css/fa-brands.min.css" rel="stylesheet">
+  <link href="css/fa-solid.min.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
@@ -60,7 +60,10 @@
               Connect on LinkedIn
             </a>
           </div>
-          <img src="images/profile/alex.jpg" alt="Alexander Kohlhofer" class="hero-image">
+          <picture>
+            <source srcset="images/profile/alex.webp" type="image/webp">
+            <img src="images/profile/alex.jpg" alt="Alexander Kohlhofer" class="hero-image" loading="lazy">
+          </picture>
         </div>
 
         <section class="work-history">
@@ -153,7 +156,7 @@
     </div>
   </div>
 
-  <script src="js/background.js"></script>
-  <script src="js/work-history.js"></script>
+  <script src="js/background.min.js"></script>
+  <script src="js/work-history.min.js"></script>
 </body>
 </html>

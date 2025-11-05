@@ -8,7 +8,7 @@
   "fonts": ["Rubik", "Inter"],
   "pageCSS": [],
   "headScripts": [],
-  "bodyScripts": ["exif.js", "photos.js", "panel.js"],
+  "bodyScripts": ["exif.js", "photos.min.js", "panel.min.js"],
   "hasNavigation": true,
   "hasInfoPanel": true,
   "analytics": true

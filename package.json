@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Personal portfolio site for Alexander Kohlhofer",
   "scripts": {
-    "build": "node build.js",
+    "build": "node build.js && node optimize.js",
+    "build:site": "node build.js",
+    "optimize": "node optimize.js",
+    "optimize:images": "node scripts/optimize-images.js",
     "watch": "node watch.js",
     "serve": "browser-sync start --server --files '*.html, css/*.css, js/*.js, images/**/*' --no-notify --no-open",
-    "dev": "npm-run-all build --parallel watch serve",
+    "dev": "npm-run-all build:site --parallel watch serve",
     "start": "npm run dev"
   },
   "keywords": [
@@ -22,6 +25,9 @@
   "devDependencies": {
     "browser-sync": "^3.0.2",
     "chokidar": "^3.5.3",
-    "npm-run-all": "^4.1.5"
+    "clean-css": "^5.3.3",
+    "npm-run-all": "^4.1.5",
+    "sharp": "^0.33.0",
+    "terser": "^5.26.0"
   }
 }

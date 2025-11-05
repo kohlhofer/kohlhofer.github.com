@@ -8,7 +8,7 @@
   "fonts": ["Rubik", "Inter"],
   "pageCSS": [],
   "headScripts": [],
-  "bodyScripts": ["background.js", "init.js"],
+  "bodyScripts": ["background.min.js", "init.min.js"],
   "hasNavigation": true,
   "hasInfoPanel": false,
   "analytics": true

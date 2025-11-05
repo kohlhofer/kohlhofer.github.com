@@ -8,7 +8,7 @@
   "fonts": ["Rubik"],
   "pageCSS": [],
   "headScripts": [],
-  "bodyScripts": ["background.js", "work-history.js"],
+  "bodyScripts": ["background.min.js", "work-history.min.js"],
   "hasNavigation": true,
   "hasInfoPanel": false,
   "analytics": true

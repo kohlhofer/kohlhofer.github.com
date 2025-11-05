@@ -6,9 +6,9 @@
     "userScalable": "no"
   },
   "fonts": ["Rubik"],
-  "pageCSS": ["music-page.css"],
+  "pageCSS": ["music-page.min.css"],
   "headScripts": [],
-  "bodyScripts": ["player.js", "background.js", "music.js", "panel.js"],
+  "bodyScripts": ["player.min.js", "background.min.js", "music.js", "panel.min.js"],
   "hasNavigation": true,
   "hasInfoPanel": true,
   "analytics": true
