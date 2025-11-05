@@ -67,35 +67,64 @@ npm install
 npm run build
 ```
 
+### Local Development Server with Live Reload
+
+The best way to develop is with the built-in dev server that automatically rebuilds and refreshes:
+
+```bash
+# Start dev server with live reload (recommended)
+npm start
+
+# Or use the full command
+npm run dev
+```
+
+This will:
+- Build the site initially
+- Start a local server at `http://localhost:3000`
+- Watch for changes in `src/templates/` and `src/navigation-config.json`
+- Automatically rebuild when you save changes
+- Live reload your browser automatically
+
+**Alternative (manual refresh):**
+```bash
+# Build once
+npm run build
+
+# Serve with Python (no auto-reload)
+python3 -m http.server 8000
+```
+
 ### Making Changes
 
 #### Updating Page Content
 
-1. Edit templates in `src/templates/`
-2. Run `npm run build` to generate HTML files
-3. Commit both template and generated files
+1. Start dev server: `npm start`
+2. Edit templates in `src/templates/`
+3. Save - browser will auto-refresh with your changes!
+4. When done, commit both template and generated files
 
 #### Updating Navigation
 
-1. Edit `src/navigation-config.json`
-2. Run `npm run build` to regenerate all pages
-3. Commit changes
+1. Start dev server: `npm start`
+2. Edit `src/navigation-config.json`
+3. Save - all pages will rebuild and browser will refresh!
+4. Commit changes
 
 #### Adding a New Page
 
 1. Create template in `src/templates/yourpage.html`
 2. Add entry to `navLinks` in `src/navigation-config.json`
 3. Add info panel to `infoPanels` if needed
-4. Run `npm run build`
+4. Dev server will auto-rebuild
 5. Commit files
 
-### Local Development Server
+### Manual Build
+
+If you just want to build without running the dev server:
 
 ```bash
-# Python 3
-python3 -m http.server 8000
-
-# Then visit http://localhost:8000
+npm run build
 ```
 
 ## Structure
