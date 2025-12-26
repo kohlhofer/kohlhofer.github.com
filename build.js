@@ -36,17 +36,30 @@ function getPageFromHref(href) {
  * Generate navigation HTML for a specific page
  */
 function generateNavigation(activePage, navConfig) {
-  const links = navConfig.navLinks.map(link => {
+  const internalLinks = navConfig.navLinks.filter(link => !link.external);
+  const externalLinks = navConfig.navLinks.filter(link => link.external);
+
+  const generateLink = (link) => {
     const linkPage = link.external ? null : getPageFromHref(link.href);
     const isActive = linkPage === activePage;
     const activeClass = isActive ? ' class="active"' : '';
     const externalAttrs = link.external ? ' target="_blank" rel="noopener noreferrer"' : '';
     const infoIcon = link.hasInfo && isActive ? ' <span class="nav-info-icon">info</span>' : '';
 
-    return `    <a href="${link.href}"${activeClass}${externalAttrs}>${link.text}${infoIcon}</a>`;
-  }).join('\n');
+    return `      <a href="${link.href}"${activeClass}${externalAttrs}>${link.text}${infoIcon}</a>`;
+  };
 
-  return `  <div class="top-nav">\n${links}\n  </div>`;
+  const internalLinksHtml = internalLinks.map(generateLink).join('\n');
+  const externalLinksHtml = externalLinks.map(generateLink).join('\n');
+
+  return `  <div class="top-nav">
+    <div class="nav-group nav-internal">
+${internalLinksHtml}
+    </div>
+    <div class="nav-group nav-external">
+${externalLinksHtml}
+    </div>
+  </div>`;
 }
 
 /**
