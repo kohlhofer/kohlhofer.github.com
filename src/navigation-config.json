@@ -2,35 +2,29 @@
   "navLinks": [
     {
       "href": "/",
-      "text": "<i class=\"fas fa-seedling\"></i>",
-      "page": "index"
+      "text": "<i class=\"fas fa-seedling\"></i>"
     },
     {
       "href": "about.html",
-      "text": "Me",
-      "page": "about"
+      "text": "Me"
     },
     {
       "href": "map.html",
       "text": "Map",
-      "page": "map",
       "hasInfo": true
     },
     {
       "href": "bits.html",
-      "text": "Bits",
-      "page": "bits"
+      "text": "Bits"
     },
     {
       "href": "music.html",
       "text": "Music",
-      "page": "music",
       "hasInfo": true
     },
     {
       "href": "photos.html",
       "text": "Photos",
-      "page": "photos",
       "hasInfo": true
     },
     {

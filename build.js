@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+const fs = require('fs').promises;
+const fsSync = require('fs');
 const path = require('path');
 
 // Configuration
@@ -11,16 +12,33 @@ const OUTPUT_DIR = __dirname;
 const LAYOUT_PATH = path.join(SRC_DIR, 'layout.html');
 const NAV_CONFIG_PATH = path.join(SRC_DIR, 'navigation-config.json');
 
-// Load configurations
-const navConfig = JSON.parse(fs.readFileSync(NAV_CONFIG_PATH, 'utf8'));
-const layoutTemplate = fs.readFileSync(LAYOUT_PATH, 'utf8');
+// Default page configuration - pages only need to specify overrides
+const DEFAULT_CONFIG = {
+  viewport: { maxScale: "1.0", userScalable: "no" },
+  fonts: ["Rubik"],
+  pageCSS: [],
+  headScripts: [],
+  bodyScripts: [],
+  hasNavigation: true,
+  hasInfoPanel: false,
+  analytics: true
+};
+
+/**
+ * Derive page name from href (e.g., "about.html" -> "about", "/" -> "index")
+ */
+function getPageFromHref(href) {
+  if (href === '/') return 'index';
+  return href.replace('.html', '').replace(/^\//, '');
+}
 
 /**
  * Generate navigation HTML for a specific page
  */
-function generateNavigation(activePage) {
+function generateNavigation(activePage, navConfig) {
   const links = navConfig.navLinks.map(link => {
-    const isActive = link.page === activePage;
+    const linkPage = link.external ? null : getPageFromHref(link.href);
+    const isActive = linkPage === activePage;
     const activeClass = isActive ? ' class="active"' : '';
     const externalAttrs = link.external ? ' target="_blank" rel="noopener noreferrer"' : '';
     const infoIcon = link.hasInfo && isActive ? ' <span class="nav-info-icon">info</span>' : '';
@@ -34,7 +52,7 @@ function generateNavigation(activePage) {
 /**
  * Generate info panel HTML for a specific page
  */
-function generateInfoPanel(page) {
+function generateInfoPanel(page, navConfig) {
   const panelData = navConfig.infoPanels[page];
   if (!panelData) return '';
 
@@ -119,29 +137,32 @@ function generateAnalytics() {
 /**
  * Process a single page
  */
-function processPage(pageName) {
+async function processPage(pageName, layoutTemplate, navConfig) {
   const pageConfigPath = path.join(PAGES_DIR, `${pageName}.json`);
   const templatePath = path.join(TEMPLATES_DIR, `${pageName}.html`);
   const outputPath = path.join(OUTPUT_DIR, `${pageName}.html`);
 
   // Check if files exist
-  if (!fs.existsSync(pageConfigPath)) {
+  if (!fsSync.existsSync(pageConfigPath)) {
     console.log(`  ⚠️  Skipping ${pageName}.html - no configuration found`);
     return;
   }
 
-  if (!fs.existsSync(templatePath)) {
+  if (!fsSync.existsSync(templatePath)) {
     console.log(`  ⚠️  Skipping ${pageName}.html - no template found`);
     return;
   }
 
   console.log(`Processing ${pageName}.html...`);
 
-  // Load page configuration
-  const pageConfig = JSON.parse(fs.readFileSync(pageConfigPath, 'utf8'));
+  // Load page configuration and template in parallel
+  const [pageConfigRaw, templateContent] = await Promise.all([
+    fs.readFile(pageConfigPath, 'utf8'),
+    fs.readFile(templatePath, 'utf8')
+  ]);
 
-  // Read template content
-  const templateContent = fs.readFileSync(templatePath, 'utf8');
+  // Merge with defaults
+  const pageConfig = { ...DEFAULT_CONFIG, ...JSON.parse(pageConfigRaw) };
 
   // Build the page
   let html = layoutTemplate;
@@ -154,8 +175,8 @@ function processPage(pageName) {
   html = html.replace('{{PAGE_CSS}}', generatePageCSS(pageConfig.pageCSS));
   html = html.replace('{{HEAD_SCRIPTS}}', generateHeadScripts(pageConfig.headScripts));
   html = html.replace('{{ANALYTICS}}', pageConfig.analytics ? generateAnalytics() : '');
-  html = html.replace('{{NAVIGATION}}', pageConfig.hasNavigation ? generateNavigation(pageName) : '');
-  html = html.replace('{{INFO_PANEL}}', pageConfig.hasInfoPanel ? generateInfoPanel(pageName) : '');
+  html = html.replace('{{NAVIGATION}}', pageConfig.hasNavigation ? generateNavigation(pageName, navConfig) : '');
+  html = html.replace('{{INFO_PANEL}}', pageConfig.hasInfoPanel ? generateInfoPanel(pageName, navConfig) : '');
   html = html.replace('{{CONTENT}}', templateContent);
   html = html.replace('{{BODY_SCRIPTS}}', generateBodyScripts(pageConfig.bodyScripts));
 
@@ -163,18 +184,26 @@ function processPage(pageName) {
   html = html.replace(/\n\n\n+/g, '\n\n');
 
   // Write output
-  fs.writeFileSync(outputPath, html, 'utf8');
+  await fs.writeFile(outputPath, html, 'utf8');
   console.log(`  ✓ Generated ${pageName}.html`);
 }
 
 /**
  * Main build function
  */
-function build() {
+async function build() {
   console.log('🔨 Building site...\n');
 
+  // Load layout and nav config in parallel
+  const [layoutTemplate, navConfigRaw] = await Promise.all([
+    fs.readFile(LAYOUT_PATH, 'utf8'),
+    fs.readFile(NAV_CONFIG_PATH, 'utf8')
+  ]);
+  const navConfig = JSON.parse(navConfigRaw);
+
   // Get all page configuration files
-  const pageConfigs = fs.readdirSync(PAGES_DIR)
+  const files = await fs.readdir(PAGES_DIR);
+  const pageConfigs = files
     .filter(file => file.endsWith('.json'))
     .map(file => path.basename(file, '.json'));
 
@@ -183,15 +212,18 @@ function build() {
     process.exit(1);
   }
 
-  // Process each page
-  pageConfigs.forEach(processPage);
+  // Process all pages in parallel
+  await Promise.all(pageConfigs.map(page => processPage(page, layoutTemplate, navConfig)));
 
   console.log(`\n✅ Build complete! Processed ${pageConfigs.length} page(s).`);
 }
 
 // Run build
 if (require.main === module) {
-  build();
+  build().catch(err => {
+    console.error('Build failed:', err);
+    process.exit(1);
+  });
 }
 
 module.exports = { build, generateNavigation, generateInfoPanel };

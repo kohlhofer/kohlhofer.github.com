@@ -3,11 +3,5 @@
   "description": "",
   "viewport": null,
   "fonts": [],
-  "pageCSS": [],
-  "headScripts": [],
-  "bodyScripts": [],
-  "hasNavigation": true,
-  "hasInfoPanel": false,
-  "analytics": false,
-  "customLayout": true
+  "analytics": false
 }

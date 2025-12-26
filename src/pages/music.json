@@ -1,15 +1,7 @@
 {
   "title": "Music - Alexander Kohlhofer",
   "description": "Music projects by Alexander Kohlhofer",
-  "viewport": {
-    "maxScale": "1.0",
-    "userScalable": "no"
-  },
-  "fonts": ["Rubik"],
   "pageCSS": ["music-page.min.css"],
-  "headScripts": [],
   "bodyScripts": ["player.min.js", "background.min.js", "music.js", "panel.min.js"],
-  "hasNavigation": true,
-  "hasInfoPanel": true,
-  "analytics": true
+  "hasInfoPanel": true
 }

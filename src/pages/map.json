@@ -5,14 +5,11 @@
     "maxScale": "8.0",
     "userScalable": "yes"
   },
-  "fonts": ["Rubik"],
   "pageCSS": ["map-page.min.css"],
   "headScripts": [
     "https://d3js.org/d3.v7.min.js",
     "https://d3js.org/topojson.v3.min.js"
   ],
   "bodyScripts": ["background.min.js", "map.min.js", "panel.min.js"],
-  "hasNavigation": true,
-  "hasInfoPanel": true,
-  "analytics": true
+  "hasInfoPanel": true
 }
