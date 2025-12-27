@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   padding: 0;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100vw;
   margin: 0;
 }
@@ -26,101 +26,99 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.4;
+  opacity: 0.35;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
 
-/* Hero section */
+/* Hero section - 80s Japanese poster style */
 #hero {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr auto;
   position: relative;
-  padding: 2rem;
+  padding: 0;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 .hero-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 0;
   user-select: none;
   -webkit-user-select: none;
+  padding: calc(4rem + 60px) 0 0 0;
+  margin-left: -0.05em;
 }
 
 .hero-text .line {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 0.85;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
   display: block;
   opacity: 0;
-  transform: translateY(60px) rotateX(-15deg);
-  animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateX(-30px);
+  animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  color: rgba(255, 255, 255, 1);
+}
+
+.hero-text .line-1 {
+  font-size: clamp(6rem, 28vw, 22rem);
+  animation-delay: 0.1s;
   color: rgba(255, 238, 200, 1);
   mix-blend-mode: screen;
 }
 
-.hero-text .line-1 {
-  font-size: clamp(3rem, 18vw, 14rem);
-  animation-delay: 0.1s;
-}
-
 .hero-text .line-2 {
-  font-size: clamp(4rem, 26vw, 20rem);
-  animation-delay: 0.25s;
-  color: rgba(255, 255, 255, 1);
-  mix-blend-mode: normal;
-  text-shadow: 0 4px 60px rgba(255, 255, 255, 0.4);
+  font-size: clamp(8rem, 42vw, 34rem);
+  animation-delay: 0.2s;
+  text-shadow: 0 8px 80px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 2;
 }
 
 .hero-text .line-3 {
-  font-size: clamp(3rem, 18vw, 14rem);
-  animation-delay: 0.4s;
+  font-size: clamp(6rem, 28vw, 22rem);
+  animation-delay: 0.3s;
+  color: rgba(255, 238, 200, 1);
+  mix-blend-mode: screen;
 }
 
-@keyframes textReveal {
+@keyframes slideIn {
   0% {
     opacity: 0;
-    transform: translateY(60px) rotateX(-15deg);
-    filter: blur(10px);
+    transform: translateX(-30px);
+    filter: blur(4px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) rotateX(0);
+    transform: translateX(0);
     filter: blur(0);
   }
 }
 
-/* Hero footer with CTAs */
+/* Hero footer - integrated poster element */
 .hero-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
-  justify-content: center;
-  padding: 2.5rem;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 3rem;
   z-index: 10;
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.7s;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.5s;
+  min-height: 30vh;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+@keyframes fadeIn {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -129,21 +127,14 @@ body::before {
   display: none;
 }
 
-/* Landing page CTAs - typographic style */
+/* Landing page CTAs - vertical Japanese poster style */
 .landing-ctas {
   display: flex;
-  flex-direction: row;
-  gap: 0.5em;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-}
-
-.landing-ctas::before {
-  content: '→';
-  color: rgba(0, 0, 0, 0.4);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
 
 .landing-ctas a {
@@ -151,64 +142,93 @@ body::before {
   transition: all 0.3s ease;
   white-space: nowrap;
   position: relative;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1.5em 0.8em;
+  border-left: 2px solid rgba(0, 0, 0, 0.15);
 }
 
-.landing-ctas a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.3s ease;
+.landing-ctas a:first-child {
+  border-left: 2px solid rgba(0, 0, 0, 0.4);
 }
 
 .landing-ctas a:hover {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 1);
+  border-left-color: rgba(0, 0, 0, 0.8);
 }
 
-.landing-ctas a:hover::after {
-  width: 100%;
+.landing-ctas a::before {
+  content: '↓';
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.landing-ctas a:hover::before {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cta-primary {
 }
 
 .cta-secondary {
-  opacity: 0.7;
 }
 
-.cta-secondary::before {
-  content: '·';
-  margin: 0 0.3em;
-  color: rgba(0, 0, 0, 0.3);
-}
+@media screen and (max-width: 768px) {
+  .hero-text {
+    padding-top: calc(3rem + 50px);
+  }
 
-.cta-secondary:hover {
-  opacity: 1;
-}
-
-@media screen and (max-width: 600px) {
   .hero-footer {
     padding: 2rem;
+    min-height: 25vh;
   }
 
-  .landing-ctas {
-    font-size: 1rem;
+  .landing-ctas a {
+    padding: 1.2em 0.6em;
+    font-size: 0.85rem;
   }
 }
 
-@media screen and (max-width: 400px) {
-  .landing-ctas {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+@media screen and (max-width: 480px) {
+  .hero-text {
+    padding-top: calc(2.5rem + 45px);
   }
 
-  .cta-secondary::before {
-    display: none;
+  .hero-footer {
+    padding: 1.5rem;
+    min-height: 20vh;
+  }
+
+  .landing-ctas {
+    writing-mode: horizontal-tb;
+    flex-direction: row;
+  }
+
+  .landing-ctas a {
+    writing-mode: horizontal-tb;
+    border-left: none;
+    border-top: 2px solid rgba(0, 0, 0, 0.15);
+    padding: 0.8em 1.2em;
+  }
+
+  .landing-ctas a:first-child {
+    border-left: none;
+    border-top: 2px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .landing-ctas a::before {
+    content: '→';
+    display: inline;
+    margin-bottom: 0;
+    margin-right: 0.3em;
   }
 }
 
