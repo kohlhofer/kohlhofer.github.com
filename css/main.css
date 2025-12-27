@@ -42,6 +42,24 @@ body {
   overflow: hidden;
 }
 
+/* Vertical sidebar text - Japanese poster style */
+.hero-sidebar {
+  position: fixed;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  white-space: nowrap;
+}
+
 .hero-text {
   display: flex;
   flex-direction: column;
@@ -180,6 +198,10 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .hero-sidebar {
+    display: none;
+  }
+
   .hero-text {
     padding-top: calc(3rem + 50px);
   }
