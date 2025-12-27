@@ -3,5 +3,6 @@
   "description": "",
   "viewport": null,
   "fonts": [],
-  "analytics": false
+  "analytics": false,
+  "bodyScripts": ["transitions.min.js"]
 }

@@ -1,4 +1,5 @@
 {
   "title": "Bits - Alexander Kohlhofer",
-  "description": "Bits by Alexander Kohlhofer"
+  "description": "Bits by Alexander Kohlhofer",
+  "bodyScripts": ["transitions.min.js"]
 }

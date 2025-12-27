@@ -2,6 +2,6 @@
   "title": "Music - Alexander Kohlhofer",
   "description": "Music projects by Alexander Kohlhofer",
   "pageCSS": ["music-page.min.css"],
-  "bodyScripts": ["player.min.js", "background.min.js", "music.js", "panel.min.js"],
+  "bodyScripts": ["player.min.js", "background.min.js", "music.js", "panel.min.js", "transitions.min.js"],
   "hasInfoPanel": true
 }

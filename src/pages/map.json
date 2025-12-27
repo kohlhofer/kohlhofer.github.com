@@ -10,6 +10,6 @@
     "https://d3js.org/d3.v7.min.js",
     "https://d3js.org/topojson.v3.min.js"
   ],
-  "bodyScripts": ["background.min.js", "map.min.js", "panel.min.js"],
+  "bodyScripts": ["background.min.js", "map.min.js", "panel.min.js", "transitions.min.js"],
   "hasInfoPanel": true
 }

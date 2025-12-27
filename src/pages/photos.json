@@ -2,6 +2,6 @@
   "title": "Photos - Alexander Kohlhofer",
   "description": "Photo gallery of Alexander Kohlhofer",
   "fonts": ["Rubik", "Inter"],
-  "bodyScripts": ["exif.js", "photos.min.js", "panel.min.js"],
+  "bodyScripts": ["exif.js", "photos.min.js", "panel.min.js", "transitions.min.js"],
   "hasInfoPanel": true
 }
