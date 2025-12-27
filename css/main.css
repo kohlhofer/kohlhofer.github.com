@@ -208,28 +208,47 @@ body {
 .section-item {
   text-decoration: none;
   padding: 0.5rem 0 0.5rem 1rem;
-  border-left: 2px solid rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
+  position: relative;
+  transition: color 0.3s ease;
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 400;
   color: rgba(0, 0, 0, 0.7);
   line-height: 1.4;
 }
 
+.section-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.15);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
 .section-item:hover {
-  border-left-color: rgba(0, 0, 0, 0.6);
   color: rgba(0, 0, 0, 0.95);
+}
+
+.section-item:hover::before {
+  width: 6px;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .section-item-featured {
   font-weight: 600;
   color: rgba(0, 0, 0, 0.9);
-  border-left-width: 3px;
-  border-left-color: rgba(0, 0, 0, 0.4);
 }
 
-.section-item-featured:hover {
-  border-left-color: rgba(0, 0, 0, 0.8);
+.section-item-featured::before {
+  width: 3px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.section-item-featured:hover::before {
+  width: 8px;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .cta-secondary {
