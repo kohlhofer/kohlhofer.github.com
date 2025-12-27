@@ -42,39 +42,34 @@ body {
   overflow: hidden;
 }
 
-/* Grid lines - structural design element (scrolls with content) */
+/* Grid lines - structural design element (fixed to viewport) */
 .hero-grid-lines {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   pointer-events: none;
   z-index: 5;
 }
 
 .grid-line {
   position: absolute;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 /* Vertical line aligned with right edge of sidebar text */
 .grid-line-v1 {
   left: 3rem;
   top: 0;
-  bottom: 40%;
+  bottom: 0;
   width: 1px;
-}
-
-/* Horizontal line aligned with top of footer */
-.grid-line-h1 {
-  bottom: 180px;
-  left: 3rem;
-  right: 25%;
-  height: 1px;
 }
 
 /* Vertical line at footer content start (25% = empty first column) */
 .grid-line-v2 {
   left: 25%;
-  top: 60%;
+  top: 0;
   bottom: 0;
   width: 1px;
 }
@@ -255,24 +250,35 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .hero-grid-lines,
-  .hero-sidebar {
+  .grid-line-v2 {
     display: none;
+  }
+
+  .grid-line-v1 {
+    left: 2.5rem;
+  }
+
+  .hero-sidebar {
+    left: 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
   }
 
   .hero-text {
     padding-top: calc(3rem + 50px);
+    padding-left: 3.5rem;
   }
 
   .hero-footer {
     position: relative;
-    padding: 1.5rem 2rem 2rem;
+    padding: 1.5rem 1.5rem 2rem;
+    padding-left: 20%;
     background: none;
   }
 
   .section-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .section-grid .section-item:nth-child(n) {
@@ -481,7 +487,22 @@ body {
 
 .top-nav a.active {
   color: rgba(0, 0, 0, 0.8);
-  font-weight: 500;
+}
+
+.top-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: rgba(0, 0, 0, 0.5);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.top-nav a.active::after {
+  transform: scaleX(1);
 }
 
 .top-nav a i {
