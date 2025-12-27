@@ -46,14 +46,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0;
   user-select: none;
   -webkit-user-select: none;
-  padding: 0.5rem 0 0 0;
+  padding: 0;
   margin-left: -0.05em;
   overflow: hidden;
   width: 100vw;
+  min-height: 100vh;
 }
 
 .hero-text .line {
@@ -75,14 +76,14 @@ body {
 }
 
 .hero-text .line-1 {
-  font-size: clamp(6rem, 28vw, 22rem);
+  font-size: max(clamp(6rem, 28vw, 22rem), clamp(6rem, 26vh, 22rem));
   color: rgba(255, 238, 200, 1);
   mix-blend-mode: screen;
   animation: marqueeLeft 60s linear infinite;
 }
 
 .hero-text .line-2 {
-  font-size: clamp(8rem, 42vw, 34rem);
+  font-size: max(clamp(8rem, 42vw, 34rem), clamp(8rem, 39vh, 34rem));
   text-shadow: 0 8px 80px rgba(255, 255, 255, 0.3);
   position: relative;
   z-index: 2;
@@ -90,7 +91,7 @@ body {
 }
 
 .hero-text .line-3 {
-  font-size: clamp(6rem, 28vw, 22rem);
+  font-size: max(clamp(6rem, 28vw, 22rem), clamp(6rem, 26vh, 22rem));
   color: rgba(255, 238, 200, 1);
   mix-blend-mode: screen;
   animation: marqueeLeft 70s linear infinite;
