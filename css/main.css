@@ -108,7 +108,7 @@ body::before {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 2rem 3rem 3rem 3rem;
+  padding: 2rem 0 3rem 3rem;
   margin-top: -25vh;
   z-index: 10;
   opacity: 0;
