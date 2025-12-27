@@ -153,16 +153,11 @@ body {
   border-left: 2px solid rgba(0, 0, 0, 0.15);
 }
 
-.landing-ctas a:first-child {
-  border-left: 2px solid rgba(0, 0, 0, 0.4);
-}
-
 /* Blog link - more prominent as it's the external/featured link */
 .landing-ctas a:last-child {
   font-weight: 700;
   color: rgba(0, 0, 0, 0.85);
-  border-left-width: 3px;
-  border-left-color: rgba(0, 0, 0, 0.5);
+  border-left: 3px solid rgba(0, 0, 0, 0.5);
 }
 
 .landing-ctas a:hover {
