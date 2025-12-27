@@ -571,6 +571,11 @@ body {
   #content {
     padding: clamp(1.5rem, 4vw, 3rem);
   }
+
+  /* No padding on index page */
+  #content:has(#hero) {
+    padding: 0;
+  }
   
   #music {
     padding: 1rem;
@@ -586,7 +591,11 @@ body {
   #content {
     padding: clamp(1rem, 3vw, 2rem);
   }
-  
+
+  #content:has(#hero) {
+    padding: 0;
+  }
+
   #music {
     padding: 0.75rem;
     padding-top: calc(2rem + 41px);
