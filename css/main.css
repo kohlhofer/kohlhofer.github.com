@@ -115,19 +115,17 @@ body {
   }
 }
 
-/* Hero footer - integrated poster element */
+/* Hero footer - typographic section grid */
 .hero-footer {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 3rem 3rem 2rem;
-  margin-top: -20vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 3rem 3rem;
   z-index: 10;
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
   animation-delay: 0.5s;
-  min-height: 25vh;
 }
 
 @keyframes fadeIn {
@@ -141,58 +139,51 @@ body {
   display: none;
 }
 
-/* Landing page CTAs - vertical Japanese poster style */
-.landing-ctas {
+/* Section grid - Japanese poster typography */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 3rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+.section-item {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
+  gap: 0.3rem;
+  padding: 1rem 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-.landing-ctas a {
-  text-decoration: none;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  position: relative;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+.section-item:hover {
+  border-top-color: rgba(0, 0, 0, 0.6);
+}
+
+.section-title {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 800;
   text-transform: uppercase;
-  padding: 1.2em 0.7em;
-  border-left: 2px solid rgba(0, 0, 0, 0.15);
-}
-
-/* Blog link - more prominent as it's the external/featured link */
-.landing-ctas a:last-child {
-  font-weight: 700;
+  letter-spacing: 0.08em;
   color: rgba(0, 0, 0, 0.85);
-  border-left: 3px solid rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
 }
 
-.landing-ctas a:hover {
+.section-item:hover .section-title {
   color: rgba(0, 0, 0, 1);
-  border-left-color: rgba(0, 0, 0, 0.8);
 }
 
-.landing-ctas a::before {
-  content: '↓';
-  display: block;
-  margin-bottom: 0.5em;
-  font-size: 1.2em;
-  opacity: 0;
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
+.section-desc {
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.4;
+  transition: color 0.3s ease;
 }
 
-.landing-ctas a:hover::before {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.cta-primary {
+.section-item:hover .section-desc {
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .cta-secondary {
@@ -204,13 +195,12 @@ body {
   }
 
   .hero-footer {
-    padding: 2rem;
-    min-height: 25vh;
+    padding: 1.5rem 2rem 2rem;
   }
 
-  .landing-ctas a {
-    padding: 1.2em 0.6em;
-    font-size: 0.85rem;
+  .section-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 2rem;
   }
 }
 
@@ -220,13 +210,24 @@ body {
   }
 
   .hero-footer {
-    padding: 1.5rem;
-    min-height: 20vh;
+    padding: 1rem 1.5rem 1.5rem;
   }
 
-  .landing-ctas a {
-    padding: 1em 0.5em;
-    font-size: 0.8rem;
+  .section-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1rem;
+  }
+
+  .section-item {
+    padding: 0.75rem 0;
+  }
+
+  .section-title {
+    font-size: 0.9rem;
+  }
+
+  .section-desc {
+    font-size: 0.75rem;
   }
 }
 
