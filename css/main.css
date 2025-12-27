@@ -212,28 +212,9 @@ body {
     min-height: 20vh;
   }
 
-  .landing-ctas {
-    writing-mode: horizontal-tb;
-    flex-direction: row;
-  }
-
   .landing-ctas a {
-    writing-mode: horizontal-tb;
-    border-left: none;
-    border-top: 2px solid rgba(0, 0, 0, 0.15);
-    padding: 0.8em 1.2em;
-  }
-
-  .landing-ctas a:first-child {
-    border-left: none;
-    border-top: 2px solid rgba(0, 0, 0, 0.4);
-  }
-
-  .landing-ctas a::before {
-    content: '→';
-    display: inline;
-    margin-bottom: 0;
-    margin-right: 0.3em;
+    padding: 1em 0.5em;
+    font-size: 0.8rem;
   }
 }
 
