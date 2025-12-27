@@ -108,7 +108,7 @@ body::before {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  padding: 3rem;
+  padding: 3rem 3rem 3rem 0;
   z-index: 10;
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
