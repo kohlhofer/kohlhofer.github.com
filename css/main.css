@@ -82,7 +82,7 @@ body {
   text-shadow: 0 8px 80px rgba(255, 255, 255, 0.3);
   position: relative;
   z-index: 2;
-  animation: marqueeLeft 90s linear infinite;
+  animation: marqueeRight 90s linear infinite;
 }
 
 .hero-text .line-3 {
@@ -103,7 +103,7 @@ body {
 
 @keyframes marqueeRight {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
   100% {
     transform: translateX(0%);
