@@ -39,7 +39,7 @@ body {
   position: relative;
   padding: 0;
   box-sizing: border-box;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .hero-text {
@@ -50,8 +50,10 @@ body {
   gap: 0;
   user-select: none;
   -webkit-user-select: none;
-  padding: calc(4rem + 60px) 0 0 0;
+  padding: 0.5rem 0 0 0;
   margin-left: -0.05em;
+  overflow: hidden;
+  width: 100vw;
 }
 
 .hero-text .line {
@@ -61,45 +63,54 @@ body {
   letter-spacing: -0.04em;
   line-height: 0.82;
   display: block;
-  opacity: 0;
-  transform: translateX(-30px);
-  animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   color: rgba(255, 255, 255, 1);
   filter: blur(0.4px);
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.hero-text .line .word {
+  display: inline-block;
+  transition: opacity 1s ease;
 }
 
 .hero-text .line-1 {
   font-size: clamp(6rem, 28vw, 22rem);
-  animation-delay: 0.1s;
   color: rgba(255, 238, 200, 1);
   mix-blend-mode: screen;
+  animation: marqueeLeft 60s linear infinite;
 }
 
 .hero-text .line-2 {
   font-size: clamp(8rem, 42vw, 34rem);
-  animation-delay: 0.2s;
   text-shadow: 0 8px 80px rgba(255, 255, 255, 0.3);
   position: relative;
   z-index: 2;
+  animation: marqueeRight 80s linear infinite;
 }
 
 .hero-text .line-3 {
   font-size: clamp(6rem, 28vw, 22rem);
-  animation-delay: 0.3s;
   color: rgba(255, 238, 200, 1);
   mix-blend-mode: screen;
+  animation: marqueeLeft 70s linear infinite;
 }
 
-@keyframes slideIn {
+@keyframes marqueeLeft {
   0% {
-    opacity: 0;
-    transform: translateX(-30px);
-    filter: blur(4px);
+    transform: translateX(0%);
   }
   100% {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0.4px);
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
 
