@@ -14,143 +14,180 @@ body {
   flex-direction: column;
   padding: 0;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   width: 100vw;
   margin: 0;
 }
 
-#about {
-  flex: 1;
+/* Noise overlay - disabled for cleaner look */
+.noise-overlay {
+  display: none;
+}
+
+/* Hero section */
+#hero {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  height: 100vh;
-  padding: 0;
-  overflow: visible;
-  width: 100vw;
-  margin: 0;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-.bigText {
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hero-text .line {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 20vw;
-  line-height: 1;
-  margin: 0;
-  color: rgba(255, 238, 0);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  display: block;
+  opacity: 0;
+  transform: translateY(60px) rotateX(-15deg);
+  animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  color: rgba(255, 238, 200, 1);
   mix-blend-mode: screen;
-  font-weight: 700;
+}
+
+.hero-text .line-1 {
+  font-size: clamp(3rem, 18vw, 14rem);
+  animation-delay: 0.1s;
+}
+
+.hero-text .line-2 {
+  font-size: clamp(4rem, 26vw, 20rem);
+  animation-delay: 0.25s;
+  color: rgba(255, 255, 255, 1);
+  mix-blend-mode: normal;
+  text-shadow: 0 4px 60px rgba(255, 255, 255, 0.4);
+}
+
+.hero-text .line-3 {
+  font-size: clamp(3rem, 18vw, 14rem);
+  animation-delay: 0.4s;
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) rotateX(-15deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    filter: blur(0);
+  }
+}
+
+/* Hero footer with CTAs */
+.hero-footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100vw;
-  text-align: left;
-  padding: 0;
-  margin: 0 0 -0.2em -0.1em;
-  box-sizing: border-box;
-  white-space: normal;
-  transform: none;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  max-height: 100vh;
-  z-index: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 0.1em;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 2rem;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.8s;
 }
 
-.bigText span {
-  white-space: nowrap;
-  display: block;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@media screen and (orientation: landscape) {
-  .bigText {
-    display: block;
-    font-size: 22vh;
-  }
-
-  .bigText span {
-    display: inline;
-    white-space: nowrap;
-  }
+/* Legacy support - hide old elements */
+#about, .bigText {
+  display: none;
 }
 
 /* Landing page CTAs */
 .landing-ctas {
-  position: fixed;
-  bottom: 2rem;
-  left: 0;
   display: flex;
   flex-direction: row;
-  gap: 2em;
+  gap: 2.5rem;
   align-items: center;
-  z-index: 10;
-  padding-left: 2.5vw;
 }
 
 .landing-ctas a {
   text-decoration: none;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(1.1rem, 4vw, 1.75rem);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   font-weight: 600;
-  padding: 0.25em 0;
-  transition: all 0.3s ease;
+  padding: 0.75em 1.5em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
-  color: rgba(0, 0, 0, 0.7);
   position: relative;
-}
-
-.landing-ctas a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: rgba(0, 0, 0, 0.7);
-  transition: width 0.3s ease;
-}
-
-.landing-ctas a:hover {
-  color: rgba(0, 0, 0, 0.95);
-}
-
-.landing-ctas a:hover::after {
-  width: 100%;
+  border-radius: 100px;
 }
 
 .cta-primary {
+  background: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .cta-primary:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .cta-secondary {
-  opacity: 0.65;
+  background: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .cta-secondary:hover {
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.9);
+  transform: translateY(-2px);
 }
 
 @media screen and (max-width: 600px) {
+  .hero-footer {
+    padding: 1.5rem;
+  }
+
   .landing-ctas {
-    bottom: 1.5rem;
-    gap: 1.5em;
+    gap: 1rem;
+  }
+
+  .landing-ctas a {
+    font-size: 0.85rem;
+    padding: 0.6em 1.2em;
   }
 }
 
-@media screen and (orientation: landscape) and (max-height: 500px) {
+@media screen and (max-width: 400px) {
   .landing-ctas {
-    bottom: 1rem;
-    gap: 1.5em;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 }
 
