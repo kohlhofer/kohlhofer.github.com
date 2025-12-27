@@ -151,41 +151,18 @@ body {
 
 .section-item {
   text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
   padding: 0.5rem 0 0.5rem 1rem;
   border-left: 2px solid rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.4;
 }
 
 .section-item:hover {
   border-left-color: rgba(0, 0, 0, 0.6);
-}
-
-.section-title {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(0, 0, 0, 0.85);
-  transition: color 0.3s ease;
-}
-
-.section-item:hover .section-title {
-  color: rgba(0, 0, 0, 1);
-}
-
-.section-desc {
-  font-size: clamp(0.85rem, 1.4vw, 1rem);
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.4;
-  transition: color 0.3s ease;
-}
-
-.section-item:hover .section-desc {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .cta-secondary {
@@ -225,15 +202,8 @@ body {
   }
 
   .section-item {
-    padding: 0.75rem 0;
-  }
-
-  .section-title {
-    font-size: 0.9rem;
-  }
-
-  .section-desc {
-    font-size: 0.75rem;
+    padding: 0.4rem 0 0.4rem 0.75rem;
+    font-size: 0.8rem;
   }
 }
 
