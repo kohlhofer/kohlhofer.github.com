@@ -143,11 +143,11 @@ body::before {
   white-space: nowrap;
   position: relative;
   color: rgba(0, 0, 0, 0.7);
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 1.5em 0.8em;
+  padding: 1.2em 0.7em;
   border-left: 2px solid rgba(0, 0, 0, 0.15);
 }
 
