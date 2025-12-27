@@ -142,10 +142,17 @@ body {
 /* Section grid - Japanese poster typography */
 .section-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr repeat(3, 1fr);
   gap: 1.5rem 3rem;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
+
+.section-grid .section-item:nth-child(1) { grid-column: 2; }
+.section-grid .section-item:nth-child(2) { grid-column: 3; }
+.section-grid .section-item:nth-child(3) { grid-column: 4; }
+.section-grid .section-item:nth-child(4) { grid-column: 2; }
+.section-grid .section-item:nth-child(5) { grid-column: 3; }
+.section-grid .section-item:nth-child(6) { grid-column: 4; }
 
 .section-item {
   text-decoration: none;
@@ -201,6 +208,10 @@ body {
   .section-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem 2rem;
+  }
+
+  .section-grid .section-item:nth-child(n) {
+    grid-column: auto;
   }
 }
 
