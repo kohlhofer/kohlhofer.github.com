@@ -106,10 +106,10 @@ body::before {
 .hero-footer {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-start;
-  padding: 2rem 0 3rem 3rem;
-  margin-top: -25vh;
+  padding: 2rem 3rem 3rem 0;
+  margin-top: -20vh;
   z-index: 10;
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
