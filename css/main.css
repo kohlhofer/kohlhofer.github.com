@@ -165,6 +165,17 @@ body {
   color: rgba(0, 0, 0, 0.95);
 }
 
+.section-item-featured {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+  border-left-width: 3px;
+  border-left-color: rgba(0, 0, 0, 0.4);
+}
+
+.section-item-featured:hover {
+  border-left-color: rgba(0, 0, 0, 0.8);
+}
+
 .cta-secondary {
 }
 
