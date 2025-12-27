@@ -42,6 +42,40 @@ body {
   overflow: hidden;
 }
 
+/* Grid lines - structural design element */
+.hero-grid-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.grid-line {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.grid-line-h1 {
+  top: 38%;
+  left: 0;
+  right: 40%;
+  height: 1px;
+}
+
+.grid-line-h2 {
+  bottom: 25%;
+  left: 25%;
+  right: 0;
+  height: 1px;
+}
+
+.grid-line-v1 {
+  top: 15%;
+  bottom: 35%;
+  right: 28%;
+  width: 1px;
+}
+
 /* Vertical sidebar text - Japanese poster style */
 .hero-sidebar {
   position: fixed;
@@ -198,6 +232,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .hero-grid-lines,
   .hero-sidebar {
     display: none;
   }
