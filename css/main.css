@@ -10,13 +10,17 @@ body {
 /* Page transitions - content only, nav stays visible */
 #content,
 .scroll-container,
-main {
+#map-page,
+#bits-page,
+#music {
   animation: fadeIn 0.3s ease-out forwards;
 }
 
 body.page-exit #content,
 body.page-exit .scroll-container,
-body.page-exit main {
+body.page-exit #map-page,
+body.page-exit #bits-page,
+body.page-exit #music {
   animation: fadeOut 0.25s ease-out forwards;
 }
 
