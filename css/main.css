@@ -381,6 +381,23 @@ body {
   padding: 10px 16px;
 }
 
+/* Mobile navigation - combine into single group */
+@media screen and (max-width: 600px) {
+  .top-nav {
+    justify-content: center;
+  }
+
+  .nav-group {
+    gap: 0.6rem;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .nav-external {
+    display: none;
+  }
+}
+
 .top-nav a {
   color: rgba(0, 0, 0, 0.5);
   padding: 0;
