@@ -42,12 +42,12 @@ body {
   overflow: hidden;
 }
 
-/* Grid lines - structural design element */
+/* Grid lines - structural design element (scrolls with content) */
 .hero-grid-lines {
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 50;
+  z-index: 5;
 }
 
 .grid-line {
@@ -162,17 +162,18 @@ body {
   }
 }
 
-/* Hero footer - typographic section grid */
+/* Hero footer - typographic section grid (fixed to viewport) */
 .hero-footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2rem 3rem 3rem;
-  z-index: 10;
+  padding: 2rem 3rem 2.5rem;
+  z-index: 100;
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
   animation-delay: 0.5s;
+  background: linear-gradient(to top, rgba(255,255,255,0.15) 0%, transparent 100%);
 }
 
 @keyframes fadeIn {
@@ -242,7 +243,9 @@ body {
   }
 
   .hero-footer {
+    position: relative;
     padding: 1.5rem 2rem 2rem;
+    background: none;
   }
 
   .section-grid {
