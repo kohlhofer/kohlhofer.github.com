@@ -70,11 +70,6 @@ body {
   will-change: transform;
 }
 
-.hero-text .line .word {
-  display: inline-block;
-  transition: opacity 1s ease;
-}
-
 .hero-text .line-1 {
   font-size: max(clamp(6rem, 28vw, 22rem), clamp(6rem, 26vh, 22rem));
   color: rgba(255, 238, 200, 1);

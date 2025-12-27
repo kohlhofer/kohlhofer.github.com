@@ -1,9 +1,9 @@
   <div id="content">
     <div id="hero">
       <div class="hero-text">
-        <span class="line line-1"><span class="word">What's</span>&nbsp;&nbsp;&nbsp;<span class="word">What's</span>&nbsp;&nbsp;&nbsp;<span class="word">What's</span>&nbsp;&nbsp;&nbsp;<span class="word">What's</span>&nbsp;&nbsp;&nbsp;</span>
-        <span class="line line-2"><span class="word">worth</span>&nbsp;&nbsp;&nbsp;<span class="word">worth</span>&nbsp;&nbsp;&nbsp;<span class="word">worth</span>&nbsp;&nbsp;&nbsp;<span class="word">worth</span>&nbsp;&nbsp;&nbsp;</span>
-        <span class="line line-3"><span class="word">making?</span>&nbsp;&nbsp;&nbsp;<span class="word">making?</span>&nbsp;&nbsp;&nbsp;<span class="word">making?</span>&nbsp;&nbsp;&nbsp;<span class="word">making?</span>&nbsp;&nbsp;&nbsp;</span>
+        <span class="line line-1">What's&nbsp;&nbsp;&nbsp;What's&nbsp;&nbsp;&nbsp;What's&nbsp;&nbsp;&nbsp;What's&nbsp;&nbsp;&nbsp;</span>
+        <span class="line line-2">worth&nbsp;&nbsp;&nbsp;worth&nbsp;&nbsp;&nbsp;worth&nbsp;&nbsp;&nbsp;worth&nbsp;&nbsp;&nbsp;</span>
+        <span class="line line-3">making?&nbsp;&nbsp;&nbsp;making?&nbsp;&nbsp;&nbsp;making?&nbsp;&nbsp;&nbsp;making?&nbsp;&nbsp;&nbsp;</span>
       </div>
       <div class="hero-footer">
         <div class="section-grid">
@@ -35,51 +35,3 @@
       </div>
     </div>
   </div>
-  <script>
-    // Word transitions - cycle through phrases slowly
-    (function() {
-      const line1 = document.querySelector('.line-1');
-      const line2 = document.querySelector('.line-2');
-      const line3 = document.querySelector('.line-3');
-      if (!line1 || !line2 || !line3) return;
-
-      const words1 = ["What's", "What's", "What's", "What"];
-      const words2 = ['worth', 'worth', 'worth', 'lasts?'];
-      const words3 = ['making?', 'keeping?', 'finishing?', ''];
-      let index = 0;
-
-      function updateWords() {
-        index = (index + 1) % words1.length;
-        const wordSpans1 = line1.querySelectorAll('.word');
-        const wordSpans2 = line2.querySelectorAll('.word');
-        const wordSpans3 = line3.querySelectorAll('.word');
-
-        wordSpans1.forEach(span => {
-          span.style.opacity = '0';
-          setTimeout(() => {
-            span.textContent = words1[index];
-            span.style.opacity = '1';
-          }, 1000);
-        });
-
-        wordSpans2.forEach(span => {
-          span.style.opacity = '0';
-          setTimeout(() => {
-            span.textContent = words2[index];
-            span.style.opacity = '1';
-          }, 1000);
-        });
-
-        wordSpans3.forEach(span => {
-          span.style.opacity = '0';
-          setTimeout(() => {
-            span.textContent = words3[index];
-            span.style.opacity = '1';
-          }, 1000);
-        });
-      }
-
-      // Transition every 20 seconds
-      setInterval(updateWords, 20000);
-    })();
-  </script>
