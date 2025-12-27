@@ -52,27 +52,30 @@ body {
 
 .grid-line {
   position: absolute;
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.grid-line-h1 {
-  top: 38%;
-  left: 0;
-  right: 40%;
-  height: 1px;
-}
-
-.grid-line-h2 {
-  bottom: 25%;
-  left: 25%;
-  right: 0;
-  height: 1px;
-}
-
+/* Vertical line aligned with right edge of sidebar text */
 .grid-line-v1 {
-  top: 15%;
-  bottom: 35%;
-  right: 28%;
+  left: 3rem;
+  top: 0;
+  bottom: 40%;
+  width: 1px;
+}
+
+/* Horizontal line aligned with top of footer */
+.grid-line-h1 {
+  bottom: 180px;
+  left: 3rem;
+  right: 25%;
+  height: 1px;
+}
+
+/* Vertical line at footer content start (25% = empty first column) */
+.grid-line-v2 {
+  left: 25%;
+  top: 60%;
+  bottom: 0;
   width: 1px;
 }
 
