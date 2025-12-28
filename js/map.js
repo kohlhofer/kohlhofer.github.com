@@ -220,12 +220,23 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   };
 
+  // Get map indicator element
+  const mapIndicator = document.querySelector('.map-indicator');
+  let mapInitialized = false;
+
   // Create zoom behavior
   const zoom = d3.zoom()
     .scaleExtent([1, 8]) // Enable zooming: min 1x (default), max 8x
     .on('zoom', (event) => {
       g.attr('transform', event.transform);
+      // Hide indicator on user interaction (not initial setup)
+      if (mapIndicator && mapInitialized && event.sourceEvent) {
+        mapIndicator.classList.add('hidden');
+      }
     });
+
+  // Mark as initialized after a short delay
+  setTimeout(() => { mapInitialized = true; }, 100);
     
   // Apply zoom behavior to SVG
   svg.call(zoom)

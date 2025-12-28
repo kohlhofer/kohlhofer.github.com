@@ -227,3 +227,23 @@ body {
 .travel-arc:hover {
   opacity: 1;
 }
+
+/* Map interaction indicator */
+.map-indicator {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 50;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.map-indicator.hidden {
+  opacity: 0;
+}
