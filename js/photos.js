@@ -9,7 +9,8 @@ class PhotoGallery {
     this.loadThreshold = 500; // Load next photo when user is this many pixels from bottom
     this.scrollTimeout = null;
     this.isScrolling = false;
-    
+    this.scrollIndicator = null;
+
     this.init();
   }
 
@@ -19,6 +20,7 @@ class PhotoGallery {
     this.setupEventListeners();
     this.renderPhotos();
     await this.handleInitialHash();
+    this.scrollIndicator = document.querySelector('.scroll-indicator');
   }
 
   async handleInitialHash() {
@@ -114,6 +116,11 @@ class PhotoGallery {
 
     // Set scrolling state
     this.isScrolling = true;
+
+    // Hide scroll indicator after scrolling
+    if (this.scrollIndicator && window.scrollY > 50) {
+      this.scrollIndicator.classList.add('hidden');
+    }
 
     // Check if we need to load more photos
     this.checkLoadMore();
