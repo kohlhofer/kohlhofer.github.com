@@ -1151,7 +1151,7 @@ body.page-exit #music {
   }
 
   .timeline-line {
-    left: calc(1.5rem + 1rem - 1rem);
+    left: calc(3.5rem - 1px);
   }
 
   .timeline-dot {
