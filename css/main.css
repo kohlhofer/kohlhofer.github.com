@@ -1134,7 +1134,7 @@ body.page-exit #music {
 .role[data-animate]:nth-child(9) { transition-delay: 0.64s; }
 
 /* Hero section media queries */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   .hero-section {
     grid-template-columns: 1fr;
     text-align: left;
@@ -1149,7 +1149,9 @@ body.page-exit #music {
     justify-self: start;
     order: -1;
   }
+}
 
+@media screen and (max-width: 900px) {
   .timeline-line {
     left: calc(3.5rem - 1px);
   }
