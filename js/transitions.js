@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a').forEach(link => {
     const href = link.getAttribute('href');
-    if (!href || href.startsWith('http') || href.startsWith('#') || link.target === '_blank') return;
+    // Skip external links, hash links, blank targets, and active nav links (which have info panels)
+    if (!href || href.startsWith('http') || href.startsWith('#') || link.target === '_blank' || link.classList.contains('active')) return;
 
     link.addEventListener('click', (e) => {
       e.preventDefault();
