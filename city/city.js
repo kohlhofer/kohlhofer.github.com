@@ -46,7 +46,7 @@ function setup() {
   //createCanvas(canvasWidth, canvasHeight);
   createCanvas(windowWidth, windowHeight);
   createCity();
-  
+
 }
 
 function windowResized() {
@@ -115,54 +115,54 @@ function createCity() {
   buildingCount = 0;
   
   for (row = 0; row < rowsNum+1; row++) {
-    
+
     if(row % 2 == 0) {
       cellOffset = cellX/4;
     } else {
       cellOffset = cellX/4*-1;
     }
     //console.log(cellOffset);
-    
+
     // add haze
     if (fade) {
       background(color('rgba(255, 255, 255, 0.01)'));
     }
-     
+
     for (col = 0; col < colsNum+1; col++) {
       drawFloor(col*cellX+cellOffset,row*cellY,cellX,'street');
-      
+
       drawCars(col*cellX+cellOffset,row*cellY,cellX-cellSpacing/2);
-      
+
       if (Math.random() > (row)/rowsNum/3) {
  //draw a sinle building onto this one cell
-        
+
         buildingCount++;
-        
+
         drawPeople(col*cellX+cellOffset,row*cellY,cellX-cellSpacing,50);
- 
-        drawBuilding(col*cellX+cellOffset,row*cellY,cellX/2.1+Math.random()*cellX/2.1-cellSpacing/2,constrain(random()*minBuildingHeight*(rowsNum-row),minBuildingHeight,maxBuildingHeight)); 
+
+        drawBuilding(col*cellX+cellOffset,row*cellY,cellX/2.1+Math.random()*cellX/2.1-cellSpacing/2,constrain(random()*minBuildingHeight*(rowsNum-row),minBuildingHeight,maxBuildingHeight));
       } else if (Math.random() > 0.6) {
  // draw up to 4 building on one cell?
- 
+
        buildingCount = buildingCount+4;
         drawBuilding(col*cellX+cellOffset,row*cellY-cellY/2,cellX/2-cellSpacing,constrain(random()*minBuildingHeight*(rowsNum-row),minBuildingHeight,maxBuildingHeight));
         drawBuilding(col*cellX+cellOffset-cellX/4,row*cellY,cellX/2-cellSpacing,constrain(random()*minBuildingHeight*(rowsNum-row),minBuildingHeight,maxBuildingHeight));
         drawBuilding(col*cellX+cellOffset+cellX/4,row*cellY,cellX/2-cellSpacing,constrain(random()*minBuildingHeight*(rowsNum-row),minBuildingHeight,maxBuildingHeight));
         drawBuilding(col*cellX+cellOffset,row*cellY+cellY/2,cellX/2-cellSpacing,constrain(random()*minBuildingHeight*(rowsNum-row),minBuildingHeight,maxBuildingHeight));
- 
+
       } else if (random() > 0.4){
- 
+
         // draw people for the park
      drawPeople(col*cellX+cellOffset,row*cellY,cellX-cellSpacing,random(20));
- 
+
         // draw the actual park
         drawPark(col*cellX+cellOffset,row*cellY,cellX-cellSpacing/1.3,parkFoliageHeight,parkElevation);
-        
+
       } else {
- // add a crowd to an otherwise empty square   
+ // add a crowd to an otherwise empty square
         drawPeople(col*cellX+cellOffset,row*cellY,cellX-cellSpacing,random(10,60));
- 
-        
+
+
       }
     }
   }
@@ -174,34 +174,34 @@ function createCity() {
   
   //add foreground Building
   drawBuilding(frameWidth+cellX/3,windowHeight,cellX,cellX);
-  
+
   drawBuilding(frameWidth+cellX,windowHeight,cellX,cellX*0.7);
-  
-  drawBuilding(width-frameWidth-ratio(cellX),windowHeight,cellX,cellX*1.1);
-  
-  addFrame(frameWidth);
+
+  drawBuilding(windowWidth-frameWidth-ratio(cellX),windowHeight,cellX,cellX*1.1);
+
+  // addFrame(frameWidth);
 }
 
 function addFrame(frameWidth) {
   fill('#FFF');
   noStroke();
-  width = windowWidth;
-  height = windowHeight;
-  rect(0,0,width,frameWidth);
-  rect(0,height-frameWidth,width,frameWidth);
-  rect(0,0,frameWidth,height);
-  rect(width-frameWidth,0,frameWidth,height);
+  var w = windowWidth;
+  var h = windowHeight;
+  rect(0,0,w,frameWidth);
+  rect(0,h-frameWidth,w,frameWidth);
+  rect(0,0,frameWidth,h);
+  rect(w-frameWidth,0,frameWidth,h);
   // top
-  
-  drawLine([frameWidth,frameWidth],[width-frameWidth,frameWidth]);
+
+  drawLine([frameWidth,frameWidth],[w-frameWidth,frameWidth]);
   // bottom
-  
-  drawLine([frameWidth,height-frameWidth],[width-frameWidth,height-frameWidth]);
+
+  drawLine([frameWidth,h-frameWidth],[w-frameWidth,h-frameWidth]);
   // left
-  drawLine([frameWidth,frameWidth],[frameWidth,height-frameWidth]);
+  drawLine([frameWidth,frameWidth],[frameWidth,h-frameWidth]);
   // right
-  drawLine([width-frameWidth,frameWidth],[width-frameWidth,height-frameWidth]);
-  
+  drawLine([w-frameWidth,frameWidth],[w-frameWidth,h-frameWidth]);
+
 }
 
 function draw() {
