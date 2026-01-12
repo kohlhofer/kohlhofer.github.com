@@ -12,3 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Handle back/forward navigation (bfcache restore)
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) {
+    document.body.classList.remove('page-exit');
+  }
+});
