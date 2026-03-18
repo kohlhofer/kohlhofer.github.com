@@ -1380,11 +1380,11 @@ body.page-exit #music {
 }
 
 .bits-description h1 {
-  font-size: clamp(2rem, 2.5vw, 3.5rem);
-  line-height: 1.2;
-  color: rgba(0, 0, 0, 0.9);
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.7);
   margin-bottom: 1.5rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .bits-description p {
@@ -1408,14 +1408,15 @@ body.page-exit #music {
   color: inherit;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   aspect-ratio: 4/3;
-  box-shadow: 0px 3px 0px rgb(169, 173, 173), 0px 3.5px 0px rgb(0, 0, 0, 0.3), 0px 6px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .bit-card:hover {
-  box-shadow: 0px 3px 0px rgb(169, 173, 173), 0px 3.5px 0px rgb(0, 0, 0, 0.3), 0px 12px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.18);
 }
 
 .bit-card-image {
@@ -1450,18 +1451,33 @@ body.page-exit #music {
   justify-content: flex-end;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.15) 15%,
+    rgba(0, 0, 0, 0) 30%
   );
   color: white;
+  transition: background 0.2s ease;
+}
+
+.bit-card:hover .bit-card-content {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .bit-card-content h2 {
   font-size: 1.1rem;
   color: white;
+  margin-bottom: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: margin-bottom 0.2s ease;
+}
+
+.bit-card:hover .bit-card-content h2 {
   margin-bottom: 0.35rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .bit-card-content p {
@@ -1469,6 +1485,15 @@ body.page-exit #music {
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.2s ease;
+}
+
+.bit-card:hover .bit-card-content p {
+  max-height: 3rem;
+  opacity: 1;
 }
 
 .bit-card-status-icons {
