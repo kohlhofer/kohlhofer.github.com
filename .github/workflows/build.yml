@@ -3,13 +3,8 @@ name: Build and Deploy Site
 on:
   push:
     branches:
-      - main
       - master
-      - claude/**
-  pull_request:
-    branches:
-      - main
-      - master
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN
 permissions:
