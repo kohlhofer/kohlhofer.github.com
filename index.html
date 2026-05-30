@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'self'; form-action 'none'">
   <title>Alexander Kohlhofer</title>
   <meta name="description" content="Product and design leader. Founder of Spreedly and Weewar.">
   <link rel="canonical" href="https://kohlhofer.com/">
@@ -21,16 +22,14 @@
       --fg: #111111;
       --fg-muted: #555555;
       --accent: #111111;
-      --hr-color: #d0d0cc;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #141414;
+        --bg: #121212;
         --fg: #e8e8e6;
-        --fg-muted: #999999;
+        --fg-muted: #a8a8a6;
         --accent: #e8e8e6;
-        --hr-color: #333333;
       }
     }
 
@@ -54,7 +53,7 @@
     }
 
     h1 {
-      font-size: clamp(1.5rem, 3vw + 0.75rem, 2rem);
+      font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
       font-weight: 700;
       letter-spacing: -0.01em;
       line-height: 1.2;
@@ -75,6 +74,11 @@
 
     .proof li {
       color: var(--fg-muted);
+    }
+
+    .proof-company {
+      color: var(--fg);
+      font-weight: 500;
     }
 
     .doorways {
@@ -111,16 +115,17 @@
       font-size: 0.875em;
     }
 
+    .doorway-arrow {
+      color: var(--fg);
+      font-size: 1em;
+    }
+
     .contact {
       margin-top: 2.5rem;
     }
 
     .contact-primary {
       font-weight: 600;
-      display: flex;
-      align-items: baseline;
-      gap: 0.35rem;
-      flex-wrap: wrap;
     }
 
     .contact-primary a {
@@ -159,12 +164,6 @@
       outline: 2px solid currentColor;
       outline-offset: 3px;
     }
-
-    hr {
-      margin-top: 3rem;
-      border: none;
-      border-top: 1px solid var(--hr-color);
-    }
   </style>
 </head>
 <body>
@@ -173,42 +172,39 @@
 
     <p class="headline">Product and design leader who has founded, scaled, and led teams across software, developer tools, and consumer products.</p>
 
-    <ul class="proof">
-      <li>Head of Design — Observable</li>
-      <li>VP Product — Tray.ai</li>
-      <li>Founder — Spreedly</li>
-      <li>Founder — Weewar, acquired by Electronic Arts</li>
+    <ul class="proof" aria-label="Selected experience">
+      <li>Head of Design — <span class="proof-company">Observable</span></li>
+      <li>VP Product — <span class="proof-company">Tray.ai</span></li>
+      <li>Founder — <span class="proof-company">Spreedly</span></li>
+      <li>Founder — <span class="proof-company">Weewar</span>, acquired by Electronic Arts</li>
     </ul>
 
-    <nav class="doorways" aria-label="Explore">
+    <nav class="doorways" aria-label="My work and writing">
       <a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer" aria-label="fieldbw.com — the things I build (opens in new tab)">
         <span class="doorway-label">the things I build</span>
-        <span class="doorway-domain">fieldbw.com →</span>
+        <span class="doorway-domain">fieldbw.com</span><span class="doorway-arrow" aria-hidden="true">→</span>
       </a>
       <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer" aria-label="notsocommonthoughts.com — the things I think about (opens in new tab)">
         <span class="doorway-label">the things I think about</span>
-        <span class="doorway-domain">notsocommonthoughts.com →</span>
+        <span class="doorway-domain">notsocommonthoughts.com</span><span class="doorway-arrow" aria-hidden="true">→</span>
       </a>
     </nav>
 
     <div class="contact">
       <p class="contact-primary">
-        Get in touch →
-        <a href="mailto:alexander@kohlhofer.com" aria-label="Email alexander@kohlhofer.com">alexander@kohlhofer.com</a>
+        <a href="mailto:alexander@kohlhofer.com" aria-label="Email alexander@kohlhofer.com">Get in touch — alexander@kohlhofer.com</a>
       </p>
       <p class="contact-secondary">
-        <a href="https://linkedin.com/in/kohlhofer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn →</a>
+        <a href="https://linkedin.com/in/kohlhofer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn <span aria-hidden="true">→</span></a>
       </p>
     </div>
-
-    <hr aria-hidden="true">
   </main>
 
   <!--
     Analytics: to enable GoatCounter or Plausible, uncomment and configure one block below.
 
     GoatCounter:
-    <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 
     Plausible:
     <script defer data-domain="kohlhofer.com" src="https://plausible.io/js/script.js"></script>

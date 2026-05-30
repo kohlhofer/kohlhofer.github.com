@@ -13,9 +13,9 @@
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #141414;
+        --bg: #121212;
         --fg: #e8e8e6;
-        --fg-muted: #999999;
+        --fg-muted: #a8a8a6;
       }
     }
 
@@ -36,6 +36,13 @@
 
     main {
       max-width: 660px;
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
     p {
