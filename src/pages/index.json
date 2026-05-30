@@ -1,6 +1,0 @@
-{
-  "title": "Alexander Kohlhofer",
-  "description": "Hi there. This is the personal site of Alexander Kohlhofer, designer.",
-  "fonts": ["Rubik", "Inter"],
-  "bodyScripts": ["background.min.js", "init.min.js"]
-}
