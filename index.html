@@ -2,89 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alexander Kohlhofer</title>
-  <meta name="description" content="Hi there. This is the personal site of Alexander Kohlhofer, designer.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Product and design leader. Founder of Spreedly and Weewar.">
+  <link rel="canonical" href="https://kohlhofer.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
 
-  <link rel="stylesheet" href="css/reset.min.css">
-  <link rel="stylesheet" href="css/main.min.css">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kohlhofer.com/">
+  <meta property="og:title" content="Alexander Kohlhofer">
+  <meta property="og:description" content="Product and design leader. Founder of Spreedly and Weewar.">
+  <meta property="og:image" content="https://kohlhofer.com/images/profile/alex.jpg">
 
-  <link href="css/fa-fontawesome.min.css" rel="stylesheet">
-  <link href="css/fa-brands.min.css" rel="stylesheet">
-  <link href="css/fa-solid.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f9f9f7;
+      --fg: #111111;
+      --fg-muted: #555555;
+      --accent: #111111;
+      --hr-color: #d0d0cc;
+    }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141414;
+        --fg: #e8e8e6;
+        --fg-muted: #999999;
+        --accent: #e8e8e6;
+        --hr-color: #333333;
+      }
+    }
 
-  
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(1rem, 1.5vw + 0.5rem, 1.125rem);
+      line-height: 1.6;
+      padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem);
+    }
 
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    main {
+      max-width: 660px;
+    }
 
-    ga('create', 'UA-58451-10', 'kohlhofer.com');
-    ga('send', 'pageview');
-  </script>
+    h1 {
+      font-size: clamp(1.5rem, 3vw + 0.75rem, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .headline {
+      margin-top: 1.5rem;
+      color: var(--fg);
+    }
+
+    .proof {
+      margin-top: 1.5rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .proof li {
+      color: var(--fg-muted);
+    }
+
+    .doorways {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .doorways a {
+      color: var(--fg);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .doorways a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .doorways a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    .doorway-label {
+      font-weight: 500;
+    }
+
+    .doorway-domain {
+      color: var(--fg-muted);
+      font-size: 0.875em;
+    }
+
+    .contact {
+      margin-top: 2.5rem;
+    }
+
+    .contact-primary {
+      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-primary a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+    }
+
+    .contact-primary a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .contact-primary a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    .contact-secondary {
+      margin-top: 0.6rem;
+      color: var(--fg-muted);
+      font-size: 0.9em;
+    }
+
+    .contact-secondary a {
+      color: var(--fg-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .contact-secondary a:hover {
+      color: var(--fg);
+    }
+
+    .contact-secondary a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    hr {
+      margin-top: 3rem;
+      border: none;
+      border-top: 1px solid var(--hr-color);
+    }
+  </style>
 </head>
 <body>
-  <div class="top-nav">
-    <div class="nav-group nav-internal">
-      <a href="/" class="active">●</a>
-      <a href="about.html">Me</a>
-      <a href="map.html">Map</a>
-      <a href="bits.html">Projects</a>
-      <a href="music.html">Music</a>
-      <a href="photos.html">Photos</a>
-    </div>
-    <div class="nav-group nav-external">
-      <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer">Blog →</a>
-    </div>
-  </div>
+  <main>
+    <h1>Alexander Kohlhofer</h1>
 
-  <div class="hero-grid-lines">
-    <div class="grid-line grid-line-v1"></div>
-    <div class="grid-line grid-line-v2"></div>
-  </div>
+    <p class="headline">Product and design leader who has founded, scaled, and led teams across software, developer tools, and consumer products.</p>
 
-  <div id="content">
-    <div id="hero">
-      <div class="hero-sidebar">Alexander Kohlhofer — Designer</div>
-      <div class="hero-text">
-        <span class="line line-1">What's&nbsp;&nbsp;&nbsp;What's&nbsp;&nbsp;&nbsp;What's&nbsp;&nbsp;&nbsp;What's&nbsp;&nbsp;&nbsp;</span>
-        <span class="line line-2">worth&nbsp;&nbsp;&nbsp;worth&nbsp;&nbsp;&nbsp;worth&nbsp;&nbsp;&nbsp;worth&nbsp;&nbsp;&nbsp;</span>
-        <span class="line line-3">making?&nbsp;&nbsp;&nbsp;making?&nbsp;&nbsp;&nbsp;making?&nbsp;&nbsp;&nbsp;making?&nbsp;&nbsp;&nbsp;</span>
-      </div>
-      <div class="hero-footer">
-        <div class="section-grid">
-          <a href="about.html" class="section-item">
-            Who I am, what I do, and the work I've done along the way
-          </a>
-          <a href="map.html" class="section-item">
-            A map of places I've lived, worked, and wandered through
-          </a>
-          <a href="bits.html" class="section-item">
-            Side projects, experiments, and things I've built for fun
-          </a>
-          <a href="music.html" class="section-item">
-            Original music, recordings, and sounds I've created over the years
-          </a>
-          <a href="photos.html" class="section-item">
-            Photographs from travels, daily life, and the moments in between
-          </a>
-          <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer" class="section-item section-item-featured">
-            Writing about design, technology, creativity, and everyday life <span class="arrow">→</span>
-          </a>
-        </div>
-      </div>
-      <div class="hero-caption">80年代日本のグラフィックデザインに影響を受けて</div>
+    <ul class="proof">
+      <li>Head of Design — Observable</li>
+      <li>VP Product — Tray.ai</li>
+      <li>Founder — Spreedly</li>
+      <li>Founder — Weewar, acquired by Electronic Arts</li>
+    </ul>
+
+    <nav class="doorways" aria-label="Explore">
+      <a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer" aria-label="fieldbw.com — the things I build (opens in new tab)">
+        <span class="doorway-label">the things I build</span>
+        <span class="doorway-domain">fieldbw.com →</span>
+      </a>
+      <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer" aria-label="notsocommonthoughts.com — the things I think about (opens in new tab)">
+        <span class="doorway-label">the things I think about</span>
+        <span class="doorway-domain">notsocommonthoughts.com →</span>
+      </a>
+    </nav>
+
+    <div class="contact">
+      <p class="contact-primary">
+        Get in touch →
+        <a href="mailto:alexander@kohlhofer.com" aria-label="Email alexander@kohlhofer.com">alexander@kohlhofer.com</a>
+      </p>
+      <p class="contact-secondary">
+        <a href="https://linkedin.com/in/kohlhofer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn →</a>
+      </p>
     </div>
-  </div>
 
-  <script src="js/background.min.js"></script>
-  <script src="js/init.min.js"></script>
+    <hr aria-hidden="true">
+  </main>
+
+  <!--
+    Analytics: to enable GoatCounter or Plausible, uncomment and configure one block below.
+
+    GoatCounter:
+    <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    Plausible:
+    <script defer data-domain="kohlhofer.com" src="https://plausible.io/js/script.js"></script>
+  -->
 </body>
 </html>
