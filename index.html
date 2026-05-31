@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; font-src 'self'; script-src 'self'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
   <title>Alexander Kohlhofer</title>
   <meta name="description" content="Product and design leader. Principal Designer at Mixmax and founder of Field Bureau + Werkstatt, Spreedly, and Weewar.">
   <link rel="canonical" href="https://kohlhofer.com/">
@@ -18,6 +18,10 @@
   <meta property="og:image" content="https://kohlhofer.com/images/profile/alex.jpg">
 
   <script src="/js/theme.js"></script>
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script src="/js/analytics.js"></script>
 
   <style>
     @font-face {
@@ -259,16 +263,5 @@
     </svg>
   </button>
 
-  <!--
-    Analytics: to enable GoatCounter or Plausible, uncomment and configure one block below.
-    Note: enabling either snippet also requires adding the provider origin to the Content-Security-Policy
-    script-src directive (and connect-src for Plausible), since the current CSP is default-src 'none'.
-
-    GoatCounter:
-    <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-
-    Plausible:
-    <script defer data-domain="kohlhofer.com" src="https://plausible.io/js/script.js"></script>
-  -->
 </body>
 </html>
