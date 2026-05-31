@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://kohlhofer.com/sitemap.xml
