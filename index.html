@@ -164,7 +164,7 @@
     }
     .cta:hover { filter: brightness(0.92); }
     .cta:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
-    .cta-arrow { transition: transform 0.15s ease; }
+    .cta-arrow { width: 1.2em; height: 1.2em; flex: none; transition: transform 0.15s ease; }
     .cta:hover .cta-arrow { transform: translateX(3px); }
 
     .contact-secondary { margin-top: 1rem; color: var(--fg-muted); font-size: var(--size-small); }
@@ -245,7 +245,8 @@
 
     <div class="contact">
       <a class="cta" href="https://linkedin.com/in/kohlhofer" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn (opens in new tab)">
-        Connect on LinkedIn<span class="cta-arrow" aria-hidden="true">→</span>
+        Connect on LinkedIn
+        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
       </a>
       <p class="contact-secondary">
         or email me at <a href="mailto:alexander@kohlhofer.com">alexander@kohlhofer.com</a>
