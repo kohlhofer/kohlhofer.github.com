@@ -3,202 +3,261 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; font-src 'self'; script-src 'self'; base-uri 'self'; form-action 'none'">
   <title>Alexander Kohlhofer</title>
-  <meta name="description" content="Product and design leader. Founder of Spreedly and Weewar.">
+  <meta name="description" content="Product and design leader. Principal Designer at Mixmax and founder of Field Bureau + Werkstatt, Spreedly, and Weewar.">
   <link rel="canonical" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kohlhofer.com/">
   <meta property="og:title" content="Alexander Kohlhofer">
-  <meta property="og:description" content="Product and design leader. Founder of Spreedly and Weewar.">
+  <meta property="og:description" content="Product and design leader. Principal Designer at Mixmax and founder of Field Bureau + Werkstatt, Spreedly, and Weewar.">
   <meta property="og:image" content="https://kohlhofer.com/images/profile/alex.jpg">
 
+  <script src="/js/theme.js"></script>
+
   <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
     :root {
       --bg: #f9f9f7;
       --fg: #111111;
-      --fg-muted: #555555;
-      --accent: #111111;
+      --fg-muted: #666663;
+      --accent: #c8502d;
+
+      --size-small: 0.8125rem;
+      --size-body: 1.0625rem;
     }
 
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --bg: #121212;
         --fg: #e8e8e6;
-        --fg-muted: #a8a8a6;
-        --accent: #e8e8e6;
+        --fg-muted: #adadab;
+        --accent: #ec8a5f;
       }
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root[data-theme="dark"] {
+      --bg: #121212;
+      --fg: #e8e8e6;
+      --fg-muted: #adadab;
+      --accent: #ec8a5f;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg);
       color: var(--fg);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: clamp(1rem, 1.5vw + 0.5rem, 1.125rem);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: var(--size-body);
       line-height: 1.6;
-      padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem);
-    }
-
-    main {
-      max-width: 660px;
-    }
-
-    h1 {
-      font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
-
-    .headline {
-      margin-top: 1.5rem;
-      color: var(--fg);
-    }
-
-    .proof {
-      margin-top: 1.5rem;
-      list-style: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem);
     }
 
-    .proof li {
+    /* left-aligned column, centered in the viewport */
+    main { max-width: 560px; text-align: left; }
+
+    /* name = small tracked label; statement = the main event */
+    .name {
+      font-size: var(--size-small);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .statement {
+      margin-top: 1rem;
+      font-size: clamp(1.9rem, 6.5vw, 4rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .proof { margin-top: 3rem; }
+
+    .proof-eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--fg-muted);
+      margin-bottom: 0.6rem;
     }
 
-    .proof-company {
-      color: var(--fg);
-      font-weight: 500;
-    }
+    .proof ul + .proof-eyebrow { margin-top: 1.5rem; }
+    .proof ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .proof li { color: var(--fg-muted); font-size: 1.1875rem; }
+    .proof-company { color: var(--fg); font-weight: 600; }
+    .proof-current li { color: var(--fg); }
+    .proof-current .proof-company { font-weight: 700; }
 
     .doorways {
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      align-items: flex-start;
+      gap: 0.75rem;
     }
 
     .doorways a {
       color: var(--fg);
       text-decoration: none;
       display: inline-flex;
-      align-items: baseline;
-      gap: 0.25rem;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    .doorways a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    .doorways a:hover .doorway-label { text-decoration: underline; text-underline-offset: 3px; }
+    .doorways a:hover .doorway-arrow { transform: translateX(5px); }
+    .doorways a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
-    .doorways a:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 3px;
-    }
-
-    .doorway-label {
-      font-weight: 500;
-    }
-
-    .doorway-domain {
-      color: var(--fg-muted);
-      font-size: 0.875em;
-    }
-
+    .doorway-label { font-weight: 500; font-size: 1.1875rem; }
+    .doorway-domain { color: var(--fg-muted); font-size: var(--size-small); }
     .doorway-arrow {
-      color: var(--fg);
-      font-size: 1em;
-    }
-
-    .contact {
-      margin-top: 2.5rem;
-    }
-
-    .contact-primary {
-      font-weight: 600;
-    }
-
-    .contact-primary a {
       color: var(--accent);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-thickness: 1.5px;
+      width: 1.6em;
+      height: 1.6em;
+      flex: none;
+      margin-left: 0.1rem;
+      transition: transform 0.18s ease;
     }
 
-    .contact-primary a:hover {
-      text-decoration-thickness: 2px;
-    }
+    .contact { margin-top: 5rem; }
 
-    .contact-primary a:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 3px;
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border: 1.5px solid var(--accent);
+      border-radius: 4px;
+      background-color: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+      font-size: var(--size-body);
+      text-decoration: none;
+      transition: filter 0.15s ease;
     }
+    .cta:hover { filter: brightness(0.92); }
+    .cta:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+    .cta-arrow { transition: transform 0.15s ease; }
+    .cta:hover .cta-arrow { transform: translateX(3px); }
 
-    .contact-secondary {
-      margin-top: 0.6rem;
+    .contact-secondary { margin-top: 1rem; color: var(--fg-muted); font-size: var(--size-small); }
+    .contact-secondary a { color: var(--fg-muted); text-decoration: underline; text-underline-offset: 3px; }
+    .contact-secondary a:hover { color: var(--fg); }
+    .contact-secondary a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    .theme-toggle {
+      position: fixed;
+      left: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem;
+      height: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 50%;
       color: var(--fg-muted);
-      font-size: 0.9em;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
     }
 
-    .contact-secondary a {
-      color: var(--fg-muted);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+
+    /* show the moon in light mode (tap to go dark), the sun in dark mode */
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
     }
 
-    .contact-secondary a:hover {
-      color: var(--fg);
-    }
-
-    .contact-secondary a:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 3px;
-    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
   </style>
 </head>
 <body>
   <main>
-    <h1>Alexander Kohlhofer</h1>
+    <p class="name">Alexander Kohlhofer</p>
+    <h1 class="statement">Product and design leader who founds companies, scales teams, and ships products that last.</h1>
 
-    <p class="headline">Product and design leader who has founded, scaled, and led teams across software, developer tools, and consumer products.</p>
-
-    <ul class="proof" aria-label="Selected experience">
-      <li>Head of Design — <span class="proof-company">Observable</span></li>
-      <li>VP Product — <span class="proof-company">Tray.ai</span></li>
-      <li>Founder — <span class="proof-company">Spreedly</span></li>
-      <li>Founder — <span class="proof-company">Weewar</span>, acquired by <span class="proof-company">Electronic Arts</span></li>
-    </ul>
+    <div class="proof">
+      <p class="proof-eyebrow">Now</p>
+      <ul class="proof-current" aria-label="Current roles">
+        <li>Principal Designer — <span class="proof-company">Mixmax</span></li>
+        <li>Founder — <span class="proof-company">Field Bureau + Werkstatt</span></li>
+      </ul>
+      <p class="proof-eyebrow">Previously</p>
+      <ul aria-label="Previous roles">
+        <li>Head of Design — <span class="proof-company">Observable</span></li>
+        <li>VP Product — <span class="proof-company">Tray.ai</span></li>
+        <li>Founder — <span class="proof-company">Spreedly</span></li>
+        <li>Founder — <span class="proof-company">Weewar</span>, acquired by <span class="proof-company">Electronic Arts</span></li>
+      </ul>
+    </div>
 
     <nav class="doorways" aria-label="My work and writing">
-      <a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer" aria-label="fieldbw.com — the things I build (opens in new tab)">
-        <span class="doorway-label">the things I build</span>
-        <span class="doorway-domain">fieldbw.com</span><span class="doorway-arrow" aria-hidden="true">→</span>
+      <a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer" aria-label="The things I build — fieldbw.com (opens in new tab)">
+        <span class="doorway-label">The things I build</span>
+        <span class="doorway-domain">fieldbw.com</span>
+        <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer" aria-label="notsocommonthoughts.com — the things I think about (opens in new tab)">
-        <span class="doorway-label">the things I think about</span>
-        <span class="doorway-domain">notsocommonthoughts.com</span><span class="doorway-arrow" aria-hidden="true">→</span>
+      <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer" aria-label="The things I think about — notsocommonthoughts.com (opens in new tab)">
+        <span class="doorway-label">The things I think about</span>
+        <span class="doorway-domain">notsocommonthoughts.com</span>
+        <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
       </a>
     </nav>
 
     <div class="contact">
-      <p class="contact-primary">
-        <a href="mailto:alexander@kohlhofer.com">Get in touch — alexander@kohlhofer.com</a>
-      </p>
+      <a class="cta" href="https://linkedin.com/in/kohlhofer" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn (opens in new tab)">
+        Connect on LinkedIn<span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
       <p class="contact-secondary">
-        <a href="https://linkedin.com/in/kohlhofer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn <span aria-hidden="true">→</span></a>
+        or email me at <a href="mailto:alexander@kohlhofer.com">alexander@kohlhofer.com</a>
       </p>
     </div>
   </main>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
 
   <!--
     Analytics: to enable GoatCounter or Plausible, uncomment and configure one block below.
