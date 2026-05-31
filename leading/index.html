@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>How I lead — Alexander Kohlhofer</title>
+  <meta name="description" content="Direction before speed, outcomes over output, and hiring for judgment — what twenty years of building and scaling product and design teams taught me about leading them.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/leading">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/leading">
+  <meta property="og:title" content="How I lead">
+  <meta property="og:description" content="Direction before speed, outcomes over output, and hiring for judgment — what twenty years of building and scaling product and design teams taught me about leading them.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How I lead">
+  <meta name="twitter:description" content="Direction before speed, outcomes over output, and hiring for judgment — what twenty years of building and scaling product and design teams taught me about leading them.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How I lead",
+    "url": "https://kohlhofer.com/leading",
+    "author": { "@type": "Person", "name": "Alexander Kohlhofer", "url": "https://kohlhofer.com/" },
+    "publisher": { "@type": "Person", "name": "Alexander Kohlhofer" },
+    "mainEntityOfPage": "https://kohlhofer.com/leading",
+    "image": "https://kohlhofer.com/images/og.png"
+  }
+  </script>
+
+  <script src="/js/theme.js"></script>
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #111111;
+      --fg-muted: #666663;
+      --accent: #c8502d;
+
+      --size-small: 0.8125rem;
+      --size-body: 1.1875rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121212;
+        --fg: #e8e8e6;
+        --fg-muted: #adadab;
+        --accent: #ec8a5f;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #121212;
+      --fg: #e8e8e6;
+      --fg-muted: #adadab;
+      --accent: #ec8a5f;
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #111111;
+      --fg-muted: #666663;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: var(--size-body);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 2rem) 6rem;
+    }
+
+    article { max-width: 40rem; margin: 0 auto; }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: var(--size-small);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .back:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    h1 {
+      margin-top: 2.25rem;
+      font-size: clamp(2.1rem, 6vw, 3.25rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin-top: 2.75rem;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
+
+    p { margin-top: 1.25rem; color: var(--fg); }
+    h1 + p { margin-top: 1.5rem; }
+
+    article a:not(.back) {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+    article a:not(.back):hover { text-decoration-thickness: 2px; }
+    article a:not(.back):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    .colophon {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid color-mix(in srgb, var(--fg-muted) 30%, transparent);
+      color: var(--fg-muted);
+      font-size: var(--size-small);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem;
+      height: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 50%;
+      color: var(--fg-muted);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+  </style>
+</head>
+<body>
+  <article>
+    <a class="back" href="/">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
+      Home
+    </a>
+
+    <h1>How I lead</h1>
+
+    <p>A leader's first job is to make sure the team is pointed in the right direction. Everything else comes after.</p>
+
+    <p>I've built and scaled product and design teams for twenty years — a game studio Electronic Arts acquired, the payments company Spreedly, and design and product organizations at Observable and Tray. I helped build products at CloudBees that generate millions in ARR. The lessons that held up across all of those teams are simpler than I expected when I started, and most of them are about restraint.</p>
+
+    <h2>Direction before speed</h2>
+
+    <p>A team <a href="https://notsocommonthoughts.com/blog/direction-before-speed/" target="_blank" rel="noopener noreferrer">moving fast in the wrong direction</a> just reaches the wrong place sooner. Velocity multiplies against your heading, so a wrong heading makes every sprint more expensive, not less.</p>
+
+    <p>I set direction first, then clear the obstacles slowing the team, and only then push on pace. Most startup advice has that order backwards. Speed is the easy thing to celebrate and the last thing to optimize.</p>
+
+    <h2>Outcomes over output</h2>
+
+    <p>A team can <a href="https://notsocommonthoughts.com/blog/2025-11-05-in-appearance-only/" target="_blank" rel="noopener noreferrer">ship constantly and change nothing</a>. Output is easy to see — tickets closed, hours logged, features released — so people drift toward the visible proxy instead of the result. Mostly not on purpose: they optimize for the appearance of work because that's what gets rewarded.</p>
+
+    <p>AI makes this harder, not easier. It can fill every proxy metric we have — ten times the output at no more real value, sometimes less once it all has to be reviewed and maintained. So holding people to outcomes matters more, not less: did the customer's problem actually go away, did the business move. That means resisting the dopamine of shipping and being willing to kill work that produced a lot and changed little. The people doing the most valuable work often look the least busy.</p>
+
+    <h2>Find the guardrails</h2>
+
+    <p>Much of leadership is <a href="https://notsocommonthoughts.com/blog/finding-balance-in-leadership/" target="_blank" rel="noopener noreferrer">setting guardrails and tuning them</a>. Set them too tight and you crush ownership and fresh ideas — that's micromanagement. Set them too loose and people flail without direction. Neither extreme does anyone any favors, and the sweet spot sits somewhere in between.</p>
+
+    <p>Where exactly is the hard part, because it moves. Some people need more structure; others do their best work with more room, and the same person needs different edges on a new problem than on a familiar one. So it's less a formula than a thing you tune per person and per situation. Get it right and the team's results exceed what you could have produced yourself — people care because the work is genuinely theirs.</p>
+
+    <p>Guardrails are also what make delegation real. Without explicit boundaries, every decision escalates back to the leader, because no one is sure what they're allowed to decide. And I try to be honest about <a href="https://notsocommonthoughts.com/blog/2026-03-13-collaborate-or-delegate/" target="_blank" rel="noopener noreferrer">the mode I'm in</a> — collaborating means we own the result together; delegating means I've handed ownership over and stepped back. The damage comes from calling something delegation while staying in every decision.</p>
+
+    <h2>Hire for judgment, and know your gaps</h2>
+
+    <p>When execution gets cheap, judgment gets scarce. AI can write the code, draft the copy, generate a hundred options — so the valuable person is the one who can tell which option is right. I <a href="https://notsocommonthoughts.com/blog/hiring-designers-judgment/" target="_blank" rel="noopener noreferrer">hire for taste and discernment</a> over raw production speed, even though judgment is harder to interview for and harder to teach.</p>
+
+    <p>The same honesty applies to myself. My job isn't to be good at everything; it's to make sure the team is complete. That only works if I can <a href="https://notsocommonthoughts.com/blog/2025-12-27-the-map-of-gaps/" target="_blank" rel="noopener noreferrer">name where I'm weak</a> and hire judgment that covers it. The dangerous gaps are the unacknowledged ones, where my blind spot quietly becomes the team's.</p>
+
+    <h2>At scale, change is a campaign</h2>
+
+    <p>A big team carries momentum, and when you first turn the wheel nothing happens. That early resistance usually isn't a sign you're wrong — it's <a href="https://notsocommonthoughts.com/blog/turning-the-ship/" target="_blank" rel="noopener noreferrer">physics</a>. The organization has been moving one way for years, and that direction is real investment and real identity for the people inside it. The two ways to misread the resistance are to give up, which teaches everyone that change is just noise to wait out, or to force it through, which buys you friction and burnout. What works is sustained pressure in a clear direction: keep turning the wheel, keep saying why, and accept the lag. Once the ship comes around, the same momentum that fought you starts working for you — the new way becomes the habit, then the culture.</p>
+
+    <p>There's a trap I've watched product-minded leaders fall into, myself included. Every company runs on <a href="https://notsocommonthoughts.com/blog/2026-05-18-two-engines/" target="_blank" rel="noopener noreferrer">two engines</a>, the one that builds the product and the one that takes it to market. We pour energy into the build engine because that's where we're comfortable, then wonder why a great product isn't growing. The discipline is naming the weaker engine honestly and feeding it — even when it's the less interesting one.</p>
+
+    <h2>Judgment is the job</h2>
+
+    <p>These principles rest on one idea. As machines absorb more of the execution, what's left for people is <a href="https://notsocommonthoughts.com/blog/ai-and-judgement/" target="_blank" rel="noopener noreferrer">deciding what's worth doing</a> and recognizing when it's good. That's true of how I build software now, and it's true of how I lead — direction, outcomes, taste, knowing your gaps are all the same skill pointed at different problems.</p>
+
+    <p>I spent twenty years learning that the leader's value isn't being the best maker in the room. It's making sure the right things get made.</p>
+
+    <p>I write more about this at <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer">notsocommonthoughts.com</a>, and you can see how the same thinking shapes what I build in <a href="/building">how I build</a>.</p>
+
+    <p class="colophon">© Alexander Kohlhofer</p>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+</body>
+</html>

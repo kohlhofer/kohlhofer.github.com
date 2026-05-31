@@ -1,5 +1,8 @@
 .DS_Store
 
+# Claude Code local session state
+.claude/
+
 # Node.js
 node_modules/
 npm-debug.log*

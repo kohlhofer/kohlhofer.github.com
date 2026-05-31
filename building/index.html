@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>How I build — Alexander Kohlhofer</title>
+  <meta name="description" content="Why I build focused, local-first tools with on-device AI — and what twenty years of building at scale taught me about what lasts.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/building">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/building">
+  <meta property="og:title" content="How I build">
+  <meta property="og:description" content="Why I build focused, local-first tools with on-device AI — and what twenty years of building at scale taught me about what lasts.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How I build">
+  <meta name="twitter:description" content="Why I build focused, local-first tools with on-device AI — and what twenty years of building at scale taught me about what lasts.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How I build",
+    "url": "https://kohlhofer.com/building",
+    "author": { "@type": "Person", "name": "Alexander Kohlhofer", "url": "https://kohlhofer.com/" },
+    "publisher": { "@type": "Person", "name": "Alexander Kohlhofer" },
+    "mainEntityOfPage": "https://kohlhofer.com/building",
+    "image": "https://kohlhofer.com/images/og.png"
+  }
+  </script>
+
+  <script src="/js/theme.js"></script>
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #111111;
+      --fg-muted: #666663;
+      --accent: #c8502d;
+
+      --size-small: 0.8125rem;
+      --size-body: 1.1875rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121212;
+        --fg: #e8e8e6;
+        --fg-muted: #adadab;
+        --accent: #ec8a5f;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #121212;
+      --fg: #e8e8e6;
+      --fg-muted: #adadab;
+      --accent: #ec8a5f;
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #111111;
+      --fg-muted: #666663;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: var(--size-body);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 2rem) 6rem;
+    }
+
+    article { max-width: 40rem; margin: 0 auto; }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: var(--size-small);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .back:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    h1 {
+      margin-top: 2.25rem;
+      font-size: clamp(2.1rem, 6vw, 3.25rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin-top: 2.75rem;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
+
+    p { margin-top: 1.25rem; color: var(--fg); }
+    h1 + p { margin-top: 1.5rem; }
+
+    article a:not(.back) {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+    article a:not(.back):hover { text-decoration-thickness: 2px; }
+    article a:not(.back):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    .colophon {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid color-mix(in srgb, var(--fg-muted) 30%, transparent);
+      color: var(--fg-muted);
+      font-size: var(--size-small);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem;
+      height: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 50%;
+      color: var(--fg-muted);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+  </style>
+</head>
+<body>
+  <article>
+    <a class="back" href="/">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
+      Home
+    </a>
+
+    <h1>How I build</h1>
+
+    <p>I build tools that do one thing and then get out of the way.</p>
+
+    <p>For most of my career I built big things — a game studio Electronic Arts acquired, the payments company Spreedly, and design and product organizations at Observable and Tray. I helped build products at CloudBees that generate millions in ARR. That work taught me how much a capable team can put behind a product, and how far a well-run product can reach.</p>
+
+    <p>The tools I make now start from the other end of that scale. One job, done well. A surface small enough to hold in your head. Nothing that needs a server, an account, or my permission to keep working.</p>
+
+    <h2>The format is the interface</h2>
+
+    <p><a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer">Field Bureau's</a> markdown suite reads and writes plain Markdown you own — no database, no proprietary format, no import step. SR-7 records a conversation, transcribes it on device, and saves it as Markdown with the audio sitting right next to it. TR-2 keeps your tasks as Markdown checkboxes in a folder. ML-42 reads and edits the whole library. The connective tissue between them is the file, not an integration.</p>
+
+    <p>The same files you edit are the files your AI reads and writes. There's no copy-paste, no export, no second source of truth — and because the agent works the files directly, you can see exactly what it changed in the git diff. If any of these apps disappeared tomorrow, your work would still be there, in formats that outlive the tool.</p>
+
+    <h2>The intelligence runs on your machine</h2>
+
+    <p>What changed in the last two years is that the intelligence got small enough to run locally. SR-7 transcribes and summarizes using the models already on your phone — Apple's Speech framework and on-device foundation models. Nothing uploads. No accounts, no telemetry, no subscription, no server to rent. When the computation never leaves the device, privacy stops being a promise and becomes a property of how the thing is built.</p>
+
+    <p>That refusal is deliberate. A subscription is rent on software you don't control; charging once is the only model that's honest about "nothing leaves your machine." Owning your data and owning the app turn out to be the same promise.</p>
+
+    <h2>Small teams can build more than they used to</h2>
+
+    <p>A small pod ships work now that would have needed a whole department a few years ago. Working alongside AI, a handful of people can hold the entire stack — native macOS and iOS, on-device ML, sync, design — and move at a pace that used to take a much larger team. The shift is economic. When execution gets this cheap, the scarce thing isn't the ability to make software; it's the judgment to decide what's worth making.</p>
+
+    <p>So that's where the attention goes now. The bet is that the tools worth keeping are the ones you understand, own, and can run without asking anyone's permission. I spent twenty years building things that had to scale. I'm spending the next stretch building things that last.</p>
+
+    <p>You can see what I'm building at <a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer">fieldbw.com</a>, the longer thinking behind it at <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer">notsocommonthoughts.com</a>, and how the same judgment shapes the way I run teams in <a href="/leading">how I lead</a>.</p>
+
+    <p class="colophon">© Alexander Kohlhofer</p>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+</body>
+</html>
