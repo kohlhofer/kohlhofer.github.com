@@ -11,11 +11,45 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
 
+  <meta name="author" content="Alexander Kohlhofer">
+
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
   <meta property="og:url" content="https://kohlhofer.com/">
   <meta property="og:title" content="Alexander Kohlhofer">
   <meta property="og:description" content="Product and design leader. Principal Designer at Mixmax and founder of Field Bureau + Werkstatt, Spreedly, and Weewar.">
-  <meta property="og:image" content="https://kohlhofer.com/images/profile/alex.jpg">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alexander Kohlhofer — founds companies, scales teams, ships products that last.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alexander Kohlhofer">
+  <meta name="twitter:description" content="Product and design leader. Principal Designer at Mixmax and founder of Field Bureau + Werkstatt, Spreedly, and Weewar.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <!-- Person structured data: consolidates identity across profiles so search
+       engines treat kohlhofer.com as the canonical hub. application/ld+json is a
+       data block, not executable script, so the strict CSP does not block it. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alexander Kohlhofer",
+    "url": "https://kohlhofer.com/",
+    "image": "https://kohlhofer.com/images/profile/alex.jpg",
+    "email": "mailto:alexander@kohlhofer.com",
+    "jobTitle": "Principal Designer",
+    "worksFor": { "@type": "Organization", "name": "Mixmax" },
+    "description": "Product and design leader who founds companies, scales teams, and ships products that last.",
+    "sameAs": [
+      "https://www.linkedin.com/in/kohlhofer",
+      "https://github.com/kohlhofer",
+      "https://fieldbw.com",
+      "https://notsocommonthoughts.com"
+    ]
+  }
+  </script>
 
   <script src="/js/theme.js"></script>
 
@@ -114,6 +148,9 @@
     .proof-current li { color: var(--fg); }
     .proof-current .proof-company { font-weight: 700; }
 
+    .essays { margin-top: 3rem; }
+    .essays .doorways { margin-top: 0; }
+
     .doorways {
       margin-top: 3rem;
       display: flex;
@@ -148,6 +185,13 @@
 
     .contact { margin-top: 5rem; }
 
+    .posture {
+      margin-bottom: 1.5rem;
+      color: var(--fg);
+      font-size: var(--size-body);
+      max-width: 44ch;
+    }
+
     .cta {
       display: inline-flex;
       align-items: center;
@@ -171,6 +215,12 @@
     .contact-secondary a { color: var(--fg-muted); text-decoration: underline; text-underline-offset: 3px; }
     .contact-secondary a:hover { color: var(--fg); }
     .contact-secondary a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    .colophon {
+      margin-top: 5rem;
+      color: var(--fg-muted);
+      font-size: var(--size-small);
+    }
 
     .theme-toggle {
       position: fixed;
@@ -230,6 +280,20 @@
       </ul>
     </div>
 
+    <section class="essays">
+      <p class="proof-eyebrow">Essays</p>
+      <nav class="doorways" aria-label="Essays">
+        <a href="/building">
+          <span class="doorway-label">How I build</span>
+          <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/leading">
+          <span class="doorway-label">How I lead</span>
+          <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
+      </nav>
+    </section>
+
     <nav class="doorways" aria-label="My work and writing">
       <a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer" aria-label="The things I build — fieldbw.com (opens in new tab)">
         <span class="doorway-label">The things I build</span>
@@ -244,6 +308,7 @@
     </nav>
 
     <div class="contact">
+      <p class="posture">Open to advising founders and teams building thoughtful software.</p>
       <a class="cta" href="https://linkedin.com/in/kohlhofer" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn (opens in new tab)">
         Connect on LinkedIn
         <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
@@ -252,6 +317,8 @@
         or email me at <a href="mailto:alexander@kohlhofer.com">alexander@kohlhofer.com</a>
       </p>
     </div>
+
+    <footer class="colophon">Last refined May 2026 · © Alexander Kohlhofer</footer>
   </main>
 
   <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
