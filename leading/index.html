@@ -3,26 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
   <title>How I lead — Alexander Kohlhofer</title>
   <meta name="description" content="Direction before speed, outcomes over output, and hiring for judgment — what twenty years of building and scaling product and design teams taught me about leading them.">
   <meta name="author" content="Alexander Kohlhofer">
-  <link rel="canonical" href="https://kohlhofer.com/leading">
+  <link rel="canonical" href="https://kohlhofer.com/leading/">
+  <link rel="author" href="https://kohlhofer.com/">
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Alexander Kohlhofer">
-  <meta property="og:url" content="https://kohlhofer.com/leading">
-  <meta property="og:title" content="How I lead">
+  <meta property="og:url" content="https://kohlhofer.com/leading/">
+  <meta property="og:title" content="How I lead — Alexander Kohlhofer">
   <meta property="og:description" content="Direction before speed, outcomes over output, and hiring for judgment — what twenty years of building and scaling product and design teams taught me about leading them.">
   <meta property="og:image" content="https://kohlhofer.com/images/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alexander Kohlhofer — founds companies, scales teams, ships products that last.">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How I lead">
+  <meta name="twitter:title" content="How I lead — Alexander Kohlhofer">
   <meta name="twitter:description" content="Direction before speed, outcomes over output, and hiring for judgment — what twenty years of building and scaling product and design teams taught me about leading them.">
   <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
 
@@ -31,19 +33,23 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "How I lead",
-    "url": "https://kohlhofer.com/leading",
+    "url": "https://kohlhofer.com/leading/",
     "author": { "@type": "Person", "name": "Alexander Kohlhofer", "url": "https://kohlhofer.com/" },
     "publisher": { "@type": "Person", "name": "Alexander Kohlhofer" },
-    "mainEntityOfPage": "https://kohlhofer.com/leading",
+    "mainEntityOfPage": "https://kohlhofer.com/leading/",
     "image": "https://kohlhofer.com/images/og.png"
   }
   </script>
 
-  <script src="/js/theme.js"></script>
+  <!-- Theme applied before first paint to avoid flash. Inlined (minified copy of
+       js/theme.js) so it costs no request; allowed via the CSP sha256 hash on this page.
+       If you change the logic, edit js/theme.js, mirror the minified copy here, and
+       regenerate every page's CSP hash with scripts/theme-hash.sh. -->
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
-  <script src="/js/analytics.js"></script>
+  <script defer src="/js/analytics.js"></script>
 
   <style>
     @font-face {
@@ -242,7 +248,7 @@
 
     <p>I spent twenty years learning that the leader's value isn't being the best maker in the room. It's making sure the right things get made.</p>
 
-    <p>I write more about this at <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer">notsocommonthoughts.com</a>, and you can see how the same thinking shapes what I build in <a href="/building">how I build</a>.</p>
+    <p>I write more about this at <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer">notsocommonthoughts.com</a>, and you can see how the same thinking shapes what I build in <a href="/building/">how I build</a>.</p>
 
     <p class="colophon">© Alexander Kohlhofer</p>
   </article>
