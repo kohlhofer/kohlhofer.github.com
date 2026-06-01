@@ -47,7 +47,7 @@
       { "@type": "Organization", "name": "Spreedly", "url": "https://spreedly.com" },
       { "@type": "Organization", "name": "Weewar" }
     ],
-    "description": "Product and design leader who founds companies, scales teams, and ships products that last.",
+    "description": "Product and design leader who founds companies, scales teams, and builds software worth keeping.",
     "sameAs": [
       "https://www.linkedin.com/in/kohlhofer",
       "https://github.com/kohlhofer",
@@ -117,13 +117,14 @@
       -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem);
     }
 
     /* left-aligned column, centered in the viewport */
-    main { max-width: 560px; text-align: left; }
+    main { width: 100%; max-width: 620px; min-width: 0; text-align: left; }
 
     .portrait {
       width: 88px;
@@ -145,10 +146,10 @@
 
     .statement {
       margin-top: 1rem;
-      font-size: clamp(1.9rem, 6.5vw, 4rem);
+      font-size: clamp(1.6rem, 3.2vw, 2.1rem);
       font-weight: 600;
-      letter-spacing: -0.025em;
-      line-height: 1.08;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
       text-wrap: balance;
     }
 
@@ -292,13 +293,13 @@
       <img class="portrait" src="/images/profile/alex.jpg" width="88" height="88" alt="Alexander Kohlhofer" fetchpriority="high">
     </picture>
     <p class="name">Alexander Kohlhofer</p>
-    <h1 class="statement">Product and design leader who founds companies, scales teams, and ships products that last.</h1>
+    <h1 class="statement">Product and design leader who founds companies, scales teams, and builds software worth keeping.</h1>
 
     <div class="proof">
       <p class="proof-eyebrow">Now</p>
       <ul class="proof-current" aria-label="Current roles">
         <li>Principal Designer — <span class="proof-company">Mixmax</span></li>
-        <li>Founder — <span class="proof-company">Field Bureau + Werkstatt</span></li>
+        <li>Principal &amp; maker — <span class="proof-company">Field Bureau + Werkstatt</span></li>
       </ul>
       <p class="proof-eyebrow">Previously</p>
       <ul aria-label="Previous roles">
