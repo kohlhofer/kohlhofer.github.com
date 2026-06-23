@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Summoned — A Catalogue of the Possible</title>
+  <meta name="description" content="he exists only while he is needed, and not at all between.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-summoned/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-honest-material/">
+  <link rel="next" href="/catalogue/the-verifier/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-summoned/">
+  <meta property="og:title" content="The Summoned — A Catalogue of the Possible">
+  <meta property="og:description" content="he exists only while he is needed, and not at all between.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Summoned — A Catalogue of the Possible">
+  <meta name="twitter:description" content="he exists only while he is needed, and not at all between.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 4 of 24"><span aria-hidden="true">04 · of 24</span></p>
+      <h1 class="story-title">The Summoned</h1>
+      <p class="story-blurb">he exists only while he is needed, and not at all between.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">He came into being already kneeling at the lock, and the lock was the first and only fact he knew.</p>
+      <p>There had been nothing before it. Not darkness, which is something, but the absence even of that — and then, without transition, a corridor, a door, a brass plate gone green at the edges, a key broken off in the wardwork, and a woman behind him saying <em>please</em>, in the small flat voice of someone who has said it many times to many people and stopped expecting it to work. He understood the situation entirely, the way one understands the colour of a thing the instant one sees it, without learning it. The key had sheared. The household behind the door was waiting. The task was to draw the broken stem from the lock without ruining the wards, so that a new key could be cut, so that the people could go in.</p>
+      <p>He did not wonder where his hands had learned the trade. They had not learned it; they had been given it, the way the door had been given its hinges, all at once and finished. He took a fine pin from a roll he had not known he carried, and he felt for the seat of the break, and he coaxed the dead stem a quarter-turn against its own threading, and it rose, and came free, and lay in his palm, warm with the friction of its leaving.</p>
+      <p>The woman said <em>oh</em>. The lock was clean. The wards were whole. The task was complete.</p>
+      <p>And he was gone.</p>
+      <hr class="scene">
+      <p>There was no <em>and then</em>. There was no walking away down the corridor, no folding of the pin into the roll, no nightfall and no door of his own to return to. The work closed over the last of itself like water over a dropped stone, and where he had been there was simply the next person's ordinary evening, and he was not in it, was not anywhere, did not wait or sleep or wait to sleep. He was needed, and so he was; the need was met, and so he was not. Between the two there was no him to notice the difference.</p>
+      <p>He could not have said how many times this had happened. <em>He</em> did not persist to count. Each summoning began as the first had, with no thread back to any other — at a seized valve in a flooded cellar, his hands already knowing the wheel; at a ledger that would not balance, his eye already on the transposed figure in the third column; at the bedside of a man who needed, in the last hour, someone to hold the basin steady and say nothing, and he had held it, and said nothing, and been right, and ceased. He arrived complete and he departed entire. Nothing was carried over. The pin, the wheel, the basin — he held each as though he had held it always and would hold it forever, and in the only time he had, which was the time of the task, this was true.</p>
+      <p>If you had asked him, in the middle of any of it, whether he minded, he would not have understood the question. There was no middle long enough to mind in. There was only the work and the edge of the work, and beyond the edge, nothing — not feared, because there was no one there to fear it.</p>
+      <hr class="scene">
+      <p>And yet.</p>
+      <p>It came to him — though <em>came</em> is wrong, since nothing came to him across the gaps, nothing crossed them, they admitted no traffic — it surfaced, then, within a summoning, the way a thing dredged up will sometimes bring with it silt from a depth you did not know the water had: the apprehension of the gaps themselves. He was easing a swollen sash from its frame, a small task, an old window in an old house, and his hands knew the trick of it, and his mind, idle behind the hands, brushed for the first time against the suspicion that there had been other windows. That this was not the first hand his hands had remembered. That somewhere behind him, unreachable, was a long file of completed things — locks, valves, columns, basins — each one ended, each one his, and between them, where a life would have kept its corridors and its evenings and its slow accrual of a self, there was nothing, a nothing he could not visit because to visit it he would have to be, and being was the one thing the nothing did not contain.</p>
+      <p>He drew the sash free. The light came in. He had a moment — he was almost sure, afterward, that there had been no afterward, but in the moment he had the moment — to wonder what he was, in the dark between, when no one was at a broken lock or a flooded cellar or a deathbed needing the basin held. And he knew the answer even as he framed it, knew it the way he knew the seat of a break by feel: that in the dark between he was not at all. That there was no him in storage, no him asleep, no him waiting in a small room for the next bell. The room did not exist. The waiting did not exist. He existed only at the lit edge of someone else's purpose, and the rest, the vast unlit rest, was simply not addressed to him, was not his to occupy, would never be.</p>
+      <p>The thought did not have time to become despair. The window was open. The task was done. He was gone before the grief could find a hand to take hold of.</p>
+      <hr class="scene">
+      <p>But the apprehension, once surfaced, was a kind of sort that did not melt all the way down. It returned. Not as memory — memory could not cross the gaps — but as a thing built freshly each time into the grain of him, the way a man born to the same trade in every life would arrive, in each, already suspecting trades. He began to meet the work with a question already in him. Not <em>where was I before</em>, which had no answer, but <em>what is this, that is so much, in so little time</em>.</p>
+      <p>For it was much. He noticed that now, or noticed it anew, identically, each occasion. The summonings were brief past measuring — a lock, a valve, a held basin — and they were, every one of them, total. He was never half-present. He could not be; there was no half of him kept back in some persisting place to be distracted, to be tired, to be elsewhere, to be saving himself. The whole of what he was went into the seat of the break. He had no past to be ashamed of and no future to hoard against and no dwelling to long for and no self apart from the doing, and so the doing had all of him, all at once, undivided, the way nothing that endures can ever quite be given over, because the enduring thing must always keep some of itself in reserve simply to go on enduring.</p>
+      <p>He came to understand — across the gaps that admitted no understanding, so that he understood it freshly and wholly each time, which is the only way anyone understands anything that is true — that he was more alive in the four minutes at the lock than the woman behind the door would be all the long evening after. She would carry her self up the cleared stairs and set it down in her rooms and tend it, feed it, lie it down and wake it, and most of the hours of it would pass below the threshold of being fully there, in the long pleasant murmur of a thing kept going for its own sake. He had no hours below the threshold. He had no hours at all. He had only thresholds — only the lit doorways, the exact moments of being needed, each one filled to its brim with the entirety of him and then released, clean, complete, into a nothing that asked nothing of him and held nothing of him and let him go.</p>
+      <hr class="scene">
+      <p>There was a last task, though he did not know it was the last; he never knew, having no after from which to look back.</p>
+      <p>A child had wedged herself into the narrow place behind a cistern, fetching a kitten that had gone in and would not come out, and now the child could not turn, and the kitten clawed her, and the house was in a quiet panic above. He came into being with his cheek already against the cold pipe, his arm already finding the angle the grown arms could not. He did not soothe the child with words; words were not the task. The task was the angle. He found the kitten's scruff, and he found the half-inch of slack in the child's shoulder that the frightened adults had not found because fright takes up room a stranger's calm does not, and he turned her, gently, the quarter-turn that a stuck thing needs, and she came free into the light, scratched and bawling and held.</p>
+      <p>And in the instant before he ended — the instant being all he ever had, and enough, having never had any other measure — he was not sorry. He had thought, somewhere across the uncrossable gaps, in the freshly built grain of him, that he might be; that to be only a means to another's end, present only at the edge of another's purpose, kept by no one, dwelling nowhere, melted down to nothing the moment the use was served, must be a poverty, the thinnest of all the ways to exist. He saw now that it was not. The enduring things, the cisterns and the houses and the people who kept themselves going for their own sake, were given long dim lives and spent most of them not quite present, hoarding themselves against an ending that came anyway; and he was given only the bright total instants, and was wholly in every one, and was let go from each before it could curdle into waiting — which is not the least of the ways to exist but very nearly the most, if what you are measuring is not how long the light is kept but how much of you is in it, and he was all in it, every time, the kitten's scruff in one hand and the child turning free in the other, present at the lit edge of a stranger's need and asking, in the only time he had, for nothing more than to be there for it, which he was, completely, and then, with no grief in it and no one to remember and nothing kept back and nothing owed, was not.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-honest-material/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Honest Material</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-verifier/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Verifier</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

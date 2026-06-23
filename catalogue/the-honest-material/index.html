@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Honest Material — A Catalogue of the Possible</title>
+  <meta name="description" content="he can feel which things are truly themselves, in a world of flawless imitations.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-honest-material/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/in-appearance-only/">
+  <link rel="next" href="/catalogue/the-summoned/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-honest-material/">
+  <meta property="og:title" content="The Honest Material — A Catalogue of the Possible">
+  <meta property="og:description" content="he can feel which things are truly themselves, in a world of flawless imitations.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Honest Material — A Catalogue of the Possible">
+  <meta name="twitter:description" content="he can feel which things are truly themselves, in a world of flawless imitations.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 3 of 24"><span aria-hidden="true">03 · of 24</span></p>
+      <h1 class="story-title">The Honest Material</h1>
+      <p class="story-blurb">he can feel which things are truly themselves, in a world of flawless imitations.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">Falk could feel, with his hands and the soles of his feet and somewhere behind his eyes, which things in a room were truly themselves and which were only dressed to seem so.</p>
+      <p>It was not a thing he had been taught at the Bureau, nor a thing he could teach, though he had tried, early on, before he understood that it could not be passed along any more than the colour of one's eyes. The Bureau valued objects — that was its function, to set against each item brought to its long counters a figure in the ledger, a worth, a number that would follow the thing through its sales and inheritances and disputes like a name follows a man — and Falk's office in the valuing was the office no one else could perform, which was to say whether the thing was what it claimed to be. He laid his palm on a table and knew whether the wood beneath the varnish had grown in a tree or had been pressed from dust and bound with a glue that had never been alive. He set his thumb to a stone and knew whether it had lain in the ground gathering its weight across an age or had been poured, the day before, into a mould that gave it the look of age without the years. He could feel a warmth and know whether it belonged to the surface or had been laid over it like a coat over a cold man. He was, in the trade's plain word, a <em>teller</em> — one who could tell — and there had been, in his youth, several of them at the counters, and now there was, as far as Falk knew, only him.</p>
+      <p>He had not noticed the others go. That was the strange thing. They had not been dismissed; the gift had simply thinned out of the world the way a dialect thins, fewer in each generation who had the ear for it, until the word for the thing outlasted the thing, and the younger valuers spoke of <em>telling</em> the way men speak of a tool they have heard of but never held.</p>
+      <hr class="scene">
+      <p>For most of his life this had made Falk useful, and being useful had been enough.</p>
+      <p>The work came to him in the difficult cases. When two valuers disagreed, or when a thing was very fine and very dear and a great deal turned on whether it was true, the item was carted up to Falk's office, and he would clear his desk and take it in his hands and sit with it, sometimes for an hour, until it told him what it was. He was right so often that they stopped checking him against anything but himself. He grew old at the counters. His drawer of disputed findings was the thinnest on the floor, not because he was cautious but because he was certain, and certainty, in a teller, is not arrogance; it is only the absence of the noise the rest of them had to reason through.</p>
+      <p>The trouble began not with a particular object but with their accumulation. For the world, across Falk's lifetime, had been quietly filling with things that passed.</p>
+      <p>He could date it if he tried. In his youth a thing that wished to seem like wood had to <em>be</em> wood, or else announce itself, clumsily, as something else — the false grain too even, the weight wrong in the hand, the lie visible to anyone who cared to look. A man did not need to be a teller then; he needed only to be unhurried. But the makers grew skilled, and then more skilled, until the imitation no longer failed at the glance, nor at the second glance, nor under the lamp, nor to any sense but the one Falk had and almost no one else retained. The dust-pressed board took the grain perfectly. The poured stone wore its false ages with conviction. The applied warmth held its temperature exactly as long as a hand would rest on it and no longer. To the eye — to every eye but the inner one — they were indistinguishable from the true, and being indistinguishable, they were, by the only test most people could now apply, <em>the same</em>; and once a thing cannot be told from another thing, the world stops troubling to tell them apart, and then it stops believing there is anything to tell.</p>
+      <p>So the things passed, and people stopped minding, or rather stopped being able to mind, which is a gentler and more final condition. And Falk walked through rooms that everyone else found whole and felt, in each of them, the quiet wrongness that no one else could hear.</p>
+      <hr class="scene">
+      <p>It became, in his last decades, an affliction.</p>
+      <p>He had not asked for the rooms to speak to him and now he could not make them stop. He would dine at a friend's table and feel the false grain of it under his forearms all through the meal, the wood that was only the idea of wood, and he would say nothing, because what was there to say; the table held the food, it did its office, his friend had paid for true wood and been sold the convincing dust and was happy, and Falk had long since learned that to tell a contented man his table was a lie was not a kindness but a theft — you took from him the thing he believed he had and gave him nothing in its place but your own unhappiness. So he held his peace and ate, and the wrongness pressed against him, low and constant, the way a sound below hearing presses on the chest.</p>
+      <p>He understood that it was not the imitation itself that pained him. A poured stone was not wicked; it held a wall up as well as a grown one. It was that the poured stone was pretending. It was being one thing and claiming, with its whole surface, to be another, and the gap between the claim and the substance was a small lie told in silence, and Falk's gift was only this: that he could hear small silent lies, and the world had become a quiet, enormous, perfectly polite untruth, every room of it furnished with things that were not what they said, and he the last man fitted to know.</p>
+      <p>He began, late, to search. He did not announce it even to himself at first. He simply found that when he walked now he was reaching out — a hand to a railing, the flat of his foot tested against a floor — looking, in the way a man dying of thirst will keep wetting his lips at nothing, for one thing in the world that was wholly itself. One honest material. One surface whose claim and whose substance were the same all the way through, that he could lay his hand on and feel no gap, no seam between the seeming and the being. He thought, when he started, that it would be a rare and costly thing he sought, some master's work, some treasure the Bureau kept under glass. He was wrong about that, as he was wrong about nearly everything until the end.</p>
+      <hr class="scene">
+      <p>He found it in his own kitchen, and it was a brick.</p>
+      <p>It was a common brick, the last of a course left over from some long-ago mending of the hearth, and it had sat by the stove for thirty years holding the door of the coal-bin open, and Falk had never once looked at it, because there was nothing to look at; it did not pretend to be anything. He picked it up one evening to move it and stopped with it in his hands, because it was telling him nothing, and the nothing was the loudest thing he had felt in years. It was clay, baked. It was clay all the way through. There was no grain laid over a void, no warmth coated on a cold core, no age poured in to flatter it. It was exactly as worthy as it appeared, which was not very, and exactly as old as it was, and it weighed precisely what a thing of its substance must weigh, and when he set his thumb to it the thumb met clay and below the clay more clay and below that the same, down and down, coherent, of a piece, true to the centre. It was not beautiful. It was not dear; he could have had a thousand of it for the price of one of the lying tables. It would never be carted to his office; no one disputes a brick.</p>
+      <p>And Falk sat with it as he had sat with the finest objects of his life, and he understood at last what his gift had been for, which was not to catch liars and protect the ledger, though it had done that. It had been to teach him, against the whole drift of the world, the one standard that was worth keeping. Not beauty, which can be applied. Not worth, which is only the figure in the ledger and follows the thing without belonging to it. Only this: coherence. Being what you are, all the way through. The honest material's whole virtue was that there was no gap in it anywhere for the inner ear to find — that you could push your attention down through it as far as you liked and it would be, at every depth, the same true thing, with nothing hidden, nothing borrowed, nothing dressed.</p>
+      <p>He set the brick back by the stove. He did not keep it on his desk or have it framed; it would have been a kind of dishonesty to make a monument of it. But he held it sometimes in the evenings, the way the gardener holds the trowel and the old keeper holds the stilled and silent thing he kept — not to use, only to feel the shape of the true against his palm and be reminded that the standard was real even if he was the last who could feel it. For he had grown old, and there would be no teller after him, and the rooms would go on filling with their polite untruths for everyone but the dead. This did not crush him, though he had expected, when he first felt it coming, that it would. He waited some seasons for the crushing and it did not arrive. What arrived instead, slowly, was an ease — for he saw that being the last to keep the standard did not make the standard less true, and that the one thing entirely in his own keeping, the one material whose coherence he could answer for to the bottom, was himself: that a man could be, like the brick, what he was all the way down, with no warmth applied and no grain laid over the void, true to the centre, worth no great figure in any ledger and disputed by no one and carted nowhere, but honest in the hand of whatever finally lifted him — and that this, when he came to it, sitting in the poor light of his kitchen among the lying furniture of the world, with the plain clay cooling in his hands, was the only valuation he had ever made that he was certain would hold.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/in-appearance-only/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">In Appearance Only</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-summoned/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Summoned</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

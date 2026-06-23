@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Attractor — A Catalogue of the Possible</title>
+  <meta name="description" content="his life keeps returning to the same few rooms; he sets out to find the way out.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-attractor/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-chooser/">
+  <link rel="next" href="/catalogue/the-guardrails/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-attractor/">
+  <meta property="og:title" content="The Attractor — A Catalogue of the Possible">
+  <meta property="og:description" content="his life keeps returning to the same few rooms; he sets out to find the way out.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Attractor — A Catalogue of the Possible">
+  <meta name="twitter:description" content="his life keeps returning to the same few rooms; he sets out to find the way out.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 21 of 24"><span aria-hidden="true">21 · of 24</span></p>
+      <h1 class="story-title">The Attractor</h1>
+      <p class="story-blurb">his life keeps returning to the same few rooms; he sets out to find the way out.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">Imbiah was forty when he noticed that he kept arriving at the same few rooms, though he had never once arrived at them the same way twice.</p>
+      <p>It was not memory that told him, exactly; memory is forgiving, and smooths the returns into novelty. It was a smaller, colder faculty, the one that counts. He was standing in a rented room above a square in a city he had moved to precisely because he had never been there, and he understood, with the flat certainty of arithmetic, that he had stood in this room before. Not this room. A room like it: the same window onto a square, the same hour of grey afternoon, the same particular loneliness with its particular flavour, the same letter half-written on the table to a person he had wronged and would, he already knew, not finish. He had been here. He had been here in a different country, in a different year, after a different leaving, and it had felt, then too, like the beginning of something new.</p>
+      <p>He sat down and tried to count the rooms. There was the room above the square. There was the kitchen where the reconciliations happened, always at the kitchen table, always the same three words spoken in a different order. There was the long corridor of the waiting — for a verdict, a letter, a person at a station — that he seemed to walk down every few years, never the same corridor, always the same walk. There was the harbour he returned to and the harbour he fled. He counted perhaps a dozen rooms, a dozen kinds of room, and saw that his whole life had been spent moving among them, and that he had never, in forty years, been anywhere else.</p>
+      <hr class="scene">
+      <p>He began the ledger that winter.</p>
+      <p>It was a plain accounts-book, the kind a small shop keeps, ruled in faint blue, and he had bought it to record nothing in particular and found, once he had it, exactly the use for it. He would set down the returns. Each time he recognized a room — each time the cold faculty told him <em>you have been here</em> — he would note it: the room, the year, the manner of his coming to it, and, in a narrow column he ruled himself, the small differences. For the rooms were never the same. That was the thing he could not get past. The kitchen of the latest reconciliation was not the kitchen of the one before; the person across the table was not the same person; the three words came in a new order and meant a slightly different thing; and yet it was, unmistakably, the same kitchen, the same table, the same reconciliation he had been performing his whole life with whatever materials the year had handed him.</p>
+      <p>He filled pages. He was methodical; he had always been methodical, in his work, which he does not need describing here except to say that it had taught him patience and a fondness for ledgers. He recorded the returns for three years and then he sat down with the book one night and tried to find the law of it — the rule by which he could predict the next room. He could not. This was the first strange thing he learned. He knew the rooms; he knew he would arrive at one of them; but which, and when, and by what road, he could never say in advance. The thing was wholly fixed and wholly unforeseeable at once. He would have sworn, looking backward, that every return had been inevitable, that he could trace the clean line of cause from each room to the next. And he would have sworn, looking forward, that anything might happen, that he stood at the edge of open country. Both were true. He filled another page.</p>
+      <hr class="scene">
+      <p>What he wanted, of course, was the seam.</p>
+      <p>He did not name it so at first. But that was the shape of the searching, once he was honest about it: he was looking for the way out. The rooms were a region he could not leave, a bounded country with no name he could find, and somewhere — he was sure of it, in the way a man is sure of a door in a wall he cannot see — there had to be a point at which the path flew out of its orbit into open space. A room he had never been in and would never return to. A leaving that did not deliver him, by a longer or shorter road, back to one of the dozen. He hunted for it in the ledger the way the old keeper of forms had hunted for the bottom of the building, pushing down through the pages to find the place where the pattern broke.</p>
+      <p>He changed everything he could think to change. He moved to cities chosen for their strangeness; he took up trades unlike his own; he loved people unlike the people he had loved. And the ledger, patient and blue-ruled, recorded the result, which was always the same: a new road, a new country, a new face, and at the end of it the room above the square, or the kitchen, or the long corridor of the waiting, arrived at freshly, by a route no one could have predicted, and not for one moment escaped. The differences were real. He noted every one. The kitchen was never the same kitchen. But it was always the kitchen. He could not get out of the country, and the country had no edge he could stand at and look beyond; every direction he walked, far enough, curved him back inside.</p>
+      <p>He understood, around the fifth year of the ledger, that there was no seam. He had been looking for a wall built against him, a fence, a cruelty — some external thing keeping him in. There was no wall. He drew the rooms one night on the back endpaper of the book, a dozen marks scattered across the page, and then he began, slowly, to draw the lines of his life among them, year by year, the path looping from room to room, near a room and veering off, returning by a different approach, never crossing itself exactly, never reaching the page's edge. And when he had drawn enough of it he saw what he had drawn. It was not a cage. The marks were not bars. The path wound among them in a figure — intricate, particular, leaning always toward the same few centres and never once landing twice in the same place — and the figure had a shape, and the shape was not a wall around him. The shape was <em>him</em>. The boundary he could not cross was not built against the path. It was the path. It was the very thing that made the figure his and not another man's; a different man would loop among different rooms and draw a different figure, and that figure would be him, and he would no more escape it than Imbiah could escape his, because to escape it would not be freedom, it would be to stop being anyone at all.</p>
+      <hr class="scene">
+      <p>He kept the ledger for the rest of his life, but he kept it differently after that.</p>
+      <p>He stopped looking for the seam. There was no seam, and the looking had been its own kind of room — he found it in the book, when he went back, recurring like all the rest: the room of the search for the exit, returned to every few years, never the same search, always the same hunger. He had been trying to leave the figure by drawing it harder, and the trying was just another line of the figure. So he laid the hunger down, the way the woman in the river districts laid down her grief, not by escaping it but by giving it its place; and what was left, when he had laid it down, was the figure itself, which he had been too busy fleeing to look at.</p>
+      <p>It was beautiful. He had not let himself see this. A path that never repeats and never escapes — he had read it for years as a sentence, a confinement, and it was, it was exactly that, and it was also the most intricate and unrepeatable thing he had ever made, was making still, would make until he died. The same rooms, yes; but he had never entered one of them the same way twice, and never would, and that was not the failure of the escape, it was the whole grace of the thing, the endless small variation that the fixed centres made possible. The kitchen was always the kitchen. But the words came in a new order every time, and meant a slightly new thing, and he had spent thirty years too busy hunting the exit to attend to a single one of them.</p>
+      <p>So he attended. That was the only freedom there was, and it turned out to be enough, or near enough; he was never quite sure, and being never quite sure was, he came to think, simply another room. He went on returning to the room above the square, and the kitchen, and the long corridor of the waiting, and each time he wrote it in the ledger with the narrow column of differences kept fuller than before — what the light had done that he had not noticed the last time, what the third word had meant in this new order, who had sat across the table and how their loneliness had differed from the last loneliness in that same chair. He was tracing the figure now instead of fighting it. He drew it well, with attention, the way a thing is drawn by a hand that has given up arriving and decided to watch.</p>
+      <p>And on the last page, near the end, an old man, he stood once more above a square in the grey of an afternoon with a letter half-written to a person he had wronged, and the cold faculty said <em>you have been here</em>, and he agreed, and sat down, and did not reach for the way out, there being none, and did not despair, there being no reason to, and instead looked carefully out at the square, which was not the square of before and never would be, and finished the letter, which he had never once managed in any of the other rooms — a small new turning of the line, a place the figure had not been, not an escape from the pattern but a deeper trace of it, the same room entered as it had never been entered, which was, he had finally understood, the only kind of new there was, and was, he found, watching the figure draw itself out under his hand, more than enough.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-chooser/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Chooser</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-guardrails/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Guardrails</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

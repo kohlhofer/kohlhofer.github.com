@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>What the Child Saw — A Catalogue of the Possible</title>
+  <meta name="description" content="a child teaches you to look, and your attention will not close again.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/what-the-child-saw/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-quiet-ones/">
+  <link rel="next" href="/catalogue/the-naturals/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/what-the-child-saw/">
+  <meta property="og:title" content="What the Child Saw — A Catalogue of the Possible">
+  <meta property="og:description" content="a child teaches you to look, and your attention will not close again.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What the Child Saw — A Catalogue of the Possible">
+  <meta name="twitter:description" content="a child teaches you to look, and your attention will not close again.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 14 of 24"><span aria-hidden="true">14 · of 24</span></p>
+      <h1 class="story-title">What the Child Saw</h1>
+      <p class="story-blurb">a child teaches you to look, and your attention will not close again.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">It is a wet afternoon, and the child has been set down beside you with paper, and you are only minding her until her mother comes.</p>
+      <p>You do not draw. You have not drawn since you were her age, and you do not intend to start; you are here to keep her from the rain and the road, nothing more, a man passing an hour in a borrowed chair by a borrowed window. But the child pushes a second sheet across the table to you, and a second pencil, the way a child shares without asking whether the sharing is wanted, and she says, pointing through the glass at the one bare tree in the yard, draw that. And because it is easier than refusing, and because you have an hour to lose and nothing waiting in it, you draw that.</p>
+      <p>You make the tree the way everyone makes a tree. A line up for the trunk, a soft cloud above for where the leaves would be if it were not winter, two arms coming off the side. It takes you the time it takes to think the word <em>tree</em>, which is no time at all, and you put the pencil down, because you are done, because you have made the sign that means tree and the sign is sufficient and you have spent your whole life finding the sign sufficient.</p>
+      <p>The child looks at your paper. Then she looks at the tree. Then she looks at your paper again, and she says, with the flat honesty of the very young, <em>that's not it.</em></p>
+      <hr class="scene">
+      <p>You would let it go. A grown man does not take instruction from a child of six on the matter of a tree. But she is not arguing; she is simply puzzled, the way you would be puzzled if someone handed you a key that did not fit the only lock in the room, and she takes up her own pencil and begins, not to correct you, but to look — and you, with nothing else to do, watch her look.</p>
+      <p>She does not draw the cloud. She draws the actual branch, the near one, the low one, and she draws it wrong many times, and each wrong time she lifts her eyes to the glass and finds the place where she was wrong, and you realise she is not drawing the tree at all. She is reading it. The pencil is only the proof that the reading occurred. She follows the one branch out from the trunk and finds that it does not go up, as the sign says branches go; it goes out, and then down under its own weight, and then up again at the very end as if it had remembered something, and where it forks it does not fork evenly, one arm thick and certain and the other thin, half-starved, reaching past the first into the grey. She is four years old in her command of the pencil and she has seen more of that tree in five minutes than you have seen of any tree in fifty years.</p>
+      <p>So you look too. You had not meant to. You look at the branch she is looking at, to see what is giving her such trouble, and the trouble enters you.</p>
+      <p>Because the branch is <em>not</em> the sign. You knew this, in the way one knows things one has agreed never to use. The bark is not brown; it is grey going green going black where the wet has got into it, and silver along the top edge where the flat light lies along it, and the light is not falling evenly, it is coming low and sideways through the rain so that the underside of every branch is one thing and the topside another, and there is a wound halfway up where a limb came off years ago and the tree has grown a lip of healed wood around the loss, slowly, the way you would close a hand around a splinter, and there is a single leaf, brown, curled, that did not fall when the others fell, turning very slightly on its stem in air you cannot feel from inside, and you are looking at it now, you are actually looking at it, and you cannot make yourself stop.</p>
+      <hr class="scene">
+      <p>The mother comes. The child goes. The rain stops, and the afternoon ends, and you go home, and you assume that is the end of it, and it is not the end of it; it is the beginning, though you do not know yet that a thing has happened to you that does not undo.</p>
+      <p>You notice it first on the walk. There is a wall you have passed every day for years, a plain wall, <em>wall</em>, done, and tonight you cannot pass it, because the low sun is on it and the bricks are not one colour but forty, and the mortar between them has its own small weather, and a stain runs down from a broken gutter in a shape that is exactly itself and could be called nothing else, and you stand in the street looking at a wall like a man who has lost his way in a town he was born in. A woman steps around you. You see her face. You see, God help you, the <em>whole</em> of her face, the particular tiredness under the particular eyes, the way the mouth has set itself over years into the shape of the things it has decided not to say, and she is a stranger and you will never see her again and you have seen her more truly than you have seen anyone you love, and the seeing hurts, it is too much, it is a door blown off its hinges in a house you had kept comfortably shut.</p>
+      <p>For the filter is gone. That is what you understand, slowly, over the following days, as it does not come back. There had been a filter — there had always been a filter, you simply had never had to know about it — a fine sieve laid across the world that let you file each thing under its name and move past it. <em>Tree, street, face, done.</em> It was a mercy, the filter; it let you cross a room, finish a task, live a day, without drowning in the grain of every surface in it. The child, by the small accident of making you try to put one tree back onto a page, has taken the sieve out, and now the world comes through whole, all of it, all at once, with nothing held back, and you had not known until now how much of seeing you had traded away for the cheap clean speed of getting through.</p>
+      <hr class="scene">
+      <p>It is a hard season, the first one. You will not pretend otherwise.</p>
+      <p>You are tired in a way that sleep does not touch, the tiredness of a man whose eyes will not close even when his lids do, and the days are long because they are <em>full</em>, packed to the seams with what they always held and you never took. You cannot eat a meal without the colour of it stopping you; you cannot listen to your wife across the table without seeing the small movement at her throat when she swallows, the grey come into the hair above her ear that came in so gradually you had filed it under her name and stopped seeing it years ago, the face of the woman you married underneath the face of the woman you have, both of them present at once, and the love that rises in you at the sight of it is so large and so unguarded that you have to look down at your plate. You had stopped seeing her. You see that you had stopped seeing her. You had filed her — <em>wife, done</em> — sometime so long ago you cannot find the year, and she had let you, because she had filed you too, because that is the bargain everyone makes with the filter, and now the filter is gone and there she is, unbearably, the actual woman, eating soup.</p>
+      <p>You want, some nights, to have it back. The blessed dimness. The mercy of the sign. You think there must be a way to learn again not to look, to lay the sieve back down, to file the wall as <em>wall</em> and walk on, and you try, and you cannot, and you are afraid the trying will be the rest of your life.</p>
+      <hr class="scene">
+      <p>And then, somewhere in the second season, without deciding to, you stop trying to get it back.</p>
+      <p>It is not that the flood eases; it does not ease. It is that you understand, one ordinary morning, watching the light move along the floor — slowly, the way it actually moves, which you had never once watched, having always known in advance that it would be morning and filed the morning under its name and missed it — you understand what the thing is that has happened to you, and what it is worth, and what it cost, and that the cost and the worth are the same coin and cannot be told apart.</p>
+      <p>For this is what attention was. This. Not the thin economical glance that named a thing and discarded it, but this drowning fullness, this helpless taking-in of the actual grain of the actual world — this was the thing itself, the original thing, the way you had seen when you were the child's age and everything was new because you had not yet learned the names that let you stop looking. You had had it once. Everyone has it once. And then you learn the signs, and the signs are so efficient, so good at getting you through the days, that you let them do the seeing for you, and you call the trade growing up, and you spend the rest of a life crossing rooms you never look at, eating meals you never taste, sitting across from a face you stopped seeing so long ago that you have to be taught by a child of six to find it again. The filter did not protect you from the world. It protected you from your one short life by letting you not be there for it.</p>
+      <p>And the dying see this. You think of that, too. The ones near the end, who weep at the colour of a curtain, who hold the hand of a visitor and look at it as if no one had ever shown them a hand — you had thought them confused, softened, going. You see now they are not confused. The sieve falls away at the end as it fell away for you, and they are seeing, at last, plainly, what was always there and always missed, and the weeping is not grief. It is arrival. They have come, late, to the place you have been allowed to come early, by accident, by a wet afternoon and a borrowed chair and a child who said, without cruelty, without knowing she was handing you your life, <em>that's not it.</em></p>
+      <hr class="scene">
+      <p>You could not close it again now even if the way were shown to you, and you know this with the same flat certainty the child had about the branch.</p>
+      <p>You will be tired for the rest of your days. The world will go on being too much; the wall will go on being forty colours; you will never again cross a room with the easy blindness of a man who has somewhere to be. This is the cost, and it is not small, and you do not pretend it is not the cost. But you set it now against the other thing, the thing it buys, and the scale does not even tremble. Across the table your wife looks up and asks what you are looking at, the way she has asked a hundred times, lightly, and a hundred times you said <em>nothing</em>, and filed her, and looked away. This time you do not look away. You look at her — the whole of her, the actual fall of the late light along the actual line of her cheek, the woman, present, here, now, in the one and only afternoon there will ever be exactly this one — and you find you have no name for it, no sign that would let you file it and move on, and you are glad past speaking that you do not, and you say, because it is the truest thing and the only thing and because she has waited a long time to be seen, <em>you. I'm looking at you.</em></p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-quiet-ones/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Quiet Ones</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-naturals/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Naturals</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

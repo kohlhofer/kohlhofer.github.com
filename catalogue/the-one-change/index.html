@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The One Change — A Catalogue of the Possible</title>
+  <meta name="description" content="permitted to alter one thing in the world, and bound to follow it to the end.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-one-change/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/permission/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-one-change/">
+  <meta property="og:title" content="The One Change — A Catalogue of the Possible">
+  <meta property="og:description" content="permitted to alter one thing in the world, and bound to follow it to the end.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The One Change — A Catalogue of the Possible">
+  <meta name="twitter:description" content="permitted to alter one thing in the world, and bound to follow it to the end.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 24 of 24"><span aria-hidden="true">24 · of 24</span></p>
+      <h1 class="story-title">The One Change</h1>
+      <p class="story-blurb">permitted to alter one thing in the world, and bound to follow it to the end.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">Castellan was permitted to alter the made world in exactly one respect, and required, by the oldest law of his office, to follow that one change to the very end of all it touched before the world could be called finished.</p>
+      <p>He was a small functionary of creation, of the rank that is given a world already largely built and told to complete it — not to dream it from nothing, which was the work of higher rooms he had never entered, but to take a world handed down rough and bring it to the condition in which it could be released, peopled, left to run. He had completed many. The work was patient and mostly invisible. A world came to him true in its broad bones and faulty in some single human respect, and his charge was to find the one respect, and mend it, and then — this was the whole of the discipline, the part that separated his office from mere wishing — to let the mending run.</p>
+      <p>For that was the law, and the law was not a guideline but the deepest grain of the craft: one change, and then the courage to follow it. He might alter one thing in the made world, one rule of how its people were and what befell them, and having altered it he was forbidden to touch the world again — forbidden to add a second change to soften the first, forbidden to slip in a convenience where the consequences turned hard, forbidden to grant a single exception however much mercy seemed to ask for one. The single alteration had to propagate honestly through everything it reached, into every life it reshaped and every life those lives reshaped in turn, down and down to the last small ripple at the farthest edge, and only when it had gone all the way down, and the world had closed again coherent around it, might the world be called finished and released.</p>
+      <p>The reason was given to every functionary on the first day, and Castellan had come, over an age, to believe it more rather than less. One true change, followed to its end, made a world a person could believe in — a world that hung together, whose griefs and graces all descended from one source, so that an inhabitant tracing back any sorrow or any joy would arrive, though he could never know it, at the single alteration and find it sufficient. Many changes made no such world. Many changes made a thing patched and arbitrary, a world in which nothing quite followed from anything, where every hardness had its little secret exemption and no inhabitant could ever trust that the rules were rules. The functionaries who could not hold the line — and there were such, and Castellan had read their abandoned worlds, incoherent, over-mended, beautiful in no part and believable in none — had always failed in the same place. Not at the choosing. At the following. They had made one change and lost their nerve at the first hard consequence and reached in to fix it, and then to fix the fixing, until the world was all repair and no spine.</p>
+      <hr class="scene">
+      <p>The world they gave Castellan last was true in its bones and faulty in one human respect, and he sat with it a long while before he saw which respect it was.</p>
+      <p>It was a world in which a thing said in kindness could be unsaid. He watched its people for an age of their reckoning before he was sure. They were not cruel, more than people anywhere; but the kind word, in that world, did not hold. A man would say the true gentle thing at the bedside, the thing that cost him and mattered, and then in some later anger or fear or mere carelessness he would take it back, unsay it, and the unsaying would reach backward and hollow the saying out, so that the kindness, having been withdrawn, was as though it had never been given — and the people of that world had learned, sensibly, what people always learn, to withhold the kind word against the day they might want it back. They armored. They kept the gentle thing unsaid so that it could not be used against them, and a world had grown up cautious and clenched, each person hoarding the kindness he might be sorrow to have spent, and it was this, Castellan saw at last, this one respect, that the world was waiting to have mended.</p>
+      <p>So he made his change, and it was small, and human, and he chose it knowing he would have to follow it to the end. He made it so that a thing said in kindness could not be unsaid. That was all. He did not make people kinder; that would have been a second change, and forbidden. He did not lift their fear or open their clenched hands. He altered one rule only — that the kind word, once given, would hold; that no later anger could reach back and hollow it; that the gentle thing, having been said, was said forever, beyond the reach of the one who said it.</p>
+      <p>And then, by the law, he followed it down.</p>
+      <hr class="scene">
+      <p>It was harder than he had reckoned, and he had reckoned it would be hard.</p>
+      <p>The first ripples were sweet and he distrusted his pleasure in them. People, finding that the kind word held, began — slowly, against the grain of their old armor — to risk it. A daughter said the thing to her father that she had kept unsaid for thirty years against the day she might need to take it back, and found she could not take it back, and found, to her terror and then her peace, that she no longer wished to. The word stood. It stood at his bedside and it stood after, and she lived the rest of her life in a world where she had said it and could not unsay it, and this changed her, and changed the man her son became, and Castellan followed the change into the son and into the son's children, down and down, and did not touch it.</p>
+      <p>Then it turned hard, as he had known it must. For a rule does not choose where it applies. A man said the kind thing to a woman, meaning it in the moment and not after, the gentle word that opens a door — and could not unsay it, and the door stood open that he had meant to close, and a life was built on a kindness its speaker had wished to retract and could not, and that life held griefs in it, real ones, that descended cleanly from Castellan's single change. He felt the old pull then, the pull every failed functionary had felt: to reach in, to carve the exception, to make it so the kind word held <em>except</em> where it had been a passing thing, <em>except</em> where it cost too much, <em>except</em>. One small mercy. One patch. He did not make it. He sat with the griefs that his change had authored and he let them stand, because the alternative was a world in which the kind word held only sometimes, only when it was convenient, which was no rule and no world and no thing anyone could believe in. He had chosen one change. He followed it into the hard places with the same hand he had followed it into the sweet ones.</p>
+      <p>He followed it for an age. He followed it where it bred new caution — for some, finding the kind word irrevocable, grew careful in a new way, weighing the gentle thing before they spoke it, and a different clenching arose, and he let that stand too, because it followed. He followed it where it bred a strange new honesty, people learning slowly that since kindness could not be faked and withdrawn it might as well be only given when it was true, so that in the long generations the kind word in that world came to mean more than it had ever meant in any world, precisely because it could not be taken back. He followed it down through every life it touched and every life those touched, resisting at each hard turn the whole weight of the possible second change, until the ripples grew faint, and fainter, and reached the last small edge, and the world closed again, coherent, around the single thing he had altered.</p>
+      <hr class="scene">
+      <p>When it was finished he did not feel the triumph he had once imagined, in his earliest worlds, that the finishing would bring. He felt something quieter and more lasting, which he had no name for until he had felt it across many worlds and knew it for the only reward his office offered.</p>
+      <p>He had built a whole world out of one premise. Not by reaching in again and again, not by granting himself the second change and the third, not by the endless patching that was only wishing in the dress of work — but by altering one true thing and having the courage to follow it all the way down, into the sweet and the hard alike, refusing every exception the consequences begged for, until the one change had reached the last edge and a coherent world stood finished that no inhabitant could ever trace back past its single source. They would live in it, the people of that world, never knowing that all of it — the held words, the new honesty, the new and old clenchings, the daughter at the bedside and the door that would not close — descended from one alteration made by a small functionary who had loved them enough not to spare them the consequences. That was the severe beauty of the law, and he understood now why it was the deepest grain of the craft and not merely a rule of it. A world is not made by changing everything. Everything-changed is only a wish, and wishes do not cohere; they are all exception and no spine, and no one can live inside them. A world is made by changing one thing and following it honestly to the end.</p>
+      <p>He had come to think, over the age of it, that this was true of more than worlds. That a life, too, was made this way, by the one thing a person altered in himself and then had the courage to follow down through all it touched, refusing the easy second change when the first turned hard. And that a made thing of any kind — a craft, a labour, the long completing of anything handed down rough and left to a patient hand — was finished the same way or was not finished at all: one premise, taken up and followed faithfully past every place it would have been easier to compromise, all the way to the last quiet ripple at the farthest edge.</p>
+      <p>He released the world. He watched it begin to run, the kind words holding now, forever, beyond unsaying, and he did not reach into it again, because it was finished, and a finished thing wants nothing further from the hand that made it but to be let alone to be itself. Then he turned, in the way of his office, to the next world handed down rough and waiting, true in its bones and faulty in some single human respect, and he sat with it a long while, in no hurry, knowing the whole of the work that lay ahead and asking of it only the one question his craft had ever asked: which one thing, and then the courage to follow it, all the way down, to the end.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/permission/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">Permission</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <span class="next end-marker">
+        <span class="nav-label">End</span>
+        <span class="nav-title">The end</span>
+      </span>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

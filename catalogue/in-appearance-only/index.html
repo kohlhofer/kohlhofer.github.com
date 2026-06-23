@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>In Appearance Only — A Catalogue of the Possible</title>
+  <meta name="description" content="he certifies that the rites were performed correctly; no one ever asks whether they worked.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/in-appearance-only/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-atlas-of-the-possible/">
+  <link rel="next" href="/catalogue/the-honest-material/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/in-appearance-only/">
+  <meta property="og:title" content="In Appearance Only — A Catalogue of the Possible">
+  <meta property="og:description" content="he certifies that the rites were performed correctly; no one ever asks whether they worked.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="In Appearance Only — A Catalogue of the Possible">
+  <meta name="twitter:description" content="he certifies that the rites were performed correctly; no one ever asks whether they worked.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 2 of 24"><span aria-hidden="true">02 · of 24</span></p>
+      <h1 class="story-title">In Appearance Only</h1>
+      <p class="story-blurb">he certifies that the rites were performed correctly; no one ever asks whether they worked.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">For thirty-one years Vasquez certified that ceremonies had been performed correctly, and in all that time no one had ever asked him whether they had worked.</p>
+      <p>The distinction did not trouble him at first; it did not occur to him that there was a distinction to be troubled by. His office issued the Attestation of Form — a single sheet, sealed, declaring that a rite had been conducted in accordance with the manner laid down: that the words had been spoken in the order prescribed, that the proper vessels had stood in the proper places, that the celebrant had worn the appointed garments and made the appointed gestures, that the artefact required at the close had been produced and was correct in every particular. A naming, a binding, a settling of accounts between families, the consecration of a threshold, the long observance by which a debt was lifted from a house — for each there was a manner, and Vasquez knew the manner of all of them, and his seal meant that the manner had been kept.</p>
+      <p>He was the finest in the office. This was not vanity; it was simply observed, the way one observes that a river runs downhill. The younger inspectors brought him the doubtful cases, the rites half-remembered or improperly recorded, and he could tell at a glance where a gesture had been transposed, where a vessel of the wrong metal had been substituted, where a celebrant had hurried the third invocation because the hour was late and the family tired. He could read a ceremony the way the old compositors were said to read a galley in a mirror, by feel as much as by eye, and he took a craftsman's pleasure in it, the clean satisfaction of a thing done exactly as it ought to be done.</p>
+      <p>What the ceremony was <em>for</em> — this was not in his remit, and he had never thought to make it so. The manner was the manner. His seal attested to the manner. Beyond the manner there was nothing his office was empowered to see.</p>
+      <hr class="scene">
+      <p>The mask came to him in his twenty-ninth year, brought by a family from the eastern districts who wished an old observance certified before they performed it, so that no one afterward could say it had been done wrong.</p>
+      <p>It was a settling of the dead — a rite by which a grief was given its place and the household permitted, formally, to cease mourning. At its centre was a mask: carved, painted, fitted with the prescribed features, worn by the eldest of the line while the words were said. Vasquez examined the mask against the register. It was perfect. The proportions were exact, the colours were the colours laid down, the small notch beneath the left eye that the manner required was present and clean. He had rarely seen an artefact so correct. He sealed the attestation gladly and the family went away content, and the rite was performed, and the mask was worn, and the words were said, all of it in flawless accordance with the manner.</p>
+      <p>And six months later the eldest of that line came back to the office, not to complain — there was nothing to complain of; the seal was beyond reproach — but to ask, in a low and embarrassed voice, as though the failing must be his own, why the grief had not lifted. The rite had been done correctly. He had Vasquez's own seal to prove it. And yet the house mourned as it had mourned before; nothing had been settled; the dead had not been given any place that anyone could feel. Had he, the man asked, done something wrong?</p>
+      <p>"You did everything correctly," Vasquez told him. "I sealed it myself."</p>
+      <p>The man nodded, and thanked him, and went away still grieving, and Vasquez sat for a long time looking at the register and could not, for the life of him, find the thing he had failed to certify.</p>
+      <hr class="scene">
+      <p>After that he began to look, and once he had begun he could not stop.</p>
+      <p>He looked first at the mask, because the mask had been perfect, and the perfection had accomplished nothing. He went down into the office's deep stores where the records of certified rites were kept, and he read, and what he found was that he had no way to read it. The records showed only what his office had ever recorded: that the manner was kept, that the words were in order, that the artefacts were correct. Whether any rite had ever done the thing it was meant to do — whether a single grief had been settled, a single threshold made safe, a single debt actually lifted from a single house — the records did not say, because no one had ever thought to ask, because the question had been quietly set down and forgotten so long ago that the office no longer knew it had once been holding it.</p>
+      <p>He went looking for the purpose behind the manner — for the reason the notch must be beneath the left eye, for the reason the third invocation came third — and he found that no one knew. Not the celebrants, who performed the gestures with great gravity and could correct you sharply if you misplaced one, but who, pressed, could not say what the gesture was <em>for</em>, only that it was the gesture, that it had always been the gesture, that to omit it would be to do the thing wrong. Not the families, who insisted on the manner with a ferocity that frightened him, who would rather have an empty rite done correctly than a living one done loose. Not the office. Not the registers, which recorded the form of the form of the form, and rested, when you pushed all the way down, on nothing — on a purpose that had worn smooth and dropped out and left only its mould behind, into which the manner was poured, generation after generation, perfect and hollow.</p>
+      <p>And the celebrants who insisted most — who were most fluent, who could perform a settling of the dead without a wasted motion, who would have caught the misplaced gesture before Vasquez himself did — these were not the keepers of the thing. They were the furthest from it. They had perfected the surface so completely that they had never once needed to ask what was beneath it; they wore the mask and were the mask; they were imposters who did not know they were imposters, because the test they passed so brilliantly was a test only of the mask, and the mask was all they had ever been shown.</p>
+      <p>He understood, around then, that he was the most fluent of all. He had certified ten thousand masks and judged not one of them by whether it accomplished anything. He had been the finest performer of a form whose purpose he had never once gone looking for, and his fineness had been precisely his blindness — the better he read the manner, the less reason he had ever had to ask what the manner was for.</p>
+      <hr class="scene">
+      <p>He did not tell the office. There would have been no form for it.</p>
+      <p>But he began, quietly, to certify differently. The change was invisible; his seal looked the same; no one ever knew. Where before he had asked only whether the manner was kept, he began to ask the other question — the buried one, the abandoned one — whether the rite had <em>done</em> anything. He could not answer it from the manner. The manner was no help at all. So he started going back, months after, the way the grieving man had come back to him, finding the families, sitting in their kitchens, asking the plain question no inspector had asked in living memory: did it work? Did the grief lift? Is the threshold safe? Is the house, in fact, unburdened of its debt? And he learned that the answer, almost always, was no — that the rites done in flawless accordance with the manner accomplished, by and large, nothing, that the seal he had been so proud of attested to a performance and not to a result, and that he had spent thirty-one years being superb at the wrong thing.</p>
+      <p>It should have crushed him. He waited some weeks to be crushed, the way Holt was said to have waited in the building of forms, and the crushing did not come. What came instead was a strange and unfamiliar lightness, the lightness of a man who has finally been told the price of what he held. If the mask accomplished nothing, then his thirty-one years of certifying masks had accomplished nothing, which was a hard thing — but it meant that the question was real, that there had been, all along, a true thing the rites were meant to do, even if the doing of it had been lost. The purpose was not gone because it had never existed. It was gone because everyone had stopped looking, and he had stopped looking last and longest. To know that was already to be looking again.</p>
+      <p>He found, in the whole of his searching, exactly one rite where the form and the thing had met. A woman in the river districts, no celebrant, no register, no seal, settling her own dead by herself — saying not the appointed words but plain ones, wearing no mask, sitting through a long night in a poorly lit room with the few things the dead had owned, and rising in the morning, he could see it in her face, actually unburdened, the grief actually given its place. There had been no manner in it anywhere. There had been nothing he could have certified. And it had worked, which was the only thing his office had never been built to see.</p>
+      <hr class="scene">
+      <p>He worked another four years and certified nothing he did not believe had done something, which meant he certified very little, and the office, which measured him by the seals he issued, came quietly to think him slow, and finished, and old.</p>
+      <p>He did not mind. He had become, he understood, an imposter who knew he was an imposter, which set him apart from every fluent celebrant and every insistent family and every younger inspector bringing him the doubtful cases — set him apart by the one thing none of them had, which was the knowledge of the difference between the mask and the face beneath it. He could not give them the knowledge. There was no form for it; it would not survive being said; he had tried, once, to explain it to a young inspector and watched the words go solid in the air between them and mean nothing. So he kept it to himself, the way the river woman had kept her rite to herself, and it did him no good with anyone, and it was the only true thing he had.</p>
+      <p>On the day they retired him they gave him an attestation of his years of service, sealed, correct in every particular, declaring that he had performed the manner of his office faithfully and well. He read it carefully, as he read everything. The seal was beyond reproach. The manner had been kept. And it certified, he saw, exactly nothing about whether the thirty-one years had done any good in the world, which was the only question he now knew how to ask — so he folded it, and put it away unframed, in a drawer where the light never reached it, and went home to sit through the evening in a poorly lit room with the few things he owned, saying no words at all, in flawless accordance with no manner whatsoever, and was, for the first time in his life that he could be sure of, not performing anything.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-atlas-of-the-possible/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Atlas of the Possible</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-honest-material/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Honest Material</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

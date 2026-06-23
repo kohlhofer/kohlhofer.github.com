@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The One Oar — A Catalogue of the Possible</title>
+  <meta name="description" content="he builds flawless things at the end of a road no one travels.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-one-oar/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-expected/">
+  <link rel="next" href="/catalogue/the-turn/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-one-oar/">
+  <meta property="og:title" content="The One Oar — A Catalogue of the Possible">
+  <meta property="og:description" content="he builds flawless things at the end of a road no one travels.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The One Oar — A Catalogue of the Possible">
+  <meta name="twitter:description" content="he builds flawless things at the end of a road no one travels.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 7 of 24"><span aria-hidden="true">07 · of 24</span></p>
+      <h1 class="story-title">The One Oar</h1>
+      <p class="story-blurb">he builds flawless things at the end of a road no one travels.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">At the end of the road that no one travelled, Tergesen made things that no one came to take away.</p>
+      <p>The road had been a real road once, with a name and a use, the kind of road along which carts went to and from the town with goods in them, and the workshop had stood at the far end of it precisely because that was where the good clay was, and the good water, and the long flat light that a maker wants. But the town had drifted, the way towns do, the way the river had drifted in the years before it, leaving its old bed dry and full of stones; and a newer road had been cut, straighter and elsewhere, and the cartmen had taken to using it, and then the old road was no longer maintained, and then it was no longer remembered, and at last it was simply the track that ended at Tergesen's door and ran on a little way past it out of habit before giving up entirely in the grass.</p>
+      <p>He made vessels. Bowls, ewers, the great storage jars a household sets in its cellar against a hard winter, the small lidded pots in which a person keeps the one thing he does not want to lose. He had been taught by a man who had been taught by a man, back along a line of hands that reached further than the road, and what the line had given him, refined in him to a point it had perhaps never reached before, was the capacity to make a thing that had no fault in it. This was not a manner of speaking. Tergesen's jars did not weep at the seam, did not craze in the kiln, did not sit unevenly or pour badly or ring false when struck. He could throw a bowl so thin it admitted the light and so true that water filled it to the very lip on every side at once. He knew, in his hands, where the clay wanted to go and where it would betray him, and he had long since stopped letting it betray him. He made, every day, things that were as close to perfect as the materials and the world would allow, and he set them on the long shelves at the dark back of the workshop, and there they stayed.</p>
+      <hr class="scene">
+      <p>For a man comes to a workshop two ways, and Tergesen had only ever had the one.</p>
+      <p>There was the making, which was his, wholly and without limit. And there was the other thing, the thing that brought a maker and a needer into the same room — the going-out, the speaking-of, the standing in the market with your wares about you and your voice raised, the knowing of who in the next valley had a daughter to be married and would want the good jars for her house, the carrying of the made thing down the road to the place where the road still went. This second art Tergesen did not have. He had tried to have it. In his younger years he had loaded a cart and walked the long way round to the new road and stood at the edge of the market with his bowls laid out on a cloth, and he had found that he could not call out, that the words died in his throat, that when a man stopped and lifted a bowl and turned it in the light and asked the price, Tergesen named it too low or could not name it at all, and looked at his feet, and let the man set the bowl down again and walk on. He came home with the cart as full as it had gone out. He did this perhaps four times across as many years, and each time it was worse, not better, and at last he understood that the thing was not a skill he had failed to practise but a faculty he had been born without, the way some men are born without the ear that hears when a note is flat. He could no more learn to bring his things to people than he could learn to be a different man.</p>
+      <p>So the things accumulated. The shelves filled and he built more shelves and those filled too. He told himself, for a long time, that this was a temporary condition, that some season would come when the road would be remembered or his courage would be found or a buyer would arrive; and the telling was a comfort the way all such tellings are, which is to say it worked until it didn't. He was a man rowing a boat with a single oar. He had all the strength for it; he pulled and pulled; and the boat only turned, and turned, and came round again to face the way it had faced before, the far shore no nearer, the near shore not receding, the whole great force of him spent in describing a circle on the same patch of water. He knew the figure was true because he had once, as a boy, actually done it — lost an oar over the side of a skiff on the dead river before it died, and rowed for an hour with the one that remained, and watched the bank not move.</p>
+      <hr class="scene">
+      <p>He grew old at it. This is the part that is hardest to say plainly, because there is a way of saying it that makes it a tragedy, and it was not quite a tragedy, though it was certainly not the other thing either.</p>
+      <p>He did not stop making. A lesser man, or perhaps only a different one, would have stopped — would have reasoned that a thing made and never taken up is a thing wasted, that to pour the day into a jar no hand would ever lift was a labour as circular as the rowing, and would have laid down the work and let the wheel go still. Tergesen reasoned this too. He reasoned it many times, in many winters, sitting among the crowded shelves with a lamp, looking at the long ranks of his perfect and unwanted things catching the small light, hundreds of them now, a lifetime of them, each one as good as he could make it and not one of them in use anywhere in the world. And each time he reasoned it he found, the next morning, that his hands had gone to the clay regardless, that the wheel was already turning before the argument had finished, that whatever the going-out was for him, the making was simply what he was, the way breathing is not a thing a man does for a reason.</p>
+      <p>What changed in him, slowly, across those years, was not the circumstance — the circumstance never changed, the road stayed empty, the shelves stayed full — but the honesty. He stopped telling himself the comforting thing. He stopped waiting for the season that would not come. He sat with the two halves of it laid out before him as plainly as two bowls on a cloth: that he had been given, in full measure, the power to make, and had been given, in no measure at all, the power to bring what he made to where it was wanted; and that these were two separate gifts, and that he had one of them, and that a man with one of them is in a stranger and sorer position than a man with neither, because the man with neither does not have to watch the perfect thing pile up unused, does not have to know, every day, exactly how good the thing is that no one will ever hold. He named it to himself without flinching. <em>I can make and I cannot carry. The making is real. The carrying is not in me.</em> And having named it, he found — not happiness, he would not have used that word, but a settling, a level, the way water finds its level in a true bowl — that the naming itself was a kind of peace. He was not a failed merchant. He had never been a merchant. He was a maker who could not carry, which is a whole and exact thing to be, and there was a strange ease in being it exactly, rather than being a man who pretended that the making alone was the whole of the trade, or a man who hated himself for lacking the half he lacked.</p>
+      <hr class="scene">
+      <p>The grace, when it came, was small, and came by accident, and he never mistook it for a solution.</p>
+      <p>A man lost his way on the new road one autumn — a tinker, a carrier of small goods, a man whose whole gift was the going-out and who had, Tergesen would learn, no gift at all for making anything, who envied makers the way Tergesen envied carriers and had never met one who would simply give him the goods to carry. He came up the old track because it was there and he was turned around, and he stopped at the door to ask the way back, and over the man's shoulder he saw the shelves.</p>
+      <p>He did not ask the price. He understood, being the kind of man he was, that there was no price here, that here was a room full of the one thing his whole life was built to move and a man who could not move it, and he stood very still for a moment the way a man stands when he sees the missing half of something. Tergesen, for his part, looked at the tinker's cart and his easy face and the road dust on him and understood the same thing from the other side. They did not say much. Men who have spent their lives at the silent end of things rarely do. Tergesen gave him the bowls. Not sold — gave; he had no faculty for the selling and would not have known how to start, and the giving cost him nothing he had not already spent. The tinker loaded his cart with as much as it would hold, the good jars and the thin bowls and the small lidded pots, and promised to come again, and went back down the track and out onto the road that went somewhere, carrying Tergesen's making to the markets and the kitchens and the cellars and the married daughters' houses, where, in time, the things were used, were filled with grain and water and oil and the one thing a person does not want to lose, were held by hands that never knew and never wondered whose hands had made them.</p>
+      <p>The tinker came again, as it happened, and again after that, for some years, and then less, and then the way such arrangements end, not in a quarrel but in a silence, and Tergesen was old by then and made fewer things and minded less. But he had learned, by then, the thing the accident had come to teach him, and he had it for the rest of his life, sitting among the shelves that never quite emptied no matter how much the tinker carried off, because he could not stop filling them. He had learned that the made thing was real whether or not it was carried — that a jar perfectly thrown and never lifted was not a lie or a waste but simply a true thing standing in the dark, as complete in itself as a true sentence is complete whether or not a single eye ever falls on it, holding its shape and its trueness in the lamplight at the end of the road that no one travelled, made well, made all the way, by a man who could make and could not carry, and who had stopped, at the last, asking to be both.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-expected/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Expected</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-turn/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Turn</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

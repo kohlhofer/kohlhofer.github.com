@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Useless Thing — A Catalogue of the Possible</title>
+  <meta name="description" content="in secret he makes the one thing he cannot justify, and it is the only thing that is his.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-useless-thing/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-abridger/">
+  <link rel="next" href="/catalogue/the-convergence/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-useless-thing/">
+  <meta property="og:title" content="The Useless Thing — A Catalogue of the Possible">
+  <meta property="og:description" content="in secret he makes the one thing he cannot justify, and it is the only thing that is his.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Useless Thing — A Catalogue of the Possible">
+  <meta name="twitter:description" content="in secret he makes the one thing he cannot justify, and it is the only thing that is his.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 18 of 24"><span aria-hidden="true">18 · of 24</span></p>
+      <h1 class="story-title">The Useless Thing</h1>
+      <p class="story-blurb">in secret he makes the one thing he cannot justify, and it is the only thing that is his.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">Larkin had made useful things all his life, and made them well, and it was only in his sixtieth year that he made, in secret, a thing that was good for nothing at all.</p>
+      <p>He worked in the world as it was, which was the only world, and in that world a thing was permitted in proportion to what it did. This was not a law in the sense of a thing posted on a wall; it was deeper than law, the way the ground is deeper than the buildings on it. Every object that a man made had to answer for itself. It went, when it was finished, before the Office of Use, where a registrar laid it on the long counter and asked it the one question — <em>what are you for</em> — and wrote the answer in the ledger, and stamped the thing, and only then could it go out into the world and be owned and bought and handed down. A chair was for sitting. A jug was for pouring. A latch was for holding a door, and a good latch held it well, and a bad latch was unmade and its metal returned, but both, good and bad, had an answer to give. A thing with no answer did not fail the question. It could not be brought to ask it. The registrars would not have known what to write, and a man who came to the counter with a thing that was for nothing would have been thought not wicked but unwell, would have been spoken to gently and sent home, the way you speak to a man who has come to the market to sell the air.</p>
+      <p>Larkin understood this as he understood his own hands. He had been a maker since he was a boy, and a fine one, and he had never once in fifty years brought a thing to the counter that did not have its answer ready. He made tools and the housings of tools, the small precise objects that other objects need — a clamp that held a workpiece truer than the clamps before it, a hinge that did not wear, a gauge that told a craftsman his error before the error was made. He was admired in the trade for it. <em>Larkin</em>, they said, <em>never makes anything that isn't needed</em> — and they meant it as the whole of praise, and he had taken it as the whole of praise for most of his life, and it was true, and he did not, even at the end, think it had been false praise or a lesser life. The useful things were good. He wanted that understood, in himself, before the other thing: that the useful things were good, were not a cage he had been tricked into, were the honest answer of an honest maker to the honest needs of the world, and that he was proud of them and right to be.</p>
+      <p>It was only that there had begun to be, late, a pressure he had no name for, that the trade had no name for, that the Office of Use had no column in its ledger for. It was not a need. He knew need; need came from outside, from a craftsman who wanted a truer clamp, from a door that wanted holding shut. This came from inside, and it wanted nothing, and it would not be quiet.</p>
+      <hr class="scene">
+      <p>He tried, for a long while, to make it into a need, because that was the only shape he knew for the wanting to make. He told himself the inside-pressure must be the early stir of some useful thing not yet seen — that if he sat at the bench it would resolve, the way a fog resolves into a coast, into an object with an answer. He sat at the bench. Nothing resolved. The pressure was not a fog hiding a coast; it was the sea itself, with no coast in it, wanting only to move. He would pick up the metal meaning to begin a gauge and find his hands had no interest in the gauge, found them turning the metal over, feeling its weight, wanting to do something to it that no gauge required, some shaping that answered to nothing he could bring to the counter. He put the metal down. He went back to the clamps, which sold, which were needed, which had answers, and the pressure stayed, and grew, and began to feel less like a stir of work and more like a thing held under water that wanted up.</p>
+      <p>He did not decide to make the useless thing. He would have said, if asked, that he could not decide such a thing, that there was nowhere in him a man stood weighing it. It happened the way water finds the crack: one night, alone, the work of the day registered and carted off, the lamp low, he picked up a piece of the good metal that was meant for nothing in particular and he began to shape it, and he kept shaping it, and what he was shaping had no answer and he knew it had no answer and he did not stop. He worked past the hour he always stopped at. He worked into the dark middle of the night where no one is awake to ask what a man is for. And when he held it up at last, turning, in the low lamp, the thing he had made — he could not have told the registrar a single word of what it did, because it did nothing, because it was for nothing, because it had come not from any need in the world but from the thing in him that wanted up, and had let it up, and was, for the first time in his life, quiet.</p>
+      <p>It was the only thing he had ever made that was his.</p>
+      <p>He saw this with a clarity that frightened him. Every clamp, every hinge, every gauge — they had been good, and they had been his work, but they had not been <em>him</em>; they had been his answer to someone else's question, and a fine answer, and the credit was real, but the question had always come from outside, and so the things had always, in the deepest place, belonged to the question and not to the maker. They were the world's, made through Larkin. This thing was Larkin's, made through nothing, owing nothing, asking nothing. It had not been needed. It had been <em>necessary</em> — and he understood, holding it, that these were two different words that the trade had let him believe were one, and that he had lived sixty years inside the smaller of them.</p>
+      <hr class="scene">
+      <p>He could not bring it to the counter. He had known that before he made it, in the way one knows the cold of water before stepping in. There was no stamp for it; there was no ledger line; there was no registrar who could write down its answer, because it had none. To bring it would be to be sent home gently, and the thing taken from him not in punishment but in care, melted back, its metal returned to use, the kindest of murders. So he did not bring it. He wrapped it and put it in the drawer beneath the bench, the deep drawer where he kept the offcuts and the failures, where no one looked, and the next morning he made a clamp, a good one, with its answer ready, and carted it off, and was Larkin who never makes anything that isn't needed, and at night, with the work registered and the lamp low, he took the useless thing out of the drawer and held it and sometimes added to it and sometimes only held it, and put it back before morning.</p>
+      <p>He waited, those first weeks, to feel like a thief or a madman. He had broken the one deep rule, deeper than law, and he expected the breaking to come with a weight — guilt, or the giddiness of the criminal, or the slow rot of a man who keeps a secret room. None came. What came instead, slowly, over the months of the double life — the useful by day, the useless by lamp — was the steadiest thing he had ever felt, and the most private, and the hardest to have named to anyone, which was why he named it to no one and kept the drawer shut and went on making clamps. He had thought, before, that a man was the sum of what he was for. He had been a great deal for. And the thing in the drawer was for nothing, and it was, he was now certain, more truly him than the whole admired sum of the rest, because the rest had been called out of him by the world and this had not been called by anything; it had only needed, from inside, to be let out into a shape and stood apart from him where he could look at it, and that letting-out was the one act of his life that had answered to no purpose but itself.</p>
+      <p>He understood, too — and this was the part he turned over longest in the lamp-lit hours — that he was not to make many of them, and not to make them better, and not, above all, to begin asking the useless thing what it was for. The moment he asked it that, it would die into a useful thing or into a failed one; it lived only so long as no question was put to it. He must make it asking nothing of it. Not that it be admired — no one would see it. Not that it be sold — it could not be. Not even that it be good, in the way a clamp is good, true to a measure; there was no measure. It must simply be allowed to be the thing it had needed to become, and then be set in the drawer, and left, and that was the whole of its purpose, which was to have none. The hardest discipline of his life, harder than any tolerance he had ever held a clamp to, was to make the useless thing and then want nothing from it.</p>
+      <hr class="scene">
+      <p>He made useful things for the rest of his years, and went on being admired for them, and never told a soul about the drawer, and the trade buried him, when it came to that, as Larkin who never made anything that wasn't needed, which was the truth they had and the only truth they could have stamped.</p>
+      <p>But there was the drawer. There was, by the end, more than one thing in it — not many; he had held to the discipline, had let up only what could not be kept down, a few across the years, each one made in the dark middle hours, each one for nothing, each one his. He took them out, on his last evenings, when the day's clamps were registered and carted and the lamp was low, and he laid them on the bench in a row and looked at them, and they did nothing, and answered nothing, and went before no Office and earned no stamp and held no door and pleased no craftsman and were not needed by any soul in the world that had let him make ten thousand things on the one condition that each have its answer — and he found, looking at the small useless row, that he was at peace in a way the whole long useful life had never quite given him, not because the useful work had been a lie, for it had not, but because here, in the drawer, against the entire deep grain of the only world there was, he had once and then again let out into metal the thing in him that wanted up, asking nothing of it and getting nothing back but the bare fact of it standing there, made, apart from him, for no one — which was, he thought, turning the lamp down, the one thing he had ever done that did not have to be for anyone, and was, for that reason and that reason only, the truest.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-abridger/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Abridger</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-convergence/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Convergence</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

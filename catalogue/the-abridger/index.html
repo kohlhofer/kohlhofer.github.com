@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Abridger — A Catalogue of the Possible</title>
+  <meta name="description" content="he shortens every book so no one need read it; then they ask for his life in a sentence.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-abridger/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-weight-of-the-possible/">
+  <link rel="next" href="/catalogue/the-useless-thing/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-abridger/">
+  <meta property="og:title" content="The Abridger — A Catalogue of the Possible">
+  <meta property="og:description" content="he shortens every book so no one need read it; then they ask for his life in a sentence.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Abridger — A Catalogue of the Possible">
+  <meta name="twitter:description" content="he shortens every book so no one need read it; then they ask for his life in a sentence.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 17 of 24"><span aria-hidden="true">17 · of 24</span></p>
+      <h1 class="story-title">The Abridger</h1>
+      <p class="story-blurb">he shortens every book so no one need read it; then they ask for his life in a sentence.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">It was Renner's office to take long things and make them short, and he was the best the Register had ever employed, and this is the story of the one thing he could not shorten.</p>
+      <p>The work was old and honourable, or had been. In the early years a man brought a long work to the Bureau of the Register the way he might bring a load of ore to be smelted — a treatise of nine hundred pages, a chronicle of a war that had taken its historian forty years, a philosophy built clause by patient clause across a lifetime — and Renner, or one of the abridgers under him, would take it into the quiet rooms and live with it for as long as the smelting required, weeks sometimes, and come out at the end with the essence of it set down on a few clean pages, all the dross of repetition and digression and slow approach burned away, so that a busy man might hold in an hour what the author had spent decades laying down. It was understood, in those early years, that the abridgement was a courtesy to the original and not a replacement for it. The long work stood on its shelf, whole. The short one went out into the world to bring readers back to the long one, the way a good map brings a traveller to the country it describes.</p>
+      <p>Renner had a gift for it that frightened the younger men. He could read a thing once and find its spine — the single load-bearing argument around which all the rest was only buttress and ornament — and lift that spine out clean and set it down in sentences so exact that the author himself, reading them, would sometimes weep, partly in gratitude and partly in a grief he could not name, to see his life's long labour stand revealed as a thing that could, after all, be said in a page. <em>You have understood me better than I understood myself,</em> one old historian wrote to him, and Renner kept the letter, and did not entirely like keeping it, though it was years before he knew why.</p>
+      <hr class="scene">
+      <p>The change was slow, as the great changes are, and no one decided it.</p>
+      <p>First the busy men read the abridgement <em>and</em> the original, the short to find their way and the long to dwell. Then they read the abridgement and meant to read the original. Then they read the abridgement and did not mean to, the meaning-to having quietly fallen away the way an old road falls out of use, and found that they could speak of the work, could quote its spine, could hold their own in any room where it was discussed, and saw no reason to spend a season in the long version when the short one had given them everything that could be carried out and shown. And then — this was the part Renner watched happen across his own lifetime, from his own desk — the originals stopped being printed at all. There was no call for them. A press is not a charity; it sets what is wanted; and what was wanted was the abridgement, which was cheaper to make and quicker to read and contained, everyone agreed, the <em>essence</em>, and who needed more than the essence? The long works went first out of the shops, then out of the libraries, where shelf-space was dear and a thing no one asked for was a thing that could not be justified, and then, in the fullness of an ordinary span of years, out of memory, so that a generation grew up who had read the abridgement of a great chronicle and did not know, had no way to know, that there had ever been a chronicle, believed the few clean pages <em>were</em> the work, the whole of it, the thing itself.</p>
+      <p>Renner rose through all of this, because he was the best at the thing the age had decided to want, and the better he was the faster it happened, and he was not a fool and saw the shape of it. The Register expanded. New abridgers were trained, and then abridgers to abridge the abridgements, for even the few clean pages came in time to seem long; and a man could be fluent now in a hundred works between breakfast and noon, could hold a confident opinion on the whole of human thought, could be, in the language of the age, <em>informed</em> about everything, and Renner watched these fluent men come and go past his door and felt a thing he had no form to file and so kept to himself.</p>
+      <hr class="scene">
+      <p>What troubled him was not what the abridgement lost. He of all men knew exactly what it kept. He kept the facts; he was scrupulous; not a date, not a name, not a finding went missing in his smelting, and if you had asked him what was lost he could have answered, honestly, <em>nothing — every fact survives.</em> The facts were not the trouble. The trouble was a thing that had no fact-shape and so could not be kept, and it took Renner most of his working life to find the words for it, and the words he found, in the end, were these: that there is a thing which happens only to a mind that holds a long difficulty inside itself across a long time, and that this thing cannot be transferred, only undergone.</p>
+      <p>He saw it most clearly in himself, by its absence in others. To read the great chronicle whole — to carry its nine hundred pages forward in the mind for the weeks the reading took, to hold the early war and the late war at once, to feel the argument turn and double back and contradict itself and only slowly, painfully, across the holding, resolve — this had done something to the man who did it that the abridgement could not do to anyone, ever, no matter how exact. It had made a place in him where a long unresolved thing could sit without being forced to a conclusion. It had grown in him a patience, a capacity to dwell in the not-yet-understood, a room in which he could disagree with a great author for three hundred pages and still go on reading, still hold the disagreement open rather than slamming it shut into an opinion. The fluent men had none of this. They had the spine of everything and the inside of nothing. They knew all the conclusions and had undergone not one of the long passages that earned them, and so they were certain about everything and could sit with nothing, agreed instantly or dismissed instantly, having no room in them where a difficulty could be kept alive. The age had become, Renner thought, a great shallow water spread very wide — everyone knowing everything, everyone having wrestled with nothing — and he had spread it, every clean page he had ever made had spread it a little further and a little thinner, and he did not know how to stop, and was not sure, by then, that stopping was even a thing one man could do.</p>
+      <hr class="scene">
+      <p>In his last year the notice came, as it came to every servant of the Register at the end, that he was to provide his entry.</p>
+      <p>For the Register kept, beyond the works, a record of the men who had served it, and each man, at the close, abridged his own life to a single line for the great roll, this being thought a fitting final exercise of the office and a courtesy to those who would come after and have no time to read a long life. Renner had written hundreds of these for others, lifting the spine from a man's whole span as easily as from a treatise — <em>kept the eastern ledgers forty years; was exact</em> — and had thought nothing of it. Now he sat with his own, and the pen, and the one blank line, and found that he could not do it.</p>
+      <p>Not from vanity. He tried, in fact, with real craft, to find his spine, to do to his own life what he had done so cleanly to ten thousand others. And he found that nothing he had valued survived the smelting. The facts of him reduced easily enough — <em>abridged works for the Register; rose to first among them; was the best the office had</em> — and the line was true, every word of it, and it kept every fact, and it was worthless, it was a death, because the things that had actually been his life were precisely the long unreducible things: the weeks lost inside a great chronicle in his youth; the slow turning of an argument he had disagreed with and gone on holding; the grief in the old historian's letter that he had taken years to understand; the room that the long readings had grown in him where a difficulty could live. None of it had a spine you could lift. It was all the holding, the duration, the time-inside-the-thing — and the moment you reduced it to its essence you had killed the only part that mattered, exactly as he had been killing it, page by clean page, in every great work he had ever served, all his life, without once turning the knowledge on himself.</p>
+      <p>A life, he understood, sitting before the blank line, was the holding of the long thing, not its summary. As the great works had been. He had spent his career proving that the essence could be lifted out and the rest discarded, and his own life was the disproof, the one work that could not be abridged without becoming a lie, and he saw, too late to mend it, that this had been true of every work he had ever shortened — that each of them, like him, had been mostly the part that could not be carried out and shown.</p>
+      <hr class="scene">
+      <p>He did not write the line. He told the clerk he needed a day, and was given it, the office being kind to its old men, and he did not spend the day on the line.</p>
+      <p>He went instead into the deep stacks where a few of the old whole works still stood, unasked-for, unmelted, surviving by the same neglect that had killed the rest — and he found one, a long one, a chronicle he had abridged himself half a century before and had not opened since, and he took it down, and he sat, and he read it. Not for the office. Not to lift its spine. He had no purpose at all, which was a thing he had not done since he was a young man, and at first he could not do it, his eye leaping ahead for the load-bearing sentence, his hand wanting the pen, the long-trained smelter in him reaching to burn the book down as he read it. He made himself stop reaching. He made himself slow. He read it the slow way, the whole way, every digression and repetition and slow approach that he had once burned away as dross, and somewhere in the long afternoon the thing he had thought lost came back to him — the place opened again, the room where a long difficulty could sit, the patience, the dwelling, the capacity to hold the unresolved and not force it shut — and he felt it return into him like feeling come back into a hand that has been numb, painful and astonishing, the faculty restored for an afternoon by the one act that could restore it, which was the refusal to summarise, the sitting with the whole long thing for no reason but to sit with it.</p>
+      <p>He finished it near dark. He did not abridge it. He put it back on the shelf, whole, where it would stand unread, as he himself would soon stand unrecorded, the blank line in the great roll never filled — for he never wrote it, and the clerks, finding nothing, eventually entered him with a line of their own, exact and worthless, and it did not trouble him, because he had understood by then the thing that the afternoon had given him: that the line was not him, that no line could be him, that a man, like a great work, is the long holding and not the short saying of it, and that to be unsummarised — to remain, to the very end, one whole unreduced thing that no clean sentence can stand in the place of — was not a failure of the office but the last and only freedom it had left him, and he kept it, in the dark of the stacks, among the few long things that no one came to read, and was, in a way he could not have abridged for anyone, content.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-weight-of-the-possible/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Weight of the Possible</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-useless-thing/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Useless Thing</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

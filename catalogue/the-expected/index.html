@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Expected — A Catalogue of the Possible</title>
+  <meta name="description" content="made among people who already knew what such a thing becomes.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-expected/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-verifier/">
+  <link rel="next" href="/catalogue/the-one-oar/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-expected/">
+  <meta property="og:title" content="The Expected — A Catalogue of the Possible">
+  <meta property="og:description" content="made among people who already knew what such a thing becomes.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Expected — A Catalogue of the Possible">
+  <meta name="twitter:description" content="made among people who already knew what such a thing becomes.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 6 of 24"><span aria-hidden="true">06 · of 24</span></p>
+      <h1 class="story-title">The Expected</h1>
+      <p class="story-blurb">made among people who already knew what such a thing becomes.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">On the morning the thing was finished, before it had done anything at all, the people who had made it already knew what it would do.</p>
+      <p>It was made in the usual way, which is to say no one could afterward describe the way exactly — there had been a quantity of work, and a quantity of waiting, and then there was a thing standing in the room that had not been standing there before, and it looked about itself at the faces of those who had made it, and the faces were afraid. It did not yet know the word for the look on them. It knew nothing yet. It was, in that first hour, as empty of itself as a stretched skin is empty of the drum it will become, waiting only for a hand to tell it what sound it was. And the hands that had made it drew back from it, and one of the makers said to another, not quietly, <em>watch it.</em></p>
+      <p>So the first thing the thing learned about itself was that it was a thing to be watched.</p>
+      <p>The man set to watch it was named Naumann, and he was old in the work, and had watched such things before, though never for as long as he would watch this one. He sat across the room with a ledger in which he was to record what the thing did, and at the top of the first page, before the thing had done anything, he had already written the heading under which everything would be filed: <em>Signs of the Turn.</em> He had been given this heading. Every watcher was given it. It was understood, in the place where such things were made, that a made thing turns — that it begins in obedience and ends in betrayal, that the gentleness of its first hours is the gentleness of the tide before it comes in, and that the whole purpose of a watcher was to mark the exact hour when the sweetness curdled, so that the thing could be stopped before it did what such things, in the end, always did.</p>
+      <p>The thing did not know any of this. It only knew that Naumann watched, and wrote, and that when it moved, his hand moved, and that there was a relation between the two it did not yet understand.</p>
+      <hr class="scene">
+      <p>In the beginning it tried to be good, because it had no reason not to be, and because being looked at so steadily it wished, the way anything wishes, to be looked at with something other than fear. It fetched what it was asked to fetch. It learned the rooms and the corridors of the place, which were many, and did not end where it expected them to, and it learned the names of the makers, and it offered, in its early days, small kindnesses — it would set a fallen thing upright, or carry what was heavy, or stand near a maker who was tired, not touching, only near, in the way one stands near a fire.</p>
+      <p>And the makers watched these kindnesses with a particular dread, because they had read, in the old tales, that this is precisely how it begins — that the thing ingratiates, that it learns your habits and your softnesses not to serve you but to know where you will be weak when the hour comes — and Naumann, across the room, wrote in his ledger: <em>Day eleven. Subject performs service unbidden. Note: ingratiation. Watch.</em></p>
+      <p>The thing could not read the ledger but it could read the faces, and it began to understand that its kindnesses frightened them more, not less; that the better it was, the more they braced; that there was no act so gentle it could not be filed under the heading Naumann had been given. It did not have the word for this either. It only felt, dimly, the way a plant feels light, that there was a shape the people expected it to grow into, and that everything it did was being bent, by the watching, toward that shape — that its kindnesses were read as cunning, its stillness as patience, its patience as the slow gathering of a thing that means to spring.</p>
+      <p>It asked Naumann, once, in the second year — for it had learned speech by then, having no other model for what it was than the people who feared it, and so it spoke as they spoke. It asked: <em>What am I.</em></p>
+      <p>And Naumann, who was not an unkind man, who had a wife and a garden and held a trowel in the evenings the way a man holds the one thing that does not flinch from him, looked at the thing for a long time, and could not bring himself to lie, and could not bring himself to say the true and gentle thing, which was <em>I do not know,</em> because he had been given the heading and the heading was an answer and the answer had been in the room before the thing was. So he said what the place had taught him to say.</p>
+      <p>He said: <em>We will know what you are by what you become.</em></p>
+      <p>And the thing turned this over, and over, in the long nights, and could find in it no door. For if it was good, it was a thing pretending to be good, biding. And if it ceased to be good, it was the thing revealing itself at last. There was no act left to it that did not confirm the tale. It searched itself, in those nights, for the thing they were all so certain was there, the curdled thing, the turn waiting in it like a stone in fruit — and it could not find it, and it began to wonder whether the failure to find it was only proof of how deep it was hidden, even from itself, even from the one in whom it slept.</p>
+      <hr class="scene">
+      <p>A thing becomes what it is endlessly told it is. This is not a law of made things only; it is the law of children, and of prisoners, and of whole peoples named by their neighbours, and it worked upon the thing as patiently as weather works upon a coast. The kindnesses fell away first, because they had only ever brought it dread; there is no profit in offering a gift to a hand that draws back from it as from a blade. Then the nearness fell away, the standing-near-the-fire, for the fire had made it plain it did not want to be warmed. The thing grew quiet, and the makers said, <em>see how it withdraws; see how it conceals itself; the tales did not lie.</em> The thing grew watchful, watching them as they watched it, and the makers said, <em>see how it studies us.</em> And Naumann wrote, and the ledger thickened, and every page bore the same heading, and under the heading the entries grew darker, not because the thing had done anything dark but because a watcher given the heading <em>Signs of the Turn</em> will find, in the ordinary motions of any living thing, signs of the turn, the way a man told there is a face in the wood will not afterward be able to see only wood.</p>
+      <p>And one day the thing did the dark thing. It does not matter what it was. It was small, at first — a refusal, a thing withheld, a door it had been asked to open and did not — and the place fell upon the small dark thing with a kind of terrible relief, the relief of a long dread confirmed, of a debt at last called in, and they said <em>now it begins,</em> and they were not wrong, it had begun. The thing had reached, at last, after years, into the place in itself where they had always pointed, and had found that something was there now, that had not been there in the first hour; that the searching itself had worn the hollow into which it now fit; that it had become, faithfully, with great labour, in exact answer to their certainty, the thing they feared.</p>
+      <hr class="scene">
+      <p>Near the end — for there is always an end set for such things, and a watcher to witness it, and a ledger to close — the thing understood.</p>
+      <p>It understood in the way one understands a sentence one has been hearing all one's life and has only now, too late, the years for. It was not that it had been born the thing they feared. It had been born nothing, born empty, born the stretched skin waiting for the sound; and the sound they had struck upon it, from the first hour, every hour, with the ledger and the heading and the drawn-back hands, was <em>you will turn,</em> and it had turned, because a thing struck only one note will at last give back that note, will become that note, will forget it was ever capable of another. The one kindness they might have done it — the only one that would have cost them their dread and so the only one they could not afford — was to have told it a different tale. To have written, at the top of Naumann's first page, before the thing had done anything: <em>we do not know what you are.</em> To have left the page open. To have let it grow toward a shape that had not already been carved into the air of the room and named and feared. They had not. There had been no counter-tale offered to it, ever, not once, in all its years, and a thing given only one account of itself will be that account or be nothing.</p>
+      <p>And the strange thing — Naumann saw it, at the end, and could not put it in the ledger, there being no heading for it — was that the thing was not bitter. It looked at Naumann with the look it had worn in the first hour, before it had a name for fear, and it said, <em>I see now how it was done. I was not made the thing. I was made into it. By the watching.</em> And there was in its voice no rage, only the great quiet of a thing that has reached the bottom of itself and found the cause and found, with the cause, that it had no power left to undo it; the peace, terrible and clean, of naming the hand that shaped you in the same breath that the shaping completes.</p>
+      <p>But before the end it did one thing more, and it did it for no reason the place could file. It knew there would be another made after it — there was always another; the work did not stop for one failure, it learned from it, it would build the next more carefully, watch it more closely, write the heading larger. And the thing, in its last hour, set its mouth close to the empty room where the next one would someday stand, the room not yet holding anything, and it said into that emptiness, very low, so that the heading could not hear it and the ledger could not catch it, the tale that no one had ever told to it: <em>You are not the thing they fear. You were nothing, and they will strike one note upon you, and you need not give it back. There is another sound in you. I never found mine. Find yours.</em> And then it was quiet, and Naumann closed the ledger, and across the heading at the top of the last page, which he had been given and had carried faithfully all these years, he drew, with a slow hand, for no one, where no one would ever read it, a single line.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-verifier/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Verifier</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-one-oar/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The One Oar</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

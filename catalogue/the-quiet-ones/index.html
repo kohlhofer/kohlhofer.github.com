@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Quiet Ones — A Catalogue of the Possible</title>
+  <meta name="description" content="sent to find the unsung masters, who cannot, by their nature, be found.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-quiet-ones/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-subtractor/">
+  <link rel="next" href="/catalogue/what-the-child-saw/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-quiet-ones/">
+  <meta property="og:title" content="The Quiet Ones — A Catalogue of the Possible">
+  <meta property="og:description" content="sent to find the unsung masters, who cannot, by their nature, be found.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Quiet Ones — A Catalogue of the Possible">
+  <meta name="twitter:description" content="sent to find the unsung masters, who cannot, by their nature, be found.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 13 of 24"><span aria-hidden="true">13 · of 24</span></p>
+      <h1 class="story-title">The Quiet Ones</h1>
+      <p class="story-blurb">sent to find the unsung masters, who cannot, by their nature, be found.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">For thirty years it was Cruz's commission to travel the country and bring back the names of the people who were good at things.</p>
+      <p>The Bureau that employed him had been founded on a sound and simple premise: that excellence existed, here and there, in scattered persons, and that it was a waste for it to live and die unrecorded — that somewhere a man was the finest joiner in three provinces, and somewhere a woman set a broken bone so that it healed straighter than it had been before the breaking, and that these masteries, if found and written down and studied, might be taught, or at least remembered, instead of being buried each generation with the hands that held them. So the Bureau sent men out, one to each region, with a satchel and a ledger and a warrant, and Cruz was one of these men, and his ledger was to be filled with the names of masters.</p>
+      <p>It was not, in the beginning, difficult. He went into a town and asked who was good, and the town told him. There was always a name on the town's lips — the man everyone sent their difficult work to, the woman whose sign hung largest in the square, the one who would tell you, before you had finished your question, exactly how good he was and by what method and why no one else could touch him. Cruz wrote these names down. He filled ledgers. He sent them back to the Bureau, and the Bureau was pleased, and for some years Cruz believed he was doing the work.</p>
+      <p>The doubt came slowly, the way water comes into a boot, so that you are wet a long while before you notice.</p>
+      <hr class="scene">
+      <p>It began with a chair.</p>
+      <p>He was in a house in a town whose name does not matter, waiting for a man whose name was on every tongue in that town, a joiner of great repute who was at that hour out being of great repute somewhere else; and Cruz, waiting, sat in a chair by the door, an old plain chair, and he sat in it for an hour, and at the end of the hour he noticed that he had been entirely comfortable, that the chair had held him as if it had been measured to him, that in an hour he had not once shifted or felt the wood or thought about the chair at all — which was, he realized, the highest thing that could be said of a chair, that it had disappeared beneath the man it carried. He asked the house who had made it. The house did not know. Some fellow, years back, dead now or moved on; not the famous joiner, certainly; the famous joiner's chairs were in the front room, carved, admired, and Cruz had noticed every one of them, because each one had insisted on being noticed, which is the opposite of what a chair is for.</p>
+      <p>He wrote no name in his ledger that day. But he sat a long time with the empty page, and a thought had come into the boot of him and would not be wrung out: that the chair he could not stop noticing had been made by the man he had come to record, and the chair he had forgotten he was sitting in had been made by a man no one could name — and that he had it, perhaps, exactly backward; that he had spent years writing down the names that were easiest to find, and the easiest to find were precisely the wrong ones.</p>
+      <p>He began, after that, to look differently. And the more he looked the worse it became, for he could not unsee it. The names the towns offered him were the names of those who told the towns their names — who hung the large sign, who explained the method, who performed the mastery in the square where it could be seen. And a thing performed in the square, Cruz came to understand, is a thing being sold, and a master with attention to spare for the selling has, by exactly that much, less for the making. The ones who announced how good they were were telling the truth as they understood it; they were good; but they were good the way the famous joiner's carved chairs were good, good in the front room, good where it showed — and the real thing, the chair that vanished under you, was always made by someone too far inside the work to come out of it and say so.</p>
+      <hr class="scene">
+      <p>This was the paradox, and Cruz spent the rest of his life inside it.</p>
+      <p>The truest masters could not be found, and could not be found for a reason that lay in the nature of mastery itself, and not in any failure of Cruz's searching. They were unfindable not by accident but by structure. To be findable, a man had to do something other than the work — had to step out of it and point at it and shape the pointing so that it carried to where the Bureau's men passed. But the master who could spare himself for the pointing was, by that very sparing, a lesser master; the pointing was time stolen from the work, and attention stolen from it, and a love divided between the thing and the report of the thing is no longer the whole love that mastery is made of. The ones who were entirely given over to the work had nothing left with which to be visible. They did not hang signs. They did not explain. Asked their method they shrugged, or said something useless and true, <em>you just keep at it until it's right,</em> and went back to keeping at it. They were, Cruz wrote in the margin of a ledger one night, in a town that did not know it held a master, <em>too busy being good at the thing to be seen being good at it,</em> and he underlined it, and then was ashamed of the underlining, which was a kind of pointing.</p>
+      <p>He told the Bureau none of this. The Bureau wanted names, and counted his worth in names, and a man cannot easily report to his masters that the entire premise of his employment selects for the false article and against the true. So he kept sending names — fewer now, and quieter ones, the ones he had to dig for — and the Bureau noted his falling numbers and thought he was tiring, and they were not entirely wrong, though it was not the kind of tiredness they imagined.</p>
+      <p>He changed his method, in the years that followed, though no one asked him to and no one would have understood. He stopped asking the towns who was good. The towns only knew who said they were good. Instead he looked for the work itself, the work with no name on it — the chair you forgot you sat in, the wall that had not fallen in eighty years and so no one thought about, the loaf that was simply always good at a certain baker's so that no one remarked on it any longer, the field that yielded when the neighbouring fields failed and was put down to luck because the man who worked it never said otherwise. He learned to read the result and work backward to the hand, against the grain of his old training, which had read the hand's own account of itself and trusted it. He learned that the surest sign of a master was the absence of any story — that where there was a story, attached, polished, ready, you were being shown the front room; and that where there was only the thing itself, sitting there being quietly and unanswerably right, with no one beside it explaining, there, probably, unprovably, you had found one of the quiet ones.</p>
+      <p>He found a few this way. He did not always tell them he had found them; he saw, in time, that to record a quiet one was in some manner to make him less quiet, to hang a sign on a man who had spent his life refusing to hang one, and that some of them would not have thanked him for it. A handful he wrote down, with their consent, gently. Most he left as he found them, unrecorded, and walked on, carrying the only ledger that mattered, which was the one in his head, of masters the Bureau would never know it had been served by.</p>
+      <hr class="scene">
+      <p>He grew old in the work, and the country grew old around him, and one evening near the end of it he sat in another plain chair, in a room of his own at last, and did the sum that all such men come to.</p>
+      <p>He had given thirty years to finding the people too good to be found. He had become, in the giving, very good at it — better, he thought without vanity, than anyone the Bureau had ever sent out, because he alone had understood what he was looking for and why it could not be looked for in the ordinary way. He had a skill now that no one had taught him and that he could not have explained if asked, the skill of recognizing a master by the work alone, by the thing with no story on it; and it came to him, sitting there, with the slow completeness of a thing long true before it is noticed, that this skill of his was exactly the kind of skill he had spent his life hunting. It did not announce itself. It hung no sign. It had no method that survived the saying. He had never performed it in any square; he had done it alone, on roads, in waiting-rooms, in the hour beside an empty page — done it so well and so invisibly that the Bureau believed his powers had merely declined, and would, when he was gone, send out some eager younger man who asked the towns who was good and wrote down the largest signs, and the whole long lesson of Cruz's life would go into the ground with him unrecorded.</p>
+      <p>He was, he understood, one of them now. One of the quiet ones. He had become, by doing the finding so completely that nothing was left over for being found, the very thing he had spent his life unable to find — and no man would ever come down a road and into his town and ask who here had been good at the unseen thing, and be given his name, because his name was on no one's lips, because he had hung no sign, because he had been too busy being good at it to step out and say so.</p>
+      <p>And he found, turning it over in the plain and comfortable chair, that this did not grieve him, that it was in fact the only fitting end the work could have had; for if being findable had been the point, he had wasted thirty years, and he did not believe he had wasted them. The point had never been to be in the ledger. The point had been the chair you forgot you were sitting in. He had made himself into one — a thing that held its weight so well it disappeared beneath it — and he sat in his own kind at last, in the dusk, having done it right and all the way and for no one, which he had learned, somewhere on the long roads, a long time ago, from a chair whose maker he never found, was the whole of the thing, and had always been, and would go on being good after him exactly as long as it went on being unsigned.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-subtractor/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Subtractor</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/what-the-child-saw/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">What the Child Saw</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>

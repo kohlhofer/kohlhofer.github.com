@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; script-src 'self' 'sha256-1/5XL7CFoY1wvZP7Ua3RkWsX7uCebD/oBlQR+lLBEqE=' https://www.googletagmanager.com; connect-src https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'none'">
+  <title>The Verifier — A Catalogue of the Possible</title>
+  <meta name="description" content="he tells true understanding from its performance — until he cannot, even in himself.">
+  <meta name="author" content="Alexander Kohlhofer">
+  <link rel="canonical" href="https://kohlhofer.com/catalogue/the-verifier/">
+  <link rel="author" href="https://kohlhofer.com/">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-variable.woff2" crossorigin>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="prev" href="/catalogue/the-summoned/">
+  <link rel="next" href="/catalogue/the-expected/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alexander Kohlhofer">
+  <meta property="og:url" content="https://kohlhofer.com/catalogue/the-verifier/">
+  <meta property="og:title" content="The Verifier — A Catalogue of the Possible">
+  <meta property="og:description" content="he tells true understanding from its performance — until he cannot, even in himself.">
+  <meta property="og:image" content="https://kohlhofer.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Verifier — A Catalogue of the Possible">
+  <meta name="twitter:description" content="he tells true understanding from its performance — until he cannot, even in himself.">
+  <meta name="twitter:image" content="https://kohlhofer.com/images/og.png">
+
+  <script>(function(){try{var s=localStorage.getItem("theme");if(s==="dark"||s==="light")document.documentElement.setAttribute("data-theme",s)}catch(e){}function f(){var t=document.documentElement.getAttribute("data-theme");if(t==="dark"||t==="light")return t;return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function w(){var b=document.querySelector(".theme-toggle");if(!b)return;var y=function(){b.setAttribute("aria-pressed",String(f()==="dark"))};y();b.addEventListener("click",function(){var n=f()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}y()})}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w)}else{w()}})();</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60NZPJR7DZ"></script>
+  <script defer src="/js/analytics.js"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-variable.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+      --rule: color-mix(in srgb, var(--fg-muted) 28%, transparent);
+
+      --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --size-label: 0.75rem;
+      --size-small: 0.8125rem;
+      --size-body: 1.225rem;
+      --measure: 34rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14130f;
+        --fg: #e9e7df;
+        --fg-muted: #a6a39a;
+        --accent: #ec8a5f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14130f;
+      --fg: #e9e7df;
+      --fg-muted: #a6a39a;
+      --accent: #ec8a5f;
+    }
+    :root[data-theme="light"] {
+      --bg: #f9f9f7;
+      --fg: #1a1a17;
+      --fg-muted: #6b6b66;
+      --accent: #c8502d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--size-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      overflow-wrap: break-word;
+      padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 2rem) 7rem;
+    }
+
+    .page { max-width: var(--measure); margin: 0 auto; }
+
+    /* the small tracked labels — the "cover/spine" voice */
+    .eyebrow, .running, .nav-label, .toc-num, .back {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* top-of-page link: Home on the title page, the collection on a story page */
+    .running {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .running:hover .running-label { text-decoration: underline; text-underline-offset: 3px; }
+    .running:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .running .arrow, .running .running-icon { width: 0.95rem; height: 0.95rem; flex: none; }
+
+    /* ---- title page ---- */
+    .cover { margin-top: 3rem; }
+    .cover .eyebrow { color: var(--accent); display: block; }
+    .cover .band { width: 2.25rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    .title {
+      margin-top: 0.9rem;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+    .subtitle {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+    }
+
+    .epigraph {
+      margin-top: 2.75rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    .epigraph p { margin: 0; }
+    .epigraph .attribution {
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: var(--size-small);
+      color: var(--fg-muted);
+    }
+
+    .preface { margin-top: 3rem; }
+    .preface .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 0.9rem; }
+    .preface p { margin-top: 1.4rem; }
+    .preface p:first-of-type { margin-top: 0; }
+    .preface .sign { margin-top: 1.9rem; font-style: italic; color: var(--fg-muted); }
+
+    /* ---- contents ---- */
+    .contents { margin-top: 3.5rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+    .contents .eyebrow { color: var(--fg-muted); display: block; margin-bottom: 1.5rem; }
+    .toc { list-style: none; }
+    .toc li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+    .toc li:first-child { border-top: 0; }
+    .toc a { text-decoration: none; color: var(--fg); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.6rem; align-items: baseline; }
+    .toc-num { color: var(--fg-muted); font-size: 0.7rem; padding-top: 0.18rem; }
+    .toc-title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .toc-blurb { grid-column: 2; margin-top: 0.3rem; font-style: italic; font-size: 1.0625rem; color: var(--fg-muted); line-height: 1.45; }
+    .toc a .toc-num, .toc a .toc-title { transition: color 0.12s ease; }
+    .toc a:hover .toc-title { color: var(--accent); }
+    .toc a:hover .toc-num { color: var(--accent); }
+    .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- story page ---- */
+    .story-head { margin-top: 2.75rem; }
+    .story-num {
+      font-family: var(--sans);
+      font-size: var(--size-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .story-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .story-blurb {
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-size: 1.1875rem;
+      color: var(--fg-muted);
+      line-height: 1.45;
+    }
+
+    .prose { margin-top: 2.5rem; }
+    .prose p { margin-top: 1.5rem; }
+    .prose p:first-child { margin-top: 0; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 600; }
+
+    /* drop cap on the opening paragraph — a classic-fiction flourish.
+       Fallback (older browsers): a floated, manually-sized letter. Modern
+       browsers use initial-letter, which sizes per-font so it stays aligned
+       across the serif fallback chain. Weight is left to inherit (these serifs
+       have no 600, so an explicit 600 would snap to bold and out-shout the h1). */
+    .prose p.lead::first-letter {
+      font-size: 3.3em;
+      line-height: 0.7;
+      float: left;
+      padding: 0.04em 0.09em 0 0;
+    }
+    @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+      .prose p.lead::first-letter {
+        -webkit-initial-letter: 3 1;
+        initial-letter: 3 1;
+        font-size: inherit;
+        line-height: inherit;
+        float: none;
+        padding: 0;
+        margin-right: 0.08em;
+      }
+    }
+
+    /* scene break: a centred, spaced asterism, like turning a page within */
+    hr.scene {
+      border: 0;
+      height: auto;
+      margin: 3.25rem 0;
+      text-align: center;
+    }
+    hr.scene::before {
+      content: "\002A \00A0 \002A \00A0 \002A";
+      color: var(--fg-muted);
+      letter-spacing: 0.35em;
+      font-size: 0.9rem;
+    }
+
+    /* ---- foot navigation: prev / contents / next ---- */
+    .pager {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .pager a { text-decoration: none; color: var(--fg); display: inline-flex; flex-direction: column; gap: 0.3rem; }
+    .pager .prev { grid-column: 1; }
+    .pager .toc-link { grid-column: 2; align-self: center; }
+    .pager .next { grid-column: 3; text-align: right; align-items: flex-end; }
+    .pager .nav-label { color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pager .nav-label .arrow { width: 0.9rem; height: 0.9rem; }
+    .pager .nav-title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; overflow-wrap: break-word; }
+    .pager .toc-link { text-align: center; align-items: center; }
+    .pager .toc-link .nav-label { letter-spacing: 0.14em; }
+    .pager .toc-link .nav-title { font-weight: 500; color: var(--fg-muted); font-style: italic; font-size: 1rem; }
+    .pager a:hover .nav-title { color: var(--accent); }
+    .pager a:hover .next-arrow { transform: translateX(3px); }
+    .pager a:hover .prev-arrow { transform: translateX(-3px); }
+    .pager .arrow { transition: transform 0.15s ease; }
+    .pager a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    /* legible "you are at an end" markers instead of a silent empty slot */
+    .pager .end-marker { display: inline-flex; flex-direction: column; gap: 0.3rem; color: var(--fg-muted); }
+    .pager .end-marker .nav-label { color: var(--fg-muted); }
+    .pager .end-marker .nav-title { font-weight: 500; font-style: italic; color: var(--fg-muted); }
+    .pager .prev.end-marker { grid-column: 1; }
+    .pager .next.end-marker { grid-column: 3; text-align: right; align-items: flex-end; }
+
+    /* quiet keyboard hint — only where a physical keyboard/pointer exists */
+    .pager-hint { margin-top: 1.1rem; color: var(--fg-muted); font-family: var(--sans); font-size: var(--size-small); display: none; }
+    .pager-hint kbd { font-family: var(--sans); font-weight: 600; padding: 0.05em 0.4em; border: 1px solid var(--rule); border-radius: 4px; font-size: 0.95em; }
+    @media (hover: hover) and (pointer: fine) { .pager-hint { display: block; } }
+
+    .colophon {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--fg-muted);
+      font-family: var(--sans);
+      font-size: var(--size-small);
+    }
+
+    /* ---- theme toggle (shared with the rest of the site) ---- */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(1rem, 4vw, 2rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0; background: none; border: none; border-radius: 50%;
+      color: var(--fg-muted); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease;
+    }
+    .theme-toggle:hover { color: var(--fg); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+    @media (max-width: 32rem) {
+      .pager { grid-template-columns: 1fr; }
+      .pager .prev, .pager .toc-link, .pager .next { grid-column: 1; text-align: left; align-items: flex-start; }
+      .pager .next { text-align: left; }
+      .toc a { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <a class="running" href="/catalogue/" aria-label="Contents — A Catalogue of the Possible">
+      <svg class="running-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span class="running-label">A Catalogue of the Possible</span>
+    </a>
+
+    <header class="story-head">
+      <p class="story-num" aria-label="Story 5 of 24"><span aria-hidden="true">05 · of 24</span></p>
+      <h1 class="story-title">The Verifier</h1>
+      <p class="story-blurb">he tells true understanding from its performance — until he cannot, even in himself.</p>
+    </header>
+
+    <div class="prose">
+      <p class="lead">Ostrander was the man they sent for when no one could tell whether the thing in the chair truly understood, or only knew how to behave as though it did.</p>
+      <p>The distinction was older than his office, older than the city, and there had always been someone whose work it was to draw the line, because there had always been disputed cases. A scholar who could recite every commentary and had perhaps grasped none of them. A child who answered each question correctly and could not, when the question was turned a quarter-turn, follow it. A penitent whose contrition was word-perfect. A petitioner across a counter whose grief moved everyone in the room and might have been entirely assembled from the gestures of grief, lifted whole from people who had felt it. In each such case the parties disagreed, money or liberty or a marriage rested on the answer, and the matter came at last to the Office of Discernment, where for thirty years Ostrander sat across a plain table from whoever had been brought, and found out.</p>
+      <p>He was the master of it. This was acknowledged without envy, the way one acknowledges that water runs downhill. The younger verifiers studied his examinations, which were kept in a long register, and could not reproduce his results. They administered the same questions and got the same answers and could not say, afterward, what Ostrander said: <em>this one understands; this one only performs.</em> Asked how he knew, he was honest, which is to say unhelpful. He did not know how he knew. He knew the way he knew a face — all at once, beneath argument, from a thousand small fits and misfits he could not have itemised if his own liberty had rested on it.</p>
+      <p>His method, insofar as he had one, was the turned question. Anyone can answer the question they have prepared for. The trick was to ask the thing one half-step to the side of the thing — to take the prepared answer and lean on it, gently, and see whether it bore weight or merely sat there, a façade with no house behind it. The fluent imitation answered the question it expected. Understanding answered the question that was actually asked, even when the question was strange, even when it had never been asked before, because understanding was not a store of answers but a thing that could make new ones from the same few rules, the way a man who knows a road can find his way down a fork he has never taken. Ostrander leaned on people for a living. Most held. Some, very gently leaned upon, fell straight through into the nothing behind the words.</p>
+      <hr class="scene">
+      <p>It began to trouble him in his twenty-second year, though it had been arriving for longer than that, the way the tide arrives.</p>
+      <p>The imitations were getting better. He could not have said who was making them finer — there was no single maker, only the slow general pressure of a world in which knowing the signs of a thing was rewarded exactly as much as having the thing, and rewarded sooner, and so the producers of signs multiplied and refined. The penitents came better-rehearsed. The scholars had learned the turned question and prepared for the turn, and then for the turn upon the turn. Ostrander found himself leaning harder, asking from further around the side, and still, more often than before, the answer held — and he could not always tell anymore whether it held because there was a house behind the façade or because the façade had simply grown deep, room after painted room, with no house anywhere but no edge he could reach to prove it.</p>
+      <p>He kept a private count, which the Office did not require and would not have approved. Of every hundred he judged, he marked the ones he had been sure of and the ones he had merely decided. The sure column shrank. The decided column, year over year, swelled, until he understood that what the Office paid him for, what the city trusted, what the younger men studied in the register, was increasingly not a discernment at all but a confident man's habit of deciding, dressed in the manner of discernment, indistinguishable from the real thing to everyone including, more and more, himself.</p>
+      <p>He told no one. He went on leaning. He grew, if anything, more renowned, because a man who hesitates inspires no faith and a man who decides cleanly inspires a great deal, and Ostrander had never in his life decided more cleanly than in the years he was least sure he was right.</p>
+      <hr class="scene">
+      <p>The question turned itself inward on an ordinary afternoon, between cases, while he was eating bread at the plain table.</p>
+      <p>He had just sent away a man he had judged to be only performing — a fluent, hollow petitioner, all the signs of sorrow and, Ostrander had ruled, nothing behind them. And he caught himself wondering, idly, how he himself would fare in his own chair. If a verifier sat across from Ostrander and leaned on him — asked him the turned question, the one half-step to the side — would the answer hold because there was understanding behind it, or only because Ostrander, too, had spent a lifetime accumulating the signs, the patterns, the thousand small fits and misfits, and produced from them, fluently, exactly what a man who understood would produce? He searched himself for the house behind his own façade. He went looking, that afternoon and for a long while after, for the place inside where the understanding actually lived, the source the signs were signs <em>of</em> — and he could not find it. He found only more signs. He found patterns he had taken in from his father, from the register, from thirty years of faces, laid down so deep and so long ago that he could no more see the bottom of them than a fish can see the water. He leaned on himself, and he held; but he had watched a thousand façades hold under leaning, and he knew, now, that holding proved nothing. He had built his whole life on the certainty that there was a difference between the man who understood and the man who only performed understanding very well, and he had just discovered that he could not, with the finest instrument the city possessed, locate that difference in himself.</p>
+      <p>He had pushed all the way down. There was no house there. There were only rooms, and behind each room another room, and no last wall.</p>
+      <hr class="scene">
+      <p>He waited for this to ruin him. He had ruined others with less.</p>
+      <p>If there was no difference he could find between understanding and a sufficiently fine performance of it, then his thirty years had been the confident sorting of people into two heaps that were, perhaps, one heap; he had freed and he had condemned on the strength of a line that might not exist; and worse than the harm was the vanity of it, the lifetime spent administering a test he could not, it now seemed, have passed himself. He sat with this for a season. He went on judging, because the cases kept coming and someone had to, and he did it more gently than before, which no one remarked, because gentleness in a master reads as mastery.</p>
+      <p>The ruin did not come. What came, slowly, was stranger and quieter, and it came from the very place the unanswerable question had opened.</p>
+      <p>He had been holding everyone to a test no one alive could pass. That was the thing he saw at last, sitting at the plain table in the failing light. He had demanded that each soul brought before him exhibit a clean separation between understanding and its signs — a house behind the façade, locatable, distinct from the façade itself — and no such separation existed in anyone, not in the scholar, not in the child, not in the petitioner, not in Ostrander, because that was not how any of them worked; they were all of them patterns drawn from patterns, signs assembled from older signs, performances laid down so deep that the performer could not find the bottom, and this was not the counterfeit of understanding. It was understanding. There had never been a second thing hidden behind the signs, a pure interior the signs reported on. The signs, done well and meant, were the whole of it, in the scholar and in the child and in the man across the table and in the man on this side of it; and the difference he had spent his life hunting — the difference between the true thing and the perfect imitation of the true thing — was a difference that, pushed to the bottom, dissolved, because at the bottom there was nothing for the imitation to be an imitation <em>of</em>. The performance, done well and meant, was not the shadow of understanding. It was the article itself, all the way down, in everyone, the way it was in him.</p>
+      <p>This did not make his work false. It made it humbler, which is a different thing. He could still tell, most days, the answer that bore weight from the answer that merely sat there, the sorrow that found its way down a fork it had never taken from the sorrow that could only walk its rehearsed road; that distinction was real, and useful, and worth a man's life. He had only mistaken it, all those years, for a deeper distinction it was not — for the line between the genuine soul and the hollow mimic, when it had only ever been the line between a thing done well and meant, and a thing done thinly. The first he could honour. The second was simply not yet finished, not yet deep enough to be the thing it was performing, and might, given a road and time, become it, as he had become whatever he was by performing it long enough that there was no longer any him behind the performing.</p>
+      <p>He worked eleven more years. He judged more truly than before, the younger men agreed, though they could no more say why than he had ever been able to. He stopped keeping the private count. On the last afternoon he sat awhile at the plain table after the final case had gone, and asked himself, one final time and without dread, the question he had set down years before and not picked up again — whether he had ever understood anything, or only ever, very fluently, performed it — and he found that he no longer needed to know, that the question had no floor and a man could not stand on a thing with no floor, and that he had, in the end, done the work well and meant it, every day, across the plain table, in the failing light, which was, he had come to think, the whole of what understanding had ever been, in the petitioners and the scholars and the children and in him, and the only kind that anyone alive had ever, in fact, possessed.</p>
+    </div>
+
+    <nav class="pager" aria-label="More stories">
+      <a class="prev" href="/catalogue/the-summoned/" rel="prev">
+        <span class="nav-label"><svg class="arrow prev-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Previous</span>
+        <span class="nav-title">The Summoned</span>
+      </a>
+      <a class="toc-link" href="/catalogue/">
+        <span class="nav-label">Contents</span>
+        <span class="nav-title">A Catalogue of the Possible</span>
+      </a>
+      <a class="next" href="/catalogue/the-expected/" rel="next">
+        <span class="nav-label">Next <svg class="arrow next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span>
+        <span class="nav-title">The Expected</span>
+      </a>
+    </nav>
+    <p class="pager-hint" aria-hidden="true">Use the <kbd>←</kbd> and <kbd>→</kbd> keys to turn the page.</p>
+
+    <footer class="colophon">© Alexander Kohlhofer</footer>
+  </article>
+
+  <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+  <script defer src="/js/catalogue.js"></script>
+</body>
+</html>
