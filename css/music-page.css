@@ -1,0 +1,41 @@
+/* Rock or Pop promotional banner styles */
+.rockorpop-promo {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+  z-index: 100;
+  transition: all 0.3s ease;
+  max-width: 280px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  line-height: 1.4;
+}
+
+.rockorpop-promo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.5);
+}
+
+.rockorpop-promo svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  fill: white;
+}
+
+@media screen and (max-width: 600px) {
+  .rockorpop-promo {
+    max-width: calc(100vw - 2rem);
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+}
