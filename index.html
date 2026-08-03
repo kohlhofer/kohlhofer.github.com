@@ -172,6 +172,17 @@
     .proof-current li { color: var(--fg); }
     .proof-current .proof-company { font-weight: 700; }
 
+    /* Caps the Previously list rather than standing as its own doorway: it is
+       the same subject continued, not a separate destination. */
+    .proof-more { margin-top: 0.9rem; font-size: var(--size-small); }
+    .proof-more a {
+      color: var(--fg-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .proof-more a:hover { color: var(--fg); }
+    .proof-more a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
     .essays { margin-top: 3rem; }
     .essays .doorways { margin-top: 0; }
 
@@ -311,6 +322,7 @@
         <li>Founder — <span class="proof-company">Spreedly</span></li>
         <li>Founder — <span class="proof-company">Weewar</span>, a game studio acquired by <span class="proof-company">Electronic Arts</span></li>
       </ul>
+      <p class="proof-more"><a href="/about">Full CV &rarr;</a></p>
     </div>
 
     <section class="work">
@@ -349,16 +361,10 @@
     </section>
 
     <section class="essays">
-      <p class="proof-eyebrow">More</p>
-      <nav class="doorways" aria-label="More about Alexander Kohlhofer">
-        <a href="/about">
-          <span class="doorway-label">Full CV</span>
-          <span class="doorway-domain">roles, companies, and how I work</span>
-          <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-        </a>
+      <p class="proof-eyebrow">Essay</p>
+      <nav class="doorways" aria-label="Essay">
         <a href="/leading/">
           <span class="doorway-label">How I lead</span>
-          <span class="doorway-domain">the longer version, as an essay</span>
           <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
         </a>
       </nav>
