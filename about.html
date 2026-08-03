@@ -60,12 +60,30 @@
         },
         {
           "@type": "Organization",
+          "name": "UserVoice",
+          "url": "https://uservoice.com"
+        },
+        {
+          "@type": "Organization",
+          "name": "Electronic Arts",
+          "url": "https://ea.com"
+        },
+        {
+          "@type": "Organization",
           "name": "Spreedly",
           "url": "https://spreedly.com"
         },
         {
           "@type": "Organization",
           "name": "Weewar"
+        },
+        {
+          "@type": "Organization",
+          "name": "Soda"
+        },
+        {
+          "@type": "Organization",
+          "name": "schoene neue kinder"
         }
       ]
     }
@@ -227,21 +245,29 @@
     .lede { color: var(--fg-muted); }
 
     .roles { list-style: none; margin-top: 0.5rem; }
-    .roles li {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0 0.5rem;
-      padding: 0.55rem 0;
+    .role {
+      padding: 1.35rem 0;
       border-bottom: 1px solid color-mix(in srgb, var(--fg-muted) 18%, transparent);
     }
-    .roles li:last-child { border-bottom: 0; }
+    .role:last-child { border-bottom: 0; }
+    .role-when {
+      font-size: var(--size-small);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .role-head {
+      margin-top: 0.35rem;
+      font-size: 1.1875rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+    }
     .role-title { color: var(--fg-muted); }
     .role-org { color: var(--fg); font-weight: 600; }
-    .role-note { color: var(--fg-muted); font-size: var(--size-small); flex-basis: 100%; }
-    .roles-current .role-title { color: var(--fg); }
-
-    .tags { color: var(--fg-muted); font-size: var(--size-small); margin-top: 0.75rem; }
+    .role-body { margin-top: 0.5rem; color: var(--fg-muted); }
+    .role-body strong { color: var(--fg); font-weight: 600; }
 
   </style>
 </head>
@@ -254,57 +280,80 @@
 
     <h1>Alexander Kohlhofer</h1>
 
-    <p class="lede">Product and design leader. Twenty years founding companies, scaling teams, and building software worth keeping — and still building, hands-on.</p>
+    <p class="lede">A product and design leader with over 20 years of experience building and scaling technology platforms — and still building, hands-on.</p>
 
-    <h2>Now</h2>
+    <h2>Career</h2>
 
-    <ul class="roles roles-current">
-      <li><span class="role-title">Principal Designer</span> — <span class="role-org">Mixmax</span></li>
-      <li>
-        <span class="role-title">Founder</span> — <span class="role-org">Field Bureau + Werkstatt</span>
-        <span class="role-note">A small studio shipping local-first, on-device tools for macOS and iOS — a recorder that transcribes without a server, a markdown task manager, a markdown library. No accounts, no subscriptions, files you keep.</span>
+    <ol class="roles">
+      <li class="role">
+        <p class="role-when">2025 – now</p>
+        <h3 class="role-head"><span class="role-title">Principal Designer</span> — <span class="role-org">Mixmax</span></h3>
+        <p class="role-body">Product and design for an email and CRM platform used by revenue teams.</p>
       </li>
-    </ul>
-
-    <h2>Previously</h2>
-
-    <ul class="roles">
-      <li><span class="role-title">Head of Design</span> — <span class="role-org">Observable</span></li>
-      <li><span class="role-title">VP Product</span> — <span class="role-org">Tray.ai</span></li>
-      <li><span class="role-title">Product and design leadership</span> — <span class="role-org">CloudBees</span></li>
-      <li>
-        <span class="role-title">Founder</span> — <span class="role-org">Spreedly</span>
-        <span class="role-note">Payments infrastructure.</span>
+      <li class="role">
+        <p class="role-when">2024 – 2025</p>
+        <h3 class="role-head"><span class="role-title">Head of Design</span> — <span class="role-org">Observable</span></h3>
+        <p class="role-body">Led the design and research team, spearheading <strong>Observable Canvas</strong> — a collaborative data analysis platform for cross-functional teams to explore, visualize, and understand data together in real time. Canvas pairs AI-powered insights with point-and-click and SQL workflows, connecting to Snowflake, BigQuery, and Databricks.</p>
       </li>
-      <li>
-        <span class="role-title">Founder</span> — <span class="role-org">Weewar</span>
-        <span class="role-note">A game studio, acquired by Electronic Arts.</span>
+      <li class="role">
+        <p class="role-when">2021 – 2024</p>
+        <h3 class="role-head"><span class="role-title">VP of Product</span> — <span class="role-org">Tray.ai</span></h3>
+        <p class="role-body">Advanced through several leadership roles — <strong>Sr. Director of Customer Experience &amp; Growth Engineering</strong>, then <strong>Head of Product &amp; Design</strong>, culminating as VP of Product. Integrated design with product strategy, evolving Tray from a low-code tool into the AI-powered integration platform it is today.</p>
       </li>
-    </ul>
+      <li class="role">
+        <p class="role-when">2018 – 2021</p>
+        <h3 class="role-head"><span class="role-title">Sr. Director of Product Design and Research</span> — <span class="role-org">CloudBees</span></h3>
+        <p class="role-body">Progressed from <strong>Lead Product Designer</strong>. Built a design and research function bridging engineering and creative strategy, and drove the integration of two major product lines into one market offering with <strong>eight-figure ARR</strong>, improving the developer experience for Fortune 500 clients.</p>
+      </li>
+      <li class="role">
+        <p class="role-when">2013 – 2018</p>
+        <h3 class="role-head"><span class="role-title">Director of Product &amp; Design</span> — <span class="role-org">UserVoice</span></h3>
+        <p class="role-body">Joined as <strong>Senior User Experience Designer</strong>. Shifted the platform from basic feedback aggregation to strategic, data-driven product decision-making. <strong>ARR grew from $1MM to $10MM</strong> and <strong>ASP from $3K to over $18K</strong>.</p>
+      </li>
+      <li class="role">
+        <p class="role-when">2009 – 2012</p>
+        <h3 class="role-head"><span class="role-title">Senior Producer &amp; Studio Manager</span> — <span class="role-org">Electronic Arts</span></h3>
+        <p class="role-body">Technical, product, and leadership roles following the acquisition of Weewar. Helped establish the <strong>EA2D</strong> studio and grow it from 6 to over 35 people, co-produced social and mobile titles, and launched <strong>EA's debut title on Google+</strong>.</p>
+      </li>
+      <li class="role">
+        <p class="role-when">2007 – 2011</p>
+        <h3 class="role-head"><span class="role-title">Founder and Director</span> — <span class="role-org">Spreedly</span></h3>
+        <p class="role-body">Co-founded an API-first fintech. Spreedly became a global leader in payments enablement, optimization, and orchestration — serving over <strong>50,000 businesses</strong>, facilitating billions in transactions, and securely managing <strong>a billion payment methods</strong>. It also set early benchmarks for remote work practice.</p>
+      </li>
+      <li class="role">
+        <p class="role-when">2006 – 2009</p>
+        <h3 class="role-head"><span class="role-title">Founder and Director</span> — <span class="role-org">Weewar ltd.</span></h3>
+        <p class="role-body">Founded and directed one of the earliest browser-based gaming experiences, notable for an open API for academic research and player-created content. Its design and accessibility drew critical acclaim and led to acquisition by <strong>Electronic Arts</strong>.</p>
+      </li>
+      <li class="role">
+        <p class="role-when">2004 – 2007</p>
+        <h3 class="role-head"><span class="role-title">Creative Director</span> — <span class="role-org">Soda</span></h3>
+        <p class="role-body">Advanced from <strong>Senior Designer</strong>, leading work for <strong>the BBC</strong>, the British Council, Nesta, the Wellcome Trust, <strong>Amnesty International</strong>, and the London Science Museum — including an anti-censorship campaign for Amnesty, interactive museum installations, and extending the BAFTA-winning <strong>Sodaplay</strong> platform.</p>
+      </li>
+      <li class="role">
+        <p class="role-when">1999 – 2003</p>
+        <h3 class="role-head"><span class="role-title">Founder</span> — <span class="role-org">schoene neue kinder</span></h3>
+        <p class="role-body">Founded a design consultancy that laid the groundwork for a career in creative direction and business strategy — a AAA client base, and contract and licensing negotiation that shaped how I handle stakeholders and brand strategy still. The company continues to excel, with 100+ employees across several countries.</p>
+      </li>
+    </ol>
 
-    <p class="tags">Earlier: UserVoice · Soda · schoene neue kinder</p>
+    <h2>Alongside</h2>
+
+    <p>I never stopped making things myself. At <a href="https://fieldbw.com" target="_blank" rel="noopener">Field Bureau + Werkstatt</a> I design and ship a suite of local-first tools — <a href="https://fieldbw.com/sr-7/" target="_blank" rel="noopener">Signal Recorder SR-7</a>, <a href="https://fieldbw.com/ml-42/" target="_blank" rel="noopener">Markdown Library ML-42</a>, <a href="https://fieldbw.com/tr-2/" target="_blank" rel="noopener">Task Register TR-2</a> — built by a small pod working alongside AI. No servers, no accounts, no subscription.</p>
+
+    <p>It keeps my hands on the new economics firsthand. A handful of people can now hold an entire stack and move at a pace that used to take a department. Leading well through that shift is hard to fake from the sidelines.</p>
 
     <h2>How I work</h2>
 
-    <p>Direction before speed: a team moving fast in the wrong direction just reaches the wrong place sooner. I set the heading first, clear what is slowing people down, and push on pace last.</p>
+    <p>Direction before speed: a team moving fast in the wrong direction just reaches the wrong place sooner. Outcomes over output, because a team can ship constantly and change nothing — and AI can fill every proxy metric we have at no more real value. And hire for judgment, because when execution gets cheap, judgment is what stays scarce.</p>
 
-    <p>Outcomes over output. A team can ship constantly and change nothing, and AI makes that easier than ever — it can fill every proxy metric we have at no more real value. So the question stays the same: did the customer's problem go away, did the business move.</p>
-
-    <p>Hire for judgment. When execution gets cheap, judgment gets scarce; the valuable person is the one who can tell which of a hundred generated options is right. That applies to me too — my job is to make the team complete, which only works if I can name where I am weak.</p>
-
-    <p>There is a longer version of all this in <a href="/leading/">how I lead</a>.</p>
-
-    <h2>Still building</h2>
-
-    <p>I never stopped making things myself. At <a href="https://fieldbw.com" target="_blank" rel="noopener">Field Bureau + Werkstatt</a> I design and ship the tools directly — <a href="https://fieldbw.com/sr-7/" target="_blank" rel="noopener">Signal Recorder SR-7</a>, <a href="https://fieldbw.com/ml-42/" target="_blank" rel="noopener">Markdown Library ML-42</a>, <a href="https://fieldbw.com/tr-2/" target="_blank" rel="noopener">Task Register TR-2</a> — with a small pod working alongside AI.</p>
-
-    <p>It keeps my hands on the new economics firsthand. A handful of people can now hold an entire stack and move at a pace that used to take a department. Leading well through that shift is hard to fake from the sidelines.</p>
+    <p>The longer version is in <a href="/leading/">how I lead</a>.</p>
 
     <h2>Elsewhere</h2>
 
     <p>I write at <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener">notsocommonthoughts.com</a>, post photographs at <a href="https://fewer.photos/u/alex" target="_blank" rel="noopener">fewer.photos</a>, and keep code at <a href="https://github.com/kohlhofer" target="_blank" rel="noopener">github.com/kohlhofer</a>.</p>
 
-    <p>The best way to reach me is <a href="mailto:alexander@kohlhofer.com">email</a>, or <a href="https://www.linkedin.com/in/kohlhofer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    <p>Reach me by <a href="mailto:alexander@kohlhofer.com">email</a>, or on <a href="https://www.linkedin.com/in/kohlhofer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
 
     <p class="colophon">© Alexander Kohlhofer</p>
   </article>
