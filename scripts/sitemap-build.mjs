@@ -34,8 +34,17 @@ const EXCLUDE_PATTERN = /(^|\/)404\/?$/;
 // Sub-repo paths deliberately left out for now:
 //   /books/      — 380 thin author pages, 6k impressions but ~6 clicks
 //   /Crossings/  — low traffic, owned by its own repo
-//   /midiVol/, /volBar/ — retired, now redirecting to fieldbw.com
-const EXTRA_URLS = [];
+//   /midiVol/, /volBar/ — retired; they serve a canonical to fieldbw.com
+//
+// /hex-map/ MUST stay listed. It is the highest-traffic page on the domain and
+// it is served by github.com/kohlhofer/hex-map, so the walk above cannot see
+// it. It was previously a static copy committed here; that copy was deleted in
+// June 2026, Google crawled a 404 on 2026-07-05, dropped the page, and it
+// earned nothing for six weeks. Removing this entry would start that again.
+// Bump lastmod when that repo ships a change worth recrawling.
+const EXTRA_URLS = [
+  { path: '/hex-map/', lastmod: '2026-08-03' },
+];
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
