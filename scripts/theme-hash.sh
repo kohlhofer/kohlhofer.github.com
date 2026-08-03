@@ -23,8 +23,11 @@ PY
 )
 
 echo "CSP token: '$hash'"
+# Only pages that actually inline the theme script are listed. building/ and the
+# other "Moved" stubs carry no CSP and no script, so checking them reported
+# STALE forever and trained the reader to ignore this output.
 echo "Verifying all pages carry this hash in their CSP..."
-for f in index.html building/index.html leading/index.html; do
+for f in index.html leading/index.html about.html; do
   if grep -q "$hash" "$f"; then
     echo "  ok    $f"
   else

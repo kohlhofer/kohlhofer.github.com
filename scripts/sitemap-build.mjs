@@ -22,9 +22,12 @@ const SKIP_DIRS = new Set([
   'css', 'js', 'images', 'fonts', 'webfonts', 'photos',
 ]);
 
-// Pages that exist but should not be advertised.
+// Pages that exist but should not be advertised. Both are "Moved" stubs —
+// noindex + canonical + meta refresh — and listing a noindexed URL in the
+// sitemap trips "Submitted URL marked noindex" in Search Console.
 const EXCLUDE = new Set([
-  '/building/',   // a "Moved" stub, not a destination
+  '/building/',   // → /leading/
+  '/photos',      // → fewer.photos/u/alex
 ]);
 
 // Error pages, in either form — `404.html` and `404/index.html` both occur
