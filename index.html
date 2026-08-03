@@ -315,10 +315,34 @@
 
     <section class="work">
       <p class="proof-eyebrow">Selected work</p>
+      <!-- Deep links, not just the studio root: these name the things actually
+           shipped, which is the evidence the hiring case rests on, and they
+           land on the pages that need the authority rather than on a homepage
+           that then has to redistribute it.
+
+           `noreferrer` is deliberately absent on own-property links. It strips
+           the Referer header, so every visit sent from here was arriving in the
+           other site's analytics as "direct" and the traffic was invisible.
+           It has no bearing on link equity — these are followed either way. -->
       <nav class="doorways" aria-label="Selected work">
-        <a href="https://fieldbw.com" target="_blank" rel="noopener noreferrer" aria-label="Field Bureau + Werkstatt — fieldbw.com (opens in new tab)">
+        <a href="https://fieldbw.com" target="_blank" rel="noopener" aria-label="Field Bureau + Werkstatt — fieldbw.com (opens in new tab)">
           <span class="doorway-label">Field Bureau + Werkstatt</span>
           <span class="doorway-domain">local-first tools, built hands-on</span>
+          <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+        <a href="https://fieldbw.com/sr-7/" target="_blank" rel="noopener" aria-label="Signal Recorder SR-7 — on-device voice recording for Mac and iPhone (opens in new tab)">
+          <span class="doorway-label">Signal Recorder SR-7</span>
+          <span class="doorway-domain">on-device voice recording, Mac and iPhone</span>
+          <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+        <a href="https://fieldbw.com/ml-42/" target="_blank" rel="noopener" aria-label="Markdown Library ML-42 — markdown reader and editor for the Mac (opens in new tab)">
+          <span class="doorway-label">Markdown Library ML-42</span>
+          <span class="doorway-domain">markdown reader and editor for the Mac</span>
+          <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+        <a href="https://fieldbw.com/tr-2/" target="_blank" rel="noopener" aria-label="Task Register TR-2 — markdown-native task management (opens in new tab)">
+          <span class="doorway-label">Task Register TR-2</span>
+          <span class="doorway-domain">markdown-native task management</span>
           <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
         </a>
       </nav>
@@ -337,12 +361,12 @@
     <section class="elsewhere">
       <p class="proof-eyebrow">Elsewhere</p>
       <nav class="doorways" aria-label="My writing and photos">
-        <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener noreferrer" aria-label="My writing — notsocommonthoughts.com (opens in new tab)">
+        <a href="https://notsocommonthoughts.com" target="_blank" rel="noopener" aria-label="My writing — notsocommonthoughts.com (opens in new tab)">
           <span class="doorway-label">My writing</span>
           <span class="doorway-domain">notsocommonthoughts.com</span>
           <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
         </a>
-        <a href="https://fewer.photos/u/alex" target="_blank" rel="noopener noreferrer" aria-label="My photos — fewer.photos (opens in new tab)">
+        <a href="https://fewer.photos/u/alex" target="_blank" rel="noopener" aria-label="My photos — fewer.photos (opens in new tab)">
           <span class="doorway-label">My photos</span>
           <span class="doorway-domain">fewer.photos</span>
           <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
