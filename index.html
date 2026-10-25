@@ -300,6 +300,128 @@
     :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
     :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
   </style>
+
+  <style>
+    /* "Apps I make" — slim strip at the bottom of the page, built by
+       /js/appstrip.js. Pinned to the viewport edge at >= 640px; in normal
+       flow at the end of the page below that. Dismissal is remembered in
+       localStorage. */
+    /* Inverted against the page: a dark bar on a light page, a lifted bar
+       on a dark page. Follows the page's own theme mechanism. */
+    .appstrip {
+      --strip-bg: #111111;
+      --strip-fg: #f9f9f7;
+      --strip-muted: #adadab;
+      --strip-accent: #ec8a5f;
+      --strip-border: transparent;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 1.1rem;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 3.5rem;
+      padding: 0.25rem 1rem 0.75rem;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--strip-muted);
+      background-color: var(--strip-bg);
+      transition: opacity 0.25s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .appstrip {
+        --strip-bg: #262624;
+        --strip-fg: #e8e8e6;
+        --strip-border: color-mix(in srgb, #ffffff 8%, transparent);
+      }
+    }
+
+    :root[data-theme="dark"] .appstrip {
+      --strip-bg: #262624;
+      --strip-fg: #e8e8e6;
+      --strip-border: color-mix(in srgb, #ffffff 8%, transparent);
+    }
+
+    .appstrip-label {
+      color: var(--strip-muted);
+      white-space: nowrap;
+    }
+
+    .appstrip-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem 1.25rem;
+    }
+
+    .appstrip-nav a {
+      color: var(--strip-fg);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .appstrip-nav a:hover { color: var(--strip-accent); }
+
+    .appstrip-nav a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    .appstrip-close {
+      margin-left: auto;
+      width: 1.75rem;
+      height: 1.75rem;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      color: var(--strip-muted);
+      cursor: pointer;
+    }
+
+    .appstrip-close:hover { color: var(--strip-fg); }
+
+    .appstrip-close:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    .appstrip-close svg {
+      width: 0.875rem;
+      height: 0.875rem;
+      display: block;
+    }
+
+    .appstrip-gone { opacity: 0; }
+
+    @media (min-width: 640px) {
+      .appstrip {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        flex-wrap: nowrap;
+        height: 2.3125rem;
+        margin: 0;
+        padding: 0 clamp(1rem, 4vw, 2rem);
+        justify-content: center;
+        border-top: 1px solid var(--strip-border);
+      }
+
+      .appstrip-close {
+        position: absolute;
+        right: clamp(1rem, 4vw, 2rem);
+      }
+
+      /* keep the colophon and theme toggle clear of the pinned strip */
+      html.appstrip-on body { padding-bottom: calc(clamp(3rem, 8vw, 6rem) + 49px); }
+      html.appstrip-on .theme-toggle { bottom: calc(clamp(1rem, 4vw, 2rem) + 49px); }
+    }
+  </style>
+  <script defer src="/js/appstrip.js"></script>
 </head>
 <body>
   <main>
@@ -342,12 +464,12 @@
           <span class="doorway-domain">local-first tools, built hands-on</span>
           <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
         </a>
-        <a href="https://fieldbw.com/sr-7/" target="_blank" rel="noopener" aria-label="Signal Recorder SR-7 — on-device voice recording for Mac and iPhone (opens in new tab)">
+        <a href="https://signalrecorder.app/" target="_blank" rel="noopener" aria-label="Signal Recorder SR-7 — on-device voice recording for Mac and iPhone (opens in new tab)">
           <span class="doorway-label">Signal Recorder SR-7</span>
           <span class="doorway-domain">on-device voice recording, Mac and iPhone</span>
           <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
         </a>
-        <a href="https://fieldbw.com/ml-42/" target="_blank" rel="noopener" aria-label="Markdown Library ML-42 — markdown reader and editor for the Mac (opens in new tab)">
+        <a href="https://markdownlibrary.app/" target="_blank" rel="noopener" aria-label="Markdown Library ML-42 — markdown reader and editor for the Mac (opens in new tab)">
           <span class="doorway-label">Markdown Library ML-42</span>
           <span class="doorway-domain">markdown reader and editor for the Mac</span>
           <svg class="doorway-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>

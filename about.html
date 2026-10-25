@@ -270,6 +270,128 @@
     .role-body strong { color: var(--fg); font-weight: 600; }
 
   </style>
+
+  <style>
+    /* "Apps I make" — slim strip at the bottom of the page, built by
+       /js/appstrip.js. Pinned to the viewport edge at >= 640px; in normal
+       flow at the end of the page below that. Dismissal is remembered in
+       localStorage. */
+    /* Inverted against the page: a dark bar on a light page, a lifted bar
+       on a dark page. Follows the page's own theme mechanism. */
+    .appstrip {
+      --strip-bg: #111111;
+      --strip-fg: #f9f9f7;
+      --strip-muted: #adadab;
+      --strip-accent: #ec8a5f;
+      --strip-border: transparent;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 1.1rem;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 3.5rem;
+      padding: 0.25rem 1rem 0.75rem;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--strip-muted);
+      background-color: var(--strip-bg);
+      transition: opacity 0.25s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .appstrip {
+        --strip-bg: #262624;
+        --strip-fg: #e8e8e6;
+        --strip-border: color-mix(in srgb, #ffffff 8%, transparent);
+      }
+    }
+
+    :root[data-theme="dark"] .appstrip {
+      --strip-bg: #262624;
+      --strip-fg: #e8e8e6;
+      --strip-border: color-mix(in srgb, #ffffff 8%, transparent);
+    }
+
+    .appstrip-label {
+      color: var(--strip-muted);
+      white-space: nowrap;
+    }
+
+    .appstrip-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem 1.25rem;
+    }
+
+    .appstrip-nav a {
+      color: var(--strip-fg);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .appstrip-nav a:hover { color: var(--strip-accent); }
+
+    .appstrip-nav a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    .appstrip-close {
+      margin-left: auto;
+      width: 1.75rem;
+      height: 1.75rem;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      color: var(--strip-muted);
+      cursor: pointer;
+    }
+
+    .appstrip-close:hover { color: var(--strip-fg); }
+
+    .appstrip-close:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    .appstrip-close svg {
+      width: 0.875rem;
+      height: 0.875rem;
+      display: block;
+    }
+
+    .appstrip-gone { opacity: 0; }
+
+    @media (min-width: 640px) {
+      .appstrip {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        flex-wrap: nowrap;
+        height: 2.3125rem;
+        margin: 0;
+        padding: 0 clamp(1rem, 4vw, 2rem);
+        justify-content: center;
+        border-top: 1px solid var(--strip-border);
+      }
+
+      .appstrip-close {
+        position: absolute;
+        right: clamp(1rem, 4vw, 2rem);
+      }
+
+      /* keep the colophon and theme toggle clear of the pinned strip */
+      html.appstrip-on body { padding-bottom: calc(6rem + 49px); }
+      html.appstrip-on .theme-toggle { bottom: calc(clamp(1rem, 4vw, 2rem) + 49px); }
+    }
+  </style>
+  <script defer src="/js/appstrip.js"></script>
 </head>
 <body>
   <article>
@@ -339,7 +461,7 @@
 
     <h2>Alongside</h2>
 
-    <p>I never stopped making things myself. At <a href="https://fieldbw.com" target="_blank" rel="noopener">Field Bureau + Werkstatt</a> I design and ship a suite of local-first tools — <a href="https://fieldbw.com/sr-7/" target="_blank" rel="noopener">Signal Recorder SR-7</a>, <a href="https://fieldbw.com/ml-42/" target="_blank" rel="noopener">Markdown Library ML-42</a>, <a href="https://fieldbw.com/tr-2/" target="_blank" rel="noopener">Task Register TR-2</a> — built by a small pod working alongside AI. No servers, no accounts, no subscription.</p>
+    <p>I never stopped making things myself. At <a href="https://fieldbw.com" target="_blank" rel="noopener">Field Bureau + Werkstatt</a> I design and ship a suite of local-first tools — <a href="https://signalrecorder.app/" target="_blank" rel="noopener">Signal Recorder SR-7</a>, <a href="https://markdownlibrary.app/" target="_blank" rel="noopener">Markdown Library ML-42</a>, <a href="https://fieldbw.com/tr-2/" target="_blank" rel="noopener">Task Register TR-2</a> — built by a small pod working alongside AI. No servers, no accounts, no subscription.</p>
 
     <p>It keeps my hands on the new economics firsthand. A handful of people can now hold an entire stack and move at a pace that used to take a department. Leading well through that shift is hard to fake from the sidelines.</p>
 
