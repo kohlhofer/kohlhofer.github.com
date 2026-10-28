@@ -46,7 +46,7 @@ const EXCLUDE_PATTERN = /(^|\/)404\/?$/;
 // earned nothing for six weeks. Removing this entry would start that again.
 // Bump lastmod when that repo ships a change worth recrawling.
 const EXTRA_URLS = [
-  { path: '/hex-map/', lastmod: '2026-08-03' },
+  { path: '/hex-map/', lastmod: '2026-10-28' },
 ];
 
 function walk(dir, out = []) {
